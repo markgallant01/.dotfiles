@@ -191,3 +191,6 @@ default_floating_border normal
 # gaps
 gaps inner 25
 
+# set wallpaper
+exec --no-startup-id ~/.fehbg
+
