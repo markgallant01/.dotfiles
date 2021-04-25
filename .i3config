@@ -184,6 +184,10 @@ bar {
 # binding for i3 screen lock
 bindsym $mod+shift+x exec i3lock
 
+# brightness control
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
 # set border style
 default_border pixel 
 default_floating_border normal
