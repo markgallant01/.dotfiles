@@ -202,3 +202,6 @@ gaps inner 25
 # set wallpaper
 exec --no-startup-id ~/.fehbg
 
+# auto launch programs
+exec --no-startup-id firefox
+exec --no-startup-id discord
