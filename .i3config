@@ -193,8 +193,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # set border style
-default_border pixel 
+default_border none
 default_floating_border normal
+
+# colors
+client.focused          #000000 #000000 #000000 #000000 #000000
+client.unfocused        #000000 #000000 #000000 #000000 #000000
+client.focused_inactive #000000 #000000 #000000 #000000 #000000
 
 # gaps
 gaps inner 25
