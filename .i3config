@@ -223,6 +223,7 @@ gaps inner 25
 exec --no-startup-id ~/.fehbg
 
 # auto launch programs
+exec --no-startup-id picom --experimental-backends &
 exec --no-startup-id firefox
 exec --no-startup-id discord
 exec --no-startup-id i3-msg 'workspace $ws4; exec urxvt -e cmus; workspace $ws1; exec urxvt'
