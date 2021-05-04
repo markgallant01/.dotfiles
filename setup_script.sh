@@ -1,30 +1,62 @@
 #!/usr/bin/bash
 
-# This script will install all the programs
-# listed in the 'programs' array and will
+# This script will install all the packages 
+# listed in the 'packages' array and will
 # attempt to set everything up automatically.
-# 
-# It should be run after the base installation
-# is complete, the network has been configured,
-# and a sudo-capable non-root user has been 
-# setup and logged onto.
+#
+# Steps to take before running this script:
+#   1. Complete base install
+#   2. Configure network
+#   3. Create sudo-capable non-root user and log in
+#   4. Enable multilib repository
+#   5. Setup and connect git to github
 #
 # This script must be run with sudo.
-
-# The progam installs are grouped into different
+#
+# The package installs are grouped into different
 # batches to make it easier to see what's being
 # installed and to add or remove things
 
+# to do:
+# firewall
+# automate removal of mouse acceleration?
+# monitor resolution somehow
+# terminal prompt customization
 
-# basic programs for display and sound
-basicPrograms=(xorg )
+# x.org programs
+packages=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
 
 # graphics drivers
-# if intel = mesa, lib32-mesa
-# if nvidia nvidia, nvidia-utils, lib32-nvidia-utils
+# detect GPU
+gpuString=$( lspci -v | grep -A1 -e VGA -e 3D | tr '[:upper:]' '[:lower:]' )
 
-# other stuff
-otherPrograms=(ranger)
+# add appropriate driver packages
+if [[ ${gpuString} == *"nvidia"* ]]
+then
+    packages+=(nvidia nvidia-utils lib32-nvidia-utils)
+fi
 
-pacman -Syu ${basicPrograms[@]} ${otherPrograms[@]}
+if [[ ${gpuString} == *"intel"* ]]
+then
+    packages+=(mesa lib32-mesa vulkan-intel)
+fi
+
+# window manager
+packages+=(i3-gaps i3blocks i3lock i3status)
+
+# audio stuff
+packages+=(pipewire pipewire-alsa pipewire-pulse)
+
+# fonts
+packages+=(ttf-dejavu)
+
+# terminal and terminal apps
+packages+=(rxvt-unicode xclip cmus openssh)
+
+# applications
+packages+=(ranger rofi firefox chromium discord steam)
+
+pacman -Syu ${packages[@]}
+
+# github stuff here?
 
