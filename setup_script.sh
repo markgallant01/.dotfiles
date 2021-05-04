@@ -41,7 +41,10 @@ packages+=(ttf-dejavu ttf-liberation)
 packages+=(rxvt-unicode xclip cmus openssh neofetch)
 
 # applications
-packages+=(ranger rofi firefox chromium discord steam)
+packages+=(ranger rofi firefox chromium discord)
+
+# gaming stuff
+packages+=(steam lutris)
 
 # install everything so far
 pacman -Syu ${packages[@]}
