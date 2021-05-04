@@ -23,8 +23,10 @@
 # monitor resolution somehow
 # terminal prompt customization
 
+packages=( )
+
 # x.org programs
-packages=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
+packages+=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
 
 # window manager
 packages+=(i3-gaps i3blocks i3lock i3status)
@@ -33,7 +35,7 @@ packages+=(i3-gaps i3blocks i3lock i3status)
 packages+=(pipewire pipewire-alsa pipewire-pulse)
 
 # fonts
-packages+=(ttf-dejavu)
+packages+=(ttf-dejavu ttf-liberation)
 
 #terminal and terminal apps
 packages+=(rxvt-unicode xclip cmus openssh neofetch)
@@ -41,22 +43,28 @@ packages+=(rxvt-unicode xclip cmus openssh neofetch)
 # applications
 packages+=(ranger rofi firefox chromium discord steam)
 
+# install everything so far
 pacman -Syu ${packages[@]}
 
 # graphics drivers
+gpuDrivers=( )
+
 # detect GPU
 gpuString=$( lspci -v | grep -A1 -e VGA -e 3D | tr '[:upper:]' '[:lower:]' )
 
 # add appropriate driver packages
 if [[ ${gpuString} == *"nvidia"* ]]
 then
-    gpuDrivers=(nvidia nvidia-utils lib32-nvidia-utils)
+    gpuDrivers+=(nvidia nvidia-utils lib32-nvidia-utils)
 fi
 
 if [[ ${gpuString} == *"intel"* ]]
 then
-    gpuDrivers=(mesa lib32-mesa vulkan-intel)
+    gpuDrivers+=(mesa lib32-mesa vulkan-intel)
 fi
+
+# install GPU driver packages
+pacman -Syu ${gpuDrivers[@]}
 
 # github stuff here?
 
