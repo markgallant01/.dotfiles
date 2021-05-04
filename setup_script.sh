@@ -29,7 +29,7 @@ packages=( )
 packages+=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
 
 # window manager
-packages+=(i3-gaps i3blocks i3lock i3status)
+packages+=(i3-gaps i3blocks i3lock i3status picom)
 
 # audio stuff
 packages+=(pipewire pipewire-alsa pipewire-pulse)
