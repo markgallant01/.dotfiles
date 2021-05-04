@@ -26,21 +26,6 @@
 # x.org programs
 packages=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
 
-# graphics drivers
-# detect GPU
-gpuString=$( lspci -v | grep -A1 -e VGA -e 3D | tr '[:upper:]' '[:lower:]' )
-
-# add appropriate driver packages
-if [[ ${gpuString} == *"nvidia"* ]]
-then
-    packages+=(nvidia nvidia-utils lib32-nvidia-utils)
-fi
-
-if [[ ${gpuString} == *"intel"* ]]
-then
-    packages+=(mesa lib32-mesa vulkan-intel)
-fi
-
 # window manager
 packages+=(i3-gaps i3blocks i3lock i3status)
 
@@ -50,13 +35,28 @@ packages+=(pipewire pipewire-alsa pipewire-pulse)
 # fonts
 packages+=(ttf-dejavu)
 
-# terminal and terminal apps
-packages+=(rxvt-unicode xclip cmus openssh)
+#terminal and terminal apps
+packages+=(rxvt-unicode xclip cmus openssh neofetch)
 
 # applications
 packages+=(ranger rofi firefox chromium discord steam)
 
 pacman -Syu ${packages[@]}
+
+# graphics drivers
+# detect GPU
+gpuString=$( lspci -v | grep -A1 -e VGA -e 3D | tr '[:upper:]' '[:lower:]' )
+
+# add appropriate driver packages
+if [[ ${gpuString} == *"nvidia"* ]]
+then
+    gpuDrivers=(nvidia nvidia-utils lib32-nvidia-utils)
+fi
+
+if [[ ${gpuString} == *"intel"* ]]
+then
+    gpuDrivers=(mesa lib32-mesa vulkan-intel)
+fi
 
 # github stuff here?
 
