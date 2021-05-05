@@ -41,7 +41,7 @@ packages+=(ttf-dejavu ttf-liberation)
 packages+=(rxvt-unicode xclip cmus openssh neofetch git)
 
 # applications
-packages+=(ranger rofi firefox chromium discord)
+packages+=(ranger rofi firefox chromium discord network-manager-applet)
 
 # gaming stuff
 packages+=(steam lutris)
