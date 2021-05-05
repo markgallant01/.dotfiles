@@ -18,5 +18,12 @@ echo "SSH key copied to clipboard. Add to github and press enter when
 finished..."
 read
 
-echo "done\n"
+# pull dotfile directory from github
+git clone git@github.com:markgallant01/.dotfiles
+
+# create symlinks for dotfiles
+
+# add xconf.d stuff for mouse accel and touchpad and stuff
+
+# run initial stuff like wal or feh
 
