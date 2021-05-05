@@ -9,7 +9,6 @@
 #   2. Configure network
 #   3. Create sudo-capable non-root user and log in
 #   4. Enable multilib repository
-#   5. Setup and connect git to github
 #
 # This script must be run with sudo.
 #
@@ -38,7 +37,7 @@ packages+=(pipewire pipewire-alsa pipewire-pulse)
 packages+=(ttf-dejavu ttf-liberation)
 
 #terminal and terminal apps
-packages+=(rxvt-unicode xclip cmus openssh neofetch)
+packages+=(rxvt-unicode xclip cmus openssh neofetch git)
 
 # applications
 packages+=(ranger rofi firefox chromium discord)
@@ -69,5 +68,14 @@ fi
 # install GPU driver packages
 pacman -Syu ${gpuDrivers[@]}
 
-# github stuff here?
+# configure git
+git config --global user.name "Mark Gallant"
+git config --global user.email "markgallant01@gmail.com"
+
+# generate a new ssh key
+ssh-keygen -t ed25519 =C "markgallant01@gmail.com"
+
+# start ssh agent and add new key
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
