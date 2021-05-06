@@ -38,10 +38,10 @@ packages+=(pipewire pipewire-alsa pipewire-pulse)
 packages+=(ttf-dejavu ttf-liberation)
 
 #terminal and terminal apps
-packages+=(rxvt-unicode xclip cmus openssh neofetch git htop)
+packages+=(rxvt-unicode xclip cmus openssh neofetch git htop light)
 
 # applications
-packages+=(ranger rofi firefox chromium discord network-manager-applet light)
+packages+=(ranger rofi firefox chromium discord network-manager-applet)
 
 # gaming stuff
 packages+=(steam lutris)
