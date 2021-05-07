@@ -18,9 +18,6 @@
 
 # to do:
 # firewall
-# automate removal of mouse acceleration?
-# monitor resolution somehow
-# terminal prompt customization
 
 packages=( )
 
