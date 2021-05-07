@@ -21,7 +21,6 @@
 # automate removal of mouse acceleration?
 # monitor resolution somehow
 # terminal prompt customization
-# figure out brightness control program and add it somewhere
 
 packages=( )
 
