@@ -79,14 +79,3 @@ wine-gecko wine-mono)
 # install all packages
 pacman -Syu ${packages[@]}
 
-# configure git
-#git config --global user.name "Mark Gallant"
-#git config --global user.email "markgallant01@gmail.com"
-
-# generate a new ssh key
-#ssh-keygen -t ed25519 =C "markgallant01@gmail.com"
-
-# start ssh agent and add new key
-#eval "$(ssh-agent -s)"
-#ssh-add ~/.ssh/id_ed25519
-
