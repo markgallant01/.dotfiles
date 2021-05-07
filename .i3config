@@ -142,8 +142,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # program workspace assignments
-assign [class="firefox"] $ws2
-assign [class="discord"] $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
