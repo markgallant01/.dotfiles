@@ -26,7 +26,7 @@
 packages=( )
 
 # x.org programs
-packages+=(xorg-server xorg-xbacklight xorg-xrandr xorg-xrdb xorg-xinit)
+packages+=(xorg-server xorg-xrandr xorg-xrdb xorg-xinit)
 
 # window manager
 packages+=(i3-gaps i3blocks i3lock i3status picom)
@@ -38,10 +38,10 @@ packages+=(pipewire pipewire-alsa pipewire-pulse)
 packages+=(ttf-dejavu ttf-liberation)
 
 #terminal and terminal apps
-packages+=(rxvt-unicode xclip cmus openssh neofetch git)
+packages+=(rxvt-unicode xclip cmus openssh neofetch git htop light)
 
 # applications
-packages+=(ranger rofi firefox chromium discord)
+packages+=(ranger rofi firefox chromium discord network-manager-applet)
 
 # gaming stuff
 packages+=(steam lutris)
