@@ -58,12 +58,14 @@ gpuString=$( lspci -v | grep -A1 -e VGA -e 3D | tr '[:upper:]' '[:lower:]' )
 # add appropriate driver packages
 if [[ ${gpuString} == *"nvidia"* ]]
 then
-    gpuDrivers+=(nvidia nvidia-utils lib32-nvidia-utils)
+    gpuDrivers+=(nvidia nvidia-utils lib32-nvidia-utils vulkan-icd-loader
+    lib32-vulkan-icd-loader)
 fi
 
 if [[ ${gpuString} == *"intel"* ]]
 then
-    gpuDrivers+=(mesa lib32-mesa vulkan-intel)
+    gpuDrivers+=(mesa lib32-mesa vulkan-intel lib32-vulkan-intel
+    vulkan-icd-loader lib32-vulkan-icd-loader)
 fi
 
 # install GPU driver packages
