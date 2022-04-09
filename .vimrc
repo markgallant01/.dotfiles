@@ -16,7 +16,7 @@ set incsearch
 set ignorecase
 set smartcase
 set autoindent
-set textwidth=79
+" set textwidth=79
 set formatoptions=c,q,r,t
 set ruler
 set visualbell
