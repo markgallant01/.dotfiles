@@ -20,6 +20,7 @@ set autoindent
 set formatoptions=c,q,r,t
 set ruler
 set visualbell
+set hidden
 
 filetype plugin indent on
 syntax on
