@@ -142,8 +142,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # program workspace assignments
-assign [class="discord"] 2
-assign [class="Steam"] 5
+#assign [class="discord"] 2
+#assign [class="Steam"] 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
