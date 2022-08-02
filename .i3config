@@ -195,6 +195,9 @@ bar {
 # binding for i3 screen lock
 bindsym $mod+shift+x exec i3lock
 
+# screenshot with scrot
+bindsym $mod+p exec --no-startup-id scrot ~/Pictures/
+
 # brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
