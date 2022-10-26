@@ -67,3 +67,4 @@ stuff I installed along the way:
     -setup Yay so we can use the AUR
     -fix mouse / trackpad settings, acceleration, etc
     -continue customizing
+    -enable timesync so the clock stays accurate
