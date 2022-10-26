@@ -13,7 +13,7 @@ Sort mirrors with reflector:
   $ reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
 
 Initial pacstrap install stuff:
-  $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager vim man-db man-pages texinfo
+  $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager gvim man-db man-pages texinfo
 
 mkdir documents downloads screenshots trash usb
 
@@ -25,7 +25,7 @@ setup pacman.conf to enable multilib repos and enable parallel downloading
   [options]
   ParallelDownloads = 5
 
-setup Yay so we can use the AUR
+before installing anything run reflector again to get mirrors sorted out on the newly installed system
 
 stuff I installed along the way:
   -reflector
@@ -61,5 +61,9 @@ stuff I installed along the way:
     -install initial font ttf-dejavu
 
     -web browsers: firefox and chromium
+    -discord
     -neofetch
-
+    
+    -setup Yay so we can use the AUR
+    -fix mouse / trackpad settings, acceleration, etc
+    -continue customizing
