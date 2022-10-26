@@ -1,0 +1,65 @@
+these are notes to add to our post-install script that will act as a quick
+walkthrough for installing arch the way we like it.
+
+for use as a reference along with the arch wiki install guide
+
+Partition the Disks:
+  -two partitions, one for the root directory and one for the UEFI boot directory
+  -use cfdisk for easy partitioning
+  -EFI partition is 300MB
+  -root directory is the rest of the disk
+
+Sort mirrors with reflector:
+  $ reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+
+Initial pacstrap install stuff:
+  $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager vim man-db man-pages texinfo
+
+mkdir documents downloads screenshots trash usb
+
+setup pacman.conf to enable multilib repos and enable parallel downloading
+-/etc/pacman.conf:
+  [multilib]
+  Include = /etc/pacman.d/mirrorlist
+
+  [options]
+  ParallelDownloads = 5
+
+setup Yay so we can use the AUR
+
+stuff I installed along the way:
+  -reflector
+  -xorg-server
+  -intel GPU stuff:
+    -mesa
+    -lib32-mesa
+    -xf86-video-intel
+    -vulkan-intel
+
+  -nvidia GPU stuff:
+    -nvidia
+    -nvidia-utils
+    -lib32-nvidia-utils
+
+  -git -install and get setup
+    -git config --global user.name "user_name"
+    -git config --global user.email "email"
+
+  -dwm & st:
+    -first install package libxft libxinerama
+
+    -git clone git://git.suckless.org/dwm
+    -cd dwm
+    -make
+    -make clean install
+    -repeat for st
+
+    -install rofi
+    -modify dwm/config.h to launch rofi instead of dmenu and to use super as the modifier
+
+    -install xorg-xinit
+    -install initial font ttf-dejavu
+
+    -web browsers: firefox and chromium
+    -neofetch
+
