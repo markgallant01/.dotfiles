@@ -68,3 +68,4 @@ stuff I installed along the way:
     -fix mouse / trackpad settings, acceleration, etc
     -continue customizing
     -enable timesync so the clock stays accurate
+    -make media keys and brightness keys work in DWM
