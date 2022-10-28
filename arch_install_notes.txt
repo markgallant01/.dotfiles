@@ -63,6 +63,8 @@ stuff I installed along the way:
     -web browsers: firefox and chromium
     -discord
     -neofetch
+    -blueman
+    -pipewire-pulse (needed for bluetooth to work)
     
     -setup Yay so we can use the AUR
     -fix mouse / trackpad settings, acceleration, etc
