@@ -1,34 +1,216 @@
-these are notes to add to our post-install script that will act as a quick
-walkthrough for installing arch the way we like it.
+This is a compilation of notes to be used as a walkthrough / cheat-sheet
+for an arch linux install. Use alongside the official install guide, not
+as a substitute, in case anything about the process changes.
 
-for use as a reference along with the arch wiki install guide
+/* 1. Pre-installation */
 
-Partition the Disks:
-  -two partitions, one for the root directory and one for the UEFI boot directory
-  -use cfdisk for easy partitioning
-  -EFI partition is 300MB
-  -root directory is the rest of the disk
+1.1 Acqure an installation image
+1.2 Verify signature
+1.3 Prepare an installation medium
+1.4 Boot the live environment
 
-Sort mirrors with reflector:
-  $ reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+1.5 Set the console keyboard layout
+  Everything above can be skipped. It's just downloading the iso and
+  creating a bootable USB. The keyboard doesn't need to be set as the
+  default US is correct. Refer to the above steps if you don't have
+  a bootable USB and need to create one but otherwise skip to the next
+  step.
+  
+1.6 Verify the boot mode
+  Just run the following command and make sure it prints a bunch of files
+  without error to verify that you're booted in UEFI mode:
+  
+    $ ls /sys/firmware/efi/efivars
+    
+    
+1.7 Connect to the internet
+  If you're wired then just plug in the ethernet and it should work fine.
+  If using wifi, connect to the network with iwctl.
+    
+    $ iwctl                   // this will give you an interactive prompt
+    [iwd]$ device list            // get the name of wireless device
+    [iwd]$ station *device* scan      // scan for wireless networks
+    [iwd]$ station *device* get-networks    // list networks
+    [iwd]$ station *device* connect *SSID*
+    
+  Enter the password when prompted and then exit with Ctrl+d.
+  
+  Verify the connection with:
+  
+    $ ping archlinux.org
+    
+  
+1.8 Update the system clock
+  Just run the following command to make sure the clock is right
+  
+    $ timedatectl status
+    
+1.9 Partition the disks
+  List the disks with this command
+    
+    $ lsblk -l
+    
+  You need one boot partition and one partition for the root directory.
+  The boot partition should be 300M and the root directory should take
+  up the rest of the available space on the disk.
+  
+  The boot partition should be type: EFI System Partition and the root
+  directory partition should be type: Linux x86-64 root (/)
+   
+  Use cfdisk to make things easy:
+  
+    $ cfdisk /dev/sdx
+    
 
-Initial pacstrap install stuff:
-  $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager gvim man-db man-pages texinfo
+1.10 Format the partitions
+  Format the root directory partition as ext4 with this command:
+  
+    $ mkfs.ext4 /dev/*root_partition*
+    
+  And format the boot partition with this command:
+  
+    $ mkfs.fat -F 32 /dev/*efi_partition*
+    
+    
+1.11 Mount the file system
+  Mount both partitions with these commands:
+  
+    $ mount /dev/*root_partition* /mnt
+    $ mount --mkdir /dev/*efi_partition* /mnt/boot
+    
 
-mkdir documents downloads screenshots trash usb
+/* 2. Installation */
 
-setup pacman.conf to enable multilib repos and enable parallel downloading
--/etc/pacman.conf:
-  [multilib]
-  Include = /etc/pacman.d/mirrorlist
+2.1 Select the mirrors
+  Sort mirrors with reflector:
+  
+    $ reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+    
 
-  [options]
-  ParallelDownloads = 5
+2.2 Install essential packages
+  Use pacstrap to install initial packages:
+    
+    $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
+                       gvim reflector man-db man-pages texinfo
+                       
+  
+/* 3. Configure the system */
 
-before installing anything run reflector again to get mirrors sorted out on the newly installed system
+3.1 Fstab
+  Run this command to generate an fstab file
+  
+    $ genfstab -U /mnt >> /mnt/etc/fstab
+    
+
+3.2 Chroot
+  Change root into the new install with this command:
+  
+    $ arch-chroot /mnt
+    
+
+3.3 Time zone
+  Set the time zone and generate /etc/adjtime with these commands:
+  
+    $ ln -sf /usr/share/zoneinfo/Americas/New_York /etc/localtime
+    $ hwclock --systohc
+    
+
+3.4 Localization
+  Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8. Then generate the
+  locale.
+  
+    $ vim /etc/locale.gen
+    $ locale-gen
+  
+  Create the locale.conf file and set the LANG variable:
+  
+    "/etc/locale.conf"   <- Name of the file, do not include in the file
+    LANG=en_US.UTF-8
+    
+ 
+3.5 Network configuration
+  Create the hostname file:
+  
+    "/etc/hostname"
+    *hostname*
+    
+ 
+ 3.6 Initramfs -skip
+ 
+ 3.7 Root password
+  Set the root password:
+    
+    $ passwd
+    
+
+3.8 Boot loader
+  Setup the grub bootloader. Install the packages and then run the install
+  script.
+  
+    $ pacman -S grub efibootmgr
+    $ grub-install --target=x86_64-efi --efi-directory=/boot
+                   --bootloader-id=GRUB
+  
+  Then generate the config:
+  
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+    
+  Install intel microcode and regenerate grub config file
+  
+    $ pacman -S intel-ucode
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+
+
+/* 4. Reboot */
+
+Exit the chroot by typing 'exit'. Unmount all partitions then shutdown.
+
+  $ umount -R /mnt
+  $ shutdown +0
+
+Remove the installation medium and restart.
+
+/* Post-install */
+  This section sets up the newly installed system. Login to the new system
+  as root.
+  
+  Setup a non-root user and set the password:
+  
+    $ useradd -m *user*
+    $ passwd *user*
+    
+  Add the new user to the sudoers file with visudo
+  
+    $ EDITOR=vim visudo
+    *user* ALL=(ALL:ALL) ALL
+    
+  Then logout of root and login as the new user. Create new user's home
+  directory folders:
+  
+    $ mkdir documents downloads screenshots trash usb
+    
+  Setup pacman by editing pacman.conf to enable the multilib repo and
+  enable parallel downloading:
+  
+    "/etc/pacman.conf"
+    [options]
+    ParallelDownloads = 5
+
+    ...
+
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
+  
+  Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
+
+  Before installing anything run reflector again to sort the mirrors for
+  the newly installed system
+  
+    $ sudo reflector --latest 50 --sort rate 
+                     --save /etc/pacman.d/mirrorlist
+                     
 
 stuff I installed along the way:
-  -reflector
   -xorg-server
   -intel GPU stuff:
     -mesa
@@ -44,6 +226,11 @@ stuff I installed along the way:
   -git -install and get setup
     -git config --global user.name "user_name"
     -git config --global user.email "email"
+    
+  Yay:
+    $ git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
 
   -dwm & st:
     -first install package libxft libxinerama
@@ -66,8 +253,6 @@ stuff I installed along the way:
     -blueman
     -pipewire-pulse (needed for bluetooth to work)
     
-    -setup Yay so we can use the AUR
     -fix mouse / trackpad settings, acceleration, etc
     -continue customizing
     -enable timesync so the clock stays accurate
-    -make media keys and brightness keys work in DWM
