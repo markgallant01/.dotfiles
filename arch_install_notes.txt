@@ -20,35 +20,35 @@ as a substitute, in case anything about the process changes.
   Just run the following command and make sure it prints a bunch of files
   without error to verify that you're booted in UEFI mode:
   
-    $ ls /sys/firmware/efi/efivars
+    # ls /sys/firmware/efi/efivars
     
     
 1.7 Connect to the internet
   If you're wired then just plug in the ethernet and it should work fine.
   If using wifi, connect to the network with iwctl.
     
-    $ iwctl                   // this will give you an interactive prompt
-    [iwd]$ device list            // get the name of wireless device
-    [iwd]$ station *device* scan      // scan for wireless networks
-    [iwd]$ station *device* get-networks    // list networks
-    [iwd]$ station *device* connect *SSID*
+    # iwctl                   // this will give you an interactive prompt
+    [iwd]# device list            // get the name of wireless device
+    [iwd]# station *device* scan      // scan for wireless networks
+    [iwd]# station *device* get-networks    // list networks
+    [iwd]# station *device* connect *SSID*
     
   Enter the password when prompted and then exit with Ctrl+d.
   
   Verify the connection with:
   
-    $ ping archlinux.org
+    # ping archlinux.org
     
   
 1.8 Update the system clock
   Just run the following command to make sure the clock is right
   
-    $ timedatectl status
+    # timedatectl status
     
 1.9 Partition the disks
   List the disks with this command
     
-    $ lsblk -l
+    # lsblk -l
     
   You need one boot partition and one partition for the root directory.
   The boot partition should be 300M and the root directory should take
@@ -59,24 +59,24 @@ as a substitute, in case anything about the process changes.
    
   Use cfdisk to make things easy:
   
-    $ cfdisk /dev/sdx
+    # cfdisk /dev/sdx
     
 
 1.10 Format the partitions
   Format the root directory partition as ext4 with this command:
   
-    $ mkfs.ext4 /dev/*root_partition*
+    # mkfs.ext4 /dev/*root_partition*
     
   And format the boot partition with this command:
   
-    $ mkfs.fat -F 32 /dev/*efi_partition*
+    # mkfs.fat -F 32 /dev/*efi_partition*
     
     
 1.11 Mount the file system
   Mount both partitions with these commands:
   
-    $ mount /dev/*root_partition* /mnt
-    $ mount --mkdir /dev/*efi_partition* /mnt/boot
+    # mount /dev/*root_partition* /mnt
+    # mount --mkdir /dev/*efi_partition* /mnt/boot
     
 
 /* 2. Installation */
@@ -84,13 +84,13 @@ as a substitute, in case anything about the process changes.
 2.1 Select the mirrors
   Sort mirrors with reflector:
   
-    $ reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+    # reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
     
 
 2.2 Install essential packages
   Use pacstrap to install initial packages:
     
-    $ pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
+    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
                        gvim reflector man-db man-pages texinfo
                        
   
@@ -99,28 +99,28 @@ as a substitute, in case anything about the process changes.
 3.1 Fstab
   Run this command to generate an fstab file
   
-    $ genfstab -U /mnt >> /mnt/etc/fstab
+    # genfstab -U /mnt >> /mnt/etc/fstab
     
 
 3.2 Chroot
   Change root into the new install with this command:
   
-    $ arch-chroot /mnt
+    # arch-chroot /mnt
     
 
 3.3 Time zone
   Set the time zone and generate /etc/adjtime with these commands:
   
-    $ ln -sf /usr/share/zoneinfo/Americas/New_York /etc/localtime
-    $ hwclock --systohc
+    # ln -sf /usr/share/zoneinfo/Americas/New_York /etc/localtime
+    # hwclock --systohc
     
 
 3.4 Localization
   Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8. Then generate the
   locale.
   
-    $ vim /etc/locale.gen
-    $ locale-gen
+    # vim /etc/locale.gen
+    # locale-gen
   
   Create the locale.conf file and set the LANG variable:
   
@@ -140,33 +140,33 @@ as a substitute, in case anything about the process changes.
  3.7 Root password
   Set the root password:
     
-    $ passwd
+    # passwd
     
 
 3.8 Boot loader
   Setup the grub bootloader. Install the packages and then run the install
   script.
   
-    $ pacman -S grub efibootmgr
-    $ grub-install --target=x86_64-efi --efi-directory=/boot
+    # pacman -S grub efibootmgr
+    # grub-install --target=x86_64-efi --efi-directory=/boot
                    --bootloader-id=GRUB
   
   Then generate the config:
   
-    $ grub-mkconfig -o /boot/grub/grub.cfg
+    # grub-mkconfig -o /boot/grub/grub.cfg
     
   Install intel microcode and regenerate grub config file
   
-    $ pacman -S intel-ucode
-    $ grub-mkconfig -o /boot/grub/grub.cfg
+    # pacman -S intel-ucode
+    # grub-mkconfig -o /boot/grub/grub.cfg
 
 
 /* 4. Reboot */
 
 Exit the chroot by typing 'exit'. Unmount all partitions then shutdown.
 
-  $ umount -R /mnt
-  $ shutdown +0
+  # umount -R /mnt
+  # shutdown +0
 
 Remove the installation medium and restart.
 
