@@ -251,6 +251,18 @@ Remove the installation medium and restart.
     You should now be able to use the command 'startx' to launch into a
     graphical system.
     
+  Power management:
+    (come back to this)
+    
+  Sound system:
+    $ pacman -S pipewire lib32-pipewire wireplumber pipewire-pulse blueman
+    
+  Clock synchronization:
+    $ systemctl enable --now systemd-timesyncd.service
+    
+  Input devices:
+    
+    
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
     $ cd yay
@@ -260,16 +272,10 @@ Remove the installation medium and restart.
     -web browsers: firefox and chromium
     -discord
     -neofetch
-    -blueman
-    -pipewire-pulse (needed for bluetooth to work)
     -picom
     
     -fix mouse / trackpad settings, acceleration, etc
     -continue customizing
-    -enable timesync so the clock stays accurate
-    
-    -continue through general recommendations starting at section 5: Power
-     management
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
