@@ -261,7 +261,33 @@ Remove the installation medium and restart.
     $ systemctl enable --now systemd-timesyncd.service
     
   Input devices:
+    Create the file "/etc/X11/xorg.conf.d/00-input-devices.conf" and
+    inside it put:
     
+      Section "InputClass"
+        Identifier "Pointing Device"
+        MatchIsPointer "true"
+        Driver "libinput"
+        Option "AccelProfile" "flat"
+      EndSection
+
+      Section "InputClass"
+        Identifier "Touchpad"
+        MatchIsTouchpad "true"
+        Driver "libinput"
+        Option "AccelProfile" "flat"
+        Option "Tapping" "true"
+        Option "NaturalScrolling" "true"
+      EndSection
+    
+    That should setup pointing devices to not have any acceleration and
+    to use the proper touchpad settings.
+  
+  Performance:
+    $ pacman -S htop
+  
+  Printing:
+    Maybe setup printing here in the future
     
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
@@ -274,7 +300,6 @@ Remove the installation medium and restart.
     -neofetch
     -picom
     
-    -fix mouse / trackpad settings, acceleration, etc
     -continue customizing
      
     -move all these installation steps into one installer script that can
