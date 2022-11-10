@@ -285,6 +285,9 @@ Remove the installation medium and restart.
   
   Performance:
     $ pacman -S htop
+    
+  USB stuff:
+    $ pacman -S udisks2
   
   Printing:
     Maybe setup printing here in the future
