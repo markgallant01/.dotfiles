@@ -242,7 +242,7 @@ Remove the installation medium and restart.
     $ make
     $ make clean install
     
-    $ git clone git://git.suckless.org/st
+    $ git clone git@github.com:markgallant01/st.git
     $ cd st
     $ make
     $ make clean install
@@ -253,6 +253,32 @@ Remove the installation medium and restart.
     
     Then edit ~/.xinitrc so that it launches dwm at the very end with:
       'exec dwm'
+    
+    get xrandr settings from desktop
+    
+    stuff to add to dwm config.h:
+      // add this import at the top so media keys work
+      #include <X11/XF86keysym.h>
+      
+      // change modifier key from alt to super
+      #define MODKEY Mod4Mask
+      
+      // custom functions for rofi, backlight, and media keys
+      static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
+      static const char *upbright[] = { "xbacklight", "-inc", "5", NULL };
+      static const char *downbright[] = { "xbacklight", "-dec", "5", NULL };
+      static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+      static const char *downvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+      static const char *mutevol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+      static const char *mutemic[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
+      
+      // custom key bindings for media keys
+      { 0,	XF86XK_MonBrightnessUp,		spawn,		{.v = upbright } },
+      { 0, 	XF86XK_MonBrightnessDown,	spawn,		{.v = downbright } },
+      { 0,	XF86XK_AudioRaiseVolume,	spawn,		{.v = upvol } },
+      { 0, 	XF86XK_AudioLowerVolume,	spawn,		{.v = downvol } },
+      { 0,	XF86XK_AudioMute,		spawn,		{.v = mutevol } },
+      { 0,	XF86XK_AudioMicMute,		spawn,		{.v = mutemic } },
       
     You should now be able to use the command 'startx' to launch into a
     graphical system.
