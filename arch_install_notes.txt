@@ -328,10 +328,17 @@ Remove the installation medium and restart.
     $ git clone https://aur.archlinux.org/yay.git
     $ cd yay
     $ makepkg -si
+    
+  Downloading music from youtube:
+    $ sudo pacman -S yt-dlp
+    
+  Web browsers:
+    $ sudo pacman -S firefox chromium
+    
+  Discord:
+    $ sudo pacman -S discord
 
   To-do:
-    -web browsers: firefox and chromium
-    -discord
     -neofetch
     -picom
     
