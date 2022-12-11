@@ -337,6 +337,13 @@ Remove the installation medium and restart.
     
   Discord:
     $ sudo pacman -S discord
+    
+  Add these things to vim:
+    https://github.com/sheerun/vim-polyglot
+    https://github.com/preservim/nerdtree
+    https://github.com/sainnhe/sonokai
+    
+  Download dotfiles from github and setup symlinks so it all works
 
   To-do:
     -neofetch
