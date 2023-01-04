@@ -329,6 +329,9 @@ Remove the installation medium and restart.
     $ cd yay
     $ makepkg -si
     
+  AUR section:
+    -protonvpn
+    
   Downloading music from youtube:
     $ sudo pacman -S yt-dlp
     
