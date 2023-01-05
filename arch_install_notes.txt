@@ -349,6 +349,7 @@ Remove the installation medium and restart.
     -NerdFonts from AUR
     -DWM blocks?
     -feh for wallpaper
+    -slock
     
     -continue customizing
      
