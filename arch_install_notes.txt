@@ -344,8 +344,8 @@ Remove the installation medium and restart.
   To-do:
     -neofetch
     -picom
-    -LunarVim
-    -NerdFonts
+    -LunarVim dependencies
+    -NerdFonts from AUR
     
     -continue customizing
      
