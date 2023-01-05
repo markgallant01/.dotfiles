@@ -347,6 +347,8 @@ Remove the installation medium and restart.
     -picom
     -LunarVim dependencies
     -NerdFonts from AUR
+    -DWM blocks?
+    -feh for wallpaper
     
     -continue customizing
      
