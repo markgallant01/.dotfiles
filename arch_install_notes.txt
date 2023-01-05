@@ -91,7 +91,7 @@ as a substitute, in case anything about the process changes.
   Use pacstrap to install initial packages:
     
     # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
-                       gvim reflector man-db man-pages texinfo
+                       neovim reflector man-db man-pages texinfo
                        
   
 /* 3. Configure the system */
@@ -181,7 +181,7 @@ Remove the installation medium and restart.
     
   Add the new user to the sudoers file with visudo
   
-    $ EDITOR=vim visudo
+    $ EDITOR=neovim visudo
     *user* ALL=(ALL:ALL) ALL
     
   Then logout of root and login as the new user. Create new user's home
@@ -235,17 +235,14 @@ Remove the installation medium and restart.
   Window manager and terminal:
     (replace this stuff with our own git repo later)
     Install dependencies first:
-      $ sudo pacman -S libxft libxinerama rofi ttf-dejavu
+      $ sudo pacman -S libxft libxinerama rofi ttf-dejavu <-- REPLACE THIS WITH NERD FONT
       
     $ git clone git://git.suckless.org/dwm
     $ cd dwm
     $ make
     $ make clean install
     
-    $ git clone git@github.com:markgallant01/st.git
-    $ cd st
-    $ make
-    $ make clean install
+    $ pacman -S urxvt
     
   Window manager (anything more than xinit is bloat):
     $ pacman -S xorg-xinit
