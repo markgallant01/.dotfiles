@@ -329,6 +329,7 @@ Remove the installation medium and restart.
   AUR section:
     -protonvpn
     -nvm
+    -nerd-fonts-dejavu-complete
     
   Downloading music from youtube:
     $ sudo pacman -S yt-dlp
