@@ -350,6 +350,7 @@ Remove the installation medium and restart.
     -DWM blocks?
     -feh for wallpaper
     -slock
+    -unzip
     
     -continue customizing
      
