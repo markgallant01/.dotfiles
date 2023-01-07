@@ -260,8 +260,7 @@ Remove the installation medium and restart.
       // change modifier key from alt to super
       #define MODKEY Mod4Mask
       
-      // custom functions for rofi, backlight, and media keys
-      static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
+      // custom functions for backlight, and media keys
       static const char *upbright[] = { "xbacklight", "-inc", "5", NULL };
       static const char *downbright[] = { "xbacklight", "-dec", "5", NULL };
       static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
