@@ -22,7 +22,6 @@ as a substitute, in case anything about the process changes.
   
     # ls /sys/firmware/efi/efivars
     
-    
 1.7 Connect to the internet
   If you're wired then just plug in the ethernet and it should work fine.
   If using wifi, connect to the network with iwctl.
@@ -37,8 +36,7 @@ as a substitute, in case anything about the process changes.
   
   Verify the connection with:
   
-    # ping archlinux.org
-    
+    # ping archlinux.org  
   
 1.8 Update the system clock
   Just run the following command to make sure the clock is right
@@ -59,8 +57,7 @@ as a substitute, in case anything about the process changes.
    
   Use cfdisk to make things easy:
   
-    # cfdisk /dev/sdx
-    
+    # cfdisk /dev/sdx 
 
 1.10 Format the partitions
   Format the root directory partition as ext4 with this command:
@@ -71,13 +68,11 @@ as a substitute, in case anything about the process changes.
   
     # mkfs.fat -F 32 /dev/*efi_partition*
     
-    
 1.11 Mount the file system
   Mount both partitions with these commands:
   
     # mount /dev/*root_partition* /mnt
     # mount --mkdir /dev/*efi_partition* /mnt/boot
-    
 
 /* 2. Installation */
 
@@ -85,7 +80,6 @@ as a substitute, in case anything about the process changes.
   Sort mirrors with reflector:
   
     # reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
-    
 
 2.2 Install essential packages
   Use pacstrap to install initial packages:
@@ -93,7 +87,6 @@ as a substitute, in case anything about the process changes.
     # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
                        neovim reflector man-db man-pages texinfo
                        
-  
 /* 3. Configure the system */
 
 3.1 Fstab
@@ -101,20 +94,17 @@ as a substitute, in case anything about the process changes.
   
     # genfstab -U /mnt >> /mnt/etc/fstab
     
-
 3.2 Chroot
   Change root into the new install with this command:
   
     # arch-chroot /mnt
     
-
 3.3 Time zone
   Set the time zone and generate /etc/adjtime with these commands:
   
     # ln -sf /usr/share/zoneinfo/Americas/New_York /etc/localtime
     # hwclock --systohc
     
-
 3.4 Localization
   Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8. Then generate the
   locale.
@@ -127,14 +117,12 @@ as a substitute, in case anything about the process changes.
     "/etc/locale.conf"   <- Name of the file, do not include in the file
     LANG=en_US.UTF-8
     
- 
 3.5 Network configuration
   Create the hostname file:
   
     "/etc/hostname"
     *hostname*
     
- 
  3.6 Initramfs -skip
  
  3.7 Root password
@@ -142,7 +130,6 @@ as a substitute, in case anything about the process changes.
     
     # passwd
     
-
 3.8 Boot loader
   Setup the grub bootloader. Install the packages and then run the install
   script.
@@ -159,7 +146,6 @@ as a substitute, in case anything about the process changes.
   
     # pacman -S intel-ucode
     # grub-mkconfig -o /boot/grub/grub.cfg
-
 
 /* 4. Reboot */
 
@@ -246,6 +232,8 @@ Remove the installation medium and restart.
   Login manager:
     $ pacman -S xorg-xinit
     $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+    
+    PULL DOWN DOTFILES AND CREATE SYMLINKS HERE
       
     You should now be able to use the command 'startx' to launch into a
     graphical system.
@@ -258,29 +246,6 @@ Remove the installation medium and restart.
     
   Clock synchronization:
     $ systemctl enable --now systemd-timesyncd.service
-    
-  Input devices:
-    Create the file "/etc/X11/xorg.conf.d/00-input-devices.conf" and
-    inside it put:
-    
-      Section "InputClass"
-        Identifier "Pointing Device"
-        MatchIsPointer "true"
-        Driver "libinput"
-        Option "AccelProfile" "flat"
-      EndSection
-
-      Section "InputClass"
-        Identifier "Touchpad"
-        MatchIsTouchpad "true"
-        Driver "libinput"
-        Option "AccelProfile" "flat"
-        Option "Tapping" "true"
-        Option "NaturalScrolling" "true"
-      EndSection
-    
-    That should setup pointing devices to not have any acceleration and
-    to use the proper touchpad settings.
   
   Performance:
     $ pacman -S htop
