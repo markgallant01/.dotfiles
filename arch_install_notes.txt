@@ -351,6 +351,7 @@ Remove the installation medium and restart.
     -feh for wallpaper
     -slock
     -unzip
+    -drop rofi for drun
     
     -continue customizing
      
