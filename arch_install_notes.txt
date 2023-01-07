@@ -352,6 +352,7 @@ Remove the installation medium and restart.
     -unzip
     -drop rofi for dmenu
     -dwm fullgaps patch
+    -add .Xresources file to dotfiles repo
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
