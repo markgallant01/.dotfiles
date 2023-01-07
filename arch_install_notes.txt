@@ -233,43 +233,19 @@ Remove the installation medium and restart.
       $ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils
   
   Window manager and terminal:
-    (replace this stuff with our own git repo later)
     Install dependencies first:
-      $ sudo pacman -S libxft libxinerama ttf-dejavu <-- REPLACE THIS WITH NERD FONT
+      $ sudo pacman -S libxft libxinerama ttf-dejavu
       
-    $ git clone git://git.suckless.org/dwm
+    $ git clone git@github.com:markgallant01/dwm.git
     $ cd dwm
     $ make
     $ make clean install
     
     $ pacman -S urxvt
     
-  Login manager (anything more than xinit is bloat):
+  Login manager:
     $ pacman -S xorg-xinit
     $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
-    
-    stuff to add to dwm config.h:
-      // add this import at the top so media keys work
-      #include <X11/XF86keysym.h>
-      
-      // change modifier key from alt to super
-      #define MODKEY Mod4Mask
-      
-      // custom functions for backlight, and media keys
-      static const char *upbright[] = { "xbacklight", "-inc", "5", NULL };
-      static const char *downbright[] = { "xbacklight", "-dec", "5", NULL };
-      static const char *upvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-      static const char *downvol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
-      static const char *mutevol[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
-      static const char *mutemic[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
-      
-      // custom key bindings for media keys
-      { 0,	XF86XK_MonBrightnessUp,		spawn,		{.v = upbright } },
-      { 0, 	XF86XK_MonBrightnessDown,	spawn,		{.v = downbright } },
-      { 0,	XF86XK_AudioRaiseVolume,	spawn,		{.v = upvol } },
-      { 0, 	XF86XK_AudioLowerVolume,	spawn,		{.v = downvol } },
-      { 0,	XF86XK_AudioMute,		spawn,		{.v = mutevol } },
-      { 0,	XF86XK_AudioMicMute,		spawn,		{.v = mutemic } },
       
     You should now be able to use the command 'startx' to launch into a
     graphical system.
@@ -343,9 +319,9 @@ Remove the installation medium and restart.
     -feh for wallpaper
     -slock
     -unzip
-    -dwm fullgaps patch
     -get xrandr settings from desktop
     -neovim config
+    -xclip somewhere for copy/paste
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
