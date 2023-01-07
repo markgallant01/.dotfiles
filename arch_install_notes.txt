@@ -350,10 +350,8 @@ Remove the installation medium and restart.
     -feh for wallpaper
     -slock
     -unzip
-    -drop rofi for drun
+    -drop rofi for dmenu
     -dwm fullgaps patch
-    
-    -continue customizing
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
