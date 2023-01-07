@@ -347,11 +347,11 @@ Remove the installation medium and restart.
     -picom
     -LunarVim dependencies
     -NerdFonts from AUR
-    -DWM blocks?
     -feh for wallpaper
     -slock
     -unzip
     -drop rofi for drun
+    -dwm fullgaps patch
     
     -continue customizing
      
