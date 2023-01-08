@@ -284,6 +284,8 @@ Remove the installation medium and restart.
     
   AUR stuff:
     $ yay -S nvm nerd-fonts-dejavu-complete
+    
+  xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
     -customize picom
