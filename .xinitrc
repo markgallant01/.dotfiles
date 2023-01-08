@@ -48,6 +48,7 @@ do
     sleep 60s
 done &
 
-# start window manager
+# launch programs and window manager
+~/.fehbg &
 exec dwm
 
