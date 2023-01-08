@@ -288,6 +288,9 @@ Remove the installation medium and restart.
     -slock
     -get xrandr settings from desktop
     -lutris and wine
+    -music player with visual thingy we like (cmus?)
+    -graphical file manager (dolphin, thunar?)
+    -ranger?
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
