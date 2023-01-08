@@ -232,6 +232,9 @@ Remove the installation medium and restart.
   Login manager:
     $ pacman -S xorg-xinit
     
+  Wallpaper:
+    $ pacman -S feh
+    
   Pull down dotfiles:
     $ git clone git@github.com:markgallant01/.dotfiles.git
     $ cd .dotfiles
@@ -284,7 +287,6 @@ Remove the installation medium and restart.
     -customize picom
     -LunarVim dependencies
     -LunarVim itself and the config
-    -feh for wallpaper
     -slock
     -get xrandr settings from desktop
     -lutris and wine
