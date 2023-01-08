@@ -218,7 +218,7 @@ Remove the installation medium and restart.
     Nvidia:
       $ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils
   
-  Window manager and terminal:
+  Window manager, terminal, and compositor:
     Install dependencies first:
       $ sudo pacman -S libxft libxinerama ttf-dejavu
       
@@ -227,16 +227,20 @@ Remove the installation medium and restart.
     $ make
     $ make clean install
     
-    $ pacman -S urxvt
+    $ pacman -S urxvt picom
     
   Login manager:
     $ pacman -S xorg-xinit
-    $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
     
-    PULL DOWN DOTFILES AND CREATE SYMLINKS HERE
+  Pull down dotfiles:
+    $ git clone git@github.com:markgallant01/.dotfiles.git
+    $ cd .dotfiles
+    
+    Open the readme and follow the insructions to set up the symlinks
+    and put the files in the correct places.
       
-    You should now be able to use the command 'startx' to launch into a
-    graphical system.
+  You should now be able to use the command 'startx' to launch into a
+  graphical system.
     
   Power management:
     (come back to this)
@@ -273,12 +277,10 @@ Remove the installation medium and restart.
     
   Discord:
     $ sudo pacman -S discord
-    
-  Download dotfiles from github and setup symlinks so it all works
 
   To-do:
     -neofetch
-    -picom
+    -customize picom
     -LunarVim dependencies
     -NerdFonts from AUR
     -feh for wallpaper
