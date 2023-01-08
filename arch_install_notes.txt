@@ -235,6 +235,8 @@ Remove the installation medium and restart.
   Wallpaper:
     $ pacman -S feh
     
+    Place any wallpapers in ~/Photos/wallpaper/ for feh to use them
+    
   Pull down dotfiles:
     $ git clone git@github.com:markgallant01/.dotfiles.git
     $ cd .dotfiles
