@@ -260,15 +260,6 @@ Remove the installation medium and restart.
   Printing:
     Maybe setup printing here in the future
     
-  Setup Yay to use the AUR:
-    $ git clone https://aur.archlinux.org/yay.git
-    $ cd yay
-    $ makepkg -si
-    
-  AUR section:
-    -nvm
-    -nerd-fonts-dejavu-complete
-    
   Downloading music from youtube:
     $ sudo pacman -S yt-dlp
     
@@ -277,18 +268,26 @@ Remove the installation medium and restart.
     
   Discord:
     $ sudo pacman -S discord
+    
+  Misc utilities:
+    $ sudo pacman -S neofetch unzip xclip
+    
+  Setup Yay to use the AUR:
+    $ git clone https://aur.archlinux.org/yay.git
+    $ cd yay
+    $ makepkg -si
+    
+  AUR stuff:
+    $ yay -S nvm nerd-fonts-dejavu-complete
 
   To-do:
-    -neofetch
     -customize picom
     -LunarVim dependencies
-    -NerdFonts from AUR
+    -LunarVim itself and the config
     -feh for wallpaper
     -slock
-    -unzip
     -get xrandr settings from desktop
-    -neovim config
-    -xclip somewhere for copy/paste
+    -lutris and wine
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
