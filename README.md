@@ -5,6 +5,7 @@ the files at the destination locations! Back up anything necessary.
   ln -sf .xinitrc ~/.xinitrc  
   ln -sf .Xresources ~/.Xresources  
   ln -sf picom.conf ~/.config/picom.conf  
+  ln -sf .fehbg ~/.fehbg
   
 copy the file 00-input-devices.conf into this folder:  
   /etc/X11/xorg.conf.d/  
