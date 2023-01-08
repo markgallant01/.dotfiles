@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/mark/temp/photo-1581196607303-95c00f31c676.avif' 
+feh --no-fehbg --bg-scale --randomize /home/mark/Pictures/wallpaper/*
