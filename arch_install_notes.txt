@@ -285,14 +285,25 @@ Remove the installation medium and restart.
   AUR stuff:
     $ yay -S nvm nerd-fonts-dejavu-complete
     
+  Lunarvim:
+    First install dependencies:
+      $ pacman -S rust python-pip
+      
+    Use NVM to install the latest version of nodejs:
+      $ nvm install node
+      
+    Use the script on this page to install:
+      https://www.lunarvim.org/docs/installation
+      
+    Add this line to config.lua:
+      lvim.lsp.diagnostics.virtual_test = false   <- move this config file to .dotfiles repo somehow
+    
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
     -customize picom
-    -LunarVim dependencies
-    -LunarVim itself and the config
     -slock
-    -lutris and wine and steam
+    -lutris and wine and steam and settings like feralgamemode
     -music player with visual thingy we like (cmus?)
     -graphical file manager (dolphin, thunar?)
     -ranger?
