@@ -295,8 +295,7 @@ Remove the installation medium and restart.
     Use the script on this page to install:
       https://www.lunarvim.org/docs/installation
       
-    Add this line to config.lua:
-      lvim.lsp.diagnostics.virtual_test = false   <- move this config file to .dotfiles repo somehow
+    Make sure lunarvim config is symlinked
     
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
