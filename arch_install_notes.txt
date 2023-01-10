@@ -292,11 +292,12 @@ Remove the installation medium and restart.
     -LunarVim dependencies
     -LunarVim itself and the config
     -slock
-    -get xrandr settings from desktop
-    -lutris and wine
+    -lutris and wine and steam
     -music player with visual thingy we like (cmus?)
     -graphical file manager (dolphin, thunar?)
     -ranger?
+    -go through bookmarked stuff
+    -set up statusbar with date / time / battery / cpu? / temps? / network?
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
