@@ -308,6 +308,8 @@ Remove the installation medium and restart.
     -ranger?
     -go through bookmarked stuff
     -set up statusbar with date / time / battery / cpu? / temps? / network?
+    -switch from DWM to AwesomeWM
+    -customize AwesomeWM
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
