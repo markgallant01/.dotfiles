@@ -274,6 +274,12 @@ Remove the installation medium and restart.
   Discord:
     $ sudo pacman -S discord
     
+    Edit the shown line in this file so Discord doesn't refuse to launch
+    if there's an update that's not in the repo yet:
+    
+    ~/.config/discord/settings.json
+      "SKIP_HOST_UPDATE": true
+    
   Misc utilities:
     $ sudo pacman -S neofetch unzip xclip scrot
     
