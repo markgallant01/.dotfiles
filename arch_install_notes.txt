@@ -275,7 +275,7 @@ Remove the installation medium and restart.
     $ sudo pacman -S discord
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip
+    $ sudo pacman -S neofetch unzip xclip scrot
     
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
