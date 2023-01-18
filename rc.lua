@@ -229,6 +229,20 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    -- custom bindings for laptop function keys
+    awful.key({}, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 5") end,
+              {description="increase brightness", group="function keys"}),
+    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5") end,
+              {description="decrease brightness", group="function keys"}),
+    awful.key({}, "XF86AudioRaiseVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
+              {description="increase volume", group="function keys"}),
+    awful.key({}, "XF86AudioLowerVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
+              {description="decrease volume", group="function keys"}),
+    awful.key({}, "XF86AudioMute",      function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+              {description="mute volume", group="function keys"}),
+    awful.key({}, "XF86AudioMicMute",   function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end,
+              {description="mute microphone", group="function keys"}),
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
