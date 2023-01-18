@@ -10,6 +10,7 @@ These commands assume the '.dotfiles' folder is at ~/.dotfiles
   ln -sf ~/.dotfiles/.fehbg ~/.fehbg  
   ln -sf ~/.dotfiles/config.lua ~/.config/lvim/config.lua  
   ln -sf ~/.dotfiles/rc.lua ~/.config/awesome/rc.lua
+  ln -sf ~/.dotfiles/theme.lua ~/.config/awesome/theme.lua
   
 copy the file 00-input-devices.conf into this folder:  
   /etc/X11/xorg.conf.d/  
