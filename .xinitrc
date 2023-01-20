@@ -32,22 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-while true
-do
-    VOL=$(amixer get Master | tail -1 | sed 's/.*\[\([0-9]*%\)\].*/\1/')
-    LOCALTIME=$(date "+%a %b %d %Y %H:%M")
-    TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))C"
-
-    if acpi -a | grep off-line > /dev/null
-    then
-        BAT="Bat. $(acpi -b | awk '{ print $4 " " $5 }' | tr -d ',')"
-        xsetroot -name "$BAT $VOL $TEMP $LOCALTIME"
-    else
-        xsetroot -name "$VOL $TEMP $LOCALTIME"
-    fi
-    sleep 60s
-done &
-
 # launch programs and window manager
 ~/.fehbg &
 exec dwm
