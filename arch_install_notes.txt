@@ -306,12 +306,7 @@ Remove the installation medium and restart.
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
-    -slock
+    -i3-lock?
     -lutris and wine and steam and settings like feralgamemode
     -go through bookmarked stuff
-    -set up statusbar with date / time / battery / cpu? / temps? / network?
-     
-    -move all these installation steps into one installer script that can
-     be run after the OS has been installed and a non-root user has been
-     created. The script will install all these programs and download all
-     the relevant configs from our github.
+    -set up statusbar with battery percentage, maybe brightness and volume?
