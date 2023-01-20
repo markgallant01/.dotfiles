@@ -281,7 +281,7 @@ Remove the installation medium and restart.
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar  // maybe sort these at some point
     
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
@@ -308,9 +308,6 @@ Remove the installation medium and restart.
   To-do:
     -slock
     -lutris and wine and steam and settings like feralgamemode
-    -music player with visual thingy we like (cmus?)
-    -graphical file manager (dolphin, thunar?)
-    -ranger?
     -go through bookmarked stuff
     -set up statusbar with date / time / battery / cpu? / temps? / network?
      
