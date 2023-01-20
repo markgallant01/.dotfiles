@@ -306,7 +306,6 @@ Remove the installation medium and restart.
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
-    -customize picom
     -slock
     -lutris and wine and steam and settings like feralgamemode
     -music player with visual thingy we like (cmus?)
@@ -314,7 +313,6 @@ Remove the installation medium and restart.
     -ranger?
     -go through bookmarked stuff
     -set up statusbar with date / time / battery / cpu? / temps? / network?
-    -customize AwesomeWM
      
     -move all these installation steps into one installer script that can
      be run after the OS has been installed and a non-root user has been
