@@ -243,6 +243,10 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioMicMute",   function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end,
               {description="mute microphone", group="function keys"}),
 
+    -- custom keybind for i3lock
+    awful.key({ modkey, "Shift" }, "x", function () awful.util.spawn("i3lock -i /home/mark/Pictures/wallpaper/absdark.png") end,
+              {description="lock screen with i3lock", group="custom keybinds"}),
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
