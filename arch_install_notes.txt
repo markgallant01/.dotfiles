@@ -84,7 +84,7 @@ as a substitute, in case anything about the process changes.
 2.2 Install essential packages
   Use pacstrap to install initial packages:
     
-    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager
+    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager network-manager-applet
                        neovim reflector man-db man-pages texinfo
                        
 /* 3. Configure the system */
