@@ -281,7 +281,7 @@ Remove the installation medium and restart.
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar  // maybe sort these at some point
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock  // maybe sort these at some point
     
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
