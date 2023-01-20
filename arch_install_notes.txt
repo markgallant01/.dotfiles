@@ -289,7 +289,7 @@ Remove the installation medium and restart.
     $ makepkg -si
     
   AUR stuff:
-    $ yay -S nvm nerd-fonts-dejavu-complete
+    $ yay -S nvm nerd-fonts-dejavu-complete cava
     
   Lunarvim:
     First install dependencies:
