@@ -37,5 +37,5 @@ nm-applet &
 blueman-applet &
 xfce4-power-manager &
 ~/.fehbg &
-exec dwm
+exec awesome
 
