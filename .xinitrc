@@ -35,6 +35,7 @@ fi
 # launch programs and window manager
 nm-applet &
 blueman-applet &
+xfce4-power-manager &
 ~/.fehbg &
 exec dwm
 
