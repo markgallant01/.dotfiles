@@ -255,7 +255,7 @@ Remove the installation medium and restart.
     
   Power management:
     (come back to this)
-    $ pacman -S xfce4-power-manager
+    $ pacman -S xfce4-power-manager acpi
     
   Sound system:
     $ pacman -S pipewire lib32-pipewire wireplumber pipewire-pulse blueman
