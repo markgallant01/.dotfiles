@@ -217,6 +217,12 @@ Remove the installation medium and restart.
       
     Nvidia:
       $ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils
+      
+      For nvidia, follow these instructions to ensure everything works properly:
+        https://wiki.archlinux.org/title/NVIDIA#Installation
+      
+    Regardless of which GPU driver set you install, install vulkan-icd-loader so vulkan works:
+      $ sudo pacman -s vulkan-icd-loader
   
   Window manager, terminal, and compositor:
     Install dependencies first:
