@@ -289,6 +289,17 @@ Remove the installation medium and restart.
   Misc utilities:
     $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock  // maybe sort these at some point
     
+  Gaming:
+    $ sudo pacman -S steam lutris
+    
+    Install all of these wine dependencies needed for gaming:
+      sudo pacman -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \
+                     mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \
+                     lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo \
+                     sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama \
+                     ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 \
+                     lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
+    
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
     $ cd yay
@@ -312,6 +323,6 @@ Remove the installation medium and restart.
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
-    -lutris and wine and steam and settings like feralgamemode
+    -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
     -set up statusbar with battery percentage, maybe brightness and volume?
