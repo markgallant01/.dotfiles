@@ -322,7 +322,7 @@ Remove the installation medium and restart.
     Make sure lunarvim config is symlinked
     
   Dark theme:
-    $ pacman -S lxappearance-gtk3
+    $ pacman -S lxappearance-gtk3 arc-solid-gtk-theme
     
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
