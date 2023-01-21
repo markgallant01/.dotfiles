@@ -255,7 +255,7 @@ Remove the installation medium and restart.
     
   Power management:
     (come back to this)
-    $ pacman -S xfce4-power-manager acpi
+    $ pacman -S acpi
     
   Sound system:
     $ pacman -S pipewire lib32-pipewire wireplumber pipewire-pulse blueman
@@ -329,4 +329,4 @@ Remove the installation medium and restart.
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -set up statusbar with battery percentage, maybe brightness and volume?
+    -set up statusbar with brightness and volume?
