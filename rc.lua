@@ -230,21 +230,21 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- custom bindings for laptop function keys
-    awful.key({}, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 5") end,
+    awful.key({}, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 5", false) end,
               {description="increase brightness", group="custom keybinds"}),
-    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5") end,
+    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5", false) end,
               {description="decrease brightness", group="custom keybinds"}),
-    awful.key({}, "XF86AudioRaiseVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
+    awful.key({}, "XF86AudioRaiseVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false) end,
               {description="increase volume", group="custom keybinds"}),
-    awful.key({}, "XF86AudioLowerVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
+    awful.key({}, "XF86AudioLowerVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%", false) end,
               {description="decrease volume", group="custom keybinds"}),
-    awful.key({}, "XF86AudioMute",      function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+    awful.key({}, "XF86AudioMute",      function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
               {description="mute volume", group="custom keybinds"}),
-    awful.key({}, "XF86AudioMicMute",   function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle") end,
+    awful.key({}, "XF86AudioMicMute",   function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end,
               {description="mute microphone", group="custom keybinds"}),
 
     -- custom keybind for i3lock
-    awful.key({ modkey, "Shift" }, "x", function () awful.util.spawn("i3lock -i /home/mark/Pictures/wallpaper/absdark.png") end,
+    awful.key({ modkey, "Shift" }, "x", function () awful.util.spawn("i3lock -i /home/mark/Pictures/wallpaper/absdark.png", false) end,
               {description="lock screen with i3lock", group="custom keybinds"}),
 
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
