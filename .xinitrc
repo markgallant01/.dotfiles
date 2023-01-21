@@ -36,7 +36,6 @@ fi
 picom &
 nm-applet &
 blueman-applet &
-xfce4-power-manager &
 ~/.fehbg &
 exec awesome
 
