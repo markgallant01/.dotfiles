@@ -329,4 +329,3 @@ Remove the installation medium and restart.
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -set up statusbar with brightness and volume?
