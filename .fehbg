@@ -1,2 +1,3 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale --randomize /home/mark/Pictures/wallpaper/*
+feh --no-fehbg --bg-scale --randomize /home/mark/Pictures/wallpaper/nebula_background_1-wallpaper-1600x900.jpg
+
