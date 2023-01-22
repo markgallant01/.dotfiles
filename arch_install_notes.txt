@@ -226,7 +226,7 @@ Remove the installation medium and restart.
   
   Window manager, terminal, and compositor:
     Install dependencies first:
-      $ sudo pacman -S libxft libxinerama ttf-dejavu
+      $ sudo pacman -S libxft libxinerama ttf-dejavu-nerd
       
     $ git clone git@github.com:markgallant01/dwm.git
     $ cd dwm
@@ -307,7 +307,7 @@ Remove the installation medium and restart.
     $ makepkg -si
     
   AUR stuff:
-    $ yay -S nvm nerd-fonts-dejavu-complete cava
+    $ yay -S nvm cava
     
   Lunarvim:
     First install dependencies:
