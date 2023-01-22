@@ -240,9 +240,9 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- custom bindings for laptop function keys
-    awful.key({}, "XF86MonBrightnessUp",   function () awful.util.spawn("xbacklight -inc 5", false) end,
+    awful.key({}, "XF86MonBrightnessUp",   function () brightness_widget.inc() end,
               {description="increase brightness", group="custom keybinds"}),
-    awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5", false) end,
+    awful.key({}, "XF86MonBrightnessDown", function () brightness_widget.dec() end,
               {description="decrease brightness", group="custom keybinds"}),
     awful.key({}, "XF86AudioRaiseVolume",  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false) end,
               {description="increase volume", group="custom keybinds"}),
