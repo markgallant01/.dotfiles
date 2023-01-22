@@ -22,6 +22,7 @@ require("awful.hotkeys_popup.keys")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local volume_widget = require("awesome-wm-widgets.pactl-widget.volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -236,6 +237,7 @@ awful.screen.connect_for_each_screen(function(s)
               program = 'xbacklight',
               step = 5,
             },
+            volume_widget(),
             mytextclock,
             -- s.mylayoutbox,
         },
