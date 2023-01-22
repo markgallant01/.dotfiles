@@ -21,6 +21,7 @@ require("awful.hotkeys_popup.keys")
 -- Personal widgets
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -112,6 +113,19 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+-- Create a calendar_widget attached to the clock
+local cw = calendar_widget({
+  theme = "nord",
+  placement = "top_right",
+  start_sunday = "true",
+  radius = 8,
+})
+
+mytextclock:connect_signal("button::press",
+  function(_, _, _, button)
+    if button == 1 then cw.toggle() end
+  end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
