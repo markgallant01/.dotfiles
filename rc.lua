@@ -220,7 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
             brightness_widget{
               type = 'icon_and_text',
               program = 'xbacklight',
-              step = 2,
+              step = 5,
             },
             mytextclock,
             -- s.mylayoutbox,
