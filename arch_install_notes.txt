@@ -288,7 +288,7 @@ Remove the installation medium and restart.
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock  // maybe sort these at some point
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock calibre  // maybe sort these at some point
     
   Gaming:
     $ sudo pacman -S steam lutris
