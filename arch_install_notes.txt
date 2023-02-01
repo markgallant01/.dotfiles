@@ -290,6 +290,9 @@ Remove the installation medium and restart.
   Misc utilities:
     $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock calibre  // maybe sort these at some point
     
+  Java stuff:
+    $ sudo pacman -S jdk-openjdk java-openjfx
+    
   Gaming:
     $ sudo pacman -S steam lutris
     
