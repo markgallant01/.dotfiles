@@ -332,4 +332,4 @@ Remove the installation medium and restart.
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -repace lunarVim with lazyVim and remove and lunarVim specific stuff
+    -add steps for setting up LunarVim maybe or at least reference the setup pages for LunarVim
