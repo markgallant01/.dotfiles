@@ -53,6 +53,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/mark/.config/awesome/theme.lua")
+beautiful.font = "DejaVuSansM Nerd Font Mono:style=Regular"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
