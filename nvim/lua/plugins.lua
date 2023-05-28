@@ -26,8 +26,9 @@ return {
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 	{
-		-- tokyonight colorscheme
-		'folke/tokyonight.nvim'
+		-- colorschemes
+		{'folke/tokyonight.nvim'},
+        {'loctvl842/monokai-pro.nvim'}
 	},
 	{
         -- treesitter parser

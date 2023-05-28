@@ -20,7 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- do final vim settings stuff here
-vim.cmd[[colorscheme tokyonight-moon]]
+vim.opt.syntax = "on"
+vim.cmd[[colorscheme monokai-pro]]
 
 -- sets
 vim.opt.guicursor = ""
