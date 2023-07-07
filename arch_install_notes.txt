@@ -310,26 +310,11 @@ Remove the installation medium and restart.
     $ makepkg -si
     
   AUR stuff:
-    $ yay -S nvm cava
-    
-  Lunarvim:
-    First install dependencies:
-      $ pacman -S rust python-pip
-      
-    Use NVM to install the latest version of nodejs:
-      $ nvm install node
-      
-    Use the script on this page to install:
-      https://www.lunarvim.org/docs/installation
-      
-    Make sure lunarvim config is symlinked
-    
-  Dark theme:
-    $ pacman -S lxappearance-gtk3 arc-solid-gtk-theme arc-icon-theme
+    $ yay -S cava
     
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -add steps for setting up LunarVim maybe or at least reference the setup pages for LunarVim
+    -xbacklight and paxl for media keys
