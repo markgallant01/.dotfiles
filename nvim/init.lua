@@ -5,6 +5,7 @@
 -- leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- Install package manager
 -- https://github.com/folke/lazy.nvim
