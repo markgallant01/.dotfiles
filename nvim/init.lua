@@ -108,6 +108,13 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  -- autopairs
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {},
+  },
+
 }, {})
 
 -- basic vim settings
