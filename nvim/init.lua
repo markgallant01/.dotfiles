@@ -28,7 +28,22 @@ vim.opt.rtp:prepend(lazypath)
 -- You can also configure plugins after the setup call,
 -- as they will be available in your neovim runtime.
 require('lazy').setup({
-})
+  -- LSP Install
+  -- configuration is down further down. search lspconfig.
+  {
+    -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs
+      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      -- NOTE: 'opts = {}' is the same as calling 'require('fidget').setup({})'
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+    },
+  },
+}, {})
 
 -- basic vim settings
 vim.opt.guicursor = ""
