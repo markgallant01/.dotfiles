@@ -60,6 +60,15 @@ require('lazy').setup({
     },
   },
 
+  {
+    -- Monokai theme
+    'tanvirtin/monokai.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'monokai_pro'
+    end,
+  },
+
 }, {})
 
 -- basic vim settings
