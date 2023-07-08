@@ -5,7 +5,6 @@
 -- leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- Install package manager
 -- https://github.com/folke/lazy.nvim
@@ -117,30 +116,70 @@ require('lazy').setup({
 
 }, {})
 
--- basic vim settings
-vim.opt.guicursor = ""
+-- [[ setting options ]]
+--
+vim.o.guicursor = ""
+vim.o.mouse = 'a'
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.o.clipboard = 'unnamedplus'
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.wo.nu = true
+vim.o.relativenumber = true
 
-vim.opt.smartindent = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
-vim.opt.wrap = false
+vim.o.smartindent = true
+vim.o.breakindent = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.o.wrap = false
 
-vim.opt.termguicolors = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.o.hlsearch = false
+vim.o.incsearch = true
 
-vim.opt.updatetime = 50
+vim.o.termguicolors = true
 
-vim.opt.colorcolumn = "80"
+vim.o.scrolloff = 8
+vim.o.signcolumn = "yes"
+
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+vim.o.colorcolumn = "80"
+
+vim.o.completeopt = 'menuone,noselect'
+
+-- [[ Basic Keymaps ]]
+--
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+
+-- [[ Configure Telescope ]]
+-- See ':help telescope' and ':help telescope.setup()'
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      i = {
+        ['<C-u'] = false,
+        ['C-d>'] = false,
+      },
+    },
+  },
+}
+
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+
+-- See ':help telescope.builtin'
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 
