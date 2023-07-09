@@ -8,9 +8,6 @@ These commands assume the '.dotfiles' folder is at ~/.dotfiles
   ln -sf ~/.dotfiles/.Xresources ~/.Xresources  
   ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf  
   ln -sf ~/.dotfiles/.fehbg ~/.fehbg  
-  ln -sf ~/.dotfiles/rc.lua ~/.config/awesome/rc.lua  
-  ln -sf ~/.dotfiles/theme.lua ~/.config/awesome/theme.lua  
-  ln -sf ~/.dotfiles/awesome-wm-widgets/ ~/.config/awesome/awesome-wm-widgets  
   ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
   
 copy the file 00-input-devices.conf into this folder:  
