@@ -61,11 +61,8 @@ require('lazy').setup({
 
   {
     -- Monokai theme
-    'tanvirtin/monokai.nvim',
+    'loctvl842/monokai-pro.nvim',
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'monokai_pro'
-    end,
   },
 
   {
@@ -77,12 +74,13 @@ require('lazy').setup({
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
+        theme = 'monokai-pro',
       },
     },
   },
 
   -- Fuzzy Finder
-  { 
+  {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
@@ -176,20 +174,70 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 -- See ':help telescope.builtin'
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, 
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles,
   { desc = '[?] Find recently opened files' })
 
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, 
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers,
   { desc = '[ ] Find existing buffers' })
 
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, 
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files,
   { desc = '[S]earch [F]iles' })
 
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, 
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string,
   { desc = '[S]earch current [W]ord' })
 
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, 
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep,
   { desc = '[S]earch by [G]rep' })
+
+-- [[ Configure Monokai Colorscheme ]]
+--
+require("monokai-pro").setup({
+  transparent_background = false,
+  terminal_colors = true,
+  devicons = true, -- highlight the icons of `nvim-web-devicons`
+  styles = {
+    comment = { italic = true },
+    keyword = { italic = false }, -- any other keyword
+    type = { italic = false }, -- (preferred) int, long, char, etc
+    storageclass = { italic = false }, -- static, register, volatile, etc
+    structure = { italic = false }, -- struct, union, enum, etc
+    parameter = { italic = true }, -- parameter pass in function
+    annotation = { italic = true },
+    tag_attribute = { italic = true }, -- attribute of tag in reactjs
+  },
+  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+  -- Enable this will disable filter option
+  day_night = {
+    enable = false, -- turn off by default
+    day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+  },
+  inc_search = "background", -- underline | background
+  background_clear = {
+    -- "float_win",
+    "toggleterm",
+    "telescope",
+    -- "which-key",
+    "renamer",
+    "notify",
+    -- "nvim-tree",
+    -- "neo-tree",
+    -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+  },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+  plugins = {
+    bufferline = {
+      underline_selected = false,
+      underline_visible = false,
+    },
+    indent_blankline = {
+      context_highlight = "default", -- default | pro
+      context_start_underline = false,
+    },
+  },
+  ---@param c Colorscheme
+  override = function(c) end,
+})
+vim.cmd([[colorscheme monokai-pro]])
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
