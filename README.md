@@ -5,7 +5,6 @@ These commands assume the '.dotfiles' folder is at ~/.dotfiles
   
   ln -sf ~/.dotfiles/.bashrc ~/.bashrc  
   ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc  
-  ln -sf ~/.dotfiles/.Xresources ~/.Xresources  
   ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf  
   ln -sf ~/.dotfiles/.fehbg ~/.fehbg  
   ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
