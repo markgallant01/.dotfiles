@@ -17,10 +17,9 @@ as a substitute, in case anything about the process changes.
   step.
   
 1.6 Verify the boot mode
-  Just run the following command and make sure it prints a bunch of files
-  without error to verify that you're booted in UEFI mode:
+  Just run the following command and make sure it outputs 64:
   
-    # ls /sys/firmware/efi/efivars
+    # cat /sys/firmware/efi/fw_platform_size
     
 1.7 Connect to the internet
   If you're wired then just plug in the ethernet and it should work fine.
@@ -41,7 +40,7 @@ as a substitute, in case anything about the process changes.
 1.8 Update the system clock
   Just run the following command to make sure the clock is right
   
-    # timedatectl status
+    # timedatectl
     
 1.9 Partition the disks
   List the disks with this command
@@ -77,14 +76,17 @@ as a substitute, in case anything about the process changes.
 /* 2. Installation */
 
 2.1 Select the mirrors
-  Sort mirrors with reflector:
-  
-    # reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+  use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and move the American
+  mirror to the top of the list.
+
+  -move this line somewhere else
+  Sort mirrors with reflector:  
+    # reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 2.2 Install essential packages
   Use pacstrap to install initial packages:
     
-    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager network-manager-applet
+    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager vim
                        neovim reflector man-db man-pages texinfo
                        
 /* 3. Configure the system */
@@ -156,6 +158,8 @@ Exit the chroot by typing 'exit'. Unmount all partitions then shutdown.
 
 Remove the installation medium and restart.
 
+add network stuff here. had to enable metworkManager and run nmcli once for internet to work.
+
 /* Post-install */
   This section sets up the newly installed system. Login to the new system
   as root.
@@ -194,7 +198,7 @@ Remove the installation medium and restart.
   Before installing anything run reflector again to sort the mirrors for
   the newly installed system
   
-    $ sudo reflector --latest 50 --sort rate 
+    $ sudo reflector --latest 20 --sort rate 
                      --save /etc/pacman.d/mirrorlist
   
   First download and setup git:
@@ -222,7 +226,7 @@ Remove the installation medium and restart.
         https://wiki.archlinux.org/title/NVIDIA#Installation
       
     Regardless of which GPU driver set you install, install vulkan-icd-loader so vulkan works:
-      $ sudo pacman -s vulkan-icd-loader
+      $ sudo pacman -S vulkan-icd-loader
   
   Window manager, terminal, and compositor:
     Install dependencies first:
@@ -252,6 +256,8 @@ Remove the installation medium and restart.
       
   You should now be able to use the command 'startx' to launch into a
   graphical system.
+
+  blueman and network-manager-applet need to be installed before startx will launch.
     
   Power management:
     (come back to this)
@@ -288,7 +294,7 @@ Remove the installation medium and restart.
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock calibre  // maybe sort these at some point
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock calibre htop  // maybe sort these at some point
     
   Java stuff:
     $ sudo pacman -S jdk-openjdk
