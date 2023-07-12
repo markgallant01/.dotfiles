@@ -261,3 +261,5 @@ Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
     -dwm systray patch
     -look at picom, decide how to set it up
     -setup dwm statusbar top right (brightness, volume, date, time)
+    -change mod-F keybind in dwm from floating mode to fullscreen
+    -dwm fullscreen patch?
