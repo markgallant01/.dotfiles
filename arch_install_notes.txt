@@ -258,3 +258,6 @@ Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
      (automate as much of this as possible)
     -make sure nvidia stuff is fleshed out
     -add to .xinitrc so that laptop has its own xrandr line
+    -dwm systray patch
+    -look at picom, decide how to set it up
+    -setup dwm statusbar top right (brightness, volume, date, time)
