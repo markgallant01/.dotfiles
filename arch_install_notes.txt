@@ -1,33 +1,35 @@
-This is a compilation of notes to be used as a walkthrough / cheat-sheet
-for an arch linux install. Use alongside the official install guide, not
-as a substitute, in case anything about the process changes.
+This is a compilation of notes to be used as supplementary material for
+an arch linux install. Use alongside the installation guide found at 
+wiki.archlinux.org.
 
+/***********************/
 /* 1. Pre-installation */
+/***********************/
 
 1.1 Acqure an installation image
 1.2 Verify signature
 1.3 Prepare an installation medium
-  -use a fresh install iso
+  -use a fresh arch iso
   -dd command is easiest:
+
     $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive
          conv=fsync oflag=direct status=progress
 
 1.4 Boot the live environment
-1.5 Set the console keyboard layout
+1.5 Set the console keyboard layout and font
 1.6 Verify the boot mode 
 1.7 Connect to the internet
-  If you're wired then just plug in the ethernet and it should work fine.
-  If using wifi, connect to the network with iwctl.
+  -If you're wired then just plug in the ethernet and it should work fine.
+  -If using wifi, connect to the network with iwctl.
     
     # iwctl                   // this will give you an interactive prompt
-    [iwd]# device list            // get the name of wireless device
-    [iwd]# station *device* scan      // scan for wireless networks
-    [iwd]# station *device* get-networks    // list networks
-    [iwd]# station *device* connect *SSID*
+    [iwd]# device list                 // get the name of wireless device
+    [iwd]# station *device* scan            // scan for wireless networks
+    [iwd]# station *device* get-networks                 // list networks
+    [iwd]# station *device* connect *SSID*          // connect to network
     
-  Enter the password when prompted and then exit with Ctrl+d.
-  
-  Verify the connection with:
+  -enter the password when prompted and then exit with Ctrl+d.
+  -verify the connection with:
   
     # ping archlinux.org  
   
@@ -35,7 +37,7 @@ as a substitute, in case anything about the process changes.
 1.9 Partition the disks
   -format all drives as ext4 Linux Filesystem.
   -boot drive needs 2 partitions: a 300M EFI boot partition
-    and the rest of the drive is Linux x86_64 root (ext4)
+   and the rest of the drive is Linux x86_64 root (ext4)
 
   -list the drives with:
     # lsblk -l
@@ -45,83 +47,118 @@ as a substitute, in case anything about the process changes.
 1.10 Format the partitions 
 1.11 Mount the file system
 
+/*******************/
 /* 2. Installation */
+/*******************/
 
 2.1 Select the mirrors
-  use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
-  move the American mirror to the top of the list.
+  -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
+   move the American mirror to the top of the list.
 
 2.2 Install essential packages
-  Use pacstrap to install initial packages:
+  -in addition to the essential packages, install man pages, vim
+   for early text editing, and networkManager.
     
-    # pacstrap -K /mnt base linux linux-firmware base-devel vim
-                       networkmanager reflector man-db 
-                       man-pages texinfo
-                       
+    # pacstrap -K /mnt base linux linux-firmware
+                       man-db man-pages texinfo
+                       vim networkmanager
+
+/***************************/
 /* 3. Configure the system */
+/***************************/
 
 3.1 Fstab
-  -set up the fstab here maybe at some point
-  -possibly move setting up other disks to another section
-    
 3.2 Chroot
 3.3 Time zone
 3.4 Localization
 3.5 Network configuration
-3.6 Initramfs -skip
+  -after setting up the hostname file, set up NetworkManager so the internet
+   works on reboot. Enable the service, then run nmcli once. That should be
+   all you need.
+
+    # systemctl enable NetworkManager.service
+    # nmcli
+
+3.6 Initramfs
 3.7 Root password
 3.8 Boot loader
+  -use GRUB bootloader, very easy. 
+  -first command installs the packages.
+  -second installs bootloader
+  -third configures bootloader
 
+    # pacman -S grub efibootmgr
+    # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+    # grub-mkconfig -o /boot/grub/grub.cfg
+
+  -then, intel microcode
+  -install ucode and reconfigure grub so it applies the microcode
+
+    # pacman -S intel-ucode
+    # grub-mkconfig -o /boot/grub/grub.cfg
+
+/*************/
 /* 4. Reboot */
+/*************/
 
+  # exit
+  # umount -R /mnt
+  # shutdown +0
+
+  -remove the installation USB and boot into the new system.
+
+/****************/
 /* Post-install */
-This section sets up the newly installed system. Login to the new system
-as root.
+/****************/
+
+  -this section sets up the newly installed system. Login to the new system
+   as root.
+  -setup a non-root user and set the password:
   
-Setup a non-root user and set the password:
-  
-  $ useradd -m *user*
-  $ passwd *user*
+    # useradd -m *user*
+    # passwd *user*
     
-Add the new user to the sudoers file with visudo
+  -add the new user to the sudoers file with visudo
   
-  $ EDITOR=neovim visudo
-  *user* ALL=(ALL:ALL) ALL
+    # EDITOR=neovim visudo
+
+      *user* ALL=(ALL:ALL) ALL    // add this line to the file
     
-Then logout of root and login as the new user. Get the network up and
-running with NetworkManager:
+  -then logout of root and login as the new user. 
+  -verify the internet:
 
-  $ systemctl enable NetworkManager.service
-  $ nmcli
-  $ ping archlinux.org
+    $ ping archlinux.org
 
-With the internet working, pacman can be used to install packages.
+  -first install reflector and use it to sort the mirrors
 
-Before installing anything run reflector again to sort the mirrors for
-the newly installed system.
-  
-  $ sudo reflector --latest 20 --sort rate 
-                   --save /etc/pacman.d/mirrorlist
+    $ sudo pacman -S reflector
+    $ sudo reflector --latest 20 --sort rate 
+                     --save /etc/pacman.d/mirrorlist
 
-Create new user's home directory folders:
+  -download xdg-user-dirs and use it to 
+   create home directory folders:
 
-  $ pacman -S xdg-user-dirs
-  $ xdg-user-dirs-update
-  $ mkdir Screenshots Trash Usb
+    $ pacman -S xdg-user-dirs
+    $ xdg-user-dirs-update
+    $ mkdir Screenshots Trash Usb
+
+  -create additional directories in the home directory
+   for any internal or external drives you want to mount
+  -set up the fstab here so that drives auto mount 
+   (come back to this)
     
-Setup pacman by editing pacman.conf to enable the multilib repo and
-enable parallel downloading:
+  -setup pacman by editing pacman.conf to enable the multilib repo and
+   enable parallel downloading:
+   (uncomment the lines):
   
-  "/etc/pacman.conf"
-  [options]
-  ParallelDownloads = 5
-  ...
-  [multilib]
-  Include = /etc/pacman.d/mirrorlist
-  
-Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
-  
-  First download and setup git:
+    "/etc/pacman.conf"
+    [options]
+    ParallelDownloads = 5
+    ...
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
+    
+  -download and setup git:
     $ sudo pacman -S git
     $ git config --global user.name "user_name"
     $ git config --global user.email "email"
@@ -129,23 +166,29 @@ Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
     $ git config --global color.ui auto
     $ git config --global pull.rebase false
     
-  Install openssh for generating ssh keys for git:
+  -install openssh for generating ssh keys for git:
     $ sudo pacman -S openssh
   
-  Download X server:
-    $ sudo pacman -S xorg-server
+  -download X server and some tools
+    $ sudo pacman -S xorg-server xorg-xbacklight xorg-xrandr
     
-  Then install the proper set of GPU drivers:
+  -then install the proper set of GPU drivers:
     Intel:
       $ sudo pacman -S mesa lib32-mesa xf86-video-intel vulkan-intel
       
     Nvidia:
       $ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils
       
-      For nvidia, follow these instructions to ensure everything works properly:
-        https://wiki.archlinux.org/title/NVIDIA#Installation
+      -for nvidia, you must edit the file /etc/mkinitcpio.conf
+       to remove the 'kms' module from the HOOKS array.
+
+        $ sudo vim /etc/mkinitcpio.conf
+
+      -after that, re-run the command to regenerate the initramfs
+
+        $ sudo mkinitcpio -P
       
-    Regardless of which GPU driver set you install, install vulkan-icd-loader so vulkan works:
+    -regardless of which GPU driver set you install, install vulkan-icd-loader so vulkan works:
       $ sudo pacman -S vulkan-icd-loader
   
   Window manager, terminal, and compositor:
@@ -157,6 +200,8 @@ Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
     $ git clone https://github.com/markgallant01/dwm
     $ git clone https://github.com/markgallant01/st
       this should let us download dwm and st without being authenticated with github yet.
+
+    $ sudo pacman -S base-devel
       
     $ git clone git@github.com:markgallant01/dwm.git
     $ cd dwm
