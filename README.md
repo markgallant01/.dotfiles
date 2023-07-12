@@ -11,6 +11,9 @@ These commands assume the '.dotfiles' folder is at ~/.dotfiles
   
 copy the file 00-input-devices.conf into this folder:  
   /etc/X11/xorg.conf.d/  
+
+copy the file nvidia.hook into this folder:
+  /etc/pacman.d/hooks/
   
 Create any of these locations if they do not already exist.  
 
