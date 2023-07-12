@@ -37,5 +37,6 @@ picom &
 nm-applet &
 blueman-applet &
 ~/.fehbg &
-exec awesome
+xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
+exec dwm
 
