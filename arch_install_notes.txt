@@ -7,20 +7,14 @@ as a substitute, in case anything about the process changes.
 1.1 Acqure an installation image
 1.2 Verify signature
 1.3 Prepare an installation medium
+  -use a fresh install iso
+  -dd command is easiest:
+    $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive
+         conv=fsync oflag=direct status=progress
+
 1.4 Boot the live environment
 1.5 Set the console keyboard layout
-
-  Everything above can be skipped. It's just downloading the iso and
-  creating a bootable USB. The keyboard doesn't need to be set as the
-  default US is correct. Refer to the above steps if you don't have
-  a bootable USB and need to create one but otherwise skip to the next
-  step.
-  
-1.6 Verify the boot mode
-  Just run the following command and make sure it outputs 64:
-  
-    # cat /sys/firmware/efi/fw_platform_size
-    
+1.6 Verify the boot mode 
 1.7 Connect to the internet
   If you're wired then just plug in the ethernet and it should work fine.
   If using wifi, connect to the network with iwctl.
@@ -37,169 +31,95 @@ as a substitute, in case anything about the process changes.
   
     # ping archlinux.org  
   
-1.8 Update the system clock
-  Just run the following command to make sure the clock is right
-  
-    # timedatectl
-    
+1.8 Update the system clock  
 1.9 Partition the disks
-  List the disks with this command
-    
-    # lsblk -l
-    
-  You need one boot partition and one partition for the root directory.
-  The boot partition should be 300M and the root directory should take
-  up the rest of the available space on the disk.
-  
-  The boot partition should be type: EFI System Partition and the root
-  directory partition should be type: Linux x86-64 root (/)
-   
-  Use cfdisk to make things easy:
-  
-    # cfdisk /dev/sdx 
+  -format all drives as ext4 Linux Filesystem.
+  -boot drive needs 2 partitions: a 300M EFI boot partition
+    and the rest of the drive is Linux x86_64 root (ext4)
 
-1.10 Format the partitions
-  Format the root directory partition as ext4 with this command:
-  
-    # mkfs.ext4 /dev/*root_partition*
-    
-  And format the boot partition with this command:
-  
-    # mkfs.fat -F 32 /dev/*efi_partition*
-    
+  -list the drives with:
+    # lsblk -l
+
+  -and use cfdisk to make the partitioning easy.
+
+1.10 Format the partitions 
 1.11 Mount the file system
-  Mount both partitions with these commands:
-  
-    # mount /dev/*root_partition* /mnt
-    # mount --mkdir /dev/*efi_partition* /mnt/boot
 
 /* 2. Installation */
 
 2.1 Select the mirrors
-  use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and move the American
-  mirror to the top of the list.
-
-  -move this line somewhere else
-  Sort mirrors with reflector:  
-    # reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+  use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
+  move the American mirror to the top of the list.
 
 2.2 Install essential packages
   Use pacstrap to install initial packages:
     
-    # pacstrap -K /mnt base linux linux-firmware base-devel networkmanager vim
-                       neovim reflector man-db man-pages texinfo
+    # pacstrap -K /mnt base linux linux-firmware base-devel vim
+                       networkmanager reflector man-db 
+                       man-pages texinfo
                        
 /* 3. Configure the system */
 
 3.1 Fstab
-  Run this command to generate an fstab file
-  
-    # genfstab -U /mnt >> /mnt/etc/fstab
+  -set up the fstab here maybe at some point
+  -possibly move setting up other disks to another section
     
 3.2 Chroot
-  Change root into the new install with this command:
-  
-    # arch-chroot /mnt
-    
 3.3 Time zone
-  Set the time zone and generate /etc/adjtime with these commands:
-  
-    # ln -sf /usr/share/zoneinfo/Americas/New_York /etc/localtime
-    # hwclock --systohc
-    
 3.4 Localization
-  Edit /etc/local.gen and uncomment en_US.UTF-8 UTF-8. Then generate the
-  locale.
-  
-    # nvim /etc/locale.gen
-    # locale-gen
-  
-  Create the locale.conf file and set the LANG variable:
-  
-    "/etc/locale.conf"   <- Name of the file, do not include in the file
-    LANG=en_US.UTF-8
-    
 3.5 Network configuration
-  Create the hostname file:
-  
-    "/etc/hostname"
-    *hostname*
-    
- 3.6 Initramfs -skip
- 
- 3.7 Root password
-  Set the root password:
-    
-    # passwd
-    
+3.6 Initramfs -skip
+3.7 Root password
 3.8 Boot loader
-  Setup the grub bootloader. Install the packages and then run the install
-  script.
-  
-    # pacman -S grub efibootmgr
-    # grub-install --target=x86_64-efi --efi-directory=/boot
-                   --bootloader-id=GRUB
-  
-  Then generate the config:
-  
-    # grub-mkconfig -o /boot/grub/grub.cfg
-    
-  Install intel microcode and regenerate grub config file
-  
-    # pacman -S intel-ucode
-    # grub-mkconfig -o /boot/grub/grub.cfg
 
 /* 4. Reboot */
 
-Exit the chroot by typing 'exit'. Unmount all partitions then shutdown.
-
-  # umount -R /mnt
-  # shutdown +0
-
-Remove the installation medium and restart.
-
-add network stuff here. had to enable metworkManager and run nmcli once for internet to work.
-
 /* Post-install */
-  This section sets up the newly installed system. Login to the new system
-  as root.
+This section sets up the newly installed system. Login to the new system
+as root.
   
-  Setup a non-root user and set the password:
+Setup a non-root user and set the password:
   
-    $ useradd -m *user*
-    $ passwd *user*
+  $ useradd -m *user*
+  $ passwd *user*
     
-  Add the new user to the sudoers file with visudo
+Add the new user to the sudoers file with visudo
   
-    $ EDITOR=neovim visudo
-    *user* ALL=(ALL:ALL) ALL
+  $ EDITOR=neovim visudo
+  *user* ALL=(ALL:ALL) ALL
     
-  Then logout of root and login as the new user. Create new user's home
-  directory folders:
+Then logout of root and login as the new user. Get the network up and
+running with NetworkManager:
+
+  $ systemctl enable NetworkManager.service
+  $ nmcli
+  $ ping archlinux.org
+
+With the internet working, pacman can be used to install packages.
+
+Before installing anything run reflector again to sort the mirrors for
+the newly installed system.
   
-    $ pacman -S xdg-user-dirs
-    $ xdg-user-dirs-update
-    $ mkdir screenshots trash usb
+  $ sudo reflector --latest 20 --sort rate 
+                   --save /etc/pacman.d/mirrorlist
+
+Create new user's home directory folders:
+
+  $ pacman -S xdg-user-dirs
+  $ xdg-user-dirs-update
+  $ mkdir Screenshots Trash Usb
     
-  Setup pacman by editing pacman.conf to enable the multilib repo and
-  enable parallel downloading:
+Setup pacman by editing pacman.conf to enable the multilib repo and
+enable parallel downloading:
   
-    "/etc/pacman.conf"
-    [options]
-    ParallelDownloads = 5
-
-    ...
-
-    [multilib]
-    Include = /etc/pacman.d/mirrorlist
+  "/etc/pacman.conf"
+  [options]
+  ParallelDownloads = 5
+  ...
+  [multilib]
+  Include = /etc/pacman.d/mirrorlist
   
-  Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
-
-  Before installing anything run reflector again to sort the mirrors for
-  the newly installed system
-  
-    $ sudo reflector --latest 20 --sort rate 
-                     --save /etc/pacman.d/mirrorlist
+Set ParallelDownloads to 5 as shown and uncomment the multilib lines.
   
   First download and setup git:
     $ sudo pacman -S git
@@ -231,13 +151,19 @@ add network stuff here. had to enable metworkManager and run nmcli once for inte
   Window manager, terminal, and compositor:
     Install dependencies first:
       $ sudo pacman -S libxft libxinerama ttf-dejavu-nerd
+
+    for not needing to authenticate just yet since no graphical user interface still,
+    try using:
+    $ git clone https://github.com/markgallant01/dwm
+    $ git clone https://github.com/markgallant01/st
+      this should let us download dwm and st without being authenticated with github yet.
       
     $ git clone git@github.com:markgallant01/dwm.git
     $ cd dwm
     $ make
     $ make clean install
     
-    $ pacman -S urxvt picom
+    $ pacman -S picom
     
   Login manager:
     $ pacman -S xorg-xinit
@@ -258,6 +184,11 @@ add network stuff here. had to enable metworkManager and run nmcli once for inte
   graphical system.
 
   blueman and network-manager-applet need to be installed before startx will launch.
+
+  once startx works and we get a graphical interface, follow github instructions to generate a new
+  ssh key and add it to github. This will require openssh and a web browser and the ability to log into
+  github. Once authenticated, delete dwm and st folders and clone the repo properly so you have a real
+  repo with push permissions.
     
   Power management:
     (come back to this)
@@ -294,10 +225,7 @@ add network stuff here. had to enable metworkManager and run nmcli once for inte
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar i3lock calibre htop  // maybe sort these at some point
-    
-  Java stuff:
-    $ sudo pacman -S jdk-openjdk
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar xorg-backlight  // maybe sort these at some point
     
   Gaming:
     $ sudo pacman -S steam lutris
@@ -323,4 +251,10 @@ add network stuff here. had to enable metworkManager and run nmcli once for inte
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -xbacklight and pactl for media keys
+    -put neovim somewhere appropriate, before the dotfiles.
+    -figure out where github setup goes (and proper cloning of dwm, st, and dotfiles)
+    -continue cleaning up these notes
+    -sort downloads into a separate script that can be run at some point after the initial setup is complete
+     (automate as much of this as possible)
+    -make sure nvidia stuff is fleshed out
+    -add to .xinitrc so that laptop has its own xrandr line
