@@ -91,6 +91,7 @@ then
   packages+=("mesa" "lib32-mesa" "xf86-video-intel" "vulkan-intel")
 fi
 
+# install all the compiled packages
 pacman -S --needed "${packages[@]}"
 
 # set up home directories
