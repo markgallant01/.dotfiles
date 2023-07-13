@@ -192,18 +192,19 @@ wiki.archlinux.org.
       $ sudo pacman -S vulkan-icd-loader
   
   Window manager, terminal, and compositor:
-    Install dependencies first:
+    -install dependencies first:
       $ sudo pacman -S libxft libxinerama ttf-dejavu-nerd
 
-    for not needing to authenticate just yet since no graphical user interface still,
-    try using:
-    $ git clone https://github.com/markgallant01/dwm
-    $ git clone https://github.com/markgallant01/st
-      this should let us download dwm and st without being authenticated with github yet.
-
-    $ sudo pacman -S base-devel
+    -for not needing to authenticate just yet since no graphical user interface still,
+     try using:
+      $ git clone https://github.com/markgallant01/dwm
+      $ git clone https://github.com/markgallant01/st
       
-    $ git clone git@github.com:markgallant01/dwm.git
+    -this should let us download dwm and st without being authenticated with github yet.
+    -this package is needed for building from source:
+  
+      $ sudo pacman -S base-devel
+      
     $ cd dwm
     $ make
     $ make clean install
@@ -270,7 +271,7 @@ wiki.archlinux.org.
       "SKIP_HOST_UPDATE": true
     
   Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar xorg-backlight  // maybe sort these at some point
+    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar  // maybe sort these at some point
     
   Gaming:
     $ sudo pacman -S steam lutris
@@ -290,6 +291,9 @@ wiki.archlinux.org.
     
   AUR stuff:
     $ yay -S cava
+
+    $ git clone git@github.com:markgallant01/dwm.git
+
     
   xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
 
