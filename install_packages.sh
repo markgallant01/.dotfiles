@@ -38,7 +38,7 @@ packages+=("feh")
 
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "unzip" "xclip")
-packages+=("scrot" "cmus")
+packages+=("scrot" "cmus" "celluloid")
 
 # file browser
 packages+=("ranger" "thunar")
