@@ -38,7 +38,7 @@ packages+=("feh")
 
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "unzip" "xclip")
-packages+=("scrot" "cmus" "celluloid")
+packages+=("scrot" "cmus" "celluloid" "neovim")
 
 # file browser
 packages+=("ranger" "thunar")
@@ -107,3 +107,17 @@ git config --global pull.rebase false
 
 # clock synchronization
 systemctl enable --now systemd-timesyncd.service
+
+# download dwm and st
+git clone https://github.com/markgallant01/dwm
+git clone https://github.com/markgallant01/st
+
+# build and install dwm and st
+cd dwm
+make
+make clean install
+cd
+cd st
+make
+make clean install
+cd
