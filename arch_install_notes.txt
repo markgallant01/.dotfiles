@@ -129,56 +129,25 @@ wiki.archlinux.org.
 
     $ ping archlinux.org
 
-  -first install reflector and use it to sort the mirrors
+  -setup pacman by editing pacman.conf to enable the multilib repo and
+   enable parallel downloading:
+   (uncomment the lines):
+  
+      "/etc/pacman.conf"
+      [options]
+      ParallelDownloads = 5
+      ...
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
 
-    $ sudo pacman -S reflector
-    $ sudo reflector --latest 20 --sort rate 
-                     --save /etc/pacman.d/mirrorlist
-
-  -download xdg-user-dirs and use it to 
-   create home directory folders:
-
-    $ pacman -S xdg-user-dirs
-    $ xdg-user-dirs-update
-    $ mkdir Screenshots Trash Usb
+  -run install script?
 
   -create additional directories in the home directory
    for any internal or external drives you want to mount
   -set up the fstab here so that drives auto mount 
    (come back to this)
-    
-  -setup pacman by editing pacman.conf to enable the multilib repo and
-   enable parallel downloading:
-   (uncomment the lines):
-  
-    "/etc/pacman.conf"
-    [options]
-    ParallelDownloads = 5
-    ...
-    [multilib]
-    Include = /etc/pacman.d/mirrorlist
-    
-  -download and setup git:
-    $ sudo pacman -S git
-    $ git config --global user.name "user_name"
-    $ git config --global user.email "email"
-    $ git config --global init.defaultBranch main
-    $ git config --global color.ui auto
-    $ git config --global pull.rebase false
-    
-  -install openssh for generating ssh keys for git:
-    $ sudo pacman -S openssh
-  
-  -download X server and some tools
-    $ sudo pacman -S xorg-server xorg-xbacklight xorg-xrandr
-    
-  -then install the proper set of GPU drivers:
-    Intel:
-      $ sudo pacman -S mesa lib32-mesa xf86-video-intel vulkan-intel
       
     Nvidia:
-      $ sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils
-      
       -for nvidia, you must edit the file /etc/mkinitcpio.conf
        to remove the 'kms' module from the HOOKS array.
 
@@ -187,13 +156,6 @@ wiki.archlinux.org.
       -after that, re-run the command to regenerate the initramfs
 
         $ sudo mkinitcpio -P
-      
-    -regardless of which GPU driver set you install, install vulkan-icd-loader so vulkan works:
-      $ sudo pacman -S vulkan-icd-loader
-  
-  Window manager, terminal, and compositor:
-    -install dependencies first:
-      $ sudo pacman -S libxft libxinerama ttf-dejavu-nerd
 
     -for not needing to authenticate just yet since no graphical user interface still,
      try using:
@@ -201,21 +163,10 @@ wiki.archlinux.org.
       $ git clone https://github.com/markgallant01/st
       
     -this should let us download dwm and st without being authenticated with github yet.
-    -this package is needed for building from source:
-  
-      $ sudo pacman -S base-devel
       
     $ cd dwm
     $ make
     $ make clean install
-    
-    $ pacman -S picom
-    
-  Login manager:
-    $ pacman -S xorg-xinit
-    
-  Wallpaper:
-    $ pacman -S feh
     
     Place any wallpapers in ~/Photos/wallpaper/ for feh to use them
     
@@ -229,8 +180,6 @@ wiki.archlinux.org.
   You should now be able to use the command 'startx' to launch into a
   graphical system.
 
-  blueman and network-manager-applet need to be installed before startx will launch.
-
   once startx works and we get a graphical interface, follow github instructions to generate a new
   ssh key and add it to github. This will require openssh and a web browser and the ability to log into
   github. Once authenticated, delete dwm and st folders and clone the repo properly so you have a real
@@ -239,50 +188,15 @@ wiki.archlinux.org.
   Power management:
     (come back to this)
     $ pacman -S acpi
-    
-  Sound system:
-    $ pacman -S pipewire lib32-pipewire wireplumber pipewire-pulse blueman
-    
-  Clock synchronization:
-    $ systemctl enable --now systemd-timesyncd.service
-  
-  Performance:
-    $ pacman -S htop
-    
-  USB stuff:
-    $ pacman -S udisks2
   
   Printing:
     Maybe setup printing here in the future
-    
-  Downloading music from youtube:
-    $ sudo pacman -S yt-dlp
-    
-  Web browsers:
-    $ sudo pacman -S firefox chromium
-    
-  Discord:
-    $ sudo pacman -S discord
     
     Edit the shown line in this file so Discord doesn't refuse to launch
     if there's an update that's not in the repo yet:
     
     ~/.config/discord/settings.json
       "SKIP_HOST_UPDATE": true
-    
-  Misc utilities:
-    $ sudo pacman -S neofetch unzip xclip scrot ranger cmus thunar  // maybe sort these at some point
-    
-  Gaming:
-    $ sudo pacman -S steam lutris
-    
-    Install all of these wine dependencies needed for gaming:
-      sudo pacman -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls \
-                     mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error \
-                     lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo \
-                     sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama \
-                     ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 \
-                     lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader
     
   Setup Yay to use the AUR:
     $ git clone https://aur.archlinux.org/yay.git
@@ -294,8 +208,7 @@ wiki.archlinux.org.
 
     $ git clone git@github.com:markgallant01/dwm.git
 
-    
-  xrandr --output DP-0 --mode 2560x1440 --rate 165.00 --output DP-2 --mode 2560x1440 --rate 165.00 --right-of DP-0 &
+  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/install_packages.sh
 
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
