@@ -142,6 +142,10 @@ wiki.archlinux.org.
 
   -run install script?
 
+/***********************/
+/* POST-INSTALL-SCRIPT */
+/***********************/
+
   -create additional directories in the home directory
    for any internal or external drives you want to mount
   -set up the fstab here so that drives auto mount 
@@ -156,17 +160,6 @@ wiki.archlinux.org.
       -after that, re-run the command to regenerate the initramfs
 
         $ sudo mkinitcpio -P
-
-    -for not needing to authenticate just yet since no graphical user interface still,
-     try using:
-      $ git clone https://github.com/markgallant01/dwm
-      $ git clone https://github.com/markgallant01/st
-      
-    -this should let us download dwm and st without being authenticated with github yet.
-      
-    $ cd dwm
-    $ make
-    $ make clean install
     
     Place any wallpapers in ~/Photos/wallpaper/ for feh to use them
     
@@ -210,15 +203,13 @@ wiki.archlinux.org.
 
   curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/install_packages.sh
 
+set desktop volume to 100%:
+pactl list sinks short
+pactl set-sink-volume "sinkNumber" 100%
+
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -put neovim somewhere appropriate, before the dotfiles.
-    -figure out where github setup goes (and proper cloning of dwm, st, and dotfiles)
-    -continue cleaning up these notes
-    -sort downloads into a separate script that can be run at some point after the initial setup is complete
-     (automate as much of this as possible)
-    -make sure nvidia stuff is fleshed out
     -add to .xinitrc so that laptop has its own xrandr line
     -dwm systray patch
     -look at picom, decide how to set it up
