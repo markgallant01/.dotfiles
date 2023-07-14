@@ -12,7 +12,7 @@ declare -a packages=()
 packages+=("git" "openssh")
 
 # display server and some x-tools
-packages+=("xorg-server" "xorg-xbacklight" "xorg-xrandr" "xorg-xinit")
+packages+=("xorg-server" "xorg-xsetroot" "xorg-xbacklight" "xorg-xrandr" "xorg-xinit")
 
 # window manager dependencies
 packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
