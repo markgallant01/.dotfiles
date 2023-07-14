@@ -70,6 +70,7 @@ cd ~/aur
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+cd ~
 
 # install any aur programs
 yay -S cava
