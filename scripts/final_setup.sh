@@ -20,8 +20,8 @@ cd ~
 sudo rm -r st/
 
 # clone the proper repositories now that we're authenticated
-git clone git@github:markgallant01/dwm.git
-git clone git@github:markgallant01/st.git
+git clone git@github.com:markgallant01/dwm.git
+git clone git@github.com:markgallant01/st.git
 
 # build and install dwm
 cd dwm/
@@ -47,6 +47,7 @@ ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
 
 # copy conf files to appropriate folders
 sudo cp ~/.dotfiles/conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
+sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/conf_files/nvidia.hook /etc/pacman.d/hooks/
 
 # setup Yay to use the AUR:
