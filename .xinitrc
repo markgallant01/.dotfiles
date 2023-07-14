@@ -51,6 +51,6 @@ picom &
 nm-applet &
 blueman-applet &
 ~/.fehbg &
-xrandr "$xrandr_call" &
+xrandr $xrandr_call &
 exec dwm
 
