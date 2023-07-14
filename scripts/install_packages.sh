@@ -7,8 +7,8 @@
 # this checks the 20 most recently updated mirrors and sorts them
 # by speed and saves the list to /etc/pacman.d/mirrorlist
 
-sudo pacman -S reflector
-sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+#sudo pacman -S reflector
+#sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 declare -a packages=()
 
