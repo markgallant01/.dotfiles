@@ -101,5 +101,5 @@ make
 sudo make clean install
 cd
 
-# copy a default xinit file for the first boot
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
+# pull temporary xinit file for the first boot
+curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
