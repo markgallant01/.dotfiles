@@ -13,7 +13,7 @@
 declare -a packages=()
 
 # home directory setup package
-packages+=("xdg-user-dirs-update")
+packages+=("xdg-user-dirs")
 
 # git stuff
 packages+=("git" "openssh")
