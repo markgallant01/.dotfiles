@@ -103,3 +103,8 @@ cd
 
 # pull temporary xinit file for the first boot
 curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
+
+# generate new ssh keys for github
+ssh-keygen -t ed25519 -C markgallant01@gmail.com
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
