@@ -94,6 +94,9 @@ fi
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
 
+# ensure home directory
+cd ~
+
 # set up home directories
 xdg-user-dirs-update
 mkdir Screenshots Trash Usb
@@ -106,7 +109,7 @@ git config --global color.ui auto
 git config --global pull.rebase false
 
 # clock synchronization
-systemctl enable --now systemd-timesyncd.service
+sudo systemctl enable --now systemd-timesyncd.service
 
 # download dwm and st
 git clone https://github.com/markgallant01/dwm
@@ -115,10 +118,10 @@ git clone https://github.com/markgallant01/st
 # build and install dwm and st
 cd dwm
 make
-make clean install
+sudo make clean install
 cd
 cd st
 make
-make clean install
+sudo make clean install
 cd
 
