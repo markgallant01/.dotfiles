@@ -61,7 +61,7 @@ wiki.archlinux.org.
     
     # pacstrap -K /mnt base linux linux-firmware
                        man-db man-pages texinfo
-                       vim networkmanager
+                       vim networkmanager sudo
 
 /***************************/
 /* 3. Configure the system */
@@ -77,7 +77,6 @@ wiki.archlinux.org.
    all you need.
 
     # systemctl enable NetworkManager.service
-    # nmcli
 
 3.6 Initramfs
 3.7 Root password
@@ -140,16 +139,25 @@ wiki.archlinux.org.
       [multilib]
       Include = /etc/pacman.d/mirrorlist
 
+  -run pacman once to generate and sync databases:
+
+    $ sudo pacman -Syu
+
+  -run reflector once here for the fastest and most up to date mirrors
+    $ reflector (etc)
+
   -download and run the installer script to install packages and perform
    basic configuration:
 
     $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/install_packages.sh
+    $ chmod +x install_packages.sh
     $ ./install_packages.sh
 
 /***********************/
 /* POST-INSTALL-SCRIPT */
 /***********************/
 
+REBOOT
   -edit the shown line in this file so Discord doesn't refuse to launch
    if there's an update that's not in the repo yet:
     
@@ -165,12 +173,19 @@ wiki.archlinux.org.
 
       $ sudo mkinitcpio -P
 
+REBOOT
   -on desktop, use these commands to set the volume to 100%:
 
     $ pactl list sinks short
     $ pactl set-sink-volume "sinkNumber" 100%
 
+-get a wrking xinit temporary
+$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+
+REBOOT
   -before running the final settings script, must authenticate with github
+
+DMENU!
 
     https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
