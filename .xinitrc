@@ -40,7 +40,7 @@ then
   xrandr_call="--output DP-0 --mode 2560x1440 --rate 143.97 --output DP-2 --mode 2560x1440 --rate 143.97 --right-of DP-0"
 fi
 
-if [ "$hostname" == "arch_t450s" ]
+if [ "$hostname" == "archt450s" ]
 then
   xrandr_call="--output eDP1 --mode 1920x1080 --rate 60.05"
 fi
