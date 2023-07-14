@@ -144,7 +144,8 @@ wiki.archlinux.org.
     $ sudo pacman -Syu
 
   -run reflector once here for the fastest and most up to date mirrors
-    $ reflector (etc)
+    $ sudo pacman -S reflector
+    $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
   -download and run the installer script to install packages and perform
    basic configuration:
@@ -157,13 +158,6 @@ wiki.archlinux.org.
 /* POST-INSTALL-SCRIPT */
 /***********************/
 
-REBOOT
-  -edit the shown line in this file so Discord doesn't refuse to launch
-   if there's an update that's not in the repo yet:
-    
-    ~/.config/discord/settings.json
-      "SKIP_HOST_UPDATE": true
-
   -if nvidia drivers were installed, you must edit the file 
    /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
 
@@ -173,33 +167,38 @@ REBOOT
 
       $ sudo mkinitcpio -P
 
-REBOOT
-  -on desktop, use these commands to set the volume to 100%:
+  -get a temporary xinit file
 
-    $ pactl list sinks short
-    $ pactl set-sink-volume "sinkNumber" 100%
+    $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+      -edit this file so exec dwm (replace this with pulling down the raw file from .dotfiles?
 
--get a wrking xinit temporary
-$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
-
-REBOOT
   -before running the final settings script, must authenticate with github
-
-DMENU!
 
     https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
     -follow those instructions to generate ssh keys and use a web browser to add them to your github account.
+      (write oute these steps)
 
   -once authenticated, run the final settings script.
     $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
     $ ./final_setup.sh
 
-  -reboot and everything should be set up
+  -reboot
 
 /*********************/
 /* FINISHING TOUCHES */
 /*********************/
+
+  -edit the shown line in this file so Discord doesn't refuse to launch
+   if there's an update that's not in the repo yet:
+    
+    ~/.config/discord/settings.json
+      "SKIP_HOST_UPDATE": true
+
+  -on desktop, use these commands to set the volume to 100%:
+
+    $ pactl list sinks short
+    $ pactl set-sink-volume "sinkNumber" 100%  
 
   -create additional directories in the home directory
    for any internal or external drives you want to mount
@@ -211,7 +210,6 @@ DMENU!
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -go through bookmarked stuff
-    -add to .xinitrc so that laptop has its own xrandr line
     -dwm systray patch
     -look at picom, decide how to set it up
     -setup dwm statusbar top right (brightness, volume, date, time)
