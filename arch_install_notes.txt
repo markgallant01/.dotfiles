@@ -143,7 +143,7 @@ wiki.archlinux.org.
   -download and run the installer script to install packages and perform
    basic configuration:
 
-    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/install_packages.sh
+    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/install_packages.sh
     $ ./install_packages.sh
 
 /***********************/
@@ -177,7 +177,7 @@ wiki.archlinux.org.
     -follow those instructions to generate ssh keys and use a web browser to add them to your github account.
 
   -once authenticated, run the final settings script.
-    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/final_setup.sh
+    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
     $ ./final_setup.sh
 
   -reboot and everything should be set up
