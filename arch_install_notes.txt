@@ -38,7 +38,6 @@ wiki.archlinux.org.
   -format all drives as ext4 Linux Filesystem.
   -boot drive needs 2 partitions: a 300M EFI boot partition
    and the rest of the drive is Linux x86_64 root (ext4)
-
   -list the drives with:
     # lsblk -l
 
@@ -62,6 +61,7 @@ wiki.archlinux.org.
     # pacstrap -K /mnt base linux linux-firmware
                        man-db man-pages texinfo
                        vim networkmanager sudo
+
 
 /***************************/
 /* 3. Configure the system */
@@ -96,116 +96,122 @@ wiki.archlinux.org.
     # pacman -S intel-ucode
     # grub-mkconfig -o /boot/grub/grub.cfg
 
-/*************/
-/* 4. Reboot */
-/*************/
+-finished with basic installation
+-exit chroot, unmount drives and shutdown:
 
   # exit
   # umount -R /mnt
   # shutdown +0
 
-  -remove the installation USB and boot into the new system.
+-remove the installation USB and boot into the new system.
+
 
 /****************/
 /* Post-install */
 /****************/
 
-  -this section sets up the newly installed system. Login to the new system
-   as root.
-  -setup a non-root user and set the password:
+-this section sets up the newly installed system. Login to the new system
+ as root.
+-setup a non-root user and set the password:
   
-    # useradd -m *user*
-    # passwd *user*
+  # useradd -m *user*
+  # passwd *user*
     
-  -add the new user to the sudoers file with visudo
+-add the new user to the sudoers file with visudo
   
-    # EDITOR=neovim visudo
+  # EDITOR=neovim visudo
 
-      *user* ALL=(ALL:ALL) ALL    // add this line to the file
+    *user* ALL=(ALL:ALL) ALL    // add this line to the file
     
-  -then logout of root and login as the new user. 
-  -verify the internet:
+-then logout of root and login as the new user. 
+-verify the internet:
 
-    $ ping archlinux.org
+  $ ping archlinux.org
 
-  -setup pacman by editing pacman.conf to enable the multilib repo and
-   enable parallel downloading:
-   (uncomment the lines):
+-setup pacman by editing pacman.conf to enable the multilib repo and
+ enable parallel downloading:
+ (uncomment the lines):
   
-      "/etc/pacman.conf"
-      [options]
-      ParallelDownloads = 5
-      ...
-      [multilib]
-      Include = /etc/pacman.d/mirrorlist
+    "/etc/pacman.conf"
+    [options]
+    ParallelDownloads = 5
+    ...
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
 
-  -run pacman once to generate and sync databases:
+-run pacman once to generate and sync databases:
 
-    $ sudo pacman -Syu
+  $ sudo pacman -Syu
 
-  -run reflector once here for the fastest and most up to date mirrors
-    $ sudo pacman -S reflector
-    $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+-run reflector once here for the fastest and most up to date mirrors
 
-  -download and run the installer script to install packages and perform
-   basic configuration:
+  $ sudo pacman -S reflector
+  $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
-    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/install_packages.sh
-    $ chmod +x install_packages.sh
-    $ ./install_packages.sh
+-download and run the installer script to install packages and perform
+ basic configuration:
+
+  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/install_packages.sh
+  $ chmod +x install_packages.sh
+  $ ./install_packages.sh
+
 
 /***********************/
 /* POST-INSTALL-SCRIPT */
 /***********************/
 
-  -if nvidia drivers were installed, you must edit the file 
-   /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+-if nvidia drivers were installed, you must edit the file 
+ /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
 
-    $ sudo vim /etc/mkinitcpio.conf
+  $ sudo vim /etc/mkinitcpio.conf
 
-    -after that, re-run the command to regenerate the initramfs
+  -after that, re-run the command to regenerate the initramfs
 
-      $ sudo mkinitcpio -P
+    $ sudo mkinitcpio -P
 
-  -get a temporary xinit file
+-you should now be able to launch xorg:
+  
+  $ startx
 
-    $ cp /etc/X11/xinit/xinitrc ~/.xinitrc
-      -edit this file so exec dwm (replace this with pulling down the raw file from .dotfiles?
+-before running the final settings script, must authenticate with github
+-launch web browser and login to github account
+-the installer script generated new ssh keys. print the public key:
 
-  -before running the final settings script, must authenticate with github
+  $ cat ~/.ssh/id_ed25519.pub
 
-    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+  -copy this output and add it to github ssh keys
+  -verify the connection:
 
-    -follow those instructions to generate ssh keys and use a web browser to add them to your github account.
-      (write oute these steps)
+    $ ssh -T git@github.com
 
-  -once authenticated, run the final settings script.
-    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
-    $ ./final_setup.sh
+-once authenticated, run the final settings script.
+    
+  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
+  $ ./final_setup.sh
 
-  -reboot
+-reboot
 
 /*********************/
 /* FINISHING TOUCHES */
 /*********************/
 
-  -edit the shown line in this file so Discord doesn't refuse to launch
-   if there's an update that's not in the repo yet:
+-edit the shown line in this file so Discord doesn't refuse to launch
+ if there's an update that's not in the repo yet:
     
-    ~/.config/discord/settings.json
-      "SKIP_HOST_UPDATE": true
+  ~/.config/discord/settings.json
+  "SKIP_HOST_UPDATE": true
 
-  -on desktop, use these commands to set the volume to 100%:
+-on desktop, use these commands to set the volume to 100%:
 
-    $ pactl list sinks short
-    $ pactl set-sink-volume "sinkNumber" 100%  
+  $ pactl list sinks short
+  $ pactl set-sink-volume "sinkNumber" 100%  
 
-  -create additional directories in the home directory
-   for any internal or external drives you want to mount
-  -set up the fstab here so that drives auto mount 
-   (come back to this)
+-create additional directories in the home directory
+ for any internal or external drives you want to mount
+-set up the fstab here so that drives auto mount 
+ (come back to this)
     
-  -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
+-place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
