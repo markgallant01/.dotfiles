@@ -76,7 +76,7 @@ then
 fi
 
 # laptop-intel iGPU
-if [ "$hostname" == "arch_t450s" ]
+if [ "$hostname" == "archt450s" ]
 then
   packages+=("mesa" "lib32-mesa" "xf86-video-intel" "vulkan-intel")
 fi
