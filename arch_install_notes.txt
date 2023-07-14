@@ -73,8 +73,7 @@ wiki.archlinux.org.
 3.4 Localization
 3.5 Network configuration
   -after setting up the hostname file, set up NetworkManager so the internet
-   works on reboot. Enable the service, then run nmcli once. That should be
-   all you need.
+   works on reboot.
 
     # systemctl enable NetworkManager.service
 
@@ -127,6 +126,11 @@ wiki.archlinux.org.
 -verify the internet:
 
   $ ping archlinux.org
+
+-if on wifi, you may need to connect manually:
+
+  $ nmcli device wifi list
+  $ nmcli device wifi connect "SSID" password "password"
 
 -setup pacman by editing pacman.conf to enable the multilib repo and
  enable parallel downloading:
@@ -194,6 +198,7 @@ wiki.archlinux.org.
 /* FINISHING TOUCHES */
 /*********************/
 
+-launch discord once to generate the config file.
 -edit the shown line in this file so Discord doesn't refuse to launch
  if there's an update that's not in the repo yet:
     
@@ -212,13 +217,15 @@ wiki.archlinux.org.
     
 -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
-  To-do:
-    -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
-    -go through bookmarked stuff
-    -dwm systray patch
-    -look at picom, decide how to set it up
-    -setup dwm statusbar top right (brightness, volume, date, time)
-    -change mod-F keybind in dwm from floating mode to fullscreen
-    -dwm fullscreen patch?
-    -power management? (acpi?)
-    -printing?
+To-do:
+  -find a way to wrap reflector calls into script
+  -consider adding a reflector call to 2.1 to get the best possible mirror
+  -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
+  -go through bookmarked stuff
+  -dwm systray patch
+  -look at picom, decide how to set it up
+  -setup dwm statusbar top right (brightness, volume, date, time)
+  -change mod-F keybind in dwm from floating mode to fullscreen
+  -dwm fullscreen patch?
+  -power management? (acpi?)
+  -printing?
