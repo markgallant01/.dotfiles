@@ -104,6 +104,10 @@ cd
 # pull temporary xinit file for the first boot
 curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
 
+# pull final setup script and make it executable for later
+curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
+chmod +x  ~/final_setup.sh
+
 # generate new ssh keys for github
 ssh-keygen -t ed25519 -C markgallant01@gmail.com
 eval "$(ssh-agent -s)"
