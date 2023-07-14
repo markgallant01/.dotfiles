@@ -7,6 +7,10 @@
 # ensure home directory
 cd ~
 
+# set up home directories
+xdg-user-dirs-update
+mkdir Screenshots Trash Usb
+
 # uninstall bad dwm repo and delete directory
 cd dwm/
 sudo make uninstall
@@ -18,6 +22,13 @@ cd st/
 sudo make uninstall
 cd ~
 sudo rm -r st/
+
+# configure git
+git config --global user.name markgallant01
+git config --global user.email markgallant01@gmail.com
+git config --global init.defaultBranch main
+git config --global color.ui auto
+git config --global pull.rebase false
 
 # clone the proper repositories now that we're authenticated
 git clone git@github.com:markgallant01/dwm.git
@@ -34,6 +45,9 @@ cd st/
 make
 sudo make clean install
 cd ~
+
+# delete default xinit file
+rm .xinitrc
 
 # clone dotfiles repo
 git clone git@github.com:markgallant01/.dotfiles.git
@@ -58,3 +72,5 @@ sudo makepkg -si
 # install any aur programs
 yay -S cava
 
+# clock synchronization service
+sudo systemctl enable --now systemd-timesyncd.service
