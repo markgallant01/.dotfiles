@@ -7,8 +7,8 @@
 # this checks the 20 most recently updated mirrors and sorts them
 # by speed and saves the list to /etc/pacman.d/mirrorlist
 
-pacman -S reflector
-reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -S reflector
+sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 declare -a packages=()
 
@@ -64,15 +64,15 @@ packages+=("steam" "lutris")
 # wine dependencies
 packages+=("wine-staging" "giflib" "lib32-giflib" "libpng" "lib32-libpng")
 packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123")
-packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils"
+packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils")
 packages+=("lib32-v4l-utils" "libpulse" "lib32-libpulse" "libgpg-error")
 packages+=("lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins")
 packages+=("alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "lib32-libjpeg-turbo")
 packages+=("sqlite" "lib32-sqlite" "libxcomposite" "lib32-libxcomposite")
 packages+=("libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama")
 packages+=("ncurses" "lib32-ncurses" "ocl-icd" "lib32-ocl-icd" "libxslt")
-packages+=("lib32-libxslt" "libva" "lib32-libva gtk3" "lib32-gtk3")
-packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs"
+packages+=("lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3")
+packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
 packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
 
 # grab the computer's host name
@@ -92,7 +92,7 @@ then
 fi
 
 # install all the compiled packages
-pacman -S --needed "${packages[@]}"
+sudo pacman -S --needed "${packages[@]}"
 
 # set up home directories
 xdg-user-dirs-update
@@ -121,3 +121,4 @@ cd st
 make
 make clean install
 cd
+
