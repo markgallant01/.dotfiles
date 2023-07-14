@@ -78,3 +78,7 @@ yay -S cava
 
 # clock synchronization service
 sudo systemctl enable --now systemd-timesyncd.service
+
+# enable bluetooth
+sudo systemctl enable bluetooth
+
