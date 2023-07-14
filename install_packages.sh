@@ -56,7 +56,7 @@ packages+=("yt-dlp")
 packages+=("firefox" "chromium")
 
 # communication
-packages+=("discord")
+packages+=("discord" "thunderbird")
 
 # game launchers
 packages+=("steam" "lutris")
