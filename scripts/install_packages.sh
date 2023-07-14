@@ -87,20 +87,6 @@ sudo pacman -S --needed "${packages[@]}"
 # ensure home directory
 cd ~
 
-# set up home directories
-xdg-user-dirs-update
-mkdir Screenshots Trash Usb
-
-# set up git
-git config --global user.name markgallant01
-git config --global user.email markgallant01@gmail.com
-git config --global init.defaultBranch main
-git config --global color.ui auto
-git config --global pull.rebase false
-
-# clock synchronization
-sudo systemctl enable --now systemd-timesyncd.service
-
 # download dwm and st
 git clone https://github.com/markgallant01/dwm
 git clone https://github.com/markgallant01/st
@@ -115,3 +101,5 @@ make
 sudo make clean install
 cd
 
+# copy a default xinit file for the first boot
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
