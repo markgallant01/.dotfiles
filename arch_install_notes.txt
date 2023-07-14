@@ -177,13 +177,21 @@ wiki.archlinux.org.
     -follow those instructions to generate ssh keys and use a web browser to add them to your github account.
 
   -once authenticated, run the final settings script.
+    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/final_setup.sh
+    $ ./final_setup.sh
+
+  -reboot and everything should be set up
+
+/*********************/
+/* FINISHING TOUCHES */
+/*********************/
 
   -create additional directories in the home directory
    for any internal or external drives you want to mount
   -set up the fstab here so that drives auto mount 
    (come back to this)
     
-    Place any wallpapers in ~/Photos/wallpaper/ for feh to use them
+  -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
