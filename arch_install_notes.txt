@@ -140,72 +140,50 @@ wiki.archlinux.org.
       [multilib]
       Include = /etc/pacman.d/mirrorlist
 
-  -run install script?
+  -download and run the installer script to install packages and perform
+   basic configuration:
+
+    $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/install_packages.sh
+    $ ./install_packages.sh
 
 /***********************/
 /* POST-INSTALL-SCRIPT */
 /***********************/
 
+  -edit the shown line in this file so Discord doesn't refuse to launch
+   if there's an update that's not in the repo yet:
+    
+    ~/.config/discord/settings.json
+      "SKIP_HOST_UPDATE": true
+
+  -if nvidia drivers were installed, you must edit the file 
+   /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+
+    $ sudo vim /etc/mkinitcpio.conf
+
+    -after that, re-run the command to regenerate the initramfs
+
+      $ sudo mkinitcpio -P
+
+  -on desktop, use these commands to set the volume to 100%:
+
+    $ pactl list sinks short
+    $ pactl set-sink-volume "sinkNumber" 100%
+
+  -before running the final settings script, must authenticate with github
+
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+    -follow those instructions to generate ssh keys and use a web browser to add them to your github account.
+
+  -once authenticated, run the final settings script.
+
   -create additional directories in the home directory
    for any internal or external drives you want to mount
   -set up the fstab here so that drives auto mount 
    (come back to this)
-      
-    Nvidia:
-      -for nvidia, you must edit the file /etc/mkinitcpio.conf
-       to remove the 'kms' module from the HOOKS array.
-
-        $ sudo vim /etc/mkinitcpio.conf
-
-      -after that, re-run the command to regenerate the initramfs
-
-        $ sudo mkinitcpio -P
     
     Place any wallpapers in ~/Photos/wallpaper/ for feh to use them
-    
-  Pull down dotfiles:
-    $ git clone git@github.com:markgallant01/.dotfiles.git
-    $ cd .dotfiles
-    
-    Open the readme and follow the insructions to set up the symlinks
-    and put the files in the correct places.
-      
-  You should now be able to use the command 'startx' to launch into a
-  graphical system.
-
-  once startx works and we get a graphical interface, follow github instructions to generate a new
-  ssh key and add it to github. This will require openssh and a web browser and the ability to log into
-  github. Once authenticated, delete dwm and st folders and clone the repo properly so you have a real
-  repo with push permissions.
-    
-  Power management:
-    (come back to this)
-    $ pacman -S acpi
-  
-  Printing:
-    Maybe setup printing here in the future
-    
-    Edit the shown line in this file so Discord doesn't refuse to launch
-    if there's an update that's not in the repo yet:
-    
-    ~/.config/discord/settings.json
-      "SKIP_HOST_UPDATE": true
-    
-  Setup Yay to use the AUR:
-    $ git clone https://aur.archlinux.org/yay.git
-    $ cd yay
-    $ makepkg -si
-    
-  AUR stuff:
-    $ yay -S cava
-
-    $ git clone git@github.com:markgallant01/dwm.git
-
-  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/install_packages.sh
-
-set desktop volume to 100%:
-pactl list sinks short
-pactl set-sink-volume "sinkNumber" 100%
 
   To-do:
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
@@ -216,3 +194,5 @@ pactl set-sink-volume "sinkNumber" 100%
     -setup dwm statusbar top right (brightness, volume, date, time)
     -change mod-F keybind in dwm from floating mode to fullscreen
     -dwm fullscreen patch?
+    -power management? (acpi?)
+    -printing?
