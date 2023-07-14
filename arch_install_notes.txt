@@ -151,9 +151,9 @@ wiki.archlinux.org.
 -download and run the installer script to install packages and perform
  basic configuration:
 
-  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/install_packages.sh
-  $ chmod +x install_packages.sh
-  $ ./install_packages.sh
+  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/initial_setup.sh
+  $ chmod +x initial_setup.sh
+  $ ./initial_setup.sh
 
 
 /***********************/
@@ -186,7 +186,6 @@ wiki.archlinux.org.
 
 -once authenticated, run the final settings script.
     
-  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
   $ ./final_setup.sh
 
 -reboot
