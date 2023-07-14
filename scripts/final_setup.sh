@@ -65,9 +65,11 @@ sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/conf_files/nvidia.hook /etc/pacman.d/hooks/
 
 # setup Yay to use the AUR:
+mkdir ~/aur
+cd ~/aur
 git clone https://aur.archlinux.org/yay.git
 cd yay
-sudo makepkg -si
+makepkg -si
 
 # install any aur programs
 yay -S cava
