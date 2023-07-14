@@ -1,25 +1,18 @@
 #!/bin/bash
 
 # this script builds an array of packages section-by-section
-# and then calls pacman to install them all together at the end
+# and then calls pacman to install them all together at the end.
 
-# first before downloading anything else, download and run reflector.
-# this checks the 20 most recently updated mirrors and sorts them
-# by speed and saves the list to /etc/pacman.d/mirrorlist
+# after that it does some prelimenary setup
 
-#sudo pacman -S reflector
-#sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
-
+# array to store package list
 declare -a packages=()
-
-# home directory setup package
-packages+=("xdg-user-dirs")
 
 # git stuff
 packages+=("git" "openssh")
 
 # display server and some x-tools
-packages+=("xorg-server" "xorg-xbacklight" "xorg-xrandr")
+packages+=("xorg-server" "xorg-xbacklight" "xorg-xrandr" "xorg-xinit")
 
 # window manager dependencies
 packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
@@ -30,15 +23,12 @@ packages+=("base-devel")
 # compositor
 packages+=("picom")
 
-# login manager
-packages+=("xorg-xinit")
-
 # wallpaper tool
 packages+=("feh")
 
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "unzip" "xclip")
-packages+=("scrot" "cmus" "celluloid" "neovim")
+packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs")
 
 # file browser
 packages+=("ranger" "thunar")
