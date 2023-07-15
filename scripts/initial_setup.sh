@@ -63,7 +63,7 @@ packages+=("libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama")
 packages+=("ncurses" "lib32-ncurses" "ocl-icd" "lib32-ocl-icd" "libxslt")
 packages+=("lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3")
 packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
-packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
+packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono" "wine-gecko")
 
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
