@@ -45,6 +45,13 @@ then
   xrandr_call="--output eDP1 --mode 1920x1080 --rate 60.05"
 fi
 
+# dwm statusbar loop
+while true; do
+  # call update script
+  ~/.dotfiles/scripts/update_statusbar.sh
+  sleep 30s   # update every 30 seconds
+done &
+
 
 # launch programs and window manager
 picom &
