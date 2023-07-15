@@ -207,8 +207,7 @@ wiki.archlinux.org.
 
 -on desktop, use these commands to set the volume to 100%:
 
-  $ pactl list sinks short
-  $ pactl set-sink-volume "sinkNumber" 100%  
+  $ pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 -create additional directories in the home directory
  for any internal or external drives you want to mount
