@@ -220,9 +220,10 @@ wiki.archlinux.org.
 
   $ rm ~/initial_setup.sh ~/final_setup.sh
 
+-log into firefox, discord, etc.
+
 To-do:
   -set up wallpaper script
-  -consider whether we actually need the date in the status bar
   -look here: http://dwm.suckless.org/status_monitor/ bottom for more status line stuff
   -continue setup of dwm statusbar top right (brightness, volume, date, time, battery)
   -find a way to wrap reflector calls into script
@@ -233,4 +234,3 @@ To-do:
   -change mod-F keybind in dwm from floating mode to fullscreen
   -dwm fullscreen patch?
   -power management? (acpi?)
-  -printing?
