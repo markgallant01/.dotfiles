@@ -49,7 +49,7 @@ fi
 while true; do
   # call update script
   ~/.dotfiles/scripts/update_statusbar.sh
-  sleep 30s   # update every 30 seconds
+  sleep 5s   # update every 30 seconds
 done &
 
 
