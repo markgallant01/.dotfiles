@@ -24,12 +24,10 @@ time=$( date +"%l:%M%p" )
 bat0=$( cat /sys/class/power_supply/BAT0/capacity )
 bat1=$( cat /sys/class/power_supply/BAT1/capacity )
 
-xsetroot -name "vol:$vol $(date +"%m-%d-%Y %l:%M%p" )"
-
 # archt450s statusbar
 if [ "$hostname" == "archt450s" ]
 then
-  xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1$time "
+  xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1$time"
 fi
 
 # desktop statusbar
