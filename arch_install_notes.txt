@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -figure out picom firefox border thing
   -increase dwm font size
   -set up wallpaper script
   -find a way to wrap reflector calls into script
