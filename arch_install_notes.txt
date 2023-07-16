@@ -223,14 +223,11 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -increase dwm font size
   -set up wallpaper script
-  -look here: http://dwm.suckless.org/status_monitor/ bottom for more status line stuff
-  -continue setup of dwm statusbar top right (brightness, volume, date, time, battery)
   -find a way to wrap reflector calls into script
   -consider adding a reflector call to 2.1 to get the best possible mirror
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
   -go through bookmarked stuff
   -look at picom, decide how to set it up
-  -change mod-F keybind in dwm from floating mode to fullscreen
-  -dwm fullscreen patch?
   -power management? (acpi?)
