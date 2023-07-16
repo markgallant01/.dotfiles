@@ -27,7 +27,7 @@ bat1=$( cat /sys/class/power_supply/BAT1/capacity )
 # archt450s statusbar
 if [ "$hostname" == "archt450s" ]
 then
-  xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1$time"
+  xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1 $time"
 fi
 
 # desktop statusbar
