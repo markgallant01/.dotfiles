@@ -54,7 +54,6 @@ done &
 
 
 # launch programs and window manager
-picom &
 nm-applet &
 blueman-applet &
 ~/.fehbg &
