@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -add back picom with a simple terminal call
   -get music library incorporated somehow
   -increase dwm font size
   -set up wallpaper script
