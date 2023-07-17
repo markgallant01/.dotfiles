@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -gtk dark theme for lutris and other stuff
+  -firefox config file? Discord?
+  -set up a new picom config maybe who knows fuck picom
   -add back picom with a simple terminal call
   -get music library incorporated somehow
   -increase dwm font size
