@@ -20,9 +20,6 @@ packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
 # development tools for building from source
 packages+=("base-devel")
 
-# compositor
-packages+=("picom")
-
 # wallpaper tool
 packages+=("feh")
 
