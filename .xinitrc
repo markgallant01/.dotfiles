@@ -56,6 +56,7 @@ done &
 # launch programs and window manager
 nm-applet &
 blueman-applet &
+picom --vsync --unredir-if-possible --config /dev/null &
 ~/.fehbg &
 xrandr $xrandr_call &
 exec dwm
