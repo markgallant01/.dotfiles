@@ -55,7 +55,6 @@ git clone git@github.com:markgallant01/.dotfiles.git
 # symlink settings files
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
-ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
 ln -sf ~/.dotfiles/.fehbg ~/.fehbg
 ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
 ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
