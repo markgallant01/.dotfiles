@@ -23,9 +23,6 @@ packages+=("base-devel")
 # wallpaper tool
 packages+=("feh")
 
-# compositor
-packages+=("picom")
-
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "unzip" "xclip")
 packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs")
