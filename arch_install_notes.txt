@@ -223,10 +223,10 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -use pc without picom for a while and see how we feel
   -gtk dark theme for lutris and other stuff
   -firefox config file? Discord?
   -set up a new picom config maybe who knows fuck picom
-  -add back picom with a simple terminal call
   -get music library incorporated somehow
   -increase dwm font size
   -set up wallpaper script
