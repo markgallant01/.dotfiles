@@ -223,10 +223,10 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
-  -use pc without picom for a while and see how we feel
+  -firefox developer mode
+  -add overthewire programs like telnet and nmap
   -gtk dark theme for lutris and other stuff
   -firefox config file? Discord?
-  -set up a new picom config maybe who knows fuck picom
   -get music library incorporated somehow
   -increase dwm font size
   -set up wallpaper script
