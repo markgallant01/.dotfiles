@@ -8,5 +8,8 @@
 alias ls='ls --color=auto'
 alias ll='ls -1A --group-directories-first'
 
+# run in vi mode
+set -o vi
+
 PS1='[\u@\h \W]\$ '
 
