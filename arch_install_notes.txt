@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -thunar image / video thumbnails
   -firefox developer mode
   -add overthewire programs like telnet and nmap
   -gtk dark theme for lutris and other stuff
