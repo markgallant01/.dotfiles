@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -make sure nvim autocomplete works as intended with a nice looking display
+   and icons and stuff
   -thunar image / video thumbnails
   -firefox developer mode
   -add overthewire programs like telnet and nmap
