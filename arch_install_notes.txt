@@ -236,3 +236,6 @@ To-do:
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
   -go through bookmarked stuff
   -power management? (acpi?)
+
+  -picom
+    -not liking how windows kind of glitch around when they pop up or resize
