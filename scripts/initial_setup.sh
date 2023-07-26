@@ -62,6 +62,9 @@ packages+=("lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3")
 packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
 packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono" "wine-gecko")
 
+# cava dependencies
+packages+=("base-devel" "fftw" "ncurses" "alsa-lib" "iniparser" "pulseaudio" "autoconf-archive")
+
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
 
