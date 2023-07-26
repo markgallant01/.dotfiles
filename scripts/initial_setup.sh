@@ -18,7 +18,7 @@ packages+=("xorg-server" "xorg-xsetroot" "xorg-xbacklight" "xorg-xrandr" "xorg-x
 packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
 
 # development tools for building from source
-packages+=("base-devel")
+packages+=("base-devel clang")
 
 # wallpaper tool
 packages+=("feh")
