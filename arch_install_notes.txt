@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -setup cava config file and try to get it to work only with cmus
   -make sure nvim autocomplete works as intended with a nice looking display
    and icons and stuff
   -thunar image / video thumbnails
