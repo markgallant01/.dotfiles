@@ -246,3 +246,4 @@ To-do:
 
   -picom
     -not liking how windows kind of glitch around when they pop up or resize
+    -considering terminal transparency again because that was kinda cool
