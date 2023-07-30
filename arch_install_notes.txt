@@ -223,6 +223,11 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -keep configuring cmp menu
+  -catpuccin color scheme?
+  -move color bar closer for laptop screen size
+  -split neovim init into separate files for better organization
+  -customize neovim error messages and icons
   -make keybind cheat sheet
   -add video editing software to install script
   -setup cava config file and try to get it to work only with cmus
