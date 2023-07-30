@@ -225,9 +225,6 @@ wiki.archlinux.org.
 To-do:
   -make keybind cheat sheet
   -add video editing software to install script
-  -update st colors to match lazyVim
-  -go through lazyVim setup and configure it
-  -add lazyVim programs like wget to install script
   -setup cava config file and try to get it to work only with cmus
   -thunar image / video thumbnails
   -firefox developer mode
