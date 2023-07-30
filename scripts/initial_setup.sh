@@ -65,9 +65,6 @@ packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono" "wine-gecko
 # cava dependencies
 packages+=("base-devel" "fftw" "ncurses" "alsa-lib" "iniparser" "pulseaudio" "autoconf-archive")
 
-# lazyVim dependencies
-packages+=("fd" "ripgrep")
-
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
 
