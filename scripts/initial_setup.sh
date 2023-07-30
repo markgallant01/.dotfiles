@@ -25,7 +25,7 @@ packages+=("feh")
 
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip" "xclip")
-packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs")
+packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs" "wget" "curl")
 
 # file browser
 packages+=("ranger" "thunar")
