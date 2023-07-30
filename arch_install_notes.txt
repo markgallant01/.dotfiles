@@ -223,7 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
-  -setup slock so we can lock screen
+  -setup a good screen locker that blocks tty access maybe
   -keep configuring cmp menu
   -catpuccin color scheme?
   -move color bar closer for laptop screen size
