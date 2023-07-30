@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -make keybind cheat sheet
   -add video editing software to install script
   -update st colors to match lazyVim
   -go through lazyVim setup and configure it
