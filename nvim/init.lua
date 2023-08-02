@@ -152,8 +152,6 @@ vim.o.timeoutlen = 300
 
 vim.o.colorcolumn = "74"
 
-vim.o.completeopt = 'menuone,noselect'
-
 -- [[ Basic Keymaps ]]
 --
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
@@ -397,6 +395,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 cmp.setup {
+  preselect = cmp.PreselectMode.none,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -409,8 +408,8 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = false,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
