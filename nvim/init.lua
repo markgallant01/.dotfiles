@@ -431,7 +431,7 @@ cmp.setup {
   },
   window = {
     completion = {
-      side_padding = 0
+      side_padding = 0,
     },
     documentation = false,
   },
