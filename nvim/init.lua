@@ -350,11 +350,15 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  html = {},
+  jdtls = {},
+  jsonls = {},
+  tsserver = {},
+  cssls = {},
+  clangd = {},
+  cmake = {},
+  bashls = {},
+  pylsp = {},
 
   lua_ls = {
     Lua = {
