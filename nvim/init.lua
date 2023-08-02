@@ -394,11 +394,52 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+local cmp_kinds = {
+  Text = ' ',
+  Method = ' ',
+  Function = ' ',
+  Constructor = ' ',
+  Field = ' ',
+  Variable = ' ',
+  Class = ' ',
+  Interface = ' ',
+  Module = ' ',
+  Property = ' ',
+  Unit = ' ',
+  Value = ' ',
+  Enum = ' ',
+  Keyword = ' ',
+  Snippet = ' ',
+  Color = ' ',
+  File = ' ',
+  Reference = ' ',
+  Folder = ' ',
+  EnumMember = ' ',
+  Constant = ' ',
+  Struct = ' ',
+  Event = ' ',
+  Operator = ' ',
+  TypeParameter = ' ',
+}
+
 cmp.setup {
   preselect = cmp.PreselectMode.none,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
+    end,
+  },
+  window = {
+    completion = {
+      side_padding = 0
+    },
+    documentation = false,
+  },
+  formatting = {
+    fields = { "abbr", "kind" },
+    format = function(_, vim_item)
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      return vim_item
     end,
   },
   mapping = cmp.mapping.preset.insert {
