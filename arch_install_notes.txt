@@ -225,8 +225,6 @@ wiki.archlinux.org.
 To-do:
   -setup a good screen locker that blocks tty access maybe
   -keep configuring cmp menu
-  -catpuccin color scheme?
-  -move color bar closer for laptop screen size
   -split neovim init into separate files for better organization
   -customize neovim error messages and icons
   -make keybind cheat sheet
