@@ -24,7 +24,7 @@ packages+=("base-devel clang")
 packages+=("feh")
 
 # misc utilities
-packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip" "xclip")
+packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip" "xclip" "npm")
 packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs" "wget" "curl")
 
 # file browser
