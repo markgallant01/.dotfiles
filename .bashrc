@@ -7,6 +7,7 @@
 
 alias ls='ls --color=auto'
 alias ll='ls -1A --group-directories-first'
+alias vi='vim'
 
 # run in vi mode
 set -o vi
