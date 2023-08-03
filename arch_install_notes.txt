@@ -225,7 +225,6 @@ wiki.archlinux.org.
 To-do:
   -setup a good screen locker that blocks tty access maybe
   -split neovim init into separate files for better organization
-  -customize neovim error messages and icons
   -make keybind cheat sheet
   -add video editing software to install script
   -setup cava config file and try to get it to work only with cmus
