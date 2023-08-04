@@ -160,6 +160,9 @@ vim.o.timeoutlen = 300
 
 vim.o.colorcolumn = "74"
 
+-- disable automatic commenting newline
+vim.cmd("autocmd FileType * set formatoptions-=ro")
+
 -- [[ Basic Keymaps ]]
 --
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
