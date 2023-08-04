@@ -12,26 +12,29 @@ declare -a packages=()
 packages+=("git" "openssh")
 
 # display server and some x-tools
-packages+=("xorg-server" "xorg-xsetroot" "xorg-xbacklight" "xorg-xrandr" "xorg-xinit")
+packages+=("xorg-server" "xorg-xsetroot" "xorg-xbacklight")
+packages+=("xorg-xinit" "xorg-xrandr")
 
 # window manager dependencies
 packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
 
 # development tools for building from source
-packages+=("base-devel" "clang" "gdb" "valgrind")
+packages+=("base-devel" "clang" "gdb")
 
 # wallpaper tool
 packages+=("feh")
 
 # misc utilities
-packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip" "xclip" "npm")
-packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs" "wget" "curl")
+packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip")
+packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs")
+packages+=("xclip" "npm" "wget" "curl")
 
 # file browser
 packages+=("ranger" "thunar")
 
 # sound system
-packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-pulse" "blueman")
+packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-pulse")
+packages+=("blueman")
 
 # hardware monitoring
 packages+=("htop")
@@ -49,21 +52,24 @@ packages+=("discord" "thunderbird")
 packages+=("steam" "lutris")
 
 # wine dependencies
-packages+=("wine-staging" "giflib" "lib32-giflib" "libpng" "lib32-libpng")
-packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123")
+packages+=("wine-staging" "giflib" "lib32-giflib" "libpng")
+packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls")
 packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils")
-packages+=("lib32-v4l-utils" "libpulse" "lib32-libpulse" "libgpg-error")
+packages+=("lib32-v4l-utils" "libpulse" "lib32-libpulse")
 packages+=("lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins")
-packages+=("alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "lib32-libjpeg-turbo")
-packages+=("sqlite" "lib32-sqlite" "libxcomposite" "lib32-libxcomposite")
-packages+=("libxinerama" "lib32-libgcrypt" "libgcrypt" "lib32-libxinerama")
-packages+=("ncurses" "lib32-ncurses" "ocl-icd" "lib32-ocl-icd" "libxslt")
+packages+=("alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "mpg123")
+packages+=("sqlite" "lib32-sqlite" "libxcomposite" "libgpg-error")
+packages+=("libxinerama" "lib32-libgcrypt" "libgcrypt")
+packages+=("ncurses" "lib32-ncurses" "ocl-icd" "lib32-ocl-icd")
 packages+=("lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3")
 packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
-packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono" "wine-gecko")
+packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono")
+packages+=("wine-gecko" "libxslt" "lib32-libxinerama" "lib32-libpng")
+packages+=("lib32-libxcomposite" "lib32-libjpeg-turbo")
 
 # cava dependencies
-packages+=("base-devel" "fftw" "ncurses" "alsa-lib" "iniparser" "pulseaudio" "autoconf-archive")
+packages+=("base-devel" "fftw" "ncurses" "alsa-lib" "iniparser")
+packages+=("pulseaudio" "autoconf-archive")
 
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
@@ -72,7 +78,8 @@ hostname=$( cat /etc/hostname )
 # desktop-NVIDIA GPU
 if [ "$hostname" == "archDesk" ]
 then
-  packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils" "nvidia-settings")
+  packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils")
+  packages+=("nvidia-settings")
 fi
 
 # laptop-intel iGPU
@@ -105,7 +112,8 @@ cd
 curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
 
 # pull final setup script and make it executable for later
-curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/final_setup.sh
+curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
+scripts/final_setup.sh
 chmod +x  ~/final_setup.sh
 
 # generate new ssh keys for github
