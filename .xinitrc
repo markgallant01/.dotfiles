@@ -37,7 +37,7 @@ hostname=$( cat /etc/hostname )
 
 if [ "$hostname" == "archDesk" ]
 then
-  xrandr_call="--output DP-0 --mode 2560x1440 --rate 143.97 --output DP-2 --mode 2560x1440 --rate 143.97 --right-of DP-0"
+  xrandr_call="--output DP-0 --mode 2560x1440 --rate 120.00 --output DP-2 --mode 2560x1440 --rate 120.00 --right-of DP-0"
 fi
 
 if [ "$hostname" == "archt450s" ]
