@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -consider adding xorg.conf file to repo to save monitor settings
   -maybe add SDL stuff to installer
   -setup a good screen locker that blocks tty access maybe
   -split neovim init into separate files for better organization
