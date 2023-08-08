@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -use bookmarked page to add fold icon to column and make folding
+   look a bit better maybe and also find out how to not auto fold
+   when opening a file for the first time
   -get that neovim plugin that shows block context
   -format this guide so it fits neatly in one half-screen console
   -consider adding xorg.conf file to repo to save monitor settings
