@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -get that neovim plugin that shows block context
+  -format this guide so it fits neatly in one half-screen console
   -consider adding xorg.conf file to repo to save monitor settings
   -maybe add SDL stuff to installer
   -setup a good screen locker that blocks tty access maybe
