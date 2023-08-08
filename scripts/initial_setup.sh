@@ -21,8 +21,8 @@ packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
 # development tools for building from source
 packages+=("base-devel" "clang" "gdb")
 
-# wallpaper tool
-packages+=("feh")
+# image viewing and processing tools
+packages+=("feh" "gimp")
 
 # misc utilities
 packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip")
