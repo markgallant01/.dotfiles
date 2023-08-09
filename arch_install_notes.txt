@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -consider adding documentation window back to cmp
   -https://www.vimfromscratch.com/articles/vim-folding
   -use link to add fold icon to column and make folding
    look a bit better maybe
