@@ -223,8 +223,6 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
-  -https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html
-   study CMake link
   -https://www.vimfromscratch.com/articles/vim-folding
   -use link to add fold icon to column and make folding
    look a bit better maybe
