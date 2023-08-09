@@ -223,10 +223,12 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
-  -use bookmarked page to add fold icon to column and make folding
-   look a bit better maybe and also find out how to not auto fold
-   when opening a file for the first time
-  -get that neovim plugin that shows block context
+  -https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html
+   study CMake link
+  -https://www.vimfromscratch.com/articles/vim-folding
+  -use link to add fold icon to column and make folding
+   look a bit better maybe
+  -get that neovim plugin that shows block context?
   -format this guide so it fits neatly in one half-screen console
   -consider adding xorg.conf file to repo to save monitor settings
   -maybe add SDL stuff to installer
