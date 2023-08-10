@@ -164,6 +164,9 @@ vim.o.foldmethod = 'indent'
 -- disable automatic commenting newline
 vim.cmd("autocmd FileType * set formatoptions-=ro")
 
+-- open all folds by default
+vim.cmd("autocmd BufRead * normal zR")
+
 -- [[ Basic Keymaps ]]
 --
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
