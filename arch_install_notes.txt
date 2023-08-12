@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -keep an eye on system stability now that we've switched the
+   graphics drivers around
   -consider adding documentation window back to cmp
   -https://www.vimfromscratch.com/articles/vim-folding
   -use link to add fold icon to column and make folding
