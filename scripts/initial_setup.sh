@@ -85,7 +85,8 @@ fi
 # laptop-intel iGPU
 if [ "$hostname" == "archt450s" ]
 then
-  packages+=("mesa" "lib32-mesa" "xf86-video-intel" "vulkan-intel")
+  packages+=("mesa-amber" "lib32-mesa-amber" "vulkan-intel")
+  packages+=("lib32-vulkan-intel")
 fi
 
 # install all the compiled packages
