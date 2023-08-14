@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -maybe add section about using nvidia-settings to configure
+   monitor stuff correctly and write to x config file
   -find a replacement for xBacklight because it does not work
    without the intel video driver
   -keep an eye on system stability now that we've switched the
