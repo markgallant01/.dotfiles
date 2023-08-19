@@ -73,7 +73,6 @@ makepkg -si
 cd ~
 
 # install any aur programs
-yay -S cava
 
 # clock synchronization service
 sudo systemctl enable --now systemd-timesyncd.service
