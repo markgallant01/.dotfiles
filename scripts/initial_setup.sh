@@ -42,6 +42,9 @@ packages+=("htop")
 # music downloader
 packages+=("yt-dlp")
 
+# ebooks
+packages+=("calibre")
+
 # web browsers
 packages+=("firefox" "chromium")
 
@@ -66,10 +69,6 @@ packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
 packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono")
 packages+=("wine-gecko" "libxslt" "lib32-libxinerama" "lib32-libpng")
 packages+=("lib32-libxcomposite" "lib32-libjpeg-turbo")
-
-# cava dependencies
-packages+=("base-devel" "fftw" "ncurses" "alsa-lib" "iniparser")
-packages+=("pulseaudio" "autoconf-archive")
 
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
