@@ -407,6 +407,15 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- [[ Setup for specific LSP servers ]]
+require'lspconfig'.jdtls.setup{
+  root_dir = function()
+    return vim.fs.dirname(vim.fs.find({
+      'gradlew', '.git', 'mvnw', '.gitignore'
+    }, { upward = true })[1])
+  end
+}
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
