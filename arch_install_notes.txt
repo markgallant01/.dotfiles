@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -add something about the symlink fix for fmod pipewire bug: https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
   -add section for android USB connection android-file-transfer package
   -look into different fonts, maybe noto fonts. check bookmark.
   -maybe add section about using nvidia-settings to configure
