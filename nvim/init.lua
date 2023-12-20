@@ -159,7 +159,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 vim.o.colorcolumn = "74"
-vim.o.foldmethod = 'indent'
+-- vim.o.foldmethod = 'indent'
 
 -- disable automatic commenting newline
 vim.cmd("autocmd FileType * set formatoptions-=ro")
