@@ -30,6 +30,12 @@ then
   xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1 $time"
 fi
 
+# archxps13 statusbar
+if [ "$hostname" == "archxps13" ]
+then
+  xsetroot -name "vol:$vol bri:$bright% bat:$bat0 $time"
+fi
+
 # desktop statusbar
 if [ "$hostname" == "archDesk" ]
 then
