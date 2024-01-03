@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+  -for some reason some of the stuff from the final installation script
+    did not work such as copying the conf files for the touchpad and stuff.
+    Not sure what else may not have worked. Figure out why this did not work.
   -add something about the symlink fix for fmod pipewire bug: https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
   -add section for android USB connection android-file-transfer package
   -look into different fonts, maybe noto fonts. check bookmark.
