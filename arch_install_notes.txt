@@ -118,7 +118,7 @@ wiki.archlinux.org.
     
 -add the new user to the sudoers file with visudo
   
-  # EDITOR=neovim visudo
+  # EDITOR=vim visudo
 
     *user* ALL=(ALL:ALL) ALL    // add this line to the file
     
