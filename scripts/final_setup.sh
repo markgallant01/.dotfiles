@@ -60,9 +60,9 @@ ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
 ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 
 # copy conf files to appropriate folders
-sudo cp ~/.dotfiles/conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
+sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
 sudo mkdir /etc/pacman.d/hooks/
-sudo cp ~/.dotfiles/conf_files/nvidia.hook /etc/pacman.d/hooks/
+sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
 
 # setup Yay to use the AUR:
 mkdir ~/aur
