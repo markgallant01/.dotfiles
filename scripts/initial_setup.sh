@@ -34,7 +34,7 @@ packages+=("ranger" "thunar")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-pulse")
-packages+=("blueman")
+packages+=("blueman" "sof-firmware")
 
 # hardware monitoring
 packages+=("htop")
