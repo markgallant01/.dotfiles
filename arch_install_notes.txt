@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -update this whole doucments tab width?
+    -running build hooks [kms] takes a while on laptop. Maybe remove or
+     look into?
   -make tabliss use our current wallpaper somehow
   -run through this page and fix errors like the visudo call using neovim
     before neovim has been installed (it should just use vim)
