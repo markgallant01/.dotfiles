@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -add system-monitor thing to install list
+    -swap out dmenu for rofi?
     -update this whole doucments tab width?
     -running build hooks [kms] takes a while on laptop. Maybe remove or
      look into?
