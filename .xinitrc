@@ -58,5 +58,6 @@ nm-applet &
 blueman-applet &
 ~/.fehbg &
 xrandr $xrandr_call &
+picom &
 exec dwm
 
