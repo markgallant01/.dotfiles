@@ -225,10 +225,11 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -make sure rofi stuff is added now that we've switched to it
+    -fix colorscheme so it's more readable with terminal transparency
     -figure out music player
     -add back music visualizer thing we got rid of -cava i think it was called
     -add system-monitor thing to install list
-    -swap out dmenu for rofi?
     -update this whole doucments tab width?
     -running build hooks [kms] takes a while on laptop. Maybe remove or
      look into?
@@ -273,6 +274,3 @@ To-do:
   -go through bookmarked stuff
   -power management? (acpi?)
 
-  -picom
-    -not liking how windows kind of glitch around when they pop up or resize
-    -considering terminal transparency again because that was kinda cool
