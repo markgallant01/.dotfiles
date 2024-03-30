@@ -225,6 +225,7 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -new font is otf-droid-nerd
     -make sure rofi stuff is added now that we've switched to it
     -fix colorscheme so it's more readable with terminal transparency
     -figure out music player
