@@ -222,6 +222,8 @@ wiki.archlinux.org.
 
 -log into firefox, discord, etc.
 
+-set firefox font
+
 To-do:
     -figure out music player
     -add back music visualizer thing we got rid of -cava i think it was called
