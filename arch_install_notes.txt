@@ -225,6 +225,8 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -find a gtk music player and get all the gtk apps to work with
+     the colorschemes
     -look at pywal for settings colorschemes based on wallpaper. Not
      sure if I want this or not
     -apply Xresources patch for ST and DWM
