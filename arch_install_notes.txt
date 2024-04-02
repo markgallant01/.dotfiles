@@ -225,6 +225,8 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -figure out colorscheme for transparent terminal visibility
+    -customize firefox new tab page with custom css
     -look into LaTeX for document writing
     -new font is otf-droid-nerd
     -make sure rofi stuff is added now that we've switched to it
