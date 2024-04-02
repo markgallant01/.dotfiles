@@ -21,7 +21,7 @@ configuration {
 /*	dpi: -1;*/
 
 	/*---------- Matching setting ----------*/
-	matching: "fuzzy";
+	matching: "normal";
 	tokenize: true;
 
 	/*---------- SSH settings ----------*/
@@ -32,7 +32,7 @@ configuration {
 
 	/*---------- Drun settings ----------*/
 	drun-categories: "";
-	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-match-fields: "name";
 	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	drun-show-actions: false;
 	drun-url-launcher: "xdg-open";
