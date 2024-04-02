@@ -225,6 +225,8 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -use musicBrainz picard to tag all our music and sort it. then add
+     picard to the install list
     -figure out a way to customize cava colors
     -also add ffmpegthumbnailer (for thunar)
     -add gvfs to program list (it's a thing for thunar)
