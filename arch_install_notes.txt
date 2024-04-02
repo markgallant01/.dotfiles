@@ -225,6 +225,9 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -look at pywal for settings colorschemes based on wallpaper. Not
+     sure if I want this or not
+    -apply Xresources patch for ST and DWM
     -figure out colorscheme for transparent terminal visibility
     -customize firefox new tab page with custom css
     -look into LaTeX for document writing
