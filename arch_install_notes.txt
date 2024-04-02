@@ -225,6 +225,7 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -figure out a way to customize cava colors
     -also add ffmpegthumbnailer (for thunar)
     -add gvfs to program list (it's a thing for thunar)
     -find a gtk music player and get all the gtk apps to work with
