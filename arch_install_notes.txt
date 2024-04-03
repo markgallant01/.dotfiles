@@ -226,6 +226,9 @@ wiki.archlinux.org.
 -open about:config and make sure glx.x11.glx_sgi_video_sync is true
 
 To-do:
+    -think of a way to make overall theme more cohesive maybe, matching
+     top bar with wallpaper or smth
+    -write script for day/night wallpapers that's so cute
     -going with lollypop music player. add to install script.
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
