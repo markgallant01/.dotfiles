@@ -59,5 +59,6 @@ blueman-applet &
 ~/.fehbg &
 xrandr $xrandr_call &
 picom &
-exec dwm
+exec ~/.dotfiles/scripts/startdwm.sh
+#exec dwm
 
