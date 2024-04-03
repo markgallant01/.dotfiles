@@ -226,6 +226,8 @@ wiki.archlinux.org.
 -open about:config and make sure glx.x11.glx_sgi_video_sync is true
 
 To-do:
+    -firefox custom CSS
+    -theme rofi to match everything else?
     -set terminal to use same colors as neovim colorscheme
     -think of a way to make overall theme more cohesive maybe, matching
      top bar with wallpaper or smth
