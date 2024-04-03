@@ -226,6 +226,7 @@ wiki.archlinux.org.
 -open about:config and make sure glx.x11.glx_sgi_video_sync is true
 
 To-do:
+    -set terminal to use same colors as neovim colorscheme
     -think of a way to make overall theme more cohesive maybe, matching
      top bar with wallpaper or smth
     -write script for day/night wallpapers that's so cute
@@ -243,7 +244,6 @@ To-do:
     -look into LaTeX for document writing
     -new font is otf-droid-nerd
     -make sure rofi stuff is added now that we've switched to it
-    -fix colorscheme so it's more readable with terminal transparency
     -add back music visualizer thing we got rid of -cava i think it was called
     -add system-monitor thing to install list
     -update this whole doucments tab width?
