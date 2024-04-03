@@ -226,6 +226,7 @@ wiki.archlinux.org.
 -open about:config and make sure glx.x11.glx_sgi_video_sync is true
 
 To-do:
+    -figure out this timer crap it's hurting my brain
     -firefox custom CSS
     -theme rofi to match everything else?
     -set terminal to use same colors as neovim colorscheme
