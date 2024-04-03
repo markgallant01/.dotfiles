@@ -1,6 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-# grab random wallpaper
-image=$(find /home/mark/Pictures/Wallpaper/Studio_Ghibli/Day/ | shuf -n 1)
+# grab the current hour
+hour=$(date +%H)
+
+# if between 4am and 4:59pm (04:00 - 16:59)
+if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
+    # grab a random day time studio ghibli image
+    image=$(find /home/mark/Pictures/Wallpaper/Studio_Ghibli/Day/ | shuf -n 1)
+fi
+
+# if between 5pm and 3:59am (17:00 - 03:59)
+if [[ $hour -gt 16 ]] || [[ $hour -lt 4 ]]; then
+    # grab a random night time studio ghibli image
+    image=$(find /home/mark/Pictures/Wallpaper/Studio_Ghibli/Night/ | shuf -n 1)
+fi
+
+# set chosen image as wallpaper
 feh --no-fehbg --bg-scale $image
 
