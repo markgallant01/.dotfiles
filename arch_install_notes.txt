@@ -223,6 +223,7 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 -set firefox font
+-open about:config and make sure glx.x11.glx_sgi_video_sync is true
 
 To-do:
     -going with lollypop music player. add to install script.
