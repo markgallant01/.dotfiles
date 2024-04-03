@@ -32,7 +32,7 @@ configuration {
 
 	/*---------- Drun settings ----------*/
 	drun-categories: "";
-	drun-match-fields: "name";
+	drun-match-fields: "name,generic";
 	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	drun-show-actions: false;
 	drun-url-launcher: "xdg-open";
