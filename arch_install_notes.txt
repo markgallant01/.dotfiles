@@ -225,13 +225,12 @@ wiki.archlinux.org.
 -set firefox font
 
 To-do:
+    -going with lollypop music player. add to install script.
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
     -figure out a way to customize cava colors
     -also add ffmpegthumbnailer (for thunar)
     -add gvfs to program list (it's a thing for thunar)
-    -find a gtk music player and get all the gtk apps to work with
-     the colorschemes
     -look at pywal for settings colorschemes based on wallpaper. Not
      sure if I want this or not
     -apply Xresources patch for ST and DWM
@@ -241,7 +240,6 @@ To-do:
     -new font is otf-droid-nerd
     -make sure rofi stuff is added now that we've switched to it
     -fix colorscheme so it's more readable with terminal transparency
-    -figure out music player
     -add back music visualizer thing we got rid of -cava i think it was called
     -add system-monitor thing to install list
     -update this whole doucments tab width?
