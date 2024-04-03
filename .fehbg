@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # grab random wallpaper
-image=$(find /home/mark/Pictures/Wallpaper/Studio_Ghibli/ | shuf -n 1)
+image=$(find /home/mark/Pictures/Wallpaper/Studio_Ghibli/Day/ | shuf -n 1)
 feh --no-fehbg --bg-scale $image
 
