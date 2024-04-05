@@ -222,9 +222,6 @@ wiki.archlinux.org.
 
 -log into firefox, discord, etc.
 
--set firefox font
--open about:config and make sure glx.x11.glx_sgi_video_sync is true
-
 To-do:
     -figure out this timer crap it's hurting my brain
     -firefox custom CSS
@@ -241,11 +238,9 @@ To-do:
     -add gvfs to program list (it's a thing for thunar)
     -look at pywal for settings colorschemes based on wallpaper. Not
      sure if I want this or not
-    -apply Xresources patch for ST and DWM
-    -figure out colorscheme for transparent terminal visibility
     -customize firefox new tab page with custom css
     -look into LaTeX for document writing
-    -new font is otf-droid-nerd
+    -new font is otf-droid-nerd & ttf-droid
     -make sure rofi stuff is added now that we've switched to it
     -add back music visualizer thing we got rid of -cava i think it was called
     -add system-monitor thing to install list
