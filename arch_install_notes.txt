@@ -223,7 +223,12 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
-    -figure out this timer crap it's hurting my brain
+    -finally got timer stuff figured out, add it to this config somehow.
+     we will have to save the timer and service file in this folder and
+     create and copy them to the proper directory during setup.
+     Directory is ~/.config/systemd/user/
+     the timer has to be enabled and started with:
+     systemctl --user enable --now update-wallpaper.timer
     -firefox custom CSS
     -theme rofi to match everything else?
     -set terminal to use same colors as neovim colorscheme
