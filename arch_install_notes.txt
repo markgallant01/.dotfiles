@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -forget ls and ranger, just use normal cli and thunar. remove ranger
+     from install list.
     -finally got timer stuff figured out, add it to this config somehow.
      we will have to save the timer and service file in this folder and
      create and copy them to the proper directory during setup.
