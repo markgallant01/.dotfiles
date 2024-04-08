@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -configure picom with gaussian blur now that we're stuck on the
+     xrender backend
     -forget ls and ranger, just use normal cli and thunar. remove ranger
      from install list.
     -finally got timer stuff figured out, add it to this config somehow.
