@@ -40,9 +40,9 @@ then
   xrandr_call="--output DP-0 --mode 2560x1440 --rate 120.00 --output DP-2 --mode 2560x1440 --rate 120.00 --right-of DP-0"
 fi
 
-if [ "$hostname" == "archt450s" ]
+if [ "$hostname" == "archxps13" ]
 then
-  xrandr_call="--output eDP1 --mode 1920x1080 --rate 60.05"
+  xrandr_call="--output eDP-1 --mode 1920x1200 --rate 59.95"
 fi
 
 # dwm statusbar loop
