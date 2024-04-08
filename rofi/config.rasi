@@ -18,7 +18,7 @@ configuration {
 	icon-theme: "Papirus";
 /*	cache-dir: ;*/
 	steal-focus: false;
-	dpi: 120;
+	dpi: 150;
 
 	/*---------- Matching setting ----------*/
 	matching: "normal";
