@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -make a script to pull up our other monitor setup with discord, cava,
+     and lollypop in the correct configuration.
     -get rid of the big rofi theme pack we got. Start with a base rofi
      theme and configure it ourself. Read the wiki.
     -forget ls and ranger, just use normal cli and thunar. remove ranger
@@ -296,4 +298,8 @@ To-do:
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
   -go through bookmarked stuff
   -power management? (acpi?)
+
+  Bugs:
+    -feh seems to span the wallpaper across both monitors if the timer
+     triggers the script to run while the screens are off. Look into this.
 
