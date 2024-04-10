@@ -302,4 +302,6 @@ To-do:
   Bugs:
     -feh seems to span the wallpaper across both monitors if the timer
      triggers the script to run while the screens are off. Look into this.
+    -may have fixed laptop intel i915 issue by disabling PSR with kernel
+     params. Maybe add something about this into a picom section or smth.
 
