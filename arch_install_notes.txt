@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -apparently lots of pipewire stuff wasn't installed this whole time.
+     not sure what's wrong with the installer script. Look into that.
     -Pretty sure I want to switch back to the seasonal wallpapers with
      day/night cycles. Save the Ghibli stuff.
     -make a script to pull up our other monitor setup with discord, cava,
