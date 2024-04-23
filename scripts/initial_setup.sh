@@ -33,7 +33,7 @@ packages+=("xclip" "npm" "wget" "curl")
 packages+=("ranger" "thunar")
 
 # sound system
-packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-pulse")
+packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-audio" "pipewire-pulse")
 packages+=("blueman" "sof-firmware")
 
 # hardware monitoring
