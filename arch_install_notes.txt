@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -added xfce4-power-manager to control screen dimming. add to install
+     list if it works out well.
     -apparently lots of pipewire stuff wasn't installed this whole time.
      not sure what's wrong with the installer script. Look into that.
     -Pretty sure I want to switch back to the seasonal wallpapers with
