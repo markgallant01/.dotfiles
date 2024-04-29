@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -xfce4-power-manager seems to have added a bunch of xfce stuff and
+     now we're getting push notifications and junk. Maybe remove that.
     -added xfce4-power-manager to control screen dimming. add to install
      list if it works out well.
     -apparently lots of pipewire stuff wasn't installed this whole time.
