@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -I don't like the spring wallpaper with the pink trees and the 
+     columns on the right hand side. It looks blurry and low quality.
+     Remove it from the list.
     -xfce4-power-manager seems to have added a bunch of xfce stuff and
      now we're getting push notifications and junk. Maybe remove that.
     -added xfce4-power-manager to control screen dimming. add to install
@@ -310,6 +313,4 @@ To-do:
   Bugs:
     -feh seems to span the wallpaper across both monitors if the timer
      triggers the script to run while the screens are off. Look into this.
-    -may have fixed laptop intel i915 issue by disabling PSR with kernel
-     params. Maybe add something about this into a picom section or smth.
 
