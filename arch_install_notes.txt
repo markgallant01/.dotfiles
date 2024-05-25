@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -go through install scripts and see if we can prune any programs we
+     don't use. Shore up this guide and the install scripts in prep
+     for gentoo switch.
     -swap out neofetch for fastfetch since the former is abandoned
     -find a good font with the dot in the zero. I like the dot.
     -firefox is a pain in the ass so switch to google chrome.
