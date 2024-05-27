@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -firefox needs extensions configured to be allowed to run in private windows
+     and disable lastpass autofill
     -firefox needs the addon bar configured
     -also fonts are a mess, the install guide still uses dejaVu but we
      switched to droid but droid doesn't have the dot in the zero that I like
