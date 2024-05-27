@@ -223,6 +223,10 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -firefox needs the addon bar configured
+    -also fonts are a mess, the install guide still uses dejaVu but we
+     switched to droid but droid doesn't have the dot in the zero that I like
+     so who knows what we're doing. Figure that out.
     -add a section about setting up an appropriate xrandr call. It doesn't
      make sense to try and keep one in the script for all our setups.
     -find a way to integrate the xrandr call into the startup in a generic way
