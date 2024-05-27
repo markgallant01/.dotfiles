@@ -22,15 +22,15 @@ packages+=("libxft" "libxinerama" "ttf-dejavu-nerd")
 packages+=("base-devel" "clang" "gdb")
 
 # image viewing and processing tools
-packages+=("feh" "gimp")
+packages+=("feh")
 
 # misc utilities
-packages+=("network-manager-applet" "udisks2" "neofetch" "zip" "unzip")
+packages+=("network-manager-applet" "udisks2" "fastfetch" "zip" "unzip")
 packages+=("scrot" "cmus" "celluloid" "neovim" "dmenu" "xdg-user-dirs")
 packages+=("xclip" "npm" "wget" "curl")
 
 # file browser
-packages+=("ranger" "thunar")
+packages+=("thunar")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "wireplumber" "pipewire-audio" "pipewire-pulse")
@@ -46,29 +46,13 @@ packages+=("yt-dlp")
 packages+=("calibre")
 
 # web browsers
-packages+=("firefox" "chromium")
+packages+=("firefox")
 
 # communication
-packages+=("discord" "thunderbird")
+packages+=("discord")
 
 # game launchers
 packages+=("steam" "lutris")
-
-# wine dependencies
-packages+=("wine-staging" "giflib" "lib32-giflib" "libpng")
-packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls")
-packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils")
-packages+=("lib32-v4l-utils" "libpulse" "lib32-libpulse")
-packages+=("lib32-libgpg-error" "alsa-plugins" "lib32-alsa-plugins")
-packages+=("alsa-lib" "lib32-alsa-lib" "libjpeg-turbo" "mpg123")
-packages+=("sqlite" "lib32-sqlite" "libxcomposite" "libgpg-error")
-packages+=("libxinerama" "lib32-libgcrypt" "libgcrypt")
-packages+=("ncurses" "lib32-ncurses" "ocl-icd" "lib32-ocl-icd")
-packages+=("lib32-libxslt" "libva" "lib32-libva" "gtk3" "lib32-gtk3")
-packages+=("gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
-packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader" "wine-mono")
-packages+=("wine-gecko" "libxslt" "lib32-libxinerama" "lib32-libpng")
-packages+=("lib32-libxcomposite" "lib32-libjpeg-turbo")
 
 # grab the computer's host name
 hostname=$( cat /etc/hostname )
