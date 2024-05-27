@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -add a link to the wine dependencies so that list can be copy pasted
+     and add wine-gecko and wine-mono to the list somewhere
+    -fix and test installer scripts
     -go through install scripts and see if we can prune any programs we
      don't use. Shore up this guide and the install scripts in prep
      for gentoo switch.
