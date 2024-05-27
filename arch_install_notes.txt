@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -add a part at the end of the guide for setting firefox up with
+     whatever settings we use that don't sync ex: setting the font up
     -add a link to the wine dependencies so that list can be copy pasted
      and add wine-gecko and wine-mono to the list somewhere
     -fix and test installer scripts
@@ -231,7 +233,6 @@ To-do:
      for gentoo switch.
     -swap out neofetch for fastfetch since the former is abandoned
     -find a good font with the dot in the zero. I like the dot.
-    -firefox is a pain in the ass so switch to google chrome.
     -I don't like the spring wallpaper with the pink trees and the 
      columns on the right hand side. It looks blurry and low quality.
      Remove it from the list.
