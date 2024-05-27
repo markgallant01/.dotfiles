@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -need a section to set up wallpapers or integrate it into the script
+     somehow
     -firefox needs extensions configured to be allowed to run in private windows
      and disable lastpass autofill
     -firefox needs the addon bar configured
