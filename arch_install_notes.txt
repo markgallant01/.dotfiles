@@ -223,6 +223,9 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -add a section about setting up an appropriate xrandr call. It doesn't
+     make sense to try and keep one in the script for all our setups.
+    -find a way to integrate the xrandr call into the startup in a generic way
     -add a part at the end of the guide for setting firefox up with
      whatever settings we use that don't sync ex: setting the font up
     -add a link to the wine dependencies so that list can be copy pasted
