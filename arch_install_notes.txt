@@ -223,6 +223,11 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -lollypop is our music player. Add a section for lollypop and make
+     sure to install all the optional gst plugin packs good bad ugly and
+     base and libav. Consult the package page.
+    -maybe add a section to run through discord and set everything up
+     like mic settings, text size, etc
     -figure out the proper way to configure ssh and think about how
      to incorporate that
     -need a section to set up wallpapers or integrate it into the script
