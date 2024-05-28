@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -figure out the proper way to configure ssh and think about how
+     to incorporate that
     -need a section to set up wallpapers or integrate it into the script
      somehow
     -firefox needs extensions configured to be allowed to run in private windows
