@@ -223,6 +223,8 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -for setting up firefox, go into settings and disable all search
+     suggestions from sponsors, firefox, and history. just disable everything
     -lollypop is our music player. Add a section for lollypop and make
      sure to install all the optional gst plugin packs good bad ugly and
      base and libav. Consult the package page.
