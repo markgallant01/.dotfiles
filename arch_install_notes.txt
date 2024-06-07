@@ -223,6 +223,12 @@ wiki.archlinux.org.
 -log into firefox, discord, etc.
 
 To-do:
+    -refit this guide for gentoo. After a base gentoo install, all the
+     programs we need will have to be set up. Go through the programs
+     list and see what can be pruned and what needs to be kept. So far,
+     I've only really installed pipewire and wireplumber so I could get audio.
+    -Also, we're changing from ST and DWM to AwesomeWM and some other teminal, Urxvt for now.
+     Add some sections about setting those up.
     -for setting up firefox, go into settings and disable all search
      suggestions from sponsors, firefox, and history. just disable everything
     -lollypop is our music player. Add a section for lollypop and make
