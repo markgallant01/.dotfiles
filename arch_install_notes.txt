@@ -230,6 +230,7 @@ GENTOO STUFF:
   -needed to setup xorg.conf file to remove mouse accel
   -need to configure awesomeWM, firefox, and URxvt
   -install xrandr
+  -installed x11-misc/xclip for clipboard support in neovim. Not sure if I need this.
 
 need to:
   -get awesome working how I want
