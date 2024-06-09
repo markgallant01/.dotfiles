@@ -229,6 +229,7 @@ GENTOO STUFF:
   -install firefox-bin
   -needed to setup xorg.conf file to remove mouse accel
   -need to configure awesomeWM, firefox, and URxvt
+  -install xrandr
 
 To-do:
     -refit this guide for gentoo. After a base gentoo install, all the
