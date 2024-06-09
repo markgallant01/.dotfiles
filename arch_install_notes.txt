@@ -242,6 +242,7 @@ need to:
   -startup stuff
   -install htop and other progs
   -discord
+  -make sure to get urxvt working in demon mode
 
 To-do:
     -refit this guide for gentoo. After a base gentoo install, all the
