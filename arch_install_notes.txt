@@ -232,6 +232,7 @@ GENTOO STUFF:
   -install xrandr
   -installed x11-misc/xclip for clipboard support in neovim. Not sure if I need this.
   -setup git and pull .dotfiles repo
+  -installed nodejs so that neovim plugins could work properly
 
 need to:
   -get awesome working how I want
