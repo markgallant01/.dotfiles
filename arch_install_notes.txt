@@ -237,6 +237,8 @@ need to:
   -setup xinit file
   -wallpapers
   -startup stuff
+  -install htop and other progs
+  -discord
 
 To-do:
     -refit this guide for gentoo. After a base gentoo install, all the
