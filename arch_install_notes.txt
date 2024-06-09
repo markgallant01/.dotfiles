@@ -222,6 +222,14 @@ wiki.archlinux.org.
 
 -log into firefox, discord, etc.
 
+GENTOO STUFF:
+  -install app-portage/gentoolkit
+  -install display server
+  -install fastfetch
+  -install firefox-bin
+  -needed to setup xorg.conf file to remove mouse accel
+  -need to configure awesomeWM, firefox, and URxvt
+
 To-do:
     -refit this guide for gentoo. After a base gentoo install, all the
      programs we need will have to be set up. Go through the programs
