@@ -231,6 +231,13 @@ GENTOO STUFF:
   -need to configure awesomeWM, firefox, and URxvt
   -install xrandr
 
+need to:
+  -get awesome working how I want
+  -fix the font and colors in urxvt
+  -setup xinit file
+  -wallpapers
+  -startup stuff
+
 To-do:
     -refit this guide for gentoo. After a base gentoo install, all the
      programs we need will have to be set up. Go through the programs
