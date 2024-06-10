@@ -241,6 +241,10 @@ GENTOO STUFF:
   -need to get a font for firefox that has asian characters
   -neovim / terminal needs a font with icons
   -steam has a weird cursor so figure that out
+  -things are working well so far. still need to configure awesomeWM and get all my dotfiles set up. weird cursor in wine stuff like steam and lutris.
+  -for fonts, liberationMono Nerd font, download from the nerd font website and set it up. That's for terminal and Neovim. For firefox and maybe awesomeWM, use
+   the noto fonts so we have all the special characters. Noto is in the gentoo repos.
+  -still need to get distcc set up so we can get the laptop up and running.
 
 need to:
   -get awesome working how I want
