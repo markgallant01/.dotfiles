@@ -222,29 +222,12 @@ wiki.archlinux.org.
 
 -log into firefox, discord, etc.
 
-GENTOO STUFF:
-  -install app-portage/gentoolkit
-  -install display server
-  -install fastfetch
-  -install firefox-bin
-  -needed to setup xorg.conf file to remove mouse accel
   -need to configure awesomeWM, firefox, and URxvt
-  -install xrandr
-  -installed x11-misc/xclip for clipboard support in neovim. Not sure if I need this.
-  -setup git and pull .dotfiles repo
   -installed nodejs so that neovim plugins could work properly
-  -installed xdg-desktop-portal-gtk so we have a portal implementation
-  -steam would not launch and was giving weird errors, I uninstalled xdg-desktop-portal-gtk and
-   then installed xdg-user-dirs and messed with my xinitrc but I have no idea if any of those steps
-   changed anything or if steam just decided to start working again for some reason.
-  -continue setting stuff up and get used to gentoo and see if it's worth using over arch.
-  -need to get a font for firefox that has asian characters
   -neovim / terminal needs a font with icons
-  -steam has a weird cursor so figure that out
   -things are working well so far. still need to configure awesomeWM and get all my dotfiles set up. weird cursor in wine stuff like steam and lutris.
   -for fonts, liberationMono Nerd font, download from the nerd font website and set it up. That's for terminal and Neovim. For firefox and maybe awesomeWM, use
-   the noto fonts so we have all the special characters. Noto is in the gentoo repos.
-  -still need to get distcc set up so we can get the laptop up and running.
+   the noto fonts so we have all the special characters. Noto is in the repos.
 
 need to:
   -get awesome working how I want
