@@ -13,7 +13,7 @@ wiki.archlinux.org.
   -dd command is easiest:
 
     $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive
-         conv=fsync oflag=direct status=progress
+        conv=fsync oflag=direct status=progress
 
 1.4 Boot the live environment
 1.5 Set the console keyboard layout and font
@@ -39,6 +39,7 @@ wiki.archlinux.org.
   -boot drive needs 2 partitions: a 1G EFI boot partition
    and the rest of the drive is Linux x86_64 root xfs
   -list the drives with:
+
     # lsblk -l
 
   -and use cfdisk to make the partitioning easy.
@@ -62,9 +63,9 @@ wiki.archlinux.org.
    will be useful.
     
     # pacstrap -K /mnt base linux linux-firmware
-                       man-db man-pages texinfo
-                       vim networkmanager sudo
-                       intel-ucode OR amd-ucode <- choose correct for CPU
+        man-db man-pages texinfo
+        vim networkmanager sudo
+        intel-ucode OR amd-ucode <- choose correct for CPU
 
 
 /***************************/
@@ -190,6 +191,22 @@ wiki.archlinux.org.
   $ chmod +x initial_setup.sh
   $ ./initial_setup.sh
 
+  # ensure home directory
+  cd ~
+  
+  # pull temporary xinit file for the first boot
+  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
+  
+  # pull final setup script and make it executable for later
+  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
+  scripts/final_setup.sh
+  chmod +x  ~/final_setup.sh
+  
+  # generate new ssh keys for github
+  ssh-keygen -t ed25519 -C markgallant01@gmail.com
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+
 
 /***********************/
 /* POST-INSTALL-SCRIPT */
@@ -272,38 +289,39 @@ wiki.archlinux.org.
 
 
 To-do:
-    -I want a nice icon set for thunar
-    -keep configuring awesomeWM
-    -keep configuring urxvt
-    -for terminal use different font. Probably LiberationMono Nerd font so
-     we have all the icons and stuff. Probably use that for neovim, terminal,
-     and maybe awesomeWM
-    -add something about using xfs instead of ext4 and remember to install
-     xfsprogs.
-    -need a section to set up wallpapers or integrate it into the script
-     somehow
-    -add a section about setting up an appropriate xrandr call. It doesn't
-     make sense to try and keep one in the script for all our setups.
-    -find a way to integrate the xrandr call into the startup in a generic way
-    -Pretty sure I want to switch back to the seasonal wallpapers with
-     day/night cycles. Save the Ghibli stuff.
-    -finally got timer stuff figured out, add it to this config somehow.
-     we will have to save the timer and service file in this folder and
-     create and copy them to the proper directory during setup.
-     Directory is ~/.config/systemd/user/
-     the timer has to be enabled and started with:
-     systemctl --user enable --now update-wallpaper.timer
-    -firefox custom CSS
-    -think of a way to make overall theme more cohesive maybe, matching
-     top bar with wallpaper or smth
-    -write script for day/night wallpapers that's so cute
-    -use musicBrainz picard to tag all our music and sort it. then add
-     picard to the install list
-    -look at pywal for settings colorschemes based on wallpaper. Not
-     sure if I want this or not
-    -customize firefox new tab page with custom css
-    -look into LaTeX for document writing
-  -add something about the symlink fix for fmod pipewire bug: https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
+  -I want a nice icon set for thunar
+  -keep configuring awesomeWM
+  -keep configuring urxvt
+  -for terminal use different font. Probably LiberationMono Nerd font so
+   we have all the icons and stuff. Probably use that for neovim, terminal,
+   and maybe awesomeWM
+  -add something about using xfs instead of ext4 and remember to install
+   xfsprogs.
+  -need a section to set up wallpapers or integrate it into the script
+   somehow
+  -add a section about setting up an appropriate xrandr call. It doesn't
+   make sense to try and keep one in the script for all our setups.
+  -find a way to integrate the xrandr call into the startup in a generic way
+  -Pretty sure I want to switch back to the seasonal wallpapers with
+   day/night cycles. Save the Ghibli stuff.
+  -finally got timer stuff figured out, add it to this config somehow.
+   we will have to save the timer and service file in this folder and
+   create and copy them to the proper directory during setup.
+   Directory is ~/.config/systemd/user/
+   the timer has to be enabled and started with:
+   systemctl --user enable --now update-wallpaper.timer
+  -firefox custom CSS
+  -think of a way to make overall theme more cohesive maybe, matching
+   top bar with wallpaper or smth
+  -write script for day/night wallpapers that's so cute
+  -use musicBrainz picard to tag all our music and sort it. then add
+   picard to the install list
+  -look at pywal for settings colorschemes based on wallpaper. Not
+   sure if I want this or not
+  -customize firefox new tab page with custom css
+  -look into LaTeX for document writing
+  -add something about the symlink fix for fmod pipewire bug:
+   https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
   -add section for android USB connection android-file-transfer package
   -find a replacement for xBacklight because it does not work
    without the intel video driver
@@ -323,7 +341,7 @@ To-do:
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
   -power management? (acpi?)
 
-  Bugs:
-    -feh seems to span the wallpaper across both monitors if the timer
-     triggers the script to run while the screens are off. Look into this.
+Bugs:
+  -feh seems to span the wallpaper across both monitors if the timer
+   triggers the script to run while the screens are off. Look into this.
 
