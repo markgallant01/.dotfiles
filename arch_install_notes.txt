@@ -35,13 +35,16 @@ wiki.archlinux.org.
   
 1.8 Update the system clock  
 1.9 Partition the disks
-  -format all drives as ext4 Linux Filesystem.
-  -boot drive needs 2 partitions: a 300M EFI boot partition
-   and the rest of the drive is Linux x86_64 root (ext4)
+  -format root drive as xfs.
+  -boot drive needs 2 partitions: a 1G EFI boot partition
+   and the rest of the drive is Linux x86_64 root xfs
   -list the drives with:
     # lsblk -l
 
   -and use cfdisk to make the partitioning easy.
+
+  -for the swap file, on desktop suspend is unnecessary so 16G is
+   more than enough. On a laptop use 1.5x RAM.
 
 1.10 Format the partitions 
 1.11 Mount the file system
@@ -55,12 +58,13 @@ wiki.archlinux.org.
    move the American mirror to the top of the list.
 
 2.2 Install essential packages
-  -in addition to the essential packages, install man pages, vim
-   for early text editing, and networkManager.
+  -in addition to the essential packages, install some more stuff that
+   will be useful.
     
     # pacstrap -K /mnt base linux linux-firmware
                        man-db man-pages texinfo
                        vim networkmanager sudo
+                       intel-ucode OR amd-ucode <- choose correct for CPU
 
 
 /***************************/
@@ -72,28 +76,43 @@ wiki.archlinux.org.
 3.3 Time zone
 3.4 Localization
 3.5 Network configuration
-  -after setting up the hostname file, set up NetworkManager so the internet
-   works on reboot.
+  -after setting up the hostname file, run this command to ensure
+   NetworkManager starts up on reboot:
 
     # systemctl enable NetworkManager.service
 
 3.6 Initramfs
 3.7 Root password
 3.8 Boot loader
-  -use GRUB bootloader, very easy. 
-  -first command installs the packages.
-  -second installs bootloader
-  -third configures bootloader
+  -Systemd-boot comes with systemD and is easy to use. It's already
+   installed on the system. Initialize it:
 
-    # pacman -S grub efibootmgr
-    # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-    # grub-mkconfig -o /boot/grub/grub.cfg
+    # bootctl install
 
-  -then, intel microcode
-  -install ucode and reconfigure grub so it applies the microcode
+  -Next, a loader configuration file must be created and set:
+   (note 'efi' below corresponds to wherever the EFI directory was
+   mounted. Probably /boot.)
+  -These fields are separated by a space, not a tab. SystemD won't read tabs.
 
-    # pacman -S intel-ucode
-    # grub-mkconfig -o /boot/grub/grub.cfg
+    "efi/loader/loader.conf"
+    default arch.conf
+    timeout 0
+    console-mode keep
+
+  -You'll need a corresponding arch.conf file in efi/loader/entries.
+  -The UUID must be replaced with the UUID of the root partition. Copy it
+   from the /etc/fstab file.
+  -These can be tab-separated:
+
+    "efi/loader/entries/arch.conf"
+    title   Arch Linux
+    linux   /vmlinux-linux
+    initrd  /initramfs-linux.img
+    options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
+
+  -use this command to make sure there's a new Arch Linux boot entry:
+
+    # bootctl list
 
 -finished with basic installation
 -exit chroot, unmount drives and shutdown:
@@ -111,18 +130,27 @@ wiki.archlinux.org.
 
 -this section sets up the newly installed system. Login to the new system
  as root.
--setup a non-root user and set the password:
+
+-First, verify that the microcode is loaded properly. Use this command and
+ read the output:
+
+  # lsinitcpio --early /boot/initramfs-linux.img | head -n 5
+
+-The last 2 lines should reference microcode for your CPU.
+
+-setup a non-root user in the wheel groups and set the password:
   
-  # useradd -m *user*
+  # useradd -m -G wheel <username>
   # passwd *user*
     
 -add the new user to the sudoers file with visudo
   
   # EDITOR=vim visudo
 
-    *user* ALL=(ALL:ALL) ALL    // add this line to the file
+    %wheel ALL=(ALL:ALL) ALL    // uncomment this line
     
 -then logout of root and login as the new user. 
+
 -verify the internet:
 
   $ ping archlinux.org
@@ -132,12 +160,15 @@ wiki.archlinux.org.
   $ nmcli device wifi list
   $ nmcli device wifi connect "SSID" password "password"
 
--setup pacman by editing pacman.conf to enable the multilib repo and
- enable parallel downloading:
+-setup pacman by editing pacman.conf to enable the multilib repo, color,
+ and parallel downloads.
  (uncomment the lines):
   
     "/etc/pacman.conf"
     [options]
+    ...
+    Color
+    ...
     ParallelDownloads = 5
     ...
     [multilib]
@@ -166,6 +197,7 @@ wiki.archlinux.org.
 
 -if nvidia drivers were installed, you must edit the file 
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+ This ensures the junk nouveau module will not be loaded during boot:
 
   $ sudo vim /etc/mkinitcpio.conf
 
@@ -178,7 +210,7 @@ wiki.archlinux.org.
   $ startx
 
 -before running the final settings script, must authenticate with github
--launch web browser and login to github account
+-launch web browser and login to github account.
 -the installer script generated new ssh keys. print the public key:
 
   $ cat ~/.ssh/id_ed25519.pub
@@ -198,21 +230,37 @@ wiki.archlinux.org.
 /* FINISHING TOUCHES */
 /*********************/
 
+-First, setup Firefox. Launch Firefox and log int so it syncs everything.
+-Log in to Lastpass so we get all our passwords.
+-Set the initial UI stuff that does not sync. Set the bookmark bar to 'always show'
+-remove the unnecessary icons around the extentions and make sure Lastpass and Ublock are shown
+-go into the settings and make sure everything looks right. Disable all search suggestions
+ and set the default search engine to DuckDuckGo.
+-make sure the noto fonts are set correctly. They should be setup automatically.
+-go through the settings for each extensions and enable them for Private browser tabs
+-Go into the special Lastpass settings and disable autofill.
+
 -launch discord once to generate the config file.
--edit the shown line in this file so Discord doesn't refuse to launch
+-add the shown line in this file so Discord doesn't refuse to launch
  if there's an update that's not in the repo yet:
     
   ~/.config/discord/settings.json
   "SKIP_HOST_UPDATE": true
 
--on desktop, use these commands to set the volume to 100%:
+-Log into discord and set it up. Set the font size to 20. Set mic threshold.
+-Disable 'minimize to tray' and automatic startup.
+
+-On desktop, use this command to set the volume to 100%:
 
   $ pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 -create additional directories in the home directory
- for any internal or external drives you want to mount
--set up the fstab here so that drives auto mount 
- (come back to this)
+ for any internal or external drives you want to mount:
+
+  $ mkdir nvme_games ssd_storage
+
+-set up the fstab here so that drives auto mount. Consult
+ https://wiki.archlinux.org/title/Fstab for reference.
     
 -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
@@ -220,105 +268,25 @@ wiki.archlinux.org.
 
   $ rm ~/initial_setup.sh ~/final_setup.sh
 
--log into firefox, discord, etc.
 
--Do firefox first because that gets us all our passwords with lastpass
--launch firefox, log in
--set up the top right and top left menu bars how we like
--go into settings and make sure font is noto, uncheck all suggestions,
- and set default browser to ddg
--log into LastPass and use that to log into Discord and anything else
--go through the extensions and enable them all for private browsing mode
 
-  -need to configure awesomeWM, firefox, and URxvt
-  -installed nodejs so that neovim plugins could work properly
-  -neovim / terminal needs a font with icons
-  -things are working well so far. still need to configure awesomeWM and get all my dotfiles set up. weird cursor in wine stuff like steam and lutris.
-  -for fonts, liberationMono Nerd font, download from the nerd font website and set it up. That's for terminal and Neovim. For firefox and maybe awesomeWM, use
-   the noto fonts so we have all the special characters. Noto is in the repos.
-
-  -launch discord, set up font settings and disable x-to-tray thing so it closes properly. Setting up microphone settings might require a restart after installing and setting up the sound server.
-
-  -need to reconfigure the installation section because lots of stuff gets pulled in as dependencies before the install script gets to them. E.G. vulkan gets pulled in
-   as a dependency for something, probably xorg-server, before the video drivers are chosen. Noto fonts also gets pulled in by something. Steam or Lutris maybe.
-
-need to:
-  -get awesome working how I want
-  -fix the font and colors in urxvt
-  -setup xinit file
-  -wallpapers
-  -startup stuff
-  -install htop and other progs
-  -discord
-  -make sure to get urxvt working in demon mode
 
 To-do:
-    -for fonts, for Firefox we use noto fonts because they contain all
-     languages characters. Install the packages noto-fonts and noto-fonts-cjk
-     to get all languages.
+    -I want a nice icon set for thunar
+    -keep configuring awesomeWM
+    -keep configuring urxvt
     -for terminal use different font. Probably LiberationMono Nerd font so
      we have all the icons and stuff. Probably use that for neovim, terminal,
      and maybe awesomeWM
-    -guide needs touching up because some info has changed. Look over the
-     partitioning section because the EFI is now 1G and we use swap. Put
-     something in there about swap sizes for desktop vs laptop.
-    -also, refit the bootloader section because we use systemd-boot instead of
-     grub now. It required some setup.
     -add something about using xfs instead of ext4 and remember to install
      xfsprogs.
-    -look over the nvidia section again to make sure we're doing it right.
-     I never know why people are always talking about the dkms version or
-     whatever and I don't know if we still need that pacman hook or to remove kms from
-     that array or whatever. Look over all that again.
-    -Also, we're changing from ST and DWM to AwesomeWM and some other teminal, Urxvt for now.
-     Add some sections about setting those up.
-    -for setting up firefox, go into settings and disable all search
-     suggestions from sponsors, firefox, and history. just disable everything
-    -lollypop is our music player. Add a section for lollypop and make
-     sure to install all the optional gst plugin packs good bad ugly and
-     base and libav. Consult the package page.
-    -maybe add a section to run through discord and set everything up
-     like mic settings, text size, etc
-    -figure out the proper way to configure ssh and think about how
-     to incorporate that
     -need a section to set up wallpapers or integrate it into the script
      somehow
-    -firefox needs extensions configured to be allowed to run in private windows
-     and disable lastpass autofill
-    -firefox needs the addon bar configured
-    -also fonts are a mess, the install guide still uses dejaVu but we
-     switched to droid but droid doesn't have the dot in the zero that I like
-     so who knows what we're doing. Figure that out.
     -add a section about setting up an appropriate xrandr call. It doesn't
      make sense to try and keep one in the script for all our setups.
     -find a way to integrate the xrandr call into the startup in a generic way
-    -add a part at the end of the guide for setting firefox up with
-     whatever settings we use that don't sync ex: setting the font up
-    -add a link to the wine dependencies so that list can be copy pasted
-     and add wine-gecko and wine-mono to the list somewhere
-    -fix and test installer scripts
-    -go through install scripts and see if we can prune any programs we
-     don't use. Shore up this guide and the install scripts in prep
-     for gentoo switch.
-    -swap out neofetch for fastfetch since the former is abandoned
-    -find a good font with the dot in the zero. I like the dot.
-    -I don't like the spring wallpaper with the pink trees and the 
-     columns on the right hand side. It looks blurry and low quality.
-     Remove it from the list.
-    -xfce4-power-manager seems to have added a bunch of xfce stuff and
-     now we're getting push notifications and junk. Maybe remove that.
-    -added xfce4-power-manager to control screen dimming. add to install
-     list if it works out well.
-    -apparently lots of pipewire stuff wasn't installed this whole time.
-     not sure what's wrong with the installer script. Look into that.
     -Pretty sure I want to switch back to the seasonal wallpapers with
      day/night cycles. Save the Ghibli stuff.
-    -make a script to pull up our other monitor setup with discord, cava,
-     and lollypop in the correct configuration.
-    -get rid of the big rofi theme pack we got. Start with a base rofi
-     theme and configure it ourself. Read the wiki.
-    -forget ls and ranger, just use normal cli and thunar. remove ranger
-     from install list.
     -finally got timer stuff figured out, add it to this config somehow.
      we will have to save the timer and service file in this folder and
      create and copy them to the proper directory during setup.
@@ -326,67 +294,33 @@ To-do:
      the timer has to be enabled and started with:
      systemctl --user enable --now update-wallpaper.timer
     -firefox custom CSS
-    -theme rofi to match everything else?
-    -set terminal to use same colors as neovim colorscheme
     -think of a way to make overall theme more cohesive maybe, matching
      top bar with wallpaper or smth
     -write script for day/night wallpapers that's so cute
-    -going with lollypop music player. add to install script.
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
-    -figure out a way to customize cava colors
-    -also add ffmpegthumbnailer (for thunar)
-    -add gvfs to program list (it's a thing for thunar)
     -look at pywal for settings colorschemes based on wallpaper. Not
      sure if I want this or not
     -customize firefox new tab page with custom css
     -look into LaTeX for document writing
-    -new font is otf-droid-nerd & ttf-droid
-    -make sure rofi stuff is added now that we've switched to it
-    -add back music visualizer thing we got rid of -cava i think it was called
-    -add system-monitor thing to install list
-    -update this whole doucments tab width?
-    -running build hooks [kms] takes a while on laptop. Maybe remove or
-     look into?
-  -make tabliss use our current wallpaper somehow
-  -run through this page and fix errors like the visudo call using neovim
-    before neovim has been installed (it should just use vim)
-  -for some reason some of the stuff from the final installation script
-    did not work such as copying the conf files for the touchpad and stuff.
-    Not sure what else may not have worked. Figure out why this did not work.
   -add something about the symlink fix for fmod pipewire bug: https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
   -add section for android USB connection android-file-transfer package
-  -look into different fonts, maybe noto fonts. check bookmark.
-  -maybe add section about using nvidia-settings to configure
-   monitor stuff correctly and write to x config file
   -find a replacement for xBacklight because it does not work
    without the intel video driver
-  -keep an eye on system stability now that we've switched the
-   graphics drivers around
   -consider adding documentation window back to cmp
-  -https://www.vimfromscratch.com/articles/vim-folding
-  -use link to add fold icon to column and make folding
-   look a bit better maybe
   -get that neovim plugin that shows block context?
   -format this guide so it fits neatly in one half-screen console
-  -consider adding xorg.conf file to repo to save monitor settings
   -maybe add SDL stuff to installer
   -setup a good screen locker that blocks tty access maybe
   -split neovim init into separate files for better organization
   -make keybind cheat sheet
-  -add video editing software to install script
-  -setup cava config file and try to get it to work only with cmus
-  -thunar image / video thumbnails
   -firefox developer mode
   -add overthewire programs like telnet and nmap
   -gtk dark theme for lutris and other stuff
-  -firefox config file? Discord?
-  -get music library incorporated somehow
   -set up wallpaper script
   -find a way to wrap reflector calls into script
   -consider adding a reflector call to 2.1 to get the best possible mirror
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
-  -go through bookmarked stuff
   -power management? (acpi?)
 
   Bugs:
