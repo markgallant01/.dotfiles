@@ -229,6 +229,9 @@ wiki.archlinux.org.
   -for fonts, liberationMono Nerd font, download from the nerd font website and set it up. That's for terminal and Neovim. For firefox and maybe awesomeWM, use
    the noto fonts so we have all the special characters. Noto is in the repos.
 
+  -need to reconfigure the installation section because lots of stuff gets pulled in as dependencies before the install script gets to them. E.G. vulkan gets pulled in
+   as a dependency for something, probably xorg-server, before the video drivers are chosen. Noto fonts also gets pulled in by something. Steam or Lutris maybe.
+
 need to:
   -get awesome working how I want
   -fix the font and colors in urxvt
