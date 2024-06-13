@@ -54,6 +54,19 @@ packages+=("discord")
 # game launchers
 packages+=("steam" "lutris")
 
+# wine dependencies
+packages+=("wine-staging" "giflib" "lib32-giflib" "libpng" "lib32-libpng")
+packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123")
+packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils" "lib32-v4l-utils")
+packages+=("libpulse" "lib32-libpulse" "libgpg-error" "lib32-libgpg-error")
+packages+=("alsa-plugins" "lib32-alsa-plugins" "alsa-lib" "lib32-alsa-lib")
+packages+=("libjpeg-turbo" "lib32-libjpeg-turbo" "sqlite" "lib32-sqlite")
+packages+=("libxcomposite" "lib32-libxcomposite" "libxinerama" "lib32-libgcrypt")
+packages+=("libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "ocl-icd")
+packages+=("lib32-ocl-icd" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3")
+packages+=("lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
+packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
+
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
 
