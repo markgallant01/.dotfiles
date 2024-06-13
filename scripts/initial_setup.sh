@@ -3,8 +3,6 @@
 # this script builds an array of packages section-by-section
 # and then calls pacman to install them all together at the end.
 
-# after that it does some prelimenary setup
-
 # array to store package list
 declare -a packages=()
 
@@ -69,19 +67,3 @@ packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
 
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
-
-# ensure home directory
-cd ~
-
-# pull temporary xinit file for the first boot
-curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
-
-# pull final setup script and make it executable for later
-curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
-scripts/final_setup.sh
-chmod +x  ~/final_setup.sh
-
-# generate new ssh keys for github
-ssh-keygen -t ed25519 -C markgallant01@gmail.com
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
