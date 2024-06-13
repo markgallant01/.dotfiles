@@ -228,6 +228,7 @@ wiki.archlinux.org.
 -go into settings and make sure font is noto, uncheck all suggestions,
  and set default browser to ddg
 -log into LastPass and use that to log into Discord and anything else
+-go through the extensions and enable them all for private browsing mode
 
   -need to configure awesomeWM, firefox, and URxvt
   -installed nodejs so that neovim plugins could work properly
