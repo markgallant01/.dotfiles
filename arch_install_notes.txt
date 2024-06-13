@@ -222,6 +222,13 @@ wiki.archlinux.org.
 
 -log into firefox, discord, etc.
 
+-Do firefox first because that gets us all our passwords with lastpass
+-launch firefox, log in
+-set up the top right and top left menu bars how we like
+-go into settings and make sure font is noto, uncheck all suggestions,
+ and set default browser to ddg
+-log into LastPass and use that to log into Discord and anything else
+
   -need to configure awesomeWM, firefox, and URxvt
   -installed nodejs so that neovim plugins could work properly
   -neovim / terminal needs a font with icons
