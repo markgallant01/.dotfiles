@@ -28,7 +28,7 @@ packages+=("network-manager-applet" "udisks2" "fastfetch" "zip" "unzip")
 packages+=("scrot" "neovim" "xdg-user-dirs" "xclip" "wget" "curl")
 
 # file browser
-packages+=("thunar")
+packages+=("thunar" "gvfs" "ffmpegthumbnailer")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
