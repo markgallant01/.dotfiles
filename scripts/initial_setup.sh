@@ -8,46 +8,22 @@
 # array to store package list
 declare -a packages=()
 
-# git stuff
-packages+=("git" "openssh")
+# file system programs (this will be different if not using xfs)
+packages+=("xfsprogs")
+
+# development tools
+packages+=("base-devel" "clang" "gdb" "npm" "neovim")
+
+# CLI tools
+packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
+packages+=("scrot" "xclip" "wget" "curl" "htop" "git" "openssh")
 
 # fonts
 packages+=("noto-fonts" "noto-fonts-cjk")
 
-# display server and some x-tools
-packages+=("xorg-server" "xorg-xinit" "xorg-xrandr")
-
-# development tools
-packages+=("base-devel" "clang" "gdb" "npm")
-
-# media viewing tools
-packages+=("feh" "vlc")
-
-# misc utilities
-packages+=("network-manager-applet" "udisks2" "fastfetch" "zip" "unzip")
-packages+=("scrot" "neovim" "xdg-user-dirs" "xclip" "wget" "curl")
-
-# file browser
-packages+=("thunar" "gvfs" "ffmpegthumbnailer")
-
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
 packages+=("blueman" "wireplumber")
-
-# hardware monitoring
-packages+=("htop")
-
-# video / music downloader
-packages+=("yt-dlp")
-
-# web browsers
-packages+=("firefox" "chromium")
-
-# communication
-packages+=("discord")
-
-# game launchers
-packages+=("steam" "lutris")
 
 # video drivers depend on GPU manufacturer:
 # nvidia:
@@ -60,11 +36,23 @@ packages+=("lib32-vulkan-intel")
 
 # AMD CPU GPU?
 
-# window manager
-packages+=("awesome")
+# misc utilities
+packages+=("xdg-user-dirs")
 
-# file system programs (this will be different if not using xfs)
-packages+=("xfsprogs")
+# display server, x-tools, window manager
+packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome")
+
+# graphical utilities
+packages+=("thunar" "gvfs" "ffmpegthumbnailer" "vlc" "network-manager-applet")
+
+# web browsers
+packages+=("firefox" "chromium")
+
+# communication
+packages+=("discord")
+
+# game launchers
+packages+=("steam" "lutris")
 
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
