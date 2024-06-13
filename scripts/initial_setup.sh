@@ -63,6 +63,9 @@ packages+=("lib32-vulkan-intel")
 # window manager
 packages+=("awesome")
 
+# file system programs (this will be different if not using xfs)
+packages+=("xfsprogs")
+
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
 
