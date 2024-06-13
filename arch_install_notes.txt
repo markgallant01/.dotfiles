@@ -251,10 +251,17 @@ need to:
   -make sure to get urxvt working in demon mode
 
 To-do:
-    -refit this guide for gentoo. After a base gentoo install, all the
-     programs we need will have to be set up. Go through the programs
-     list and see what can be pruned and what needs to be kept. So far,
-     I've only really installed pipewire and wireplumber so I could get audio.
+    -guide needs touching up because some info has changed. Look over the
+     partitioning section because the EFI is now 1G and we use swap. Put
+     something in there about swap sizes for desktop vs laptop.
+    -also, refit the bootloader section because we use systemd-boot instead of
+     grub now. It required some setup.
+    -add something about using xfs instead of ext4 and remember to install
+     xfsprogs.
+    -look over the nvidia section again to make sure we're doing it right.
+     I never know why people are always talking about the dkms version or
+     whatever and I don't know if we still need that pacman hook or to remove kms from
+     that array or whatever. Look over all that again.
     -Also, we're changing from ST and DWM to AwesomeWM and some other teminal, Urxvt for now.
      Add some sections about setting those up.
     -for setting up firefox, go into settings and disable all search
