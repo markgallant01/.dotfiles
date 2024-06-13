@@ -11,6 +11,9 @@ declare -a packages=()
 # git stuff
 packages+=("git" "openssh")
 
+# fonts
+packages+=("noto-fonts" "noto-fonts-cjk")
+
 # display server and some x-tools
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr")
 
