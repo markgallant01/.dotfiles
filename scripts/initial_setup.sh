@@ -38,7 +38,7 @@ packages+=("lib32-vulkan-intel")
 packages+=("xdg-user-dirs")
 
 # display server, x-tools, window manager
-packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome")
+packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
 
 # graphical utilities
 packages+=("thunar" "gvfs" "ffmpegthumbnailer" "vlc" "network-manager-applet")
