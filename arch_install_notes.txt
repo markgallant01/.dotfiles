@@ -251,6 +251,12 @@ need to:
   -make sure to get urxvt working in demon mode
 
 To-do:
+    -for fonts, for Firefox we use noto fonts because they contain all
+     languages characters. Install the packages noto-fonts and noto-fonts-cjk
+     to get all languages.
+    -for terminal use different font. Probably LiberationMono Nerd font so
+     we have all the icons and stuff. Probably use that for neovim, terminal,
+     and maybe awesomeWM
     -guide needs touching up because some info has changed. Look over the
      partitioning section because the EFI is now 1G and we use swap. Put
      something in there about swap sizes for desktop vs laptop.
