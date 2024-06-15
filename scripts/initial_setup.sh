@@ -21,7 +21,7 @@ packages+=("noto-fonts" "noto-fonts-cjk")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
-packages+=("blueman" "wireplumber")
+packages+=("blueman" "wireplumber" "pavucontrol")
 
 # video drivers depend on GPU manufacturer:
 # nvidia:
