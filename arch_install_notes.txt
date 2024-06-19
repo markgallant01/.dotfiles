@@ -253,8 +253,8 @@ wiki.archlinux.org.
 -remove the unnecessary icons around the extentions and make sure Lastpass and Ublock are shown
 -go into the settings and make sure everything looks right. Disable all search suggestions
  and set the default search engine to DuckDuckGo.
--Under 'Privacy & Security' disable 'Ask to save passwords', and all the 'Autofill' options. Set
- History to 'Never remember history'
+-Under 'Privacy & Security' disable 'Ask to save passwords', and all the 'Autofill' options. Disable
+ all history saving.
 -make sure the noto fonts are set correctly. They should be setup automatically.
 -go through the settings for each extensions and enable them for Private browser tabs
 -Go into the special Lastpass settings and disable autofill.
