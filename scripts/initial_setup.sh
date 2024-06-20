@@ -44,7 +44,7 @@ packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
 packages+=("thunar" "gvfs" "ffmpegthumbnailer" "vlc" "network-manager-applet")
 
 # web browsers
-packages+=("firefox" "chromium")
+packages+=("firefox" "firefox-developer-edition" "chromium")
 
 # communication
 packages+=("discord")
