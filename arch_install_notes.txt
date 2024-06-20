@@ -318,8 +318,6 @@ To-do:
   -write script for day/night wallpapers that's so cute
   -use musicBrainz picard to tag all our music and sort it. then add
    picard to the install list
-  -look at pywal for settings colorschemes based on wallpaper. Not
-   sure if I want this or not
   -customize firefox new tab page with custom css
   -look into LaTeX for document writing
   -add something about the symlink fix for fmod pipewire bug:
@@ -329,12 +327,10 @@ To-do:
    without the intel video driver
   -consider adding documentation window back to cmp
   -get that neovim plugin that shows block context?
-  -format this guide so it fits neatly in one half-screen console
   -maybe add SDL stuff to installer
   -setup a good screen locker that blocks tty access maybe
   -split neovim init into separate files for better organization
   -make keybind cheat sheet
-  -firefox developer mode
   -add overthewire programs like telnet and nmap
   -gtk dark theme for lutris and other stuff
   -set up wallpaper script
