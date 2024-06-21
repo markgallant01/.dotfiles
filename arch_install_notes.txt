@@ -291,6 +291,7 @@ wiki.archlinux.org.
 
 
 To-do:
+  -setup a pacman hook to clean up the paccache after each install
   -I want a nice icon set for thunar
   -keep configuring awesomeWM
   -keep configuring urxvt
