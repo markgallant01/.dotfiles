@@ -35,7 +35,7 @@ packages+=("lib32-vulkan-intel")
 # AMD CPU GPU?
 
 # misc utilities
-packages+=("xdg-user-dirs")
+packages+=("xdg-user-dirs" "pacman-contrib")
 
 # display server, x-tools, window manager
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
