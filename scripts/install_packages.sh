@@ -60,7 +60,6 @@ while [[ "$option" != 1 ]] && [[ "$option" != 2 ]] && [[ "$option" != 3 ]]
 do
   echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
   read option
-  break
 done
 
 # nvidia:
@@ -76,8 +75,8 @@ if [[ "$option" == 2]]; then
 fi
 
 # AMD CPU GPU? --todo
-if [[ "$option" == 3]]; then
-fi
+#if [[ "$option" == 3]]; then
+#fi
 
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
