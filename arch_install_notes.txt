@@ -187,7 +187,8 @@ wiki.archlinux.org.
 -download and run the installer script to install packages and perform
  basic configuration:
 
-  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/scripts/initial_setup.sh
+  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
+      scripts/initial_setup.sh
   $ chmod +x initial_setup.sh
   $ ./initial_setup.sh
 
@@ -249,14 +250,17 @@ wiki.archlinux.org.
 
 -First, setup Firefox. Launch Firefox and log int so it syncs everything.
 -Log in to Lastpass so we get all our passwords.
--Set the initial UI stuff that does not sync. Set the bookmark bar to 'always show'
--remove the unnecessary icons around the extentions and make sure Lastpass and Ublock are shown
--go into the settings and make sure everything looks right. Disable all search suggestions
- and set the default search engine to DuckDuckGo.
--Under 'Privacy & Security' disable 'Ask to save passwords', and all the 'Autofill' options. Disable
- all history saving.
+-Set the initial UI stuff that does not sync. Set the bookmark bar
+ to 'always show'
+-remove the unnecessary icons around the extentions and make sure Lastpass
+ and Ublock are shown
+-go into the settings and make sure everything looks right. Disable all search
+ suggestions and set the default search engine to DuckDuckGo.
+-Under 'Privacy & Security' disable 'Ask to save passwords', and all the 
+ 'Autofill' options. Disable all history saving.
 -make sure the noto fonts are set correctly. They should be setup automatically.
--go through the settings for each extensions and enable them for Private browser tabs
+-go through the settings for each extensions and enable them for Private browser 
+ tabs
 -Go into the special Lastpass settings and disable autofill.
 
 -launch discord once to generate the config file.
