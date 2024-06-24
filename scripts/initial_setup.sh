@@ -58,7 +58,7 @@ packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
 option=0
 while [[ "$option" != 1 ]] && [[ "$option" != 2 ]] && [[ "$option" != 3 ]]
 do
-  echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD...
+  echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
   read option
   break
 done
