@@ -23,17 +23,6 @@ packages+=("noto-fonts" "noto-fonts-cjk")
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
 packages+=("blueman" "wireplumber" "pavucontrol")
 
-# video drivers depend on GPU manufacturer:
-# nvidia:
-packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils")
-packages+=("nvidia-settings")
-
-# intel iGPU:
-packages+=("mesa-amber" "lib32-mesa-amber" "vulkan-intel")
-packages+=("lib32-vulkan-intel")
-
-# AMD CPU GPU?
-
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib")
 
@@ -64,6 +53,31 @@ packages+=("libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "ocl-icd")
 packages+=("lib32-ocl-icd" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3")
 packages+=("lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
 packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
+
+# video drivers depend on GPU manufacturer:
+option=0
+while [[ "$option" != 1 ]] && [[ "$option" != 2 ]] && [[ "$option" != 3 ]]
+do
+  echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD...
+  read option
+  break
+done
+
+# nvidia:
+if [[ "$option" == 1]]; then
+  packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils")
+  packages+=("nvidia-settings")
+fi
+
+# intel iGPU:
+if [[ "$option" == 2]]; then
+  packages+=("mesa-amber" "lib32-mesa-amber" "vulkan-intel")
+  packages+=("lib32-vulkan-intel")
+fi
+
+# AMD CPU GPU? --todo
+if [[ "$option" == 3]]; then
+fi
 
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
