@@ -17,12 +17,6 @@ git config --global init.defaultBranch main
 git config --global color.ui auto
 git config --global pull.rebase false
 
-# delete default xinit file
-rm .xinitrc
-
-# clone dotfiles repo
-git clone git@github.com:markgallant01/.dotfiles.git
-
 # symlink settings files
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
