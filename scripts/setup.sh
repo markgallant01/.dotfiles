@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# echo on
+set -x
+
 # call install script to install system packages
 ~/.dotfiles/scripts/install_packages.sh
 
