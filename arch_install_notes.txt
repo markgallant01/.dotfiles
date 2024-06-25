@@ -199,9 +199,8 @@ wiki.archlinux.org.
 
   $ ~/.dotfiles/scripts/setup.sh
 
--reboot, log in, and launch the display server
+-launch the display server
 
-  $ reboot
   $ startx
 
 -authenticate with github:
@@ -242,6 +241,10 @@ wiki.archlinux.org.
   -after that, re-run the command to regenerate the initramfs
 
     $ sudo mkinitcpio -P
+
+-now reboot and you should be finished:
+
+  $ reboot
 
 /*********************/
 /* FINISHING TOUCHES */
@@ -291,8 +294,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
-  -take a look at the NVIDIA KMS section because I'm not sure how
-   that all works and what is necessary. Consult https://wiki.archlinux.org/title/NVIDIA
+  -consider adding a section about configuring Xorg. Consult
+   https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
   -setup a pacman hook to clean up the paccache after each install
   -I want a nice icon set for thunar
   -keep configuring awesomeWM
@@ -300,8 +303,6 @@ To-do:
   -for terminal use different font. Probably LiberationMono Nerd font so
    we have all the icons and stuff. Probably use that for neovim, terminal,
    and maybe awesomeWM
-  -add something about using xfs instead of ext4 and remember to install
-   xfsprogs.
   -need a section to set up wallpapers or integrate it into the script
    somehow
   -add a section about setting up an appropriate xrandr call. It doesn't
@@ -337,12 +338,9 @@ To-do:
   -add overthewire programs like telnet and nmap
   -gtk dark theme for lutris and other stuff
   -set up wallpaper script
-  -find a way to wrap reflector calls into script
-  -consider adding a reflector call to 2.1 to get the best possible mirror
   -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
   -power management? (acpi?)
 
 Bugs:
   -feh seems to span the wallpaper across both monitors if the timer
    triggers the script to run while the screens are off. Look into this.
-
