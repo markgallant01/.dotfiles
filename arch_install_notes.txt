@@ -17,7 +17,7 @@ wiki.archlinux.org.
 
 1.4 Boot the live environment
 1.5 Set the console keyboard layout and font
-1.6 Verify the boot mode 
+1.6 Verify the boot mode
 1.7 Connect to the internet
   -If you're wired then just plug in the ethernet and it should work fine.
   -If using wifi, connect to the network with iwctl.
@@ -31,9 +31,9 @@ wiki.archlinux.org.
   -enter the password when prompted and then exit with Ctrl+d.
   -verify the connection with:
   
-    # ping archlinux.org  
+    # ping archlinux.org
   
-1.8 Update the system clock  
+1.8 Update the system clock
 1.9 Partition the disks
   -format root drive as xfs.
   -boot drive needs 2 partitions: a 1G EFI boot partition
@@ -47,7 +47,7 @@ wiki.archlinux.org.
   -for the swap file, on desktop suspend is unnecessary so 16G is
    more than enough. On a laptop use 1.5x RAM.
 
-1.10 Format the partitions 
+1.10 Format the partitions
 1.11 Mount the file system
 
 /*******************/
@@ -184,55 +184,27 @@ wiki.archlinux.org.
   $ sudo pacman -S reflector
   $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
--download and run the installer script to install packages to the new system:
+-download the setup and config files:
 
-  $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
-      scripts/install_packages.sh
-  $ chmod +x install_packages.sh
-  $ ./install_packages.sh
+  $ curl -LJO https://github.com/markgallant01/.dotfiles/archive/refs/heads/main.zip
+  $ unzip .dotfiles-main.zip
+  $ mv .dotfiles-main .dotfiles
 
-  # ensure home directory
-  cd ~
-  
-  # download dotfiles directory
-  curl -LJO https://github.com/markgallant01/.dotfiles/archive/refs/heads/main.zip
+-make all the setup scripts executable:
 
-  # extract files
-  unzip .dotfiles-main.zip
+  $ chmod +x ~/.dotfiles/scripts/setup.sh
+  $ chmod +x ~/.dotfiles/scripts/install_packages.sh
 
-  # rename file
-  mv .dotfiles-main .dotfiles
-  
-  # pull final setup script and make it executable for later
-  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
-  scripts/final_setup.sh
-  chmod +x  ~/final_setup.sh
-  
-  # generate new ssh keys for github
-  ssh-keygen -t ed25519 -C markgallant01@gmail.com
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519
+-run the setup script:
 
+  $ ~/.dotfiles/scripts/setup.sh
 
-/***********************/
-/* POST-INSTALL-SCRIPT */
-/***********************/
+-reboot, log in, and launch the display server
 
--if nvidia drivers were installed, you must edit the file 
- /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
- This ensures the junk nouveau module will not be loaded during boot:
-
-  $ sudo vim /etc/mkinitcpio.conf
-
-  -after that, re-run the command to regenerate the initramfs
-
-    $ sudo mkinitcpio -P
-
--you should now be able to launch xorg:
-  
+  $ reboot
   $ startx
 
--before running the final settings script, must authenticate with github
+-authenticate with github:
 -launch web browser and login to github account.
 -the installer script generated new ssh keys. print the public key:
 
@@ -243,11 +215,33 @@ wiki.archlinux.org.
 
     $ ssh -T git@github.com
 
--once authenticated, run the final settings script.
+-once authenticated, fix dotfiles repo:
     
-  $ ./final_setup.sh
+  $ rm -r ~/.dotfiles
+  $ git clone git@github.com:markgallant01/.dotfiles.git
 
--reboot
+-install yay for the aur:
+
+  $ mkdir ~/aur
+  $ cd ~/aur
+  $ git clone https://aur.archlinux.org/yay.git
+  $ cd yay
+  $ makepkg -si
+  $ cd ~
+
+-install any aur programs:
+
+  $ yay -S deadbeef
+
+-if nvidia drivers were installed, you must edit the file 
+ /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+ This ensures the junk nouveau module will not be loaded during boot:
+
+  $ sudo vim /etc/mkinitcpio.conf
+
+  -after that, re-run the command to regenerate the initramfs
+
+    $ sudo mkinitcpio -P
 
 /*********************/
 /* FINISHING TOUCHES */
@@ -292,14 +286,13 @@ wiki.archlinux.org.
     
 -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
--delete the installer scripts:
-
-  $ rm ~/initial_setup.sh ~/final_setup.sh
-
-
-
+/***********/
+/* THE END */
+/***********/
 
 To-do:
+  -take a look at the NVIDIA KMS section because I'm not sure how
+   that all works and what is necessary. Consult https://wiki.archlinux.org/title/NVIDIA
   -setup a pacman hook to clean up the paccache after each install
   -I want a nice icon set for thunar
   -keep configuring awesomeWM
