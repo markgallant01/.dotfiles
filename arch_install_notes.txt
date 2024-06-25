@@ -184,19 +184,24 @@ wiki.archlinux.org.
   $ sudo pacman -S reflector
   $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
--download and run the installer script to install packages and perform
- basic configuration:
+-download and run the installer script to install packages to the new system:
 
   $ curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
-      scripts/initial_setup.sh
-  $ chmod +x initial_setup.sh
-  $ ./initial_setup.sh
+      scripts/install_packages.sh
+  $ chmod +x install_packages.sh
+  $ ./install_packages.sh
 
   # ensure home directory
   cd ~
   
-  # pull temporary xinit file for the first boot
-  curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/.xinitrc
+  # download dotfiles directory
+  curl -LJO https://github.com/markgallant01/.dotfiles/archive/refs/heads/main.zip
+
+  # extract files
+  unzip .dotfiles-main.zip
+
+  # rename file
+  mv .dotfiles-main .dotfiles
   
   # pull final setup script and make it executable for later
   curl -LJO https://github.com/markgallant01/.dotfiles/raw/main/\
