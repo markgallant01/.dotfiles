@@ -190,7 +190,7 @@ wiki.archlinux.org.
   $ unzip .dotfiles-main.zip
   $ mv .dotfiles-main .dotfiles
 
--make all the setup scripts executable:
+-make the setup scripts executable:
 
   $ chmod +x ~/.dotfiles/scripts/setup.sh
   $ chmod +x ~/.dotfiles/scripts/install_packages.sh
@@ -210,10 +210,10 @@ wiki.archlinux.org.
 
   $ cat ~/.ssh/id_ed25519.pub
 
-  -copy this output and add it to github ssh keys
-  -verify the connection:
+-copy this output and add it to github ssh keys
+-verify the connection:
 
-    $ ssh -T git@github.com
+  $ ssh -T git@github.com
 
 -once authenticated, fix dotfiles repo:
     
