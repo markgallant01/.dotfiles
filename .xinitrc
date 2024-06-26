@@ -32,33 +32,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# grab PC's hostname
-hostname=$( cat /etc/hostname )
-
-if [ "$hostname" == "archDesk" ]
-then
-  xrandr_call="--output DP-4 --primary --mode 2560x1440 --rate 120.00 --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4"
-fi
-
-if [ "$hostname" == "archxps13" ]
-then
-  xrandr_call="--output eDP-1 --mode 1920x1200 --rate 59.95"
-fi
-
-# dwm statusbar loop
-while true; do
-  # call update script
-  ~/.dotfiles/scripts/update_statusbar.sh
-  sleep 5s   # update every 5 seconds
-done &
-
-
 # launch programs and window manager
 nm-applet &
 blueman-applet &
-~/.fehbg &
-xrandr $xrandr_call &
-picom &
-exec ~/.dotfiles/scripts/startdwm.sh
-#exec dwm
+#~/.fehbg &
+#picom &
+urxvtd --quiet --opendisplay --fork &
+exec awesome
 
