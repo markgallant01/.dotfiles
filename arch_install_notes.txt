@@ -65,6 +65,8 @@ wiki.archlinux.org.
     # pacstrap -K /mnt base linux linux-firmware
         man-db man-pages texinfo
         vim networkmanager sudo
+        reflector unzip
+        xfsprogs                 <- depends on filesystem
         intel-ucode OR amd-ucode <- choose correct for CPU
 
 
@@ -180,9 +182,7 @@ wiki.archlinux.org.
   $ sudo pacman -Syu
 
 -run reflector once here for the fastest and most up to date mirrors
--also download unzip to extract the files
 
-  $ sudo pacman -S reflector unzip
   $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 -download the setup and config files:
