@@ -293,6 +293,11 @@ wiki.archlinux.org.
 /* THE END */
 /***********/
 
+xrandr calls:
+    xps: --output eDP-1 --mode 1920x1200 --rate 59.95
+    desk: --output DP-4 --primary --mode 2560x1440 --rate 120.00 \
+          --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
+
 To-do:
   -consider adding a section about configuring Xorg. Consult
    https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
