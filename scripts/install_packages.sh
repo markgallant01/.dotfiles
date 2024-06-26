@@ -28,6 +28,7 @@ packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
+packages+=("rxvt-unicode")
 
 # display server, x-tools, window manager
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
