@@ -180,8 +180,9 @@ wiki.archlinux.org.
   $ sudo pacman -Syu
 
 -run reflector once here for the fastest and most up to date mirrors
+-also download unzip to extract the files
 
-  $ sudo pacman -S reflector
+  $ sudo pacman -S reflector unzip
   $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 -download the setup and config files:
