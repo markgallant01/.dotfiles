@@ -24,10 +24,10 @@ packages+=("noto-fonts" "noto-fonts-cjk")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
-packages+=("blueman" "wireplumber" "pavucontrol")
+packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 
 # misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib")
+packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
 
 # display server, x-tools, window manager
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
