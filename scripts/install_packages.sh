@@ -73,7 +73,7 @@ fi
 
 # intel iGPU:
 if [[ "$option" == 2 ]]; then
-  packages+=("mesa-amber" "lib32-mesa-amber" "vulkan-intel")
+  packages+=("mesa" "lib32-mesa" "vulkan-intel")
   packages+=("lib32-vulkan-intel")
 fi
 
