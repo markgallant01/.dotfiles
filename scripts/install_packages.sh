@@ -34,7 +34,8 @@ packages+=("rxvt-unicode")
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
 
 # graphical utilities
-packages+=("thunar" "gvfs" "ffmpegthumbnailer" "vlc" "network-manager-applet")
+packages+=("thunar" "ffmpegthumbnailer" "vlc" "network-manager-applet")
+packages+=("gvfs")
 
 # web browsers
 packages+=("firefox" "firefox-developer-edition" "chromium")
@@ -46,21 +47,25 @@ packages+=("discord")
 packages+=("steam" "lutris")
 
 # wine dependencies
-packages+=("wine-staging" "giflib" "lib32-giflib" "libpng" "lib32-libpng")
-packages+=("libldap" "lib32-libldap" "gnutls" "lib32-gnutls" "mpg123")
-packages+=("lib32-mpg123" "openal" "lib32-openal" "v4l-utils" "lib32-v4l-utils")
-packages+=("libpulse" "lib32-libpulse" "libgpg-error" "lib32-libgpg-error")
-packages+=("alsa-plugins" "lib32-alsa-plugins" "alsa-lib" "lib32-alsa-lib")
-packages+=("libjpeg-turbo" "lib32-libjpeg-turbo" "sqlite" "lib32-sqlite")
-packages+=("libxcomposite" "lib32-libxcomposite" "libxinerama" "lib32-libgcrypt")
-packages+=("libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses" "ocl-icd")
-packages+=("lib32-ocl-icd" "libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3")
-packages+=("lib32-gtk3" "gst-plugins-base-libs" "lib32-gst-plugins-base-libs")
-packages+=("vulkan-icd-loader" "lib32-vulkan-icd-loader")
+packages+=("wine-staging" "lib32-giflib" "libpng" "lib32-libpng")
+packages+=("giflib" "libldap" "lib32-libldap" "gnutls" "lib32-gnutls")
+packages+=("mpg123" "lib32-mpg123" "openal" "lib32-openal" "v4l-utils") 
+packages+=("lib32-v4l-utils" "alsa-lib" "libpulse" "sqlite")
+packages+=("lib32-libpulse" "libgpg-error" "lib32-libgpg-error")
+packages+=("alsa-plugins" "lib32-alsa-plugins" "lib32-alsa-lib")
+packages+=("libjpeg-turbo" "lib32-libjpeg-turbo" "lib32-sqlite")
+packages+=("libxcomposite" "lib32-libxcomposite" "libxinerama")
+packages+=("lib32-libgcrypt" "ocl-icd" "lib32-ocl-icd")
+packages+=("libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses")
+packages+=("libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3")
+packages+=("lib32-gtk3" "gst-plugins-base-libs" "vulkan-icd-loader")
+packages+=("lib32-vulkan-icd-loader" "lib32-gst-plugins-base-libs")
 
 # video drivers depend on GPU manufacturer:
 option=0
-while [[ "$option" != 1 ]] && [[ "$option" != 2 ]] && [[ "$option" != 3 ]]
+while [[ "$option" != 1 ]] && 
+      [[ "$option" != 2 ]] && 
+      [[ "$option" != 3 ]]
 do
   echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
   read option
