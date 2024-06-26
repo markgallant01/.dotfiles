@@ -10,6 +10,8 @@ set -x
 mkdir ~/Usb
 mkdir ~/Screenshots
 mkdir ~/Trash
+mkdir ~/.config
+mkdir ~/.ssh
 
 # configure git
 git config --global user.name markgallant01
