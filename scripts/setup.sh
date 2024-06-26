@@ -23,8 +23,10 @@ git config --global pull.rebase false
 # symlink settings files
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
+ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 ln -sf ~/.dotfiles/.fehbg ~/.fehbg
 ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
+ln -sf ~/.dotfiles/awesome/ ~/.config/awesome
 ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
 
