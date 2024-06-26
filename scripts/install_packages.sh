@@ -66,13 +66,13 @@ do
 done
 
 # nvidia:
-if [[ "$option" == 1]]; then
+if [[ "$option" == 1 ]]; then
   packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils")
   packages+=("nvidia-settings")
 fi
 
 # intel iGPU:
-if [[ "$option" == 2]]; then
+if [[ "$option" == 2 ]]; then
   packages+=("mesa-amber" "lib32-mesa-amber" "vulkan-intel")
   packages+=("lib32-vulkan-intel")
 fi
