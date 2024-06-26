@@ -107,7 +107,7 @@ wiki.archlinux.org.
 
     "efi/loader/entries/arch.conf"
     title   Arch Linux
-    linux   /vmlinux-linux
+    linux   /vmlinuz-linux
     initrd  /initramfs-linux.img
     options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
 
