@@ -304,7 +304,7 @@ xrandr calls:
           --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
 
 To-do:
-    -add Xresources file to symlinks
+    -add a part about patching urxvt for the line-wrap bug
     -consider adding a section about configuring Xorg. Consult
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
     -setup a pacman hook to clean up the paccache after each install
