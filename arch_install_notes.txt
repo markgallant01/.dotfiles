@@ -219,6 +219,7 @@ wiki.archlinux.org.
 -once authenticated, fix dotfiles repo:
     
     $ rm -r ~/.dotfiles
+    $ rm ~/.dotfiles-main.zip
     $ git clone git@github.com:markgallant01/.dotfiles.git
 
 -install yay for the aur:
