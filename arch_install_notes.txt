@@ -9,43 +9,43 @@ wiki.archlinux.org.
 1.1 Acqure an installation image
 1.2 Verify signature
 1.3 Prepare an installation medium
-  -use a fresh arch iso
-  -dd command is easiest:
+    -use a fresh arch iso
+    -dd command is easiest:
 
-    $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive
-        conv=fsync oflag=direct status=progress
+        $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive \
+            conv=fsync oflag=direct status=progress
 
 1.4 Boot the live environment
 1.5 Set the console keyboard layout and font
 1.6 Verify the boot mode
 1.7 Connect to the internet
-  -If you're wired then just plug in the ethernet and it should work fine.
-  -If using wifi, connect to the network with iwctl.
+    -If you're wired then just plug in the ethernet and it should work
+    -If using wifi, connect to the network with iwctl.
     
-    # iwctl                   // this will give you an interactive prompt
-    [iwd]# device list                 // get the name of wireless device
-    [iwd]# station *device* scan            // scan for wireless networks
-    [iwd]# station *device* get-networks                 // list networks
-    [iwd]# station *device* connect *SSID*          // connect to network
+    # iwctl                 // this will give you an interactive prompt
+    [iwd]# device list               // get the name of wireless device
+    [iwd]# station *device* scan          // scan for wireless networks
+    [iwd]# station *device* get-networks               // list networks
+    [iwd]# station *device* connect *SSID*        // connect to network
     
-  -enter the password when prompted and then exit with Ctrl+d.
-  -verify the connection with:
+    -enter the password when prompted and then exit with Ctrl+d.
+    -verify the connection with:
   
-    # ping archlinux.org
+        # ping archlinux.org
   
 1.8 Update the system clock
 1.9 Partition the disks
-  -format root drive as xfs.
-  -boot drive needs 2 partitions: a 1G EFI boot partition
-   and the rest of the drive is Linux x86_64 root xfs
-  -list the drives with:
+    -format root drive as xfs.
+    -boot drive needs 2 partitions: a 1G EFI boot partition
+     and the rest of the drive is Linux x86_64 root xfs
+    -list the drives with:
 
-    # lsblk -l
+        # lsblk -l
 
-  -and use cfdisk to make the partitioning easy.
+    -and use cfdisk to make the partitioning easy.
 
-  -for the swap file, on desktop suspend is unnecessary so 16G is
-   more than enough. On a laptop use 1.5x RAM.
+    -for the swap file, on desktop suspend is unnecessary so 16G is
+     more than enough. On a laptop use 1.5x RAM.
 
 1.10 Format the partitions
 1.11 Mount the file system
@@ -55,20 +55,19 @@ wiki.archlinux.org.
 /*******************/
 
 2.1 Select the mirrors
-  -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
-   move the American mirror to the top of the list.
+    -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
+     move the American mirror to the top of the list.
 
 2.2 Install essential packages
-  -in addition to the essential packages, install some more stuff that
-   will be useful.
+    -in addition to the essential packages, install some more stuff that
+     will be useful.
     
-    # pacstrap -K /mnt base linux linux-firmware
-        man-db man-pages texinfo
-        vim networkmanager sudo
-        reflector unzip
-        xfsprogs                 <- depends on filesystem
-        intel-ucode OR amd-ucode <- choose correct for CPU
-
+        # pacstrap -K /mnt base linux linux-firmware
+            man-db man-pages texinfo
+            vim networkmanager sudo
+            reflector unzip
+            xfsprogs                 <- depends on filesystem
+            intel-ucode OR amd-ucode <- choose correct for CPU
 
 /***************************/
 /* 3. Configure the system */
@@ -79,76 +78,76 @@ wiki.archlinux.org.
 3.3 Time zone
 3.4 Localization
 3.5 Network configuration
-  -after setting up the hostname file, run this command to ensure
-   NetworkManager starts up on reboot:
+    -after setting up the hostname file, run this command to ensure
+     NetworkManager starts up on reboot:
 
-    # systemctl enable NetworkManager.service
+        # systemctl enable NetworkManager.service
 
 3.6 Initramfs
 3.7 Root password
 3.8 Boot loader
-  -Systemd-boot comes with systemD and is easy to use. It's already
-   installed on the system. Initialize it:
+    -Systemd-boot comes with systemD and is easy to use. It's already
+     installed on the system. Initialize it:
 
-    # bootctl install
+        # bootctl install
 
-  -Next, a loader configuration file must be created and set:
-   (note 'efi' below corresponds to wherever the EFI directory was
-   mounted. Probably /boot.)
-  -These fields are separated by a space, not a tab. SystemD won't read tabs.
+    -Next, a loader configuration file must be created and set:
+     (note 'efi' below corresponds to wherever the EFI directory was
+     mounted. Probably /boot.)
+    -These fields are separated by a space, not a tab. 
+     SystemD won't read tabs.
 
-    "efi/loader/loader.conf"
-    default arch.conf
-    timeout 0
-    console-mode keep
+        "efi/loader/loader.conf"
+        default arch.conf
+        timeout 0
+        console-mode keep
 
-  -You'll need a corresponding arch.conf file in efi/loader/entries.
-  -The UUID must be replaced with the UUID of the root partition. Copy it
-   from the /etc/fstab file.
-  -These can be tab-separated:
+    -You'll need a corresponding arch.conf file in efi/loader/entries.
+    -The UUID must be replaced with the UUID of the root partition. 
+     Copy it from the /etc/fstab file.
+    -These can be tab-separated:
 
-    "efi/loader/entries/arch.conf"
-    title   Arch Linux
-    linux   /vmlinuz-linux
-    initrd  /initramfs-linux.img
-    options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
+        "efi/loader/entries/arch.conf"
+        title   Arch Linux
+        linux   /vmlinuz-linux
+        initrd  /initramfs-linux.img
+        options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
 
-  -use this command to make sure there's a new Arch Linux boot entry:
+    -use this command to make sure there's a new Arch Linux boot entry:
 
-    # bootctl list
+        # bootctl list
 
 -finished with basic installation
 -exit chroot, unmount drives and shutdown:
 
-  # exit
-  # umount -R /mnt
-  # shutdown +0
+    # exit
+    # umount -R /mnt
+    # shutdown +0
 
 -remove the installation USB and boot into the new system.
-
 
 /****************/
 /* Post-install */
 /****************/
 
--this section sets up the newly installed system. Login to the new system
- as root.
+-this section sets up the newly installed system. Login to the
+ new system as root.
 
--First, verify that the microcode is loaded properly. Use this command and
- read the output:
+-First, verify that the microcode is loaded properly. Use this
+ command and read the output:
 
-  # lsinitcpio --early /boot/initramfs-linux.img | head -n 5
+    # lsinitcpio --early /boot/initramfs-linux.img | head -n 5
 
 -The last 2 lines should reference microcode for your CPU.
 
 -setup a non-root user in the wheel groups and set the password:
   
-  # useradd -m -G wheel <username>
-  # passwd *user*
+    # useradd -m -G wheel <username>
+    # passwd *user*
     
 -add the new user to the sudoers file with visudo
   
-  # EDITOR=vim visudo
+    # EDITOR=vim visudo
 
     %wheel ALL=(ALL:ALL) ALL    // uncomment this line
     
@@ -156,15 +155,15 @@ wiki.archlinux.org.
 
 -verify the internet:
 
-  $ ping archlinux.org
+    $ ping archlinux.org
 
 -if on wifi, you may need to connect manually:
 
-  $ nmcli device wifi list
-  $ nmcli device wifi connect "SSID" password "password"
+    $ nmcli device wifi list
+    $ nmcli device wifi connect "SSID" password "password"
 
--setup pacman by editing pacman.conf to enable the multilib repo, color,
- and parallel downloads.
+-setup pacman by editing pacman.conf to enable the multilib repo,
+ color, and parallel downloads.
  (uncomment the lines):
   
     "/etc/pacman.conf"
@@ -179,111 +178,116 @@ wiki.archlinux.org.
 
 -run pacman once to generate and sync databases:
 
-  $ sudo pacman -Syu
+    $ sudo pacman -Syu
 
 -run reflector once here for the fastest and most up to date mirrors
 
-  $ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+    $ sudo reflector --latest 20 --sort rate \
+        --save /etc/pacman.d/mirrorlist
 
 -download the setup and config files:
 
-  $ curl -LJO https://github.com/markgallant01/.dotfiles/archive/refs/heads/main.zip
-  $ unzip .dotfiles-main.zip
-  $ mv .dotfiles-main .dotfiles
+    $ curl -LJO https://github.com/markgallant01/.dotfiles\
+        /archive/refs/heads/main.zip
+    $ unzip .dotfiles-main.zip
+    $ mv .dotfiles-main .dotfiles
 
 -make the setup scripts executable:
 
-  $ chmod +x ~/.dotfiles/scripts/setup.sh
-  $ chmod +x ~/.dotfiles/scripts/install_packages.sh
+    $ chmod +x ~/.dotfiles/scripts/setup.sh
+    $ chmod +x ~/.dotfiles/scripts/install_packages.sh
 
 -run the setup script:
 
-  $ ~/.dotfiles/scripts/setup.sh
+    $ ~/.dotfiles/scripts/setup.sh
 
 -launch the display server
 
-  $ startx
+    $ startx
 
 -authenticate with github:
 -launch web browser and login to github account.
 -the installer script generated new ssh keys. print the public key:
 
-  $ cat ~/.ssh/id_ed25519.pub
+    $ cat ~/.ssh/id_ed25519.pub
 
 -copy this output and add it to github ssh keys
 -verify the connection:
 
-  $ ssh -T git@github.com
+    $ ssh -T git@github.com
 
 -once authenticated, fix dotfiles repo:
     
-  $ rm -r ~/.dotfiles
-  $ git clone git@github.com:markgallant01/.dotfiles.git
+    $ rm -r ~/.dotfiles
+    $ git clone git@github.com:markgallant01/.dotfiles.git
 
 -install yay for the aur:
 
-  $ mkdir ~/aur
-  $ cd ~/aur
-  $ git clone https://aur.archlinux.org/yay.git
-  $ cd yay
-  $ makepkg -si
-  $ cd ~
+    $ mkdir ~/aur
+    $ cd ~/aur
+    $ git clone https://aur.archlinux.org/yay.git
+    $ cd yay
+    $ makepkg -si
+    $ cd ~
 
 -install any aur programs:
 
-  $ yay -S deadbeef
+    $ yay -S deadbeef
 
 -if nvidia drivers were installed, you must edit the file 
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
  This ensures the junk nouveau module will not be loaded during boot:
 
-  $ sudo vim /etc/mkinitcpio.conf
+    $ sudo vim /etc/mkinitcpio.conf
 
-  -after that, re-run the command to regenerate the initramfs
+    -after that, re-run the command to regenerate the initramfs
 
-    $ sudo mkinitcpio -P
+        $ sudo mkinitcpio -P
 
 -now reboot and you should be finished:
 
-  $ reboot
+    $ reboot
 
 /*********************/
 /* FINISHING TOUCHES */
 /*********************/
 
--First, setup Firefox. Launch Firefox and log int so it syncs everything.
+-First, setup Firefox. Launch Firefox and log int so it syncs 
+ everything.
 -Log in to Lastpass so we get all our passwords.
 -Set the initial UI stuff that does not sync. Set the bookmark bar
  to 'always show'
--remove the unnecessary icons around the extentions and make sure Lastpass
- and Ublock are shown
--go into the settings and make sure everything looks right. Disable all search
- suggestions and set the default search engine to DuckDuckGo.
+-remove the unnecessary icons around the extentions and make sure
+ Lastpass and Ublock are shown
+-go into the settings and make sure everything looks right. Disable
+ all search suggestions and set the default search engine to DuckDuckGo.
 -Under 'Privacy & Security' disable 'Ask to save passwords', and all the 
  'Autofill' options. Disable all history saving.
--make sure the noto fonts are set correctly. They should be setup automatically.
--go through the settings for each extensions and enable them for Private browser 
- tabs
+-make sure the noto fonts are set correctly. They should be setup
+ automatically.
+-go through the settings for each extensions and enable them for Private
+ browser tabs
 -Go into the special Lastpass settings and disable autofill.
 
 -launch discord once to generate the config file.
 -add the shown line in this file so Discord doesn't refuse to launch
  if there's an update that's not in the repo yet:
     
-  ~/.config/discord/settings.json
-  "SKIP_HOST_UPDATE": true
+    ~/.config/discord/settings.json
+    "SKIP_HOST_UPDATE": true
 
--Log into discord and set it up. Set the font size to 20. Set mic threshold.
--Disable 'minimize to tray' and automatic startup.
+-Log into discord and set it up. Set the font size to 20. Set mic 
+ threshold.
+-Disable 'minimize to tray' and automatic startup under Linux settings
 
 -On desktop, use this command to set the volume to 100%:
 
-  $ pactl set-sink-volume @DEFAULT_SINK@ 100%
+    $ pactl set-sink-volume @DEFAULT_SINK@ 100%
 
 -create additional directories in the home directory
  for any internal or external drives you want to mount:
 
-  $ mkdir nvme_games ssd_storage
+    $ mkdir nvme_games ssd_storage
 
 -set up the fstab here so that drives auto mount. Consult
  https://wiki.archlinux.org/title/Fstab for reference.
@@ -301,53 +305,57 @@ xrandr calls:
 
 To-do:
     -add Xresources file to symlinks
-  -consider adding a section about configuring Xorg. Consult
-   https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
-  -setup a pacman hook to clean up the paccache after each install
-  -I want a nice icon set for thunar
-  -keep configuring awesomeWM
-  -keep configuring urxvt
-  -for terminal use different font. Probably LiberationMono Nerd font so
-   we have all the icons and stuff. Probably use that for neovim, terminal,
-   and maybe awesomeWM
-  -need a section to set up wallpapers or integrate it into the script
-   somehow
-  -add a section about setting up an appropriate xrandr call. It doesn't
-   make sense to try and keep one in the script for all our setups.
-  -find a way to integrate the xrandr call into the startup in a generic way
-  -Pretty sure I want to switch back to the seasonal wallpapers with
-   day/night cycles. Save the Ghibli stuff.
-  -finally got timer stuff figured out, add it to this config somehow.
-   we will have to save the timer and service file in this folder and
-   create and copy them to the proper directory during setup.
-   Directory is ~/.config/systemd/user/
-   the timer has to be enabled and started with:
-   systemctl --user enable --now update-wallpaper.timer
-  -firefox custom CSS
-  -think of a way to make overall theme more cohesive maybe, matching
-   top bar with wallpaper or smth
-  -write script for day/night wallpapers that's so cute
-  -use musicBrainz picard to tag all our music and sort it. then add
-   picard to the install list
-  -customize firefox new tab page with custom css
-  -look into LaTeX for document writing
-  -add something about the symlink fix for fmod pipewire bug:
-   https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire
-  -add section for android USB connection android-file-transfer package
-  -find a replacement for xBacklight because it does not work
-   without the intel video driver
-  -consider adding documentation window back to cmp
-  -get that neovim plugin that shows block context?
-  -maybe add SDL stuff to installer
-  -setup a good screen locker that blocks tty access maybe
-  -split neovim init into separate files for better organization
-  -make keybind cheat sheet
-  -add overthewire programs like telnet and nmap
-  -gtk dark theme for lutris and other stuff
-  -set up wallpaper script
-  -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
-  -power management? (acpi?)
+    -consider adding a section about configuring Xorg. Consult
+     https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
+    -setup a pacman hook to clean up the paccache after each install
+    -I want a nice icon set for thunar
+    -keep configuring awesomeWM
+    -keep configuring urxvt
+    -for terminal use different font. Probably LiberationMono Nerd font 
+     so we have all the icons and stuff. Probably use that for neovim,
+     terminal, and maybe awesomeWM
+    -need a section to set up wallpapers or integrate it into the script
+     somehow
+    -add a section about setting up an appropriate xrandr call. It
+     doesn't make sense to try and keep one in the script for all our
+     setups.
+    -find a way to integrate the xrandr call into the startup in a
+     generic way
+    -Pretty sure I want to switch back to the seasonal wallpapers with
+     day/night cycles. Save the Ghibli stuff.
+    -finally got timer stuff figured out, add it to this config somehow.
+     we will have to save the timer and service file in this folder and
+     create and copy them to the proper directory during setup.
+     Directory is ~/.config/systemd/user/
+     the timer has to be enabled and started with:
+     systemctl --user enable --now update-wallpaper.timer
+    -firefox custom CSS
+    -think of a way to make overall theme more cohesive maybe, matching
+     top bar with wallpaper or smth
+    -write script for day/night wallpapers that's so cute
+    -use musicBrainz picard to tag all our music and sort it. then add
+     picard to the install list
+    -customize firefox new tab page with custom css
+    -look into LaTeX for document writing
+    -add something about the symlink fix for fmod pipewire bug:
+     https://wiki.archlinux.org/title/PipeWire#\
+     FMOD_games_crashing_under_PipeWire
+    -add section for android USB connection android-file-transfer
+     package
+    -find a replacement for xBacklight because it does not work
+     without the intel video driver
+    -consider adding documentation window back to cmp
+    -get that neovim plugin that shows block context?
+    -maybe add SDL stuff to installer
+    -setup a good screen locker that blocks tty access maybe
+    -split neovim init into separate files for better organization
+    -make keybind cheat sheet
+    -add overthewire programs like telnet and nmap
+    -gtk dark theme for lutris and other stuff
+    -set up wallpaper script
+    -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
+    -power management? (acpi?)
 
 Bugs:
-  -feh seems to span the wallpaper across both monitors if the timer
-   triggers the script to run while the screens are off. Look into this.
+    -feh seems to span the wallpaper across both monitors if the timer
+     triggers the script to run while the screens are off.
