@@ -305,6 +305,9 @@ xrandr calls:
           --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
 
 To-do:
+    -incorporate the udev rule for the backlight:
+     https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
+    -find a way to keybind that backlight stuff
     -add a part about patching urxvt for the line-wrap bug
     -consider adding a section about configuring Xorg. Consult
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
