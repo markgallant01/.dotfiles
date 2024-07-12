@@ -305,11 +305,11 @@ xrandr calls:
           --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
 
 To-do:
-    -set awesomeWM font
+    -picom, gaps, transparency
     -incorporate the udev rule for the backlight:
      https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
-    -find a way to keybind that backlight stuff
-    -add a part about patching urxvt for the line-wrap bug
+    -add a part about patching urxvt for the line-wrap bug:
+     https://wiki.archlinux.org/title/rxvt-unicode#Troubleshooting
     -consider adding a section about configuring Xorg. Consult
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
     -setup a pacman hook to clean up the paccache after each install
