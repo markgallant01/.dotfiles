@@ -305,6 +305,7 @@ xrandr calls:
           --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
 
 To-do:
+    -set awesomeWM font
     -incorporate the udev rule for the backlight:
      https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
     -find a way to keybind that backlight stuff
@@ -315,9 +316,6 @@ To-do:
     -I want a nice icon set for thunar
     -keep configuring awesomeWM
     -keep configuring urxvt
-    -for terminal use different font. Probably LiberationMono Nerd font 
-     so we have all the icons and stuff. Probably use that for neovim,
-     terminal, and maybe awesomeWM
     -need a section to set up wallpapers or integrate it into the script
      somehow
     -add a section about setting up an appropriate xrandr call. It
