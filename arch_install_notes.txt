@@ -305,6 +305,9 @@ xrandr calls:
           --output DP-0 --mode 2560x1440 --rate 120.00 --right-of DP-4
 
 To-do:
+    -might want to add a note about the intel i915 psr kernel parameter
+     for that weird screen bug:
+     https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
     -picom, gaps, transparency
     -incorporate the udev rule for the backlight:
      https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
