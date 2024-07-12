@@ -343,9 +343,9 @@ globalkeys = gears.table.join(
 
     -- Brightness keys
     awful.key({}, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("bash /home/mark/.dotfiles/scripts/inc_brightness.sh", false) end),
+        awful.util.spawn("/home/mark/.dotfiles/scripts/inc_brightness.sh", false) end),
     awful.key({}, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("bash /home/mark/.dotfiles/scripts/dec_brightness.sh", false) end)
+        awful.util.spawn("/home/mark/.dotfiles/scripts/dec_brightness.sh", false) end)
 )
 
 clientkeys = gears.table.join(
