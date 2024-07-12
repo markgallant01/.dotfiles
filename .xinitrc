@@ -36,7 +36,7 @@ fi
 nm-applet &
 blueman-applet &
 #~/.fehbg &
-#picom &
+picom &
 urxvtd --quiet --opendisplay --fork &
 exec awesome
 
