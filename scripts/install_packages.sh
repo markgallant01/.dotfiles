@@ -20,7 +20,7 @@ packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
 packages+=("scrot" "xclip" "wget" "curl" "htop" "git" "openssh")
 
 # fonts
-packages+=("noto-fonts" "noto-fonts-cjk" "ttf-noto-nerd")
+packages+=("noto-fonts" "noto-fonts-cjk")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
