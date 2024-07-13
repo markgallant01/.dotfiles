@@ -36,7 +36,7 @@
 *.color15:      #fdf6e3
 
 ! URxvt.font:     xft:Liberation Mono:size=14
-URxvt.font:     xft:NotoSansM NFM:size=15
+URxvt.font:     xft:Noto Sans Mono:size=15
 
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
