@@ -46,7 +46,6 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_xdg_config_home() .. "awesome/theme.lua")
-beautiful.font = "NotoSansM NFM 12"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -196,6 +195,9 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = tasklist_buttons
     }
 
+    -- Create a systray widget
+    s.mysystray = wibox.widget.systray()
+
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -212,7 +214,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
-            wibox.widget.systray(),
+            -- wibox.widget.systray(),
+            s.mysystray,
             mytextclock,
             s.mylayoutbox,
         },
