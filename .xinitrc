@@ -35,7 +35,7 @@ fi
 # launch programs and window manager
 nm-applet &
 blueman-applet &
-#~/.fehbg &
+~/.fehbg &
 picom &
 #urxvtd --quiet --opendisplay --fork &
 exec dwm
