@@ -37,6 +37,7 @@ nm-applet &
 blueman-applet &
 #~/.fehbg &
 picom &
-urxvtd --quiet --opendisplay --fork &
-exec awesome
+#urxvtd --quiet --opendisplay --fork &
+exec dwm
+#exec awesome
 
