@@ -35,7 +35,7 @@ packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "awesome" "picom")
 
 # graphical utilities
 packages+=("thunar" "ffmpegthumbnailer" "vlc" "network-manager-applet")
-packages+=("gvfs")
+packages+=("gvfs" "tumbler")
 
 # web browsers
 packages+=("firefox" "firefox-developer-edition" "chromium")
