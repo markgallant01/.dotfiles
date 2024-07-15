@@ -300,10 +300,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -modify the setup script to copy the screen setup script to the
+     .config folder and add a step to set that up properly
     -might want to add a note about the intel i915 psr kernel parameter
      for that weird screen bug:
      https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
-    -picom, gaps, transparency
     -incorporate the udev rule for the backlight:
      https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
     -add a part about patching urxvt for the line-wrap bug:
@@ -312,15 +313,8 @@ To-do:
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
     -setup a pacman hook to clean up the paccache after each install
     -I want a nice icon set for thunar
-    -keep configuring awesomeWM
-    -keep configuring urxvt
     -need a section to set up wallpapers or integrate it into the script
      somehow
-    -add a section about setting up an appropriate xrandr call. It
-     doesn't make sense to try and keep one in the script for all our
-     setups.
-    -find a way to integrate the xrandr call into the startup in a
-     generic way
     -Pretty sure I want to switch back to the seasonal wallpapers with
      day/night cycles. Save the Ghibli stuff.
     -finally got timer stuff figured out, add it to this config somehow.
