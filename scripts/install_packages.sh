@@ -28,9 +28,10 @@ packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
+packages+=("picom")
 
-# display server, x-tools, window manager
-packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "picom")
+# display server & X tools
+packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
 
 # graphical utilities
 packages+=("thunar" "ffmpegthumbnailer" "vlc" "network-manager-applet")
