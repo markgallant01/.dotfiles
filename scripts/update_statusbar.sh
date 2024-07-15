@@ -11,34 +11,15 @@ hostname=$( cat /etc/hostname )
 # volume level
 vol=$( pactl get-sink-volume @DEFAULT_SINK@ | grep --only-matching -P '\d*%' | head -1 )
 
-# brightness level
-bright=$( xbacklight | xargs printf "%.f" )
-
 # date
 date=$( date +"%m-%d-%Y" )
 
 # time
-time=$( date +"%l:%M%p" )
+time=$( date +"%I:%M%p" )
 
 # battery info
 bat0=$( cat /sys/class/power_supply/BAT0/capacity )
 bat1=$( cat /sys/class/power_supply/BAT1/capacity )
 
-# archt450s statusbar
-if [ "$hostname" == "archt450s" ]
-then
-  xsetroot -name "vol:$vol bri:$bright% bat:$bat0/$bat1 $time"
-fi
-
-# archxps13 statusbar
-if [ "$hostname" == "archxps13" ]
-then
-  xsetroot -name "vol:$vol bri:$bright% bat:$bat0 $time"
-fi
-
-# desktop statusbar
-if [ "$hostname" == "archDesk" ]
-then
-  xsetroot -name "vol:$vol $time"
-fi
+xsetroot -name "[CPU:X%] [MEM:X%] [VOL:$vol] [BAT:$bat0%] [$time]"
 
