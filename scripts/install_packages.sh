@@ -18,6 +18,7 @@ packages+=("base-devel" "clang" "gdb" "npm" "neovim")
 # CLI tools
 packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
 packages+=("scrot" "xclip" "wget" "curl" "htop" "git" "openssh")
+packages+=("usleep")
 
 # fonts
 packages+=("ttf-noto-nerd" "noto-fonts-cjk")
