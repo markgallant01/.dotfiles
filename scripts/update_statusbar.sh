@@ -39,7 +39,7 @@ if [ -d "$bat0" ]; then
 fi
 
 bat1=/sys/class/power_supply/BAT1
-if [ -d "$bat0" ]; then
+if [ -d "$bat1" ]; then
     # directory exists
     bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity )
     root_str+="[BAT1:$bat1_pow%] "
