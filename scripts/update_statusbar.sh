@@ -1,13 +1,11 @@
 #!/bin/sh
 
 # script to update dwm's statusbar
-# applies different statusbar configs
-# to different PCs based on hostname
 
-# get pc hostname
-hostname=$( cat /etc/hostname )
+# various system information is pulled and stored in the following
+# variables. Those variables are then used to build the statusbar
+# in the xsetroot call.
 
-# pull some useful info for statusbar
 # volume level
 vol=$( pactl get-sink-volume @DEFAULT_SINK@ | grep --only-matching -P '\d*%' | head -1 )
 
@@ -21,5 +19,14 @@ time=$( date +"%I:%M%p" )
 bat0=$( cat /sys/class/power_supply/BAT0/capacity )
 bat1=$( cat /sys/class/power_supply/BAT1/capacity )
 
-xsetroot -name "[CPU:X%] [MEM:X%] [VOL:$vol] [BAT:$bat0%] [$time]"
+# cpu utilization
+cpu_util=$(top -bn1 | grep "Cpu(s)" | \
+    sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+    awk '{print 100 - $1}')
+
+# memory utilization
+mem_util=$(free | head -n 2 | tail -n 1 | \
+    awk '{printf("%.1f", ($3/$2)*100)}')
+
+xsetroot -name "[CPU:$cpu_util%] [MEM:$mem_util%] [VOL:$vol] [BAT:$bat0%] [$time]"
 
