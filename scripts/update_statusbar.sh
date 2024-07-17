@@ -17,13 +17,14 @@ root_str+="[CPU:$cpu_util%] "
 
 # memory utilization
 mem_util=$(free | head -n 2 | tail -n 1 | \
-    awk '{printf("%.1f", ($3/$2)*100)}')
+    awk '{printf("% 4.1f", ($3/$2)*100)}')
 
 root_str+="[MEM:$mem_util%] "
 
 # volume level
 vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
-    grep --only-matching -P '\d*%' | head -1 )
+    grep --only-matching -P '\d*%' | head -1 | \
+    awk '{printf("%2d", $1)}')
 
 root_str+="[VOL:$vol%] "
 
@@ -35,14 +36,16 @@ date=$( date +"%m-%d-%Y" )
 bat0=/sys/class/power_supply/BAT0
 if [ -d "$bat0" ]; then
     # directory exists
-    bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity )
+    bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity | \
+        awk '{printf("%2d", $1)}')
     root_str+="[BAT0:$bat0_pow%] "
 fi
 
 bat1=/sys/class/power_supply/BAT1
 if [ -d "$bat1" ]; then
     # directory exists
-    bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity )
+    bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
+        awk '{printf("%2d", $1)}')
     root_str+="[BAT1:$bat1_pow%] "
 fi
 
