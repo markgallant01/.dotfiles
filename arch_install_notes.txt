@@ -300,6 +300,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -consider changing the padding on the other values in the status
+     bar to be like the CPU util. Battery, memory, and vol might
+     change the size of the bar depending on their values.
     -change the statusbar script to pad the values with zeros so they're
      always the same width. The CPU value changing keep changing the
      size of the status bar and it's distracting.
