@@ -374,7 +374,7 @@ local servers = {
   clangd = {},
   cmake = {},
   bashls = {},
-  pylsp = {},
+  pyright = {},
 
   lua_ls = {
     Lua = {
