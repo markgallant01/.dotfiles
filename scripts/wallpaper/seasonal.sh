@@ -35,7 +35,7 @@ hour=$(( 10#$hour ))
 day_of_year=$(( 10#$day_of_year ))
 
 # wallpaper path
-image="$HOME/Pictures/Wallpaper/"
+image="$HOME/Pictures/Wallpaper/PC/"
 
 # check for holidays
 
