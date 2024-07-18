@@ -30,15 +30,73 @@
 hour=$(date +%H)
 day_of_year=$(date +%j)
 
-# note: the hours will come back as '05' for 5am, with a leading zero
-# for any hour before 10am and after 12:59am. The leading zero makes
-# bash interpret it as an octal number. Prefixing with '10#' tells bash
-# to interpret the numbers as base 10.
+# strip leading zeros
+hour=$(( 10#$hour ))
+day_of_year=$(( 10#$day_of_year ))
 
-# check for holidays?
+# wallpaper path
+image="$HOME/Pictures/Wallpaper/"
 
-# check for season
+# check for holidays
 
-# check for time of day
+if [[ $day_of_year == 1 ]] || [[ $day_of_year == 365 ]]; then
+    # new years eve / day
+    image+="Seasonal/Holiday/NewYears/"
 
+elif [[ $day_of_year == 185 ]]; then
+    # Independence Day
+    image+="Seasonal/Holiday/IndependenceDay/"
+
+elif [[ $day_of_year == 332 ]]; then
+    # Thanksgiving
+    image+="Seasonal/Holiday/Thanksgiving/"
+
+elif [[ $day_of_year -ge 298 ]] && [[ $day_of_year -le 304 ]]; then
+    # Halloween week
+    image+="Seasonal/Holiday/Halloween/"
+
+elif [[ $day_of_year -ge 354 ]] && [[ $day_of_year -le 364 ]]; then
+    # Christmas 2 weeks
+    image+="Seasonal/Holiday/Christmas/"
+
+# holidays done, start checking seasons
+elif [[ $day_of_year -ge 60 ]] && [[ $day_of_year -le 151 ]]; then
+    # Spring
+    if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
+        # between 4am and 4:59pm (04:00 - 16:59)
+        image+="Seasonal/Spring/Day/"
+    else
+        image+="Seasonal/Spring/Night/"
+    fi
+
+elif [[ $day_of_year -ge 152 ]] && [[ $day_of_year -le 243 ]]; then
+    # Summer
+    if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
+        # between 4am and 4:59pm (04:00 - 16:59)
+        image+="Seasonal/Summer/Day/"
+    else
+        image+="Seasonal/Summer/Night/"
+    fi
+
+elif [[ $day_of_year -ge 244 ]] && [[ $day_of_year -le 334 ]]; then
+    # Fall
+    if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
+        # between 4am and 4:59pm (04:00 - 16:59)
+        image+="Seasonal/Fall/Day/"
+    else
+        image+="Seasonal/Fall/Night/"
+    fi
+
+elif [[ $day_of_year -ge 335 ]] || [[ $day_of_year -le 59 ]]; then
+    # Winter
+    if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
+        # between 4am and 4:59pm (04:00 - 16:59)
+        image+="Seasonal/Winter/Day"
+    else
+        image+="Seasonal/Winter/Night"
+    fi
+fi
+
+# return selected image based on prior conditions
+image=$(find $image -mindepth 1 | shuf -n 1)
 echo $image
