@@ -71,8 +71,8 @@ elif [[ $day_of_year -ge 60 ]] && [[ $day_of_year -le 151 ]]; then
 
 elif [[ $day_of_year -ge 152 ]] && [[ $day_of_year -le 243 ]]; then
     # Summer
-    if [[ $hour -gt 3 ]] && [[ $hour -lt 17 ]]; then
-        # between 4am and 4:59pm (04:00 - 16:59)
+    if [[ $hour -gt 4 ]] && [[ $hour -lt 19 ]]; then
+        # between 5am and 6:59pm (04:00 - 16:59)
         image+="Seasonal/Summer/Day/"
     else
         image+="Seasonal/Summer/Night/"
