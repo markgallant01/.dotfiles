@@ -300,7 +300,6 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
-    -rewrite and continue the seasonal wallpaper script in python
     -modify the setup script to copy the screen setup script to the
      .config folder and add a step to set that up properly
     -might want to add a note about the intel i915 psr kernel parameter
@@ -308,8 +307,6 @@ To-do:
      https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
     -incorporate the udev rule for the backlight:
      https://wiki.archlinux.org/title/Backlight#Hardware_interfaces
-    -add a part about patching urxvt for the line-wrap bug:
-     https://wiki.archlinux.org/title/rxvt-unicode#Troubleshooting
     -consider adding a section about configuring Xorg. Consult
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
     -setup a pacman hook to clean up the paccache after each install
