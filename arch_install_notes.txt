@@ -300,6 +300,10 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -change the wallpaper script to not switch to daytime wallpaper
+     until 5am. 4 is too early.
+    -continue to curate the wallpapers as we see them. They should
+     scream their respective season.
     -put wallpaper on a timer and incorporate it into guide
     -modify the setup script to copy the screen setup script to the
      .config folder and add a step to set that up properly
@@ -314,8 +318,6 @@ To-do:
     -I want a nice icon set for thunar
     -need a section to set up wallpapers or integrate it into the script
      somehow
-    -Pretty sure I want to switch back to the seasonal wallpapers with
-     day/night cycles. Save the Ghibli stuff.
     -finally got timer stuff figured out, add it to this config somehow.
      we will have to save the timer and service file in this folder and
      create and copy them to the proper directory during setup.
@@ -325,7 +327,6 @@ To-do:
     -firefox custom CSS
     -think of a way to make overall theme more cohesive maybe, matching
      top bar with wallpaper or smth
-    -write script for day/night wallpapers that's so cute
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
     -customize firefox new tab page with custom css
@@ -335,8 +336,6 @@ To-do:
      FMOD_games_crashing_under_PipeWire
     -add section for android USB connection android-file-transfer
      package
-    -find a replacement for xBacklight because it does not work
-     without the intel video driver
     -consider adding documentation window back to cmp
     -get that neovim plugin that shows block context?
     -maybe add SDL stuff to installer
@@ -344,8 +343,6 @@ To-do:
     -split neovim init into separate files for better organization
     -make keybind cheat sheet
     -add overthewire programs like telnet and nmap
-    -gtk dark theme for lutris and other stuff
-    -set up wallpaper script
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -power management? (acpi?)
 
