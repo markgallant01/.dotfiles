@@ -11,13 +11,13 @@ root_str=""
 # cpu utilization
 cpu_util=$(top -bn1 | grep "Cpu(s)" | \
     sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
-    awk '{printf("% 4.1f", (100 - $1))}')
+    awk '{printf("%4.1f", (100 - $1))}')
 
 root_str+="[CPU:$cpu_util%] "
 
 # memory utilization
 mem_util=$(free | head -n 2 | tail -n 1 | \
-    awk '{printf("% 4.1f", ($3/$2)*100)}')
+    awk '{printf("%4.1f", ($3/$2)*100)}')
 
 root_str+="[MEM:$mem_util%] "
 
