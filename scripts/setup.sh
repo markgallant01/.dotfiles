@@ -30,7 +30,6 @@ ln -sf ~/.dotfiles/awesome/ ~/.config/awesome
 ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
 ln -sf ~/.dotfiles/gtk-3.0/ ~/.config/gtk-3.0
-ln -sf ~/.dotfiles/deadbeef/ ~/.config/deadbeef
 
 # copy conf files to appropriate folders
 sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
