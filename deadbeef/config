@@ -1,11 +1,18 @@
+cli_add_playlist_name Default
 deadbeef_version 1.9.6
-gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"},{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track No","id":"-1","format":"%tracknumber%","sort_format":"","size":"50","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
+ffmpeg.enable_all_exts 0
+ffmpeg.enable_dop 0
+ffmpeg.extensions aa3;oma;ac3;vqf;amr;tak;dsf;dff;wma;3gp;mp4;m4a;opus
+filechooser.lastdir file:///home/mark/ssd_storage/Music%20Yo
+gtkui.columns.playlist [{"title":"♫","id":"1","format":"%playstatus%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"},{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"366","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track No","id":"-1","format":"%tracknumber%","sort_format":"","size":"50","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"426","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.columns.search [{"title":"Artist / Album","id":"-1","format":"$if(%artist%,%artist%,Unknown Artist)[ - %album%]","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Track No","id":"-1","format":"%tracknumber%","sort_format":"","size":"50","align":"1","color_override":"0","color":"#ff000000"},{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"150","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
-gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"tabbed_playlist","legacy_params":" hideheaders=0 width=1256"}]}
+gtkui.layout.1.9.0 {"type":"vbox","legacy_params":" expand=\"0 1\" fill=\"1 1\" homogeneous=0","children":[{"type":"hbox","legacy_params":" expand=\"0 1 0\" fill=\"1 1 1\" homogeneous=0","children":[{"type":"playtb"},{"type":"seekbar"},{"type":"volumebar","settings":{"scale":"db"}}]},{"type":"vsplitter","legacy_params":" locked=0 ratio=0.178515 pos=0 size2=0","children":[{"type":"hsplitter","legacy_params":" locked=0 ratio=0.196656 pos=0 size2=0","children":[{"type":"coverart","settings":{"mode":"selected"}},{"type":"spectrum","settings":{"renderMode":"bands","distanceBetweenBars":"10","barGranularity":"2"}}]},{"type":"hsplitter","legacy_params":" locked=0 ratio=0.189320 pos=0 size2=0","children":[{"type":"pltbrowser"},{"type":"playlist","legacy_params":" hideheaders=0 width=1012"}]}]}]}
 gtkui.playlist.group_by_tf 
 gtkui.search.group_by_tf 
 gtkui.statusbar.visible 1
 gtkui.tabscroll 0
+gtkui.titlebar_playing_tf DeaDBeeF - %artist% - %title%
+gtkui.titlebar_stopped_tf DeaDBeeF
 hotkey.key01 "Ctrl f" 0 0 find
 hotkey.key02 "Ctrl o" 0 0 open_files
 hotkey.key03 "Ctrl q" 0 0 quit
@@ -42,14 +49,31 @@ mainwin.geometry.h 1369
 mainwin.geometry.w 1256
 mainwin.geometry.x 2580
 mainwin.geometry.y 47
-output_plugin alsa
+network.proxy.port 8080
+output_plugin pipewire
+pipewire_soundcard alsa_output.usb-Schiit_Audio_Schiit_Modi_3E-00.analog-stereo
 playback.loop 1
-playback.volume.normalized 1.0000000
-playlist.cursor.0 0
+playback.volume.normalized 0.0719686
+playlist.current 1
+playlist.cursor.0 15
+playlist.cursor.1 52
+playlist.cursor.2 0
 playlist.scroll.0 0
+playlist.scroll.1 -52
+playlist.scroll.2 0
 playlist.scroll.cursorfollowplayback 1
-playlist.tab.00000 Default
-resume.paused 0
-resume.playlist -1
-resume.position -1.000000
-resume.track -1
+playlist.tab.00000 delete this all after
+playlist.tab.00001 New Playlist
+playlist.tab.00002 Music Library
+prefwin.geometry.h 596
+prefwin.geometry.w 761
+prefwin.geometry.x 897
+prefwin.geometry.y 420
+resume.paused 1
+resume.playlist 1
+resume.position 49.408500
+resume.track 52
+streamer.bit_override 0
+streamer.samplerate 44100
+streamer.samplerate_mult_44 44100
+streamer.samplerate_mult_48 48000
