@@ -8,6 +8,7 @@
 alias ls='ls --color=auto --group-directories-first'
 alias ll='ls -1A --group-directories-first'
 alias vi='vim'
+alias vim='nvim'
 
 # run in vi mode
 set -o vi
