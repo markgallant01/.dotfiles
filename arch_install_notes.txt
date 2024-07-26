@@ -300,6 +300,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get a cool nvim startup screen
     -change the wallpaper script to not switch to daytime wallpaper
      until 5am. 4 is too early.
     -continue to curate the wallpapers as we see them. They should
