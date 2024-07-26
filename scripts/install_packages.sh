@@ -13,7 +13,7 @@ declare -a packages=()
 packages+=("xfsprogs")
 
 # development tools
-packages+=("base-devel" "clang" "gdb" "npm" "neovim")
+packages+=("base-devel" "clang" "gdb" "npm" "neovim" "jdk-openjdk")
 
 # CLI tools
 packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
