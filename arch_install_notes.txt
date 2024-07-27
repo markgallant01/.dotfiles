@@ -300,6 +300,10 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -something weird going on with the laptop brightness so check
+     that out
+    -something weird going on with mounting the other drives on
+     desktop. Maybe switch to UUIDs in case the labels are switching
     -get a cool nvim startup screen
     -change the wallpaper script to not switch to daytime wallpaper
      until 5am. 4 is too early.
