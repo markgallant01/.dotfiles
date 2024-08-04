@@ -29,7 +29,7 @@ packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
-packages+=("picom")
+packages+=("picom" "ripgrep")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
