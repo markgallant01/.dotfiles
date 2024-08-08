@@ -76,6 +76,11 @@ require('lazy').setup({
   },
 
   {
+    -- extra LSP plugin for java
+    'mfussenegger/nvim-jdtls',
+  },
+
+  {
     -- colorschemes
     'navarasu/onedark.nvim',
     'loctvl842/monokai-pro.nvim',
@@ -403,15 +408,6 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
     }
   end,
-}
-
--- [[ Setup for specific LSP servers ]]
-require'lspconfig'.jdtls.setup{
-  root_dir = function()
-    return vim.fs.dirname(vim.fs.find({
-      'gradlew', '.git', 'mvnw', '.gitignore'
-    }, { upward = true })[1])
-  end
 }
 
 -- [[ Configure nvim-cmp ]]
