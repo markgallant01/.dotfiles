@@ -300,6 +300,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -VR STUFF:
+        yay -S envision-xr-git monado-vulkan-layers-git
+        pacman -S libudev0-shim polkit-gnome
+    -need to add this line to xinitrc so it starts up:
+        /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     -something weird going on with the laptop brightness so check
      that out
     -something weird going on with mounting the other drives on
