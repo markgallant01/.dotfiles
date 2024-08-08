@@ -38,6 +38,7 @@ nm-applet &
 blueman-applet &
 ~/.fehbg &
 picom &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # statusbar loop
 while true; do
