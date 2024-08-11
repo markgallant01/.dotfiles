@@ -300,6 +300,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add minecraft audio fix maybe
     -VR STUFF:
         yay -S envision-xr-git monado-vulkan-layers-git
         pacman -S libudev0-shim polkit-gnome
