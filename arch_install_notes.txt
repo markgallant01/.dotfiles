@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -don't add VR stuff yet because we might not use it much
+    -add tlp and the systemctl stuff to make it work. default settings.
+    -fix brightness control for thinkpad
     -add minecraft audio fix maybe
     -VR STUFF:
         yay -S envision-xr-git monado-vulkan-layers-git
