@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out protonVPN thing for school
     -don't add VR stuff yet because we might not use it much
     -add tlp and the systemctl stuff to make it work. default settings.
     -fix brightness control for thinkpad
