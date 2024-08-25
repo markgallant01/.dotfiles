@@ -81,7 +81,7 @@ fi
 # intel iGPU:
 if [[ "$option" == 2 ]]; then
   packages+=("mesa" "lib32-mesa" "vulkan-intel")
-  packages+=("lib32-vulkan-intel")
+  packages+=("lib32-vulkan-intel" "intel-media-driver")
 fi
 
 # AMD CPU GPU? --todo
