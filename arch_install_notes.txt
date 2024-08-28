@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get brighntess control working for desktop monitors
+    -TLP for laptop battery saving. IDK if this will mess up desktop
+     so come back to it
     -figure out protonVPN thing for school
     -don't add VR stuff yet because we might not use it much
     -add tlp and the systemctl stuff to make it work. default settings.
