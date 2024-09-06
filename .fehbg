@@ -2,10 +2,10 @@
 # uncomment one script call to choose the wallpaper script
 
 # ghibli time-of-day based wallpaper
-#image=$($HOME/.dotfiles/scripts/wallpaper/ghibli_tod.sh)
+image=$($HOME/.dotfiles/scripts/wallpaper/ghibli_tod.sh)
 
 # seasonal time-of-day based wallpaper
-image=$($HOME/.dotfiles/scripts/wallpaper/seasonal.sh)
+#image=$($HOME/.dotfiles/scripts/wallpaper/seasonal.sh)
 
 # set chosen image as wallpaper
 feh --no-fehbg --bg-scale "$image"
