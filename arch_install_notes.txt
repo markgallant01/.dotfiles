@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get s-tui added to program install list and figure out the
+     brightness for t450s.
     -get brighntess control working for desktop monitors
     -TLP for laptop battery saving. IDK if this will mess up desktop
      so come back to it
