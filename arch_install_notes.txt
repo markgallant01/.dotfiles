@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -try to modify the thinkpad laptop script to combine both battery
+     percentages together so we can see the overall percentage instead
+     of both individual batteries
     -get s-tui added to program install list and figure out the
      brightness for t450s.
     -get brighntess control working for desktop monitors
