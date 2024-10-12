@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -set up a script to change the keyboard brightness just like
+     the backlight script. Reference the wiki.
     -try to modify the thinkpad laptop script to combine both battery
      percentages together so we can see the overall percentage instead
      of both individual batteries
