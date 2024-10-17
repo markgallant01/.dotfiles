@@ -34,19 +34,36 @@ date=$( date +"%m-%d-%Y" )
 # check for batteries
 
 bat0=/sys/class/power_supply/BAT0
-if [ -d "$bat0" ]; then
-    # directory exists
+bat1=/sys/class/power_supply/BAT1
+
+# if two batteries exist, take their combined value
+if [[ -d "$bat0" ]] && [[ -d "$bat1" ]]; then
+    # both directories exist, combine values
     bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity | \
         awk '{printf("%2d", $1)}')
-    root_str+="[BAT0:$bat0_pow%] "
-fi
 
-bat1=/sys/class/power_supply/BAT1
-if [ -d "$bat1" ]; then
-    # directory exists
     bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
         awk '{printf("%2d", $1)}')
-    root_str+="[BAT1:$bat1_pow%] "
+
+    total_pow=$(( (bat0_pow + bat1_pow) / 2 ))
+    root_str+="[BAT:$total_pow%] "
+else
+    # take whichever battery exists, not sure if 0 or 1 on a single
+    # battery system
+    if [ -d "$bat0" ]; then
+        # directory exists
+        bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity | \
+            awk '{printf("%2d", $1)}')
+        root_str+="[BAT0:$bat0_pow%] "
+    fi
+    
+    if [ -d "$bat1" ]; then
+        # directory exists
+        root_str+="[BAT1:$bat1_pow%] "
+
+        bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
+            awk '{printf("%2d", $1)}')
+    fi
 fi
 
 # time
