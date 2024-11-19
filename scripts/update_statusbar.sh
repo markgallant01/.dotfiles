@@ -54,12 +54,12 @@ else
         # directory exists
         bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity | \
             awk '{printf("%2d", $1)}')
-        root_str+="[BAT0:$bat0_pow%] "
+        root_str+="[BAT:$bat0_pow%] "
     fi
     
     if [ -d "$bat1" ]; then
         # directory exists
-        root_str+="[BAT1:$bat1_pow%] "
+        root_str+="[BAT:$bat1_pow%] "
 
         bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
             awk '{printf("%2d", $1)}')
