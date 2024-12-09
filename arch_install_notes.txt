@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -set up st terminal to scroll up and down with the mouse wheel
     -set up a script to change the keyboard brightness just like
      the backlight script. Reference the wiki.
     -try to modify the thinkpad laptop script to combine both battery
