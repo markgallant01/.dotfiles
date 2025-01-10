@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -font is still weird with comments cutting off letters. Find a
+     better font and figure out the icon stuff
     -set up st terminal to scroll up and down with the mouse wheel
     -set up a script to change the keyboard brightness just like
      the backlight script. Reference the wiki.
