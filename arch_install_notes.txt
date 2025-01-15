@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -copy stuff from LazyVim
     -font is still weird with comments cutting off letters. Find a
      better font and figure out the icon stuff
     -set up st terminal to scroll up and down with the mouse wheel
