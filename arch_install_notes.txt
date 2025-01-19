@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -switch to AwesomeWM and URxvt to get away from suckless stuff
+     because it bypasses the package manager and I don't like that
     -i want cute UI stuff like gnome has to change the brightness and
      volume maybe. Check out gnome's status bar and maybe copy some
      stuff. think more about this.
