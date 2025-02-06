@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -increase polling rate for keyboard or whatever
     -i think i want to see icons on both monitors in the statusbar,
      rather than just the main monitor. I don't remember why I made
      it this way in the first place. it's a dwm patch so maybe it can
