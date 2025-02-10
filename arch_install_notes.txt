@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -modify brightness step because we should be able to go darker than we
+     currently can
     -increase polling rate for keyboard or whatever
     -i think i want to see icons on both monitors in the statusbar,
      rather than just the main monitor. I don't remember why I made
