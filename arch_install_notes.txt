@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -also laptop is starting on incorrect brightness but idk why
     -modify brightness step because we should be able to go darker than we
      currently can
     -increase polling rate for keyboard or whatever
