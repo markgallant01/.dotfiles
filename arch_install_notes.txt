@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -maybe get suspend / hibernate to work
     -also laptop is starting on incorrect brightness but idk why
     -modify brightness step because we should be able to go darker than we
      currently can
