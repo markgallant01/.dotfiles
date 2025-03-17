@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out why USB stuff seems to automount on laptop but not desktop
     -add libnatpmp to install list because its needed for
      the port_forwarding script to work. and add that script somewhere.
     -put protonvpn app in installation list and qbittorrent
