@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add libnatpmp to install list because its needed for
+     the port_forwarding script to work. and add that script somewhere.
     -put protonvpn app in installation list and qbittorrent
     -maybe get suspend / hibernate to work
     -also laptop is starting on incorrect brightness but idk why
