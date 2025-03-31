@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out TV screen thing. Best solution might just be to unplug thing.
+     can we mirror one of our screens when it's plugged in?
+    -update desktop somehow to be cooler maybe.
     -figure out why USB stuff seems to automount on laptop but not desktop
     -add libnatpmp to install list because its needed for
      the port_forwarding script to work. and add that script somewhere.
