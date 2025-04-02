@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -play with arandr to see if it's good
     -figure out TV screen thing. Best solution might just be to unplug thing.
      can we mirror one of our screens when it's plugged in?
     -update desktop somehow to be cooler maybe.
