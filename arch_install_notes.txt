@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add these files to stop the screen from shutting off:
+     https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Configuration
     -play with arandr to see if it's good
     -figure out TV screen thing. Best solution might just be to unplug thing.
      can we mirror one of our screens when it's plugged in?
