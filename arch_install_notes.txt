@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -consider removing firefox developer edition because
+     i've never launched it
     -add these files to stop the screen from shutting off:
      https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Configuration
     -play with arandr to see if it's good
