@@ -301,6 +301,13 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -improve overall system theme. Get off DWM becuase can't update.
+     Either AwesomeWM or Qtile. Stuff I want:
+        -nice program launcher that lets me search for programs
+         I've forgotten. Maybe Rofi?
+        -login manager that looks nice. LightDM?
+        -lock screen finally so we can walk away from PC without killing
+         the x-server
     -consider removing firefox developer edition because
      i've never launched it
     -add these files to stop the screen from shutting off:
