@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out laptop fan speed and temps and stuff cuz this
+     thing gets hot
     -get on URxvt and get it working with pywal for the colors and
      such. Think about revisiting the holiday wallpapers now that the
      Ghibli AI thing exists and I can maybe generate some good ones
