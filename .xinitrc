@@ -39,6 +39,7 @@ blueman-applet &
 ~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+thunar --daemon &
 
 # statusbar loop
 while true; do
