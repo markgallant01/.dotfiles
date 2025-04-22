@@ -35,8 +35,11 @@ packages+=("picom" "ripgrep")
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
 
 # graphical utilities
-packages+=("thunar" "ffmpegthumbnailer" "vlc" "network-manager-applet")
-packages+=("gvfs" "tumbler")
+packages+=("vlc" "network-manager-applet")
+
+# file manager
+packages+=("thunar" "thunar-volman" "gvfs" "gvfs-mtp" "tumbler")
+packages+=("ffmpegthumbnailer")
 
 # web browsers
 packages+=("firefox" "firefox-developer-edition" "chromium")
