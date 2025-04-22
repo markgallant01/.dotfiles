@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get on URxvt and get it working with pywal for the colors and
+     such. Think about revisiting the holiday wallpapers now that the
+     Ghibli AI thing exists and I can maybe generate some good ones
     -improve overall system theme. Get off DWM becuase can't update.
      Either AwesomeWM or Qtile. Stuff I want:
         -nice program launcher that lets me search for programs
