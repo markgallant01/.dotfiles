@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -customize thunar. i want better looking icons.
     -figure out laptop fan speed and temps and stuff cuz this
      thing gets hot
     -get on URxvt and get it working with pywal for the colors and
