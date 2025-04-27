@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -maybe add curl nvm installation idk yet
     -customize thunar. i want better looking icons.
     -figure out laptop fan speed and temps and stuff cuz this
      thing gets hot
