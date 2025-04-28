@@ -133,11 +133,6 @@ require('lazy').setup({
       'windwp/nvim-ts-autotag',
   },
 
-  -- live preview
-  {
-      'brianhuster/live-preview.nvim',
-  },
-
 }, {})
 
 
@@ -595,4 +590,3 @@ require('lualine').setup {
   extensions = {}
 }
 
-require('livepreview.config').set()
