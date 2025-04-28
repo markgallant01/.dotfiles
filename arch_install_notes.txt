@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -think about transparency because I can't read this shit sometimes
+    -NVM is slowing down the terminal startup due to the initialization
+     stuff it adds to the bachrc file. this is a pain in the ass
     -maybe add curl nvm installation idk yet
     -customize thunar. i want better looking icons.
     -figure out laptop fan speed and temps and stuff cuz this
