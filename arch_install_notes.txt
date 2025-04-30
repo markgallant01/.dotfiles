@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -wallpaper setting shouldn't be tracked so that we can have
+     different settings on different PCs. move option out to a
+     local setup file somehow
     -think about transparency because I can't read this shit sometimes
     -NVM is slowing down the terminal startup due to the initialization
      stuff it adds to the bachrc file. this is a pain in the ass
