@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -try awesomeWM again instead of QTile because awesome makes the
+     most sense coming from dwm.
     -wallpaper setting shouldn't be tracked so that we can have
      different settings on different PCs. move option out to a
      local setup file somehow
