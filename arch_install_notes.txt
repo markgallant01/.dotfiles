@@ -301,6 +301,20 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -stuff I want:
+        -wallpaper spans entire screen including top bar. top bar should
+         be transparent between the widgets because it looks cool
+        -make menu stuff transparent like rofi and terminal with blur
+         for a nice modern glass effect
+        -neovim should not be transparent
+        -if something isn't transparent it should have the same back
+         ground as the desktop (like rofi)
+        -colorscheme should be set dynamically and should generate
+         based on the wallpaper. top bar colors should adjust, neovim
+         colors, rofi, firefox, thunar, terminal, etc
+        -use urxvt in daemon mode
+        -window border should be thicker and color should match color
+         scheme too
     -try awesomeWM again instead of QTile because awesome makes the
      most sense coming from dwm.
     -wallpaper setting shouldn't be tracked so that we can have
