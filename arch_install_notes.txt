@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+<<<<<<< HEAD
     -stuff I want:
         -wallpaper spans entire screen including top bar. top bar should
          be transparent between the widgets because it looks cool
@@ -315,6 +316,10 @@ To-do:
         -use urxvt in daemon mode
         -window border should be thicker and color should match color
          scheme too
+=======
+    -reduce keyboard repetition rate so that we can fly around nvim
+     faster
+>>>>>>> 201f38cd098164c4b566f0657bafcbceda8809dc
     -try awesomeWM again instead of QTile because awesome makes the
      most sense coming from dwm.
     -wallpaper setting shouldn't be tracked so that we can have
