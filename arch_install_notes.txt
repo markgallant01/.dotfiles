@@ -301,6 +301,10 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -maim keeps the cursor in the image by default so it has to be run
+     with the 'u' flag so the whole command looks like maim -us filename
+     to do the selection snipping thing we typically like to do. maybe
+     put this into a keybind or an alias so we don't have to remember
     -replace scrot with maim in the program installation section
     -add duckstation and pcsx2 to AUR section
     -stuff I want:
