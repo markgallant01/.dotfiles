@@ -40,6 +40,7 @@ blueman-applet &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
+urxvtd -q -f -o &
 
 # statusbar loop
 while true; do
@@ -47,5 +48,6 @@ while true; do
     sleep 5s   # update every 5 seconds
 done &
 
-exec ~/.dotfiles/scripts/start_dwm.sh
+#exec ~/.dotfiles/scripts/start_dwm.sh
+exec awesome
 
