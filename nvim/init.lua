@@ -1,11 +1,3 @@
--- ]]
--- Set <space> as the leader key
--- See ':help mapleader'
--- NOTE: Must happen before plugins are required (otherwise wrong
--- leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- table of icons for plugins to use
 local icons = {
   diagnostics = {
@@ -27,14 +19,14 @@ vim.cmd [[ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint lin
 -- ':help lazy.nvim.txt' for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system {
-		'git',
+  vim.fn.system {
+    'git',
 		'clone',
 		'--filter=blob:none',
 		'https://github.com/folke/lazy.nvim.git',
 		'--branch=stable', -- latest stable release
 		lazypath,
-	}
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -52,10 +44,6 @@ require('lazy').setup({
       -- Automatically install LSPs
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: 'opts = {}' is the same as calling 'require('fidget').setup({})'
-      --{ 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
     },
   },
 
@@ -130,59 +118,11 @@ require('lazy').setup({
 
   -- html auto tags
   {
-      'windwp/nvim-ts-autotag',
+    'windwp/nvim-ts-autotag',
   },
 
 }, {})
 
-
--- [[ setting options ]]
---
-vim.o.guicursor = ""
-vim.o.mouse = 'a'
-
-vim.o.clipboard = 'unnamedplus'
-
-vim.wo.nu = true
-vim.o.relativenumber = true
-
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-
-vim.o.smartindent = true
-vim.o.breakindent = true
-
-vim.o.wrap = false
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
-vim.o.hlsearch = false
-vim.o.incsearch = true
-
-vim.o.termguicolors = true
-
-vim.o.scrolloff = 8
-vim.o.signcolumn = "yes"
-
-vim.o.updatetime = 250
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-
-vim.o.colorcolumn = "73"
--- vim.o.foldmethod = 'indent'
-
--- disable automatic commenting newline
-vim.cmd("autocmd FileType * set formatoptions-=ro")
-
--- open all folds by default
-vim.cmd("autocmd BufRead * normal zR")
-
--- [[ Basic Keymaps ]]
---
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- [[ Configure Telescope ]]
 -- See ':help telescope' and ':help telescope.setup()'
@@ -200,75 +140,13 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See ':help telescope.builtin'
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles,
-  { desc = '[?] Find recently opened files' })
 
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers,
-  { desc = '[ ] Find existing buffers' })
+-- setup my stuff
+require('colorscheme')
+require('vim_options')
 
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files,
-  { desc = '[S]earch [F]iles' })
-
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string,
-  { desc = '[S]earch current [W]ord' })
-
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep,
-  { desc = '[S]earch by [G]rep' })
-
--- [[ Configure Colorscheme ]]
---
-require("catppuccin").setup({
-    flavour = "mocha", -- latte, frappe, macchiato, mocha
-    background = { -- :h background
-        light = "latte",
-        dark = "mocha",
-    },
-    transparent_background = true, -- disables setting the background color.
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-    dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
-    no_italic = false, -- Force no italic
-    no_bold = false, -- Force no bold
-    no_underline = false, -- Force no underline
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { "italic" }, -- Change the style of comments
-        conditionals = {},
-        loops = {},
-        functions = {},
-        keywords = {},
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = {},
-        operators = {},
-        -- miscs = {}, -- Uncomment to turn off hard-coded styles
-    },
-    color_overrides = {},
-    custom_highlights = {},
-    default_integrations = true,
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
-        notify = false,
-        mini = {
-            enabled = true,
-            indentscope_color = "",
-        },
-        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-    },
-})
-
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
+-- keymaps last because they need access to plugins
+require('keymaps')
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -336,18 +214,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,
-  { desc = 'Go to previous diagnostic message' })
-
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next,
-  { desc = 'Go to next diagnostic message' })
-
-vim.keymap.set('n', '<leader>w', vim.diagnostic.open_float,
-  { desc = 'Open floating diagnostic message' })
-
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist,
-  { desc = 'Open diagnostics list' })
 
 -- [[Diagnostic Config]]
 vim.diagnostic.config( {
@@ -562,15 +428,15 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
     lualine_c = {
-        {'diagnostics',
-            symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
-            },
+      {'diagnostics',
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
         },
-        'filename',
+      },
+      'filename',
     },
     lualine_x = {'encoding', 'filetype'},
     lualine_y = {'progress'},
