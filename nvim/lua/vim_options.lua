@@ -8,6 +8,7 @@ vim.g.maplocalleader = ' '
 
 vim.o.guicursor = ""
 vim.o.mouse = 'a'
+vim.o.mousemodel = 'extend'
 
 vim.o.clipboard = 'unnamedplus'
 
