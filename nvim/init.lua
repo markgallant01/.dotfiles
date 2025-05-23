@@ -87,6 +87,18 @@ require('lazy').setup({
     'windwp/nvim-ts-autotag',
   },
 
+  {
+    -- indent scope
+    'echasnovski/mini.indentscope', version = '*'
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  }
 }, {})
 
 -- setup my stuff
@@ -99,6 +111,8 @@ require('plugins/treesitter')
 require('plugins/telescope')
 require('plugins/autotag')
 require('plugins/blink')
+require('plugins/indentscope')
+require('plugins/indent-blankline')
 
 -- LSP servers
 vim.lsp.enable('pyright')
