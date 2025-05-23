@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add 'fd' to installed packages list. it's a utility
+     thing for finding files that telescope.nvim needs
     -get some transition animations going in Picom to make
      everything look a bit nicer
     -go through neovim plugins and prune. switch to Blink for
