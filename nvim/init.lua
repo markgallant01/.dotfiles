@@ -23,25 +23,13 @@ require('lazy').setup({
     -- default LSP configs
     'neovim/nvim-lspconfig'
   },
+
   {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
+    'saghen/blink.cmp',
     dependencies = {
-      -- Snippet Engine
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      'rafamadriz/friendly-snippets'
     },
-  },
-
-  {
-    -- extra LSP plugin for java
-    'mfussenegger/nvim-jdtls',
+    version = '1.*'
   },
 
   {
@@ -59,25 +47,27 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
   },
 
-  -- Fuzzy Finder
   {
+    -- telescope fuzzy finder
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      { 'nvim-lua/plenary.nvim' },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild \
+        -DCMAKE_BUILD_TYPE=Release && \
+        cmake --build build --config Release'
+      },
+      {
+        'nvim-tree/nvim-web-devicons',
+        opts = {}
+      },
     }
   },
 
-  -- Fuzzy Finder algorithm
   {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
-
-  {
+    -- treesitter
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -85,15 +75,15 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- autopairs
   {
+    -- autopairs
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {},
   },
 
-  -- html auto tags
   {
+    -- html auto tags
     'windwp/nvim-ts-autotag',
   },
 
@@ -108,6 +98,7 @@ require('plugins/lualine')
 require('plugins/treesitter')
 require('plugins/telescope')
 require('plugins/autotag')
+require('plugins/blink')
 
 -- LSP servers
 vim.lsp.enable('pyright')
