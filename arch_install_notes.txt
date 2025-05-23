@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -fix Mason lua config file. Icons are borked
     -some kind of volume widget for pavucontrol that hangs out in the
      status bar would be cool
     -maim keeps the cursor in the image by default so it has to be run
