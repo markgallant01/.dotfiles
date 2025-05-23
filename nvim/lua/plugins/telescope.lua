@@ -12,5 +12,6 @@ require('telescope').setup {
 }
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+-- NOTE: must come after setup function
+require('telescope').load_extension('fzf')
 
