@@ -111,6 +111,7 @@ require('plugins/autotag')
 
 -- LSP servers
 vim.lsp.enable('pyright')
+vim.lsp.enable('lua_ls')
 
 -- keymaps last because they need access to plugins
 require('keymaps')
