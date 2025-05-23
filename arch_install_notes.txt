@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get some transition animations going in Picom to make
+     everything look a bit nicer
     -go through neovim plugins and prune. switch to Blink for
      completion and keep making it look better.
     -add language servers to package install file. So
