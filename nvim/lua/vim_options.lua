@@ -49,3 +49,14 @@ vim.cmd("autocmd FileType * set formatoptions-=ro")
 -- open all folds by default
 vim.cmd("autocmd BufRead * normal zR")
 
+-- [[Diagnostic Config]]
+vim.diagnostic.config( {
+  virtual_text = false,
+})
+
+-- setup diagnostic icons
+vim.cmd [[ sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= ]]
+vim.cmd [[ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= ]]
+vim.cmd [[ sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= ]]
+vim.cmd [[ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= ]]
+
