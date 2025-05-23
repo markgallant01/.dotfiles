@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -go through neovim plugins and prune. switch to Blink for
+     completion and keep making it look better.
     -add language servers to package install file. So
      far just the lua one. Think of others.
     -some kind of volume widget for pavucontrol that hangs out in the
