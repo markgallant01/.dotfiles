@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get a good nerd font patched with icons
+    -consider terminal icons for files and stuff?
+     not sure about this one
     -add 'fd' to installed packages list. it's a utility
      thing for finding files that telescope.nvim needs
     -get some transition animations going in Picom to make
