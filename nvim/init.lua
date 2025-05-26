@@ -88,11 +88,7 @@ require('lazy').setup({
   },
 
   {
-    -- indent scope
-    'echasnovski/mini.indentscope', version = '*'
-  },
-
-  {
+    -- scope and indent lines
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
@@ -111,7 +107,6 @@ require('plugins/treesitter')
 require('plugins/telescope')
 require('plugins/autotag')
 require('plugins/blink')
-require('plugins/indentscope')
 require('plugins/indent-blankline')
 
 -- LSP servers
