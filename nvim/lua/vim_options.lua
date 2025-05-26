@@ -50,13 +50,21 @@ vim.cmd("autocmd FileType * set formatoptions-=ro")
 vim.cmd("autocmd BufRead * normal zR")
 
 -- [[Diagnostic Config]]
-vim.diagnostic.config( {
+vim.diagnostic.config({
   virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = ''
+    },
+    lineh1 = {
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignWarn'
+    }
+  }
 })
-
--- setup diagnostic icons
-vim.cmd [[ sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= ]]
-vim.cmd [[ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= ]]
-vim.cmd [[ sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= ]]
-vim.cmd [[ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= ]]
 
