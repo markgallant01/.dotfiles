@@ -1,3 +1,9 @@
 require('ibl').setup {
-  scope = { enabled = false }
+  indent = {
+    char = '┃'
+  },
+  scope = {
+    enabled = true,
+    show_start = false
+  }
 }
