@@ -86,42 +86,6 @@ awful.layout.layouts = {
   -- awful.layout.suit.corner.se,
 }
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-  {
-    "hotkeys",
-    function() hotkeys_popup.show_help(nil, awful.screen.focused()) end
-  },
-  { "manual", terminal .. " -e man awesome" },
-  { "edit config", editor_cmd .. " " .. awesome.conffile },
-  { "restart", awesome.restart },
-  { "quit", function() awesome.quit() end },
-}
-
-mymainmenu = awful.menu({
-  items = {
-    {
-      "awesome",
-      myawesomemenu,
-      beautiful.awesome_icon
-    },
-    { "open terminal", terminal }
-  }
-})
-
-mylauncher = awful.widget.launcher({
-  image = beautiful.awesome_icon,
-  menu = mymainmenu
-})
-
--- Menubar configuration
--- Set the terminal for applications that require it
-menubar.utils.terminal = terminal
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -232,14 +196,12 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      mylauncher,
       s.mytaglist,
       s.mypromptbox,
     },
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
       wibox.widget.systray(),
       s.mysystray,
       mytextclock,
@@ -248,31 +210,10 @@ awful.screen.connect_for_each_screen(function(s)
   }
 end)
 
--- {{{ Mouse bindings
---[[
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-))
---]]
-
 -- {{{ Keybindings
 globalkeys = gears.table.join(
   awful.key({ modkey }, "s", hotkeys_popup.show_help,
     {description="show help", group="awesome"}
-  ),
-
-  awful.key({ modkey }, "Left", awful.tag.viewprev,
-    {description = "view previous", group = "tag"}
-  ),
-
-  awful.key({ modkey }, "Right", awful.tag.viewnext,
-            {description = "view next", group = "tag"}
-  ),
-
-  awful.key({ modkey }, "Escape", awful.tag.history.restore,
-            {description = "go back", group = "tag"}
   ),
 
   awful.key({ modkey }, "j",
@@ -288,14 +229,6 @@ globalkeys = gears.table.join(
     end,
     {description = "focus previous by index", group = "client"}
   ),
-
-  --[[
-  awful.key({ modkey }, "w",
-    function ()
-      mymainmenu:show()
-    end,
-    {description = "show main menu", group = "awesome"}),
-  --]]
 
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j",
@@ -313,20 +246,6 @@ globalkeys = gears.table.join(
       description = "swap with previous client by index",
       group = "client"
     }
-  ),
-
-  awful.key({ modkey, "Control" }, "j",
-    function ()
-      awful.screen.focus_relative(1)
-    end,
-    {description = "focus the next screen", group = "screen"}
-  ),
-
-  awful.key({ modkey, "Control" }, "k",
-    function ()
-      awful.screen.focus_relative(-1)
-    end,
-    {description = "focus the previous screen", group = "screen"}
   ),
 
   awful.key({ modkey }, "u", awful.client.urgent.jumpto,
@@ -697,7 +616,7 @@ awful.rules.rules = {
       buttons = clientbuttons,
       screen = awful.screen.preferred,
       placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-      size_hints_honor = false
+      size_hints_honor = true
     }
   },
 
