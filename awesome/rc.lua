@@ -50,7 +50,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 local theme = gears.filesystem.get_xdg_config_home() ..
-  'awesome/theme.lua'
+  'awesome/seasonal_theme.lua'
 beautiful.init(theme)
 
 -- This is used later as the default terminal and editor to run.
