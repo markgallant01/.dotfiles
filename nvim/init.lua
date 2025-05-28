@@ -112,6 +112,7 @@ require('plugins/indent-blankline')
 -- LSP servers
 vim.lsp.enable('pyright')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('clangd')
 
 -- keymaps last because they need access to plugins
 require('keymaps')
