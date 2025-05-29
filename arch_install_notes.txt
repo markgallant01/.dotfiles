@@ -301,6 +301,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -keep customizing AwesomeWM. Still need transparency for terminal,
+     menu widgets, and dynamic colorschemes.
+    -replace yay in the install script with yay-bin so we don't need
+     to compile it. See if this is possible with other AUR packages.
+    -switch from nvidia to nvidia-open
     -get a good nerd font patched with icons
     -consider terminal icons for files and stuff?
      not sure about this one
@@ -308,10 +313,8 @@ To-do:
      thing for finding files that telescope.nvim needs
     -get some transition animations going in Picom to make
      everything look a bit nicer
-    -go through neovim plugins and prune. switch to Blink for
-     completion and keep making it look better.
     -add language servers to package install file. So
-     far just the lua one. Think of others.
+     far just the lua one. Think of others. Clangd.
     -some kind of volume widget for pavucontrol that hangs out in the
      status bar would be cool
     -maim keeps the cursor in the image by default so it has to be run
