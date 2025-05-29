@@ -100,7 +100,7 @@ local function set_wallpaper(s)
     if type(wallpaper) == "function" then
       wallpaper = wallpaper(s)
     end
-    gears.wallpaper.maximized(wallpaper, s, true)
+--    gears.wallpaper.maximized(wallpaper, s, true)
   end
 end
 
@@ -386,6 +386,14 @@ globalkeys = gears.table.join(
       local tags = awful.screen.focused().selected_tags
       for i = 1, #tags do
         tags[i].layout = awful.layout.suit.tile
+      end
+    end
+  ),
+
+  awful.key({ modkey }, "w",
+    function ()
+      for s in screen do
+        set_wallpaper(s)
       end
     end
   )
