@@ -25,9 +25,7 @@
 -- Halloween week:       298-304
 -- Christmas 2 weeks:    354-364
 
-local wall = {}
-
-function wall.determineWallpaper()
+local function determineWallpaper()
   --pull some useful info. Current hour and day of the year.
   local date = os.date("*t")
 
@@ -78,11 +76,11 @@ function wall.determineWallpaper()
   math.randomseed(os.time())
   local pick = math.random(31)
   image = image .. files[pick]
-  return {
-    img_path = image
-  }
+
+  -- call wal on the chosen image to set the colors
+  os.execute("wal -i " .. image)
 
 end
 
-return wall
+return determineWallpaper
 
