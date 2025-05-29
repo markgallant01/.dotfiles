@@ -339,6 +339,37 @@ globalkeys = gears.table.join(
         false
       )
     end
+  ),
+
+  --{{{ gaps control
+  -- decrease gap size
+  awful.key({ modkey }, "-",
+    function ()
+      local tags = root.tags()
+      for i = 1, #tags do
+        awful.tag.incgap(-5, tags[i])
+      end
+    end
+  ),
+
+  -- increase gap size
+  awful.key({ modkey }, "=",
+    function ()
+      local tags = root.tags()
+      for i = 1, #tags do
+        awful.tag.incgap(5, tags[i])
+      end
+    end
+  ),
+
+  -- set gap size to zero
+  awful.key({ modkey, "Shift" }, "-",
+    function ()
+      local tags = root.tags()
+      for i = 1, #tags do
+        awful.tag.incgap(-tags[i].gap, tags[i])
+      end
+    end
   )
 )
 
