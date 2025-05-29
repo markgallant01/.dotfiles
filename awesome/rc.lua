@@ -170,6 +170,14 @@ awful.screen.connect_for_each_screen(function(s)
   }
 end)
 
+-- helper function centers mouse on client window
+local function centerMouseOnClient(c)
+  mouse.coords {
+    x = c.x + (c.width / 2),
+    y = c.y + (c.height / 2)
+  }
+end
+
 -- {{{ Keybindings
 globalkeys = gears.table.join(
   awful.key({ modkey }, "s", hotkeys_popup.show_help,
@@ -178,7 +186,11 @@ globalkeys = gears.table.join(
 
   awful.key({ modkey }, "j",
     function ()
-      awful.client.focus.byidx( 1)
+      awful.client.focus.byidx(1)
+      local c = client.focus
+      if c then
+        centerMouseOnClient(c)
+      end
     end,
     {description = "focus next by index", group = "client"}
   ),
@@ -186,6 +198,10 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, "k",
     function ()
       awful.client.focus.byidx(-1)
+      local c = client.focus
+      if c then
+        centerMouseOnClient(c)
+      end
     end,
     {description = "focus previous by index", group = "client"}
   ),
@@ -224,7 +240,7 @@ globalkeys = gears.table.join(
     {description = "reload awesome", group = "awesome"}
   ),
 
-  awful.key({ modkey, "Shift" }, "q", awesome.quit,
+  awful.key({ modkey, "Control" }, "q", awesome.quit,
     {description = "quit awesome", group = "awesome"}
   ),
 
@@ -242,7 +258,7 @@ globalkeys = gears.table.join(
     {description = "decrease master width factor", group = "layout"}
   ),
 
-  awful.key({ modkey, "Shift" }, "h",
+  awful.key({ modkey }, "i",
     function ()
       awful.tag.incnmaster(1, nil, true)
     end,
@@ -252,7 +268,7 @@ globalkeys = gears.table.join(
     }
   ),
 
-  awful.key({ modkey, "Shift" }, "l",
+  awful.key({ modkey }, "d",
     function ()
       awful.tag.incnmaster(-1, nil, true)
     end,
@@ -260,20 +276,6 @@ globalkeys = gears.table.join(
       description = "decrease the number of master clients",
       group = "layout"
     }
-  ),
-
-  awful.key({ modkey, "Control" }, "h",
-    function ()
-      awful.tag.incncol(1, nil, true)
-    end,
-    {description = "increase the number of columns", group = "layout"}
-  ),
-
-  awful.key({ modkey, "Control" }, "l",
-    function ()
-      awful.tag.incncol(-1, nil, true)
-    end,
-    {description = "decrease the number of columns", group = "layout"}
   ),
 
   -- Prompt
@@ -341,7 +343,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-  awful.key({ modkey }, "f",
+  awful.key({ modkey }, "g",
     function (c)
       c.fullscreen = not c.fullscreen
       c:raise()
@@ -349,18 +351,18 @@ clientkeys = gears.table.join(
     {description = "toggle fullscreen", group = "client"}
   ),
 
-  awful.key({ modkey, "Shift" }, "c",
+  awful.key({ modkey }, "c",
     function (c)
       c:kill()
     end,
     {description = "close", group = "client"}
   ),
 
-  awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
+  awful.key({ modkey }, "space", awful.client.floating.toggle,
             {description = "toggle floating", group = "client"}
   ),
 
-  awful.key({ modkey, "Control" }, "Return",
+  awful.key({ modkey }, "'",
     function (c)
       c:swap(awful.client.getmaster())
     end,
