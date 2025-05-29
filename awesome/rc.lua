@@ -120,7 +120,6 @@ awful.screen.connect_for_each_screen(function(s)
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
 
-
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist {
     screen  = s,
@@ -368,6 +367,25 @@ globalkeys = gears.table.join(
       local tags = root.tags()
       for i = 1, #tags do
         awful.tag.incgap(-tags[i].gap, tags[i])
+      end
+    end
+  ),
+
+  -- change layout
+  awful.key({ modkey }, "f",
+    function ()
+      local tags = awful.screen.focused().selected_tags
+      for i = 1, #tags do
+        tags[i].layout = awful.layout.suit.floating
+      end
+    end
+  ),
+
+  awful.key({ modkey }, "t",
+    function ()
+      local tags = awful.screen.focused().selected_tags
+      for i = 1, #tags do
+        tags[i].layout = awful.layout.suit.tile
       end
     end
   )
