@@ -1,4 +1,3 @@
-
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -9,7 +8,7 @@ local wall = require('seasonal')
 
 local theme = {}
 
-theme.font          = "NotoSansM NFM 10"
+theme.font          = "NotoSansM NFM 12"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
