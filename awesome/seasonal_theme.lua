@@ -37,6 +37,9 @@ theme.border_marked = "#91231c"
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
+theme.hotkeys_font = "NotoSansM NFM 12"
+theme.hotkeys_description_font = "NotoSansM NFM 12"
+
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
