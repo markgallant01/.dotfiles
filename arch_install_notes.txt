@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -try to get dwm working with dzen2? Might look as good and be
+     simpler than awesome. Something about awesome i dont like
     -keep customizing AwesomeWM. Still need transparency for terminal,
      menu widgets, and dynamic colorschemes.
     -replace yay in the install script with yay-bin so we don't need
