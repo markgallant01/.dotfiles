@@ -145,7 +145,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -188,7 +188,7 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
-cursor_warp = False
+cursor_warp = True
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
