@@ -1,0 +1,9 @@
+! URxvt.font:     xft:Liberation Mono:size=14
+URxvt.font:     xft:NotoSansM NFM:size=16
+
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: rxvt
+
+URxvt.cursorBlink: 1
