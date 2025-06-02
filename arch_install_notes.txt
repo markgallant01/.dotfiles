@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -condifure alacritty and clean up stuff
     -picom apparently has transition animations now so get those working
     -try to get dwm working with dzen2? Might look as good and be
      simpler than awesome. Something about awesome i dont like
