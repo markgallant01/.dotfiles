@@ -1,9 +1,12 @@
 #!/bin/sh
 
+#lua ~/.dotfiles/awesome/seasonal.lua
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+urxvtresources=$HOME/.dotfiles/urxvt.xresources
 
 # merge in defaults and keymaps
 
@@ -23,6 +26,11 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# merge urxvt settings
+if [ -f "$urxvtresources" ]; then
+    xrdb -merge "$urxvtresources"
+fi
+
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -36,7 +44,7 @@ fi
 ~/.config/setup_screens.sh &
 nm-applet &
 blueman-applet &
-#~/.fehbg &
+~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
@@ -49,5 +57,6 @@ urxvtd -q -f -o &
 #done &
 
 #exec ~/.dotfiles/scripts/start_dwm.sh
-exec awesome
+#exec awesome
+exec qtile start
 
