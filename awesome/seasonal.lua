@@ -1,8 +1,8 @@
 -- this script chooses an appropriate wallpaper based on a number of
 -- different conditions. If it's a holiday period, it will choose an
 -- appropriate wallpaper corresponding to that holiday disregarding
--- the time of day. For non-holiday periods it will consider the current
--- season and time of day.
+-- the time of day. For non-holiday periods it will consider the 
+-- current season and time of day.
 
 -- seasons are determined based on the meteorological periods, not the
 -- astronomical ones, as follows:
@@ -25,7 +25,7 @@
 -- Halloween week:       298-304
 -- Christmas 2 weeks:    354-364
 
-local function determineWallpaper()
+local function determineWallpaper ()
   --pull some useful info. Current hour and day of the year.
   local date = os.date("*t")
 
@@ -78,9 +78,11 @@ local function determineWallpaper()
   image = image .. files[pick]
 
   -- call wal on the chosen image to set the colors
+  -- -n stops wal from setting the background
   os.execute("wal -i " .. image)
 
+  return image
 end
 
-return determineWallpaper
+return determineWallpaper()
 
