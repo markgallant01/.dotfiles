@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add baobab to utility section of install programs. its the gnome
+     disk utility. maybe look and see if theres a better one but this
+     one is fine too.
     -condifure alacritty and clean up stuff
     -picom apparently has transition animations now so get those working
     -try to get dwm working with dzen2? Might look as good and be
