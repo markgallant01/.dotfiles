@@ -25,10 +25,11 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+from libqtile.utils import guess_terminal, send_notification
+from libqtile.log_utils import logger
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -238,3 +239,14 @@ wl_xcursor_size = 24
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM
 # written in java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+# custom hooks
+# disable floating on all windows when layout changes from floatin
+# to something else
+@hook.subscribe.layout_change
+def _(layout, group):
+    logger.warning(layout.info())
+    if(layout.name != "floating"):
+        for window in group.windows:
+            window.floating = False
+
