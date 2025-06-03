@@ -301,9 +301,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -thunar doesn't pop up when I insert a disk anymore since I
+     installed baobab so figure that out
+    -add python-dbus-fast thing for qtile notifications to install
+     list
     -qtile needs a keybind to swap focused window with master window
-    -qtile find a way to reset the group when you swap back to tiling
-     from floating. otherwise the floating windows just stay there.
     -add baobab to utility section of install programs. its the gnome
      disk utility. maybe look and see if theres a better one but this
      one is fine too.
