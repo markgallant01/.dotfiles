@@ -301,10 +301,13 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -qtile needs a keybind to swap focused window with master window
+    -qtile find a way to reset the group when you swap back to tiling
+     from floating. otherwise the floating windows just stay there.
     -add baobab to utility section of install programs. its the gnome
      disk utility. maybe look and see if theres a better one but this
      one is fine too.
-    -condifure alacritty and clean up stuff
+    -condigure alacritty and clean up stuff
     -picom apparently has transition animations now so get those working
     -try to get dwm working with dzen2? Might look as good and be
      simpler than awesome. Something about awesome i dont like
