@@ -37,18 +37,12 @@ keys = [
     # A list of available commands that can be bound to keys can be
     # found at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
     # Move windows between left/right columns or move up/down in
     # current stack. Moving out of range in Columns layout will create
     # new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
-        desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(),
@@ -56,34 +50,31 @@ keys = [
 
     # Grow windows. If current window is on the edge of screen and
     # direction will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(),
-        desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(),
-        desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(),
-        desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(),
-        desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(),
-        desc="Reset all window sizes"),
+    Key([mod], "h", lazy.layout.shrink_main(),
+        desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.grow_main(),
+        desc="Move focus to right"),
 
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
-        "f",
+        "g",
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
-    Key([mod], "t", lazy.window.toggle_floating(),
-        desc="Toggle floating on the focused window"),
+    Key([mod], "f", lazy.to_layout_index(1),
+        desc="Swap to floating display"),
+    Key([mod], "t", lazy.to_layout_index(0),
+        desc="Swap to master stack tiling display"),
     Key([mod, "control"], "r", lazy.reload_config(),
         desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(),
         desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(),
+    Key([mod], "p", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+    Key([mod], "s", lazy.display_kb(),
+        desc="Display keybind menu"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -132,13 +123,14 @@ for i in groups:
     )
 
 layouts = [
+    layout.MonadTall(),
+    layout.Floating(),
     # layout.Stack(num_stacks=2),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"],
     #                border_width=4),
     # layout.Max(),
     # layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
