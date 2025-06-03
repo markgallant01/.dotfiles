@@ -141,7 +141,7 @@ layouts = [
 
 widget_defaults = dict(
     font="sans",
-    fontsize=12,
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -162,11 +162,11 @@ screens = [
                 ),
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
-                widget.Systray(),
+                widget.Systray(icon_size=25),
                 widget.Clock(format="%a %I:%M %p"),
                 widget.QuickExit(),
             ],
-            24,
+            32,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  
             # Borders are magenta
