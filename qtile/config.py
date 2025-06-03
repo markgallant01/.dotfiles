@@ -38,6 +38,7 @@ keys = [
     # found at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
     # Move windows between left/right columns or move up/down in
@@ -45,6 +46,7 @@ keys = [
     # new column.
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
+
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(),
         desc="Move window up"),
 
@@ -52,27 +54,32 @@ keys = [
     # direction will be to screen edge - window would shrink.
     Key([mod], "h", lazy.layout.shrink_main(),
         desc="Move focus to left"),
+
     Key([mod], "l", lazy.layout.grow_main(),
         desc="Move focus to right"),
 
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "g",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
+
+    Key([mod], "g", lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window"),
+
     Key([mod], "f", lazy.to_layout_index(1),
         desc="Swap to floating display"),
+
     Key([mod], "t", lazy.to_layout_index(0),
         desc="Swap to master stack tiling display"),
+
     Key([mod, "control"], "r", lazy.reload_config(),
         desc="Reload the config"),
+
     Key([mod, "control"], "q", lazy.shutdown(),
         desc="Shutdown Qtile"),
+
     Key([mod], "p", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
     Key([mod], "s", lazy.display_kb(),
         desc="Display keybind menu"),
 ]
@@ -80,31 +87,18 @@ keys = [
 groups = [Group(i) for i in "123456789"]
 
 for i in groups:
-    keys.extend(
-        [
-            # mod + group number = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc=f"Switch to group {i.name}",
-            ),
-            # mod + shift + group number = switch to & move focused
-            # window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc=f"Switch to & move focused window to {i.name}",
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod + shift + group number = move focused window to 
-            # group Key([mod, "shift"], i.name,
-                # lazy.window.togroup(i.name),
-                # desc="move focused window to group {}"
-                        #.format(i.name)),
-        ]
-    )
+    keys.extend([
+        # mod + group number = switch to group
+        Key([mod], i.name, lazy.group[i.name].toscreen(),
+            desc=f"Switch to group {i.name}"),
+
+        # mod + shift + group number = switch to & move focused
+        # window to group. Or, use below if you prefer not to
+        # switch to that group. mod + shift + group number = move
+        # focused window to group
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            desc="move focused window to group {}".format(i.name)),
+    ])
 
 layouts = [
     layout.MonadTall(),
@@ -170,8 +164,10 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
+
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
+
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -192,6 +188,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="blueman-manager"),
     ]
 )
 auto_fullscreen = True
