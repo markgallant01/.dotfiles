@@ -82,6 +82,28 @@ keys = [
 
     Key([mod], "s", lazy.display_kb(),
         desc="Display keybind menu"),
+
+    # keyboard backlight controls
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn("/home/mark/.dotfiles/scripts/inc_brightness.sh"),
+        desc="Increase brightness"),
+
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn("/home/mark/.dotfiles/scripts/dec_brightness.sh"),
+        desc="Decrease brightness"),
+
+    # keyboard volume controls
+    Key([], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+        desc="Increase volume"),
+
+    Key([], "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+        desc="Descrese volume"),
+
+    Key([], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        desc="Toggle audio mute"),
 ]
 
 groups = [Group(i) for i in "123456789"]
