@@ -164,7 +164,6 @@ screens = [
                 # using StatusNotifier instead widget.StatusNotifier(),
                 widget.Systray(icon_size=25),
                 widget.Clock(format="%a %I:%M %p"),
-                widget.QuickExit(),
             ],
             32,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
