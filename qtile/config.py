@@ -124,7 +124,7 @@ for i in groups:
     ])
 
 layouts = [
-    layout.MonadTall(),
+    layout.MonadTall(margin=15),
     layout.Floating(),
     # layout.Stack(num_stacks=2),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"],
