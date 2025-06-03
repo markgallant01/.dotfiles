@@ -150,7 +150,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(highlight_method='block'),
                 widget.CurrentLayout(),
                 widget.Prompt(),
                 widget.WindowName(),
