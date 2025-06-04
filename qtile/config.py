@@ -151,24 +151,24 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(highlight_method='block'),
+                widget.GroupBox(
+                    highlight_method='block',
+                    rounded=True,
+                    margin_x=3,
+                ),
                 widget.CurrentLayout(),
                 widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                widget.Spacer(length=bar.STRETCH),
+
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
                 widget.Systray(icon_size=25),
                 widget.Clock(format="%a %I:%M %p"),
             ],
             32,
-            margin=[10,15,0,15],
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            margin=[15,15,0,15], # border margin [N,E,S,W]
+            border_width=[3, 10, 3, 10],  # Draw borders
+            opacity=0.75,
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  
             # Borders are magenta
         ),
