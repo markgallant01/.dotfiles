@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -menubar transparency toggle, colorscheme toggle
     -thunar doesn't pop up when I insert a disk anymore since I
      installed baobab so figure that out
     -add python-dbus-fast thing for qtile notifications to install
