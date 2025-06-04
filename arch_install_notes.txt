@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -looks like thunar is handling auto-mounting so look into that
     -continue to configure alacritty. font size?
     -get wallpaper script working on qtile. its always choosing the
      same wallpaper currently.
@@ -313,12 +314,7 @@ To-do:
     -add baobab to utility section of install programs. its the gnome
      disk utility. maybe look and see if theres a better one but this
      one is fine too.
-    -condigure alacritty and clean up stuff
-    -picom apparently has transition animations now so get those working
-    -try to get dwm working with dzen2? Might look as good and be
-     simpler than awesome. Something about awesome i dont like
-    -keep customizing AwesomeWM. Still need transparency for terminal,
-     menu widgets, and dynamic colorschemes.
+    -configure alacritty and clean up stuff
     -replace yay in the install script with yay-bin so we don't need
      to compile it. See if this is possible with other AUR packages.
     -switch from nvidia to nvidia-open
@@ -327,10 +323,8 @@ To-do:
      not sure about this one
     -add 'fd' to installed packages list. it's a utility
      thing for finding files that telescope.nvim needs
-    -get some transition animations going in Picom to make
-     everything look a bit nicer
     -add language servers to package install file. So
-     far just the lua one. Think of others. Clangd.
+     far just the lua one. Think of others. Clangd. pyright.
     -some kind of volume widget for pavucontrol that hangs out in the
      status bar would be cool
     -maim keeps the cursor in the image by default so it has to be run
@@ -350,26 +344,16 @@ To-do:
         -colorscheme should be set dynamically and should generate
          based on the wallpaper. top bar colors should adjust, neovim
          colors, rofi, firefox, thunar, terminal, etc
-        -use urxvt in daemon mode
         -window border should be thicker and color should match color
          scheme too
     -reduce keyboard repetition rate so that we can fly around nvim
      faster
-    -try awesomeWM again instead of QTile because awesome makes the
-     most sense coming from dwm.
     -wallpaper setting shouldn't be tracked so that we can have
      different settings on different PCs. move option out to a
      local setup file somehow
-    -think about transparency because I can't read this shit sometimes
     -NVM is slowing down the terminal startup due to the initialization
      stuff it adds to the bachrc file. this is a pain in the ass
     -maybe add curl nvm installation idk yet
-    -customize thunar. i want better looking icons.
-    -figure out laptop fan speed and temps and stuff cuz this
-     thing gets hot
-    -get on URxvt and get it working with pywal for the colors and
-     such. Think about revisiting the holiday wallpapers now that the
-     Ghibli AI thing exists and I can maybe generate some good ones
     -improve overall system theme. Get off DWM becuase can't update.
      Either AwesomeWM or Qtile. Stuff I want:
         -nice program launcher that lets me search for programs
@@ -378,13 +362,10 @@ To-do:
         -lock screen finally so we can walk away from PC without killing
          the x-server
     -consider removing firefox developer edition because
-     i've never launched it
+     i've never launched it or just switch to only using developer
+     edition
     -add these files to stop the screen from shutting off:
      https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Configuration
-    -play with arandr to see if it's good
-    -figure out TV screen thing. Best solution might just be to unplug thing.
-     can we mirror one of our screens when it's plugged in?
-    -update desktop somehow to be cooler maybe.
     -figure out why USB stuff seems to automount on laptop but not desktop
     -add libnatpmp to install list because its needed for
      the port_forwarding script to work. and add that script somewhere.
@@ -393,42 +374,13 @@ To-do:
     -also laptop is starting on incorrect brightness but idk why
     -modify brightness step because we should be able to go darker than we
      currently can
-    -increase polling rate for keyboard or whatever
-    -i think i want to see icons on both monitors in the statusbar,
-     rather than just the main monitor. I don't remember why I made
-     it this way in the first place. it's a dwm patch so maybe it can
-     be changed easy but i want to switch to awesomeWM so maybe who cares
-    -switch to AwesomeWM and URxvt to get away from suckless stuff
-     because it bypasses the package manager and I don't like that
-    -i want cute UI stuff like gnome has to change the brightness and
-     volume maybe. Check out gnome's status bar and maybe copy some
-     stuff. think more about this.
-    -copy stuff from LazyVim
-    -font is still weird with comments cutting off letters. Find a
-     better font and figure out the icon stuff
-    -set up st terminal to scroll up and down with the mouse wheel
-    -set up a script to change the keyboard brightness just like
-     the backlight script. Reference the wiki.
-    -try to modify the thinkpad laptop script to combine both battery
-     percentages together so we can see the overall percentage instead
-     of both individual batteries
     -get s-tui added to program install list and figure out the
      brightness for t450s.
     -get brighntess control working for desktop monitors
     -TLP for laptop battery saving. IDK if this will mess up desktop
      so come back to it
-    -figure out protonVPN thing for school
-    -don't add VR stuff yet because we might not use it much
     -add tlp and the systemctl stuff to make it work. default settings.
-    -fix brightness control for thinkpad
     -add minecraft audio fix maybe
-    -VR STUFF:
-        yay -S envision-xr-git monado-vulkan-layers-git
-        pacman -S libudev0-shim polkit-gnome
-    -need to add this line to xinitrc so it starts up:
-        /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-    -something weird going on with the laptop brightness so check
-     that out
     -something weird going on with mounting the other drives on
      desktop. Maybe switch to UUIDs in case the labels are switching
     -get a cool nvim startup screen
@@ -436,7 +388,6 @@ To-do:
      until 5am. 4 is too early.
     -continue to curate the wallpapers as we see them. They should
      scream their respective season.
-    -put wallpaper on a timer and incorporate it into guide
     -modify the setup script to copy the screen setup script to the
      .config folder and add a step to set that up properly
     -might want to add a note about the intel i915 psr kernel parameter
@@ -450,29 +401,16 @@ To-do:
     -I want a nice icon set for thunar
     -need a section to set up wallpapers or integrate it into the script
      somehow
-    -finally got timer stuff figured out, add it to this config somehow.
-     we will have to save the timer and service file in this folder and
-     create and copy them to the proper directory during setup.
-     Directory is ~/.config/systemd/user/
-     the timer has to be enabled and started with:
-     systemctl --user enable --now update-wallpaper.timer
-    -firefox custom CSS
-    -think of a way to make overall theme more cohesive maybe, matching
-     top bar with wallpaper or smth
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
     -customize firefox new tab page with custom css
-    -look into LaTeX for document writing
     -add something about the symlink fix for fmod pipewire bug:
      https://wiki.archlinux.org/title/PipeWire#\
      FMOD_games_crashing_under_PipeWire
     -add section for android USB connection android-file-transfer
      package
-    -consider adding documentation window back to cmp
-    -get that neovim plugin that shows block context?
     -maybe add SDL stuff to installer
     -setup a good screen locker that blocks tty access maybe
-    -split neovim init into separate files for better organization
     -make keybind cheat sheet
     -add overthewire programs like telnet and nmap
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
