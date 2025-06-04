@@ -301,6 +301,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
+     see if this fixes gnome-keyring asking for password sometimes,
+     like when brave browser is launched. try to remember what else
+     would cause the keyring to launch. if it's fixed, add a section
+     to the installation guide.
     -try out the brave browser. add to aur section of installer
     -looks like thunar is handling auto-mounting so look into that
     -continue to configure alacritty. font size?
