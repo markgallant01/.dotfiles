@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -try out the brave browser. add to aur section of installer
     -looks like thunar is handling auto-mounting so look into that
     -continue to configure alacritty. font size?
     -get wallpaper script working on qtile. its always choosing the
