@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -continue to configure alacritty. font size?
+    -get wallpaper script working on qtile. its always choosing the
+     same wallpaper currently.
     -menubar transparency toggle, colorscheme toggle
     -thunar doesn't pop up when I insert a disk anymore since I
      installed baobab so figure that out
