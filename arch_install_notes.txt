@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add alsa-utils to utility to install list. its for
+     the qtile volume widget.
     -https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
      see if this fixes gnome-keyring asking for password sometimes,
      like when brave browser is launched. try to remember what else
