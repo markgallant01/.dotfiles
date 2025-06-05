@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#lua ~/.dotfiles/awesome/seasonal.lua
+lua ~/.dotfiles/awesome/seasonal.lua
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -44,11 +44,11 @@ fi
 ~/.config/setup_screens.sh &
 nm-applet &
 blueman-applet &
-~/.fehbg &
+#~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
-urxvtd -q -f -o &
+#urxvtd -q -f -o &
 
 # statusbar loop
 #while true; do
@@ -57,6 +57,6 @@ urxvtd -q -f -o &
 #done &
 
 #exec ~/.dotfiles/scripts/start_dwm.sh
-#exec awesome
-exec qtile start
+exec awesome
+#exec qtile start
 
