@@ -163,11 +163,16 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
                 widget.Systray(icon_size=25),
-                widget.CPU(format="CPU {load_percent}%"),
-                widget.Backlight(backlight_name="intel_backlight"),
-                widget.Battery(format="{percent:2.0%}"),
-                widget.BatteryIcon(),
-                widget.Volume(),
+                widget.CPU(format="[CPU:{load_percent}%]"),
+                widget.Backlight(
+                    backlight_name="intel_backlight",
+                    format="[BRI:{percent:2.0%}]"
+                ),
+                widget.Volume(fmt="[VOL:{}]"),
+                widget.Battery(
+                    format="[BAT:{percent:2.0%}]",
+                    show_short_text=False,
+                ),
                 widget.Clock(format="%I:%M %p"),
             ],
             32,
