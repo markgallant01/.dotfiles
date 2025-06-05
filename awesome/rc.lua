@@ -54,7 +54,7 @@ local theme = gears.filesystem.get_xdg_config_home() ..
 beautiful.init(theme)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvtc"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
