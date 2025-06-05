@@ -156,14 +156,19 @@ screens = [
                     rounded=True,
                     margin_x=3,
                 ),
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(),
                 widget.Prompt(),
                 widget.Spacer(length=bar.STRETCH),
 
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
                 widget.Systray(icon_size=25),
-                widget.Clock(format="%a %I:%M %p"),
+                widget.CPU(format="CPU {load_percent}%"),
+                widget.Backlight(backlight_name="intel_backlight"),
+                widget.Battery(format="{percent:2.0%}"),
+                widget.BatteryIcon(),
+                widget.Volume(),
+                widget.Clock(format="%I:%M %p"),
             ],
             32,
             margin=[15,15,0,15], # border margin [N,E,S,W]
