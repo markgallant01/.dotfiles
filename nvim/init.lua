@@ -38,6 +38,7 @@ require('lazy').setup({
     'loctvl842/monokai-pro.nvim',
     { 'catppuccin/nvim', name = 'catppuccin' },
     'craftzdog/solarized-osaka.nvim',
+    'AlphaTechnolog/pywal.nvim',
     lazy = false,
     priority = 1000,
   },
