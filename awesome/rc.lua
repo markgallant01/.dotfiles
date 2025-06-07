@@ -113,7 +113,7 @@ awful.screen.connect_for_each_screen(function(s)
 --  set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+  awful.tag({ "1", "2", "3", "4", "5", "6" },
     s, awful.layout.layouts[1]
   )
 
@@ -137,7 +137,8 @@ awful.screen.connect_for_each_screen(function(s)
   s.mysystray = wibox.widget.systray()
 
   -- Create a textclock widget
-  mytextclock = wibox.widget.textclock()
+  s.mytextclock = wibox.widget.textclock("%I:%M")
+  s.textdate = wibox.widget.textclock("%d %b, %Y")
 
   -- Create an imagebox widget which will contain an icon indicating
   -- which layout we're using. We need one layoutbox per screen.
@@ -150,22 +151,28 @@ awful.screen.connect_for_each_screen(function(s)
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
 
-  -- Add widgets to the wibox
-  s.mywibox:setup {
-    layout = wibox.layout.align.horizontal,
-    { -- Left widgets
-      layout = wibox.layout.fixed.horizontal,
-      s.mytaglist,
-      s.mylayoutbox,
-      s.mypromptbox,
-    },
-    s.mytasklist, -- Middle widget
-    { -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      s.mysystray,
-      mytextclock,
-    },
+  local left_panel = wibox.widget {
+    s.textdate,
+    s.mylayoutbox,
+    s.mypromptbox,
+    layout = wibox.layout.align.horizontal
   }
+
+  local right_panel = wibox.widget {
+    s.mysystray,
+    s.mytextclock,
+    layout = wibox.layout.align.horizontal
+  }
+
+  -- Add widgets to the wibox
+  --s.mywibox:setup(left_panel)
+  s.leeeyout = wibox.layout.align.horizontal()
+  s.leeeyout.expand = 'none'
+  s.leeeyout.first = left_panel
+  s.leeeyout.second = s.mytaglist
+  s.leeeyout.third = right_panel
+  s.mywibox.widget = s.leeeyout
+
 end)
 -- helper function centers mouse on client window
 local function centerMouseOnClient(c)
