@@ -53,9 +53,8 @@ require("catppuccin").setup({
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })
-]]
+--]]
 
---[[
 require("solarized-osaka").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
@@ -89,12 +88,10 @@ require("solarized-osaka").setup({
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 })
---]]
 
 -- pywal theme doesn't need much setup
 require('pywal').setup()
 
-
 -- Load desired colorscheme here.
 -- NOTE: setup must be called before loading
-vim.cmd.colorscheme 'pywal'
+vim.cmd.colorscheme 'solarized-osaka'
