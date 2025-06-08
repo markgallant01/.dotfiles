@@ -49,6 +49,13 @@ require('lazy').setup({
   },
 
   {
+    -- bufferline
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+
+  {
     -- telescope fuzzy finder
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -109,6 +116,7 @@ require('plugins/telescope')
 require('plugins/autotag')
 require('plugins/blink')
 require('plugins/indent-blankline')
+require('plugins/bufferline')
 
 -- LSP servers
 vim.lsp.enable('pyright')
