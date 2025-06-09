@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -remove firefox from install section, add chromium for testing
+     stuff.
     -fix nvim bufferline's background color to match lualine
     -maybe move clock over to systray area
     -make systray icons look good
@@ -409,7 +411,7 @@ To-do:
      somehow
     -use musicBrainz picard to tag all our music and sort it. then add
      picard to the install list
-    -customize firefox new tab page with custom css
+    -customize brave new tab page with custom css
     -add something about the symlink fix for fmod pipewire bug:
      https://wiki.archlinux.org/title/PipeWire#\
      FMOD_games_crashing_under_PipeWire
