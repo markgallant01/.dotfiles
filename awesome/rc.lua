@@ -137,8 +137,8 @@ awful.screen.connect_for_each_screen(function(s)
   s.mysystray = wibox.widget.systray()
 
   -- Create a textclock widget
-  s.mytextclock = wibox.widget.textclock("%I:%M")
-  s.textdate = wibox.widget.textclock("%d %b, %Y")
+  s.mytextclock = wibox.widget.textclock("%_I:%M%P")
+  s.textdate = wibox.widget.textclock("%_d %b, %Y")
 
   -- Create an imagebox widget which will contain an icon indicating
   -- which layout we're using. We need one layoutbox per screen.
@@ -151,16 +151,20 @@ awful.screen.connect_for_each_screen(function(s)
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
 
-  local left_panel = wibox.widget {
-    s.textdate,
+  local left_panel = wibox.widget({
+    s.mytaglist,
     s.mylayoutbox,
-    s.mypromptbox,
+    layout = wibox.layout.align.horizontal
+  })
+
+  local middle_panel = wibox.widget {
+    s.textdate,
+    s.mytextclock,
     layout = wibox.layout.align.horizontal
   }
 
   local right_panel = wibox.widget {
     s.mysystray,
-    s.mytextclock,
     layout = wibox.layout.align.horizontal
   }
 
@@ -169,7 +173,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.leeeyout = wibox.layout.align.horizontal()
   s.leeeyout.expand = 'none'
   s.leeeyout.first = left_panel
-  s.leeeyout.second = s.mytaglist
+  s.leeeyout.second = middle_panel
   s.leeeyout.third = right_panel
   s.mywibox.widget = s.leeeyout
 
