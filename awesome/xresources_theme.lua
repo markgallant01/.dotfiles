@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Awesome theme which follows xrdb config --
---   by Yauhen Kirylau                    --
+--   by Yauhen Kirylau                     --
 ---------------------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
