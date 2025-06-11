@@ -50,7 +50,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 local theme = gears.filesystem.get_xdg_config_home() ..
-  'awesome/xresources_theme.lua'
+  'awesome/seasonal_theme.lua'
 beautiful.init(theme)
 
 -- This is used later as the default terminal and editor to run.
@@ -150,21 +150,25 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.mywibox.border_width = 0
+  s.mywibox.border_color = "#ffffff00"
+  s.mywibox.opacity = 1
 
   local left_panel = wibox.widget({
     s.mytaglist,
     s.mylayoutbox,
     layout = wibox.layout.align.horizontal
   })
+  left_panel.opacity = 1
 
   local middle_panel = wibox.widget {
     s.textdate,
-    s.mytextclock,
     layout = wibox.layout.align.horizontal
   }
 
   local right_panel = wibox.widget {
     s.mysystray,
+    s.mytextclock,
     layout = wibox.layout.align.horizontal
   }
 
