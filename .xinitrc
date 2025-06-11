@@ -44,19 +44,19 @@ fi
 ~/.config/setup_screens.sh &
 nm-applet &
 blueman-applet &
-#~/.fehbg &
+~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
 #urxvtd -q -f -o &
 
 # statusbar loop
-#while true; do
-#    ~/.dotfiles/scripts/update_statusbar.sh
-#    sleep 5s   # update every 5 seconds
-#done &
+while true; do
+    ~/.dotfiles/scripts/update_statusbar.sh
+    sleep 5s   # update every 5 seconds
+done &
 
-#exec ~/.dotfiles/scripts/start_dwm.sh
-exec awesome
+exec ~/.dotfiles/scripts/start_dwm.sh
+#exec awesome
 #exec qtile start
 
