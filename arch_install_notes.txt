@@ -301,6 +301,10 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -switch back to dwm? maybe. awesomeWM is complicated and i dont
+     think i like it. use dunst for notifications and customize.
+    -figure out picom animations on dwm. behavior when switching
+     tags is undesirable
     -remove firefox from install section, add chromium for testing
      stuff.
     -fix nvim bufferline's background color to match lualine
