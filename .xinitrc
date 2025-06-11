@@ -1,6 +1,6 @@
 #!/bin/sh
 
-lua ~/.dotfiles/awesome/seasonal.lua
+# lua ~/.dotfiles/awesome/seasonal.lua
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
