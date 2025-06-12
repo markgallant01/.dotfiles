@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add alacritty to install list if its not already there. remove
+     st section from install guide because its too stupid to patch
     -switch back to dwm? maybe. awesomeWM is complicated and i dont
      think i like it. use dunst for notifications and customize.
     -figure out picom animations on dwm. behavior when switching
