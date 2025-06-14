@@ -301,6 +301,13 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -revert dwm to base install and then add only the necessary patches
+     that we have bookmarked. if we're gonna use a different bar like
+     EWW, then we don't need any patches that change the bar and we
+     should try to use the most basic installation possible to avoid
+     any issues
+    -think if we should do the same with st terminal or just use
+     alacritty. go through st and see what patches we would want
     -get dwm set up with polybar. need the anybar patch and maybe
      others. revert to a base dwm install and then only patch it with
      whatever minimal patches are needed to get the bar working.
