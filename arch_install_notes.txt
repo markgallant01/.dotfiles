@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -most patches are applied, read about the anybar patch and see what
+     we have to do.
     -revert dwm to base install and then add only the necessary patches
      that we have bookmarked. if we're gonna use a different bar like
      EWW, then we don't need any patches that change the bar and we
