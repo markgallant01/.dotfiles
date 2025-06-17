@@ -90,7 +90,7 @@ require("solarized-osaka").setup({
 })
 
 -- pywal theme doesn't need much setup
-require('pywal').setup()
+--require('pywal').setup()
 
 -- Load desired colorscheme here.
 -- NOTE: setup must be called before loading
