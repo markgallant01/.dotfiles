@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -qtile adds new clients in a weird order so figure
+     out how to make that more like dwm
     -add alacritty to install list if its not already there. remove
      st section from install guide because its too stupid to patch
     -remove firefox from install section, add chromium for testing
