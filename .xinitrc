@@ -51,12 +51,12 @@ thunar --daemon &
 #urxvtd -q -f -o &
 
 # statusbar loop
-while true; do
-    ~/.dotfiles/scripts/update_statusbar.sh
-    sleep 5s   # update every 5 seconds
-done &
+#while true; do
+#    ~/.dotfiles/scripts/update_statusbar.sh
+#    sleep 5s   # update every 5 seconds
+#done &
 
-exec ~/.dotfiles/scripts/start_dwm.sh
+#exec ~/.dotfiles/scripts/start_dwm.sh
 #exec awesome
-#exec qtile start
+exec qtile start
 
