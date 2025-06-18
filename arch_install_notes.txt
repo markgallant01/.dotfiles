@@ -301,24 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
-    -most patches are applied, read about the anybar patch and see what
-     we have to do.
-    -revert dwm to base install and then add only the necessary patches
-     that we have bookmarked. if we're gonna use a different bar like
-     EWW, then we don't need any patches that change the bar and we
-     should try to use the most basic installation possible to avoid
-     any issues
-    -think if we should do the same with st terminal or just use
-     alacritty. go through st and see what patches we would want
-    -get dwm set up with polybar. need the anybar patch and maybe
-     others. revert to a base dwm install and then only patch it with
-     whatever minimal patches are needed to get the bar working.
     -add alacritty to install list if its not already there. remove
      st section from install guide because its too stupid to patch
-    -switch back to dwm? maybe. awesomeWM is complicated and i dont
-     think i like it. use dunst for notifications and customize.
-    -figure out picom animations on dwm. behavior when switching
-     tags is undesirable
     -remove firefox from install section, add chromium for testing
      stuff.
     -fix nvim bufferline's background color to match lualine
@@ -345,8 +329,6 @@ To-do:
      to compile it. See if this is possible with other AUR packages.
     -switch from nvidia to nvidia-open
     -get a good nerd font patched with icons
-    -consider terminal icons for files and stuff?
-     not sure about this one
     -add 'fd' to installed packages list. it's a utility
      thing for finding files that telescope.nvim needs
     -add language servers to package install file. So
@@ -367,9 +349,6 @@ To-do:
         -neovim should not be transparent
         -if something isn't transparent it should have the same back
          ground as the desktop (like rofi)
-        -colorscheme should be set dynamically and should generate
-         based on the wallpaper. top bar colors should adjust, neovim
-         colors, rofi, firefox, thunar, terminal, etc
         -window border should be thicker and color should match color
          scheme too
     -reduce keyboard repetition rate so that we can fly around nvim
@@ -380,26 +359,23 @@ To-do:
     -NVM is slowing down the terminal startup due to the initialization
      stuff it adds to the bachrc file. this is a pain in the ass
     -maybe add curl nvm installation idk yet
-    -improve overall system theme. Get off DWM becuase can't update.
      Either AwesomeWM or Qtile. Stuff I want:
         -nice program launcher that lets me search for programs
          I've forgotten. Maybe Rofi?
         -login manager that looks nice. LightDM?
-        -lock screen finally so we can walk away from PC without killing
-         the x-server
-    -consider removing firefox developer edition because
-     i've never launched it or just switch to only using developer
-     edition
+        -lock screen finally so we can walk away from PC without
+         killing the x-server
     -add these files to stop the screen from shutting off:
      https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Configuration
-    -figure out why USB stuff seems to automount on laptop but not desktop
+    -figure out why USB stuff seems to automount on laptop but not
+     desktop
     -add libnatpmp to install list because its needed for
      the port_forwarding script to work. and add that script somewhere.
     -put protonvpn app in installation list and qbittorrent
     -maybe get suspend / hibernate to work
     -also laptop is starting on incorrect brightness but idk why
-    -modify brightness step because we should be able to go darker than we
-     currently can
+    -modify brightness step because we should be able to go darker than
+     we currently can
     -get s-tui added to program install list and figure out the
      brightness for t450s.
     -get brighntess control working for desktop monitors
