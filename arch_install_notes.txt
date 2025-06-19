@@ -301,8 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
-    -qtile adds new clients in a weird order so figure
-     out how to make that more like dwm
+    -figure out qtile bar. find a way to add icons to it through
+     nerd font or think about just using EWW widgets instead of the
+     native qtile bar
     -add alacritty to install list if its not already there. remove
      st section from install guide because its too stupid to patch
     -remove firefox from install section, add chromium for testing
