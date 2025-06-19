@@ -115,29 +115,18 @@ for i in groups:
         Key([mod], i.name, lazy.group[i.name].toscreen(),
             desc=f"Switch to group {i.name}"),
 
-        # mod + shift + group number = switch to & move focused
-        # window to group. Or, use below if you prefer not to
-        # switch to that group. mod + shift + group number = move
+        # mod + shift + group number = move
         # focused window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             desc="move focused window to group {}".format(i.name)),
     ])
 
 layouts = [
-    layout.MonadTall(margin=15),
+    layout.MonadTall(
+        margin=15,
+        new_client_position="top",
+    ),
     layout.Floating(),
-    # layout.Stack(num_stacks=2),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"],
-    #                border_width=4),
-    # layout.Max(),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
