@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add a section to the installer for EWW. it has to be compiled
+     locally for now because the AUR package is out of date and messy
     -figure out qtile bar. find a way to add icons to it through
      nerd font or think about just using EWW widgets instead of the
      native qtile bar
