@@ -138,47 +138,47 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    highlight_method='block',
-                    rounded=True,
-                    margin_x=3,
-                ),
-                widget.CurrentLayoutIcon(),
-                widget.Prompt(),
-                widget.Spacer(length=bar.STRETCH),
-
-                # NB Systray is incompatible with Wayland, consider
-                # using StatusNotifier instead widget.StatusNotifier(),
-                widget.Systray(icon_size=25),
-                widget.CPU(format="[CPU:{load_percent}%]"),
-                widget.Backlight(
-                    backlight_name="intel_backlight",
-                    format="[BRI:{percent:2.0%}]"
-                ),
-                widget.Volume(fmt="[VOL:{}]"),
-                widget.Battery(
-                    format="[BAT:{percent:2.0%}]",
-                    show_short_text=False,
-                ),
-                widget.Clock(format="%I:%M %p"),
-            ],
-            32,
-            margin=[15,15,0,15], # border margin [N,E,S,W]
-            border_width=[3, 10, 3, 10],  # Draw borders
-            opacity=0.75,
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  
-            # Borders are magenta
-        ),
-        # You can uncomment this variable if you see that on X11 
-        # floating resize/moving is laggy
-        # By default we handle these events delayed to already improve
-        # performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can
-        # set it to 60 to indicate that you limit it to 60 events per 
-        # second
-        # x11_drag_polling_rate = 60,
+#        top=bar.Bar(
+#            [
+#                widget.GroupBox(
+#                    highlight_method='block',
+#                    rounded=True,
+#                    margin_x=3,
+#                ),
+#                widget.CurrentLayoutIcon(),
+#                widget.Prompt(),
+#                widget.Spacer(length=bar.STRETCH),
+#
+#                # NB Systray is incompatible with Wayland, consider
+#                # using StatusNotifier instead widget.StatusNotifier(),
+#                widget.Systray(icon_size=25),
+#                widget.CPU(format="[CPU:{load_percent}%]"),
+#                widget.Backlight(
+#                    backlight_name="intel_backlight",
+#                    format="[BRI:{percent:2.0%}]"
+#                ),
+#                widget.Volume(fmt="[VOL:{}]"),
+#                widget.Battery(
+#                    format="[BAT:{percent:2.0%}]",
+#                    show_short_text=False,
+#                ),
+#                widget.Clock(format="%I:%M %p"),
+#            ],
+#            32,
+#            margin=[15,15,0,15], # border margin [N,E,S,W]
+#            border_width=[3, 10, 3, 10],  # Draw borders
+#            opacity=0.75,
+#            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  
+#            # Borders are magenta
+#        ),
+#        # You can uncomment this variable if you see that on X11 
+#        # floating resize/moving is laggy
+#        # By default we handle these events delayed to already improve
+#        # performance, however your system might still be struggling
+#        # This variable is set to None (no cap) by default, but you can
+#        # set it to 60 to indicate that you limit it to 60 events per 
+#        # second
+#        # x11_drag_polling_rate = 60,
     ),
 ]
 
