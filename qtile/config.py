@@ -241,7 +241,7 @@ wl_xcursor_size = 24
 wmname = "LG3D"
 
 # custom hooks
-# disable floating on all windows when layout changes from floatin
+# disable floating on all windows when layout changes from floating
 # to something else
 @hook.subscribe.layout_change
 def _(layout, group):
