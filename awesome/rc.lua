@@ -361,7 +361,8 @@ globalkeys = gears.table.join(
       for i = 1, #tags do
         awful.tag.incgap(-5, tags[i])
       end
-    end
+    end,
+    {description = "Decrease gap size", group = "appearance"}
   ),
 
   -- increase gap size
@@ -371,7 +372,8 @@ globalkeys = gears.table.join(
       for i = 1, #tags do
         awful.tag.incgap(5, tags[i])
       end
-    end
+    end,
+    {description = "Increase gap size", group = "appearance"}
   ),
 
   -- set gap size to zero
@@ -381,7 +383,8 @@ globalkeys = gears.table.join(
       for i = 1, #tags do
         awful.tag.incgap(-tags[i].gap, tags[i])
       end
-    end
+    end,
+    {description = "Remove gaps", group = "appearance"}
   ),
 
   -- change layout
@@ -391,7 +394,8 @@ globalkeys = gears.table.join(
       for i = 1, #tags do
         tags[i].layout = awful.layout.suit.floating
       end
-    end
+    end,
+    {description = "Switch to floating layout", group = "layout"}
   ),
 
   awful.key({ modkey }, "t",
@@ -400,13 +404,15 @@ globalkeys = gears.table.join(
       for i = 1, #tags do
         tags[i].layout = awful.layout.suit.tile
       end
-    end
+    end,
+    {description = "Switch to tiling layout", group = "layout"}
   ),
 
   awful.key({ modkey }, "w",
     function ()
-      os.execute("maim ~/Pictures/$(date +%s).png")
-    end
+      os.execute("maim -us ~/Pictures/$(date +%s).png")
+    end,
+    {description = "Take a screenshot", group = "utility"}
   )
 )
 
