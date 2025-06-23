@@ -57,6 +57,6 @@ thunar --daemon &
 #done &
 
 #exec ~/.dotfiles/scripts/start_dwm.sh
-#exec awesome
-exec qtile start
+exec awesome
+#exec qtile start
 
