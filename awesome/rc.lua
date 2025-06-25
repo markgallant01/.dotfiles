@@ -149,11 +149,11 @@ awful.screen.connect_for_each_screen(function(s)
   ))
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+--[[  s.mywibox = awful.wibar({ position = "top", screen = s })
   s.mywibox.border_width = 0
   s.mywibox.border_color = "#ffffff00"
   s.mywibox.opacity = 1
-
+--]]
   local left_panel = wibox.widget({
     s.mytaglist,
     s.mylayoutbox,
@@ -179,7 +179,7 @@ awful.screen.connect_for_each_screen(function(s)
   s.leeeyout.first = left_panel
   s.leeeyout.second = middle_panel
   s.leeeyout.third = right_panel
-  s.mywibox.widget = s.leeeyout
+--  s.mywibox.widget = s.leeeyout
 
 end)
 -- helper function centers mouse on client window
@@ -581,6 +581,11 @@ awful.rules.rules = {
     },
     properties = { floating = true }
   },
+  { rule = { name = "Eww - topbar"},
+    properties = {
+      border_width = 0
+    }
+  }
 
   -- Set Firefox to always map on the tag named "2" on screen 1.
   -- { rule = { class = "Firefox" },
