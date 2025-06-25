@@ -1,4 +1,43 @@
-(defwindow example
+(defwidget left []
+    (box :spacing 5
+        :orientation "horizontal"
+        :space-evenly false
+        :halign "start"
+        :css "* {color: red;}"
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""))
+
+(defpoll date :interval "1s"
+    'date "+%d %B, %Y %l:%M%P"')
+
+(defwidget middle []
+    (box :spacing 1
+        :orientation "horizontal"
+        :space-evenly false
+        :halign "center"
+        date))
+
+(defpoll time :interval "1s"
+    'date +%l:%M%P')
+
+(defwidget right []
+    (box :spacing 1
+        :orientation "horizontal"
+        :space-evenly false
+        :halign "end"
+        time))
+
+(defwidget bar []
+    (centerbox :orientation "horizontal"
+        (left)
+        (middle)
+        (right)))
+
+(defwindow topbar
     :monitor 0
     :geometry (geometry :x "0%"
                         :y "0%"
@@ -9,4 +48,5 @@
     :reserve (struts :distance "30px" :side "top")
     :windowtype "dock"
     :wim-ignore false
-"example content")
+    (bar))
+
