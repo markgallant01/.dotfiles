@@ -301,19 +301,17 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -keep configuring topbar. make the tags group look good and
+     function. get rid of the clock on the right side and replace it
+     with a nice systray with good looking icons for volume, network,
+     brightness, maybe buttons to restart and such
     -add a section to the installer for EWW. it has to be compiled
      locally for now because the AUR package is out of date and messy
-    -figure out qtile bar. find a way to add icons to it through
-     nerd font or think about just using EWW widgets instead of the
-     native qtile bar
     -add alacritty to install list if its not already there. remove
      st section from install guide because its too stupid to patch
     -remove firefox from install section, add chromium for testing
      stuff.
     -fix nvim bufferline's background color to match lualine
-    -maybe move clock over to systray area
-    -make systray icons look good
-    -fix the layout icon thing to be like dwm
     -sort out alacritty's font (nerdfont)
     -https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
      see if this fixes gnome-keyring asking for password sometimes,
