@@ -301,16 +301,13 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add polybar to installation section and maybe conky too
     -wallpapers are getting double set again by awesome so figure that
      out
-    -add cargo/rust to installation list for Eww. add a symlink to the
-     config file to the symlink section
     -keep configuring topbar. make the tags group look good and
      function. get rid of the clock on the right side and replace it
      with a nice systray with good looking icons for volume, network,
      brightness, maybe buttons to restart and such
-    -add a section to the installer for EWW. it has to be compiled
-     locally for now because the AUR package is out of date and messy
     -add alacritty to install list if its not already there. remove
      st section from install guide because its too stupid to patch
     -remove firefox from install section, add chromium for testing
