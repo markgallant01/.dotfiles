@@ -44,7 +44,7 @@ fi
 ~/.config/setup_screens.sh &
 nm-applet &
 blueman-applet &
-~/.fehbg &
+#~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
