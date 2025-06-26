@@ -581,7 +581,12 @@ awful.rules.rules = {
     },
     properties = { floating = true }
   },
-  { rule = { name = "Eww - topbar"},
+  { rule_any = {
+      class = {
+        "Polybar",
+        "polybar"
+      }
+    },
     properties = {
       border_width = 0
     }
