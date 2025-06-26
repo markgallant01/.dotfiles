@@ -1,15 +1,41 @@
+(defwidget workspace-tag []
+    (box :orientation "horizontal" 
+         :spacing 1
+         :space-evenly false
+         :halign "start"
+         :css "* {
+             color: grey; 
+             font-size: 18px;
+             padding: 0 4px;}"
+         ""))
+
+(defwidget bigger-tag []
+    (box :orientation "horizontal" 
+         :spacing 1
+         :space-evenly false
+         :halign "start"
+         :css "* {
+             color: grey; 
+             font-size: 25px;
+             padding: 0 4px;
+             margin: 0;}"
+         ""))
+
 (defwidget left []
-    (box :spacing 5
+    (box :spacing 0
         :orientation "horizontal"
         :space-evenly false
         :halign "start"
-        :css "* {color: red;}"
-        ""
-        ""
-        ""
-        ""
-        ""
-        ""))
+        :css "* {
+            color: grey;
+            margin: 0 5px;
+            padding: 0;}"
+        (workspace-tag)
+        (workspace-tag)
+        (bigger-tag)
+        (workspace-tag)
+        (workspace-tag)
+        (workspace-tag)))
 
 (defpoll date :interval "1s"
     'date "+%d %B, %Y %l:%M%P"')
