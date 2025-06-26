@@ -77,10 +77,6 @@ local function determineWallpaper ()
   local pick = math.random(31)
   image = image .. files[pick]
 
-  -- call wal on the chosen image to set the colors
-  -- -n stops wal from setting the background
-  os.execute("wal -i " .. image)
-
   return image
 end
 
