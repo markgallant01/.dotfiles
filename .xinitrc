@@ -49,6 +49,7 @@ picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
 #urxvtd -q -f -o &
+~/.dotfiles/scripts/start_polybar.sh &
 
 # statusbar loop
 #while true; do
