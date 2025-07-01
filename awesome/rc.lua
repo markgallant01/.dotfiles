@@ -564,7 +564,9 @@ awful.rules.rules = {
         "Tor Browser",
         "Wpa_gui",
         "veromix",
-        "xtightvncviewer"
+        "xtightvncviewer",
+        "Protonvpn-app",
+        "protonvpn-app",
       },
 
       -- Note that the name property shown in xprop might be set
