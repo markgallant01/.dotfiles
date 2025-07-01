@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -make a nice landing page on web browser with common sites like
+     arch wiki, reddit, youtube, etc. don't show bookmark bar by default
+     because i rarely ever click it directly
     -add polybar to installation section and maybe conky too
     -wallpapers are getting double set again by awesome so figure that
      out
