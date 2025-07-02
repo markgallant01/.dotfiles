@@ -319,7 +319,7 @@ globalkeys = gears.table.join(
   awful.key({}, "XF86AudioRaiseVolume",
     function ()
       awful.util.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "/home/mark/.dotfiles/scripts/inc_volume.sh",
         false
       )
     end
