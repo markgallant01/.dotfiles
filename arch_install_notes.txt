@@ -301,6 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -integrate blueman applet into polybar icons to make it match
+     and look good. should be able to click it to bring up the
+     blueman app. Do the same with the networkManager applet.
     -wallpapers arent setting sometimes
     -add ttf-nerd-fonts-symbols to installation list
     -make a nice landing page on web browser with common sites like
