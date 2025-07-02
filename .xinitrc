@@ -57,6 +57,13 @@ thunar --daemon &
 #    sleep 5s   # update every 5 seconds
 #done &
 
+# set initial brightness to half
+# think of a better way to do this that doesnt depend on the hostname
+hostname=$(cat /etc/hostname)
+if [[ "$hostname" == "archThinkpad" ]]; then
+    echo 426 > /sys/class/backlight/intel_backlight/brightness
+fi
+
 #exec ~/.dotfiles/scripts/start_dwm.sh
 exec awesome
 #exec qtile start
