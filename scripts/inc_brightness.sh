@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 hostname=$(cat /etc/hostname)
 brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
