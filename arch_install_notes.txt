@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -wallpapers arent setting sometimes
     -add ttf-nerd-fonts-symbols to installation list
     -make a nice landing page on web browser with common sites like
      arch wiki, reddit, youtube, etc. don't show bookmark bar by default
