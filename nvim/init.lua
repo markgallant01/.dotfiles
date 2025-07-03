@@ -102,6 +102,11 @@ require('lazy').setup({
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
+  },
+
+  {
+    'echasnovski/mini.trailspace',
+    version = '*'
   }
 }, {})
 
@@ -117,6 +122,7 @@ require('plugins/autotag')
 require('plugins/blink')
 require('plugins/indent-blankline')
 require('plugins/bufferline')
+require('plugins/trailspace')
 
 -- LSP servers
 vim.lsp.enable('pyright')
