@@ -1,7 +1,7 @@
 -- this script chooses an appropriate wallpaper based on a number of
 -- different conditions. If it's a holiday period, it will choose an
 -- appropriate wallpaper corresponding to that holiday disregarding
--- the time of day. For non-holiday periods it will consider the 
+-- the time of day. For non-holiday periods it will consider the
 -- current season and time of day.
 
 -- seasons are determined based on the meteorological periods, not the

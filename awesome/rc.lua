@@ -1,4 +1,4 @@
--- If LuaRocks is installed, make sure that packages installed through 
+-- If LuaRocks is installed, make sure that packages installed through
 -- it are found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -23,8 +23,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 --require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back 
--- to another config (This code will only ever execute for the fallback 
+-- Check if awesome encountered an error during startup and fell back
+-- to another config (This code will only ever execute for the fallback
 -- config)
 if awesome.startup_errors then
   naughty.notify({ preset = naughty.config.presets.critical,
@@ -110,7 +110,7 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
---  set_wallpaper(s)
+  set_wallpaper(s)
 
   -- Each screen has its own tag table.
   awful.tag({ "1", "2", "3", "4", "5", "6" },
