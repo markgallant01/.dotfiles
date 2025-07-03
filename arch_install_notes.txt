@@ -293,7 +293,7 @@ wiki.archlinux.org.
 
 -set up the fstab here so that drives auto mount. Consult
  https://wiki.archlinux.org/title/Fstab for reference.
-    
+
 -place any wallpapers in ~/Photos/wallpaper/ for feh to use them
 
 /***********/
@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -currently using bibata-cursor-theme-bin from the aur. add this to
+     the installation under the aur section if we stick with it
     -integrate blueman applet into polybar icons to make it match
      and look good. should be able to click it to bring up the
      blueman app. Do the same with the networkManager applet.
