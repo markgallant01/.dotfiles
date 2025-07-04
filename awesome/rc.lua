@@ -559,7 +559,7 @@ awful.rules.rules = {
         "Kruler",
         "MessageWin",  -- kalarm.
         "Sxiv",
-        -- TOR browser needs a fixed window size to avoid 
+        -- TOR browser needs a fixed window size to avoid
         -- fingerprinting by screen size.
         "Tor Browser",
         "Wpa_gui",
