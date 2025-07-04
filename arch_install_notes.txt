@@ -1,5 +1,5 @@
 This is a compilation of notes to be used as supplementary material for
-an arch linux install. Use alongside the installation guide found at 
+an arch linux install. Use alongside the installation guide found at
 wiki.archlinux.org.
 
 /***********************/
@@ -21,18 +21,18 @@ wiki.archlinux.org.
 1.7 Connect to the internet
     -If you're wired then just plug in the ethernet and it should work
     -If using wifi, connect to the network with iwctl.
-    
+
     # iwctl                 // this will give you an interactive prompt
     [iwd]# device list               // get the name of wireless device
     [iwd]# station *device* scan          // scan for wireless networks
     [iwd]# station *device* get-networks               // list networks
     [iwd]# station *device* connect *SSID*        // connect to network
-    
+
     -enter the password when prompted and then exit with Ctrl+d.
     -verify the connection with:
-  
+
         # ping archlinux.org
-  
+
 1.8 Update the system clock
 1.9 Partition the disks
     -format root drive as xfs.
@@ -55,13 +55,13 @@ wiki.archlinux.org.
 /*******************/
 
 2.1 Select the mirrors
-    -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and 
+    -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and
      move the American mirror to the top of the list.
 
 2.2 Install essential packages
     -in addition to the essential packages, install some more stuff that
      will be useful.
-    
+
         # pacstrap -K /mnt base linux linux-firmware
             man-db man-pages texinfo
             vim networkmanager sudo
@@ -94,7 +94,7 @@ wiki.archlinux.org.
     -Next, a loader configuration file must be created and set:
      (note 'efi' below corresponds to wherever the EFI directory was
      mounted. Probably /boot.)
-    -These fields are separated by a space, not a tab. 
+    -These fields are separated by a space, not a tab.
      SystemD won't read tabs.
 
         "efi/loader/loader.conf"
@@ -103,7 +103,7 @@ wiki.archlinux.org.
         console-mode keep
 
     -You'll need a corresponding arch.conf file in efi/loader/entries.
-    -The UUID must be replaced with the UUID of the root partition. 
+    -The UUID must be replaced with the UUID of the root partition.
      Copy it from the /etc/fstab file.
     -These can be tab-separated:
 
@@ -141,17 +141,17 @@ wiki.archlinux.org.
 -The last 2 lines should reference microcode for your CPU.
 
 -setup a non-root user in the wheel groups and set the password:
-  
+
     # useradd -m -G wheel <username>
     # passwd *user*
-    
+
 -add the new user to the sudoers file with visudo
-  
+
     # EDITOR=vim visudo
 
     %wheel ALL=(ALL:ALL) ALL    // uncomment this line
-    
--then logout of root and login as the new user. 
+
+-then logout of root and login as the new user.
 
 -verify the internet:
 
@@ -165,7 +165,7 @@ wiki.archlinux.org.
 -setup pacman by editing pacman.conf to enable the multilib repo,
  color, and parallel downloads.
  (uncomment the lines):
-  
+
     "/etc/pacman.conf"
     [options]
     ...
@@ -218,7 +218,7 @@ wiki.archlinux.org.
     $ ssh -T git@github.com
 
 -once authenticated, fix dotfiles repo:
-    
+
     $ rm -r ~/.dotfiles
     $ rm ~/.dotfiles-main.zip
     $ git clone git@github.com:markgallant01/.dotfiles.git
@@ -236,7 +236,7 @@ wiki.archlinux.org.
 
     $ yay -S deadbeef
 
--if nvidia drivers were installed, you must edit the file 
+-if nvidia drivers were installed, you must edit the file
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
  This ensures the junk nouveau module will not be loaded during boot:
 
@@ -254,7 +254,7 @@ wiki.archlinux.org.
 /* FINISHING TOUCHES */
 /*********************/
 
--First, setup Firefox. Launch Firefox and log int so it syncs 
+-First, setup Firefox. Launch Firefox and log int so it syncs
  everything.
 -Log in to Lastpass so we get all our passwords.
 -Set the initial UI stuff that does not sync. Set the bookmark bar
@@ -263,7 +263,7 @@ wiki.archlinux.org.
  Lastpass and Ublock are shown
 -go into the settings and make sure everything looks right. Disable
  all search suggestions and set the default search engine to DuckDuckGo.
--Under 'Privacy & Security' disable 'Ask to save passwords', and all the 
+-Under 'Privacy & Security' disable 'Ask to save passwords', and all the
  'Autofill' options. Disable all history saving.
 -make sure the noto fonts are set correctly. They should be setup
  automatically.
@@ -274,11 +274,11 @@ wiki.archlinux.org.
 -launch discord once to generate the config file.
 -add the shown line in this file so Discord doesn't refuse to launch
  if there's an update that's not in the repo yet:
-    
+
     ~/.config/discord/settings.json
     "SKIP_HOST_UPDATE": true
 
--Log into discord and set it up. Set the font size to 20. Set mic 
+-Log into discord and set it up. Set the font size to 20. Set mic
  threshold.
 -Disable 'minimize to tray' and automatic startup under Linux settings
 
@@ -301,12 +301,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add papirus-icon-theme to install list
     -currently using bibata-cursor-theme-bin from the aur. add this to
      the installation under the aur section if we stick with it
-    -integrate blueman applet into polybar icons to make it match
-     and look good. should be able to click it to bring up the
-     blueman app. Do the same with the networkManager applet.
-    -wallpapers arent setting sometimes
     -add ttf-nerd-fonts-symbols to installation list
     -make a nice landing page on web browser with common sites like
      arch wiki, reddit, youtube, etc. don't show bookmark bar by default
