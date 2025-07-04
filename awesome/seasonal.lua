@@ -40,6 +40,7 @@ local function determineWallpaper ()
     -- independence day
     image = image .. 'Holiday/IndependenceDay/'
   elseif date.yday == 332 then
+    -- thanksgiving
     image = image .. 'Holiday/Thanksgiving/'
   elseif date.yday >= 298 and date.yday <= 304 then
     -- halloween week
@@ -74,7 +75,7 @@ local function determineWallpaper ()
   end
 
   math.randomseed(os.time())
-  local pick = math.random(31)
+  local pick = math.random(#files)
   image = image .. files[pick]
 
   return image
