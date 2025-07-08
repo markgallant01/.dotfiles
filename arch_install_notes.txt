@@ -302,7 +302,7 @@ wiki.archlinux.org.
 
 To-do:
     -get jellyfin up and running for media consumption
-    -check out more wallpapers because the animated ones seem better
+    -check out more wallpapers because the drawn ones seem better
     -add papirus-icon-theme to install list
     -currently using bibata-cursor-theme-bin from the aur. add this to
      the installation under the aur section if we stick with it
