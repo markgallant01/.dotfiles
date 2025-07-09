@@ -565,8 +565,8 @@ awful.rules.rules = {
         "Wpa_gui",
         "veromix",
         "xtightvncviewer",
-        --"Protonvpn-app",
-        --"protonvpn-app",
+        "Protonvpn-app",
+        "protonvpn-app",
       },
 
       -- Note that the name property shown in xprop might be set
@@ -633,6 +633,13 @@ client.connect_signal("focus",
 client.connect_signal("unfocus",
   function(c)
     c.border_color = beautiful.border_normal
+  end
+)
+
+-- floating windows are always on top by default
+client.connect_signal("property::floating",
+  function(c)
+    c.ontop = c.floating
   end
 )
 
