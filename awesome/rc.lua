@@ -565,8 +565,8 @@ awful.rules.rules = {
         "Wpa_gui",
         "veromix",
         "xtightvncviewer",
-        "Protonvpn-app",
-        "protonvpn-app",
+        --"Protonvpn-app",
+        --"protonvpn-app",
       },
 
       -- Note that the name property shown in xprop might be set
