@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -still need keybind to swap master and stack window super-"
     -get jellyfin up and running for media consumption
     -check out more wallpapers because the drawn ones seem better
     -add papirus-icon-theme to install list
