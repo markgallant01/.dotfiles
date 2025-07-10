@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -make awesomeWM open all new windows in the center
     -find a better disk utility than the baobab one. it
      doesn't seem to show much info
     -problem with fullscreen since we added the floating rule so figure
