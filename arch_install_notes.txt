@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -maybe get nicer icons for qBittorrent and protonVPN but probably
+     not
     -make awesomeWM open all new windows in the center
     -find a better disk utility than the baobab one. it
      doesn't seem to show much info
