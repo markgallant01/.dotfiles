@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -problem with fullscreen since we added the floating rule so figure
+     that out
     -still need keybind to swap master and stack window super-"
     -get jellyfin up and running for media consumption
     -check out more wallpapers because the drawn ones seem better
