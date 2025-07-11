@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get subtitle puller addon thing for jellyfin. check
+     bookmarks
     -add jellyfin and its setup to the install and setup sections.
      had to install the server and web interface, start/enable the
      service, and run the setup wizard. also had to get the drive to
