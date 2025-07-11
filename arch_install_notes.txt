@@ -301,6 +301,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out a nice font with the dot in the zero to
+     use absolutely everywhere
     -get subtitle puller addon thing for jellyfin. check
      bookmarks
     -add jellyfin and its setup to the install and setup sections.
