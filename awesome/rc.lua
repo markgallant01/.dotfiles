@@ -637,9 +637,11 @@ client.connect_signal("unfocus",
 )
 
 -- floating windows are always on top by default
---client.connect_signal("property::floating",
---  function(c)
---    c.ontop = c.floating
---  end
---)
+client.connect_signal("property::floating",
+  function(c)
+    if not c.fullscreen and c.floating then
+      c.ontop = true
+    end
+  end
+)
 
