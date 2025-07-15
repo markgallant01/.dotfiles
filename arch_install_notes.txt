@@ -301,6 +301,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -take another look at awesomeWM and try to figure out the bar /
+     widget system. it would be cleaner to use widgets for the top bar
+     and for system info so we dont require polybar and conky. polybar
+     is having some weird issues with how it interacts with the WM so
+     it would just be cleaner.
     -get wallpaper script fully working with the day / night thing and
      look for new wallpapers for everything. i think i would prefer
      drawn stuff to the real images. check reddit for good stuff.
