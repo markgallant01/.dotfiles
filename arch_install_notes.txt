@@ -301,6 +301,11 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -get wallpaper script fully working with the day / night thing and
+     look for new wallpapers for everything. i think i would prefer
+     drawn stuff to the real images. check reddit for good stuff.
+    -trying gentoo again. if it works then retrofit this guide to
+     work with gentoo somehow.
     -figure out a nice font with the dot in the zero to
      use absolutely everywhere
     -get subtitle puller addon thing for jellyfin. check
