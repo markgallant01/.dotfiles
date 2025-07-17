@@ -300,6 +300,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -run through the general recommendations found here:
+     https://wiki.archlinux.org/title/General_recommendations
     -I love this console rain:
         https://github.com/saitamasahil/matrix
      so figure out how to incorporate this into our setup
