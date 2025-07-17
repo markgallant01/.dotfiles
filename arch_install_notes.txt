@@ -300,6 +300,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -I love this console rain:
+        https://github.com/saitamasahil/matrix
+     so figure out how to incorporate this into our setup
     -remove the yay stuff from the guide because we dont
      need it if were gonna use chaotic aur
     -add a section to set up the chaotic aur and install
