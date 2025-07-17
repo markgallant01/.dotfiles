@@ -49,7 +49,10 @@ packages+=("chromium")
 packages+=("discord")
 
 # game launchers
-packages+=("steam")
+packages+=("steam" "dolphin-emu")
+
+# random fun stuff
+packages+=("cava")
 
 # video drivers depend on GPU manufacturer:
 option=0
