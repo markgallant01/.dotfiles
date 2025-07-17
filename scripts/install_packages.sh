@@ -16,7 +16,7 @@ packages+=("xfsprogs" "papirus-icon-theme")
 packages+=("base-devel" "make" "cmake" "clang" "gdb" "npm" "neovim" "jdk-openjdk")
 
 # CLI tools
-packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
+packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp")
 packages+=("maim" "xclip" "wget" "curl" "htop" "git" "openssh")
 packages+=("usleep" "alacritty")
 
