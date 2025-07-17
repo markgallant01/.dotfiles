@@ -162,8 +162,8 @@ wiki.archlinux.org.
     $ nmcli device wifi list
     $ nmcli device wifi connect "SSID" password "password"
 
--setup pacman by editing pacman.conf to enable the multilib repo,
- color, and parallel downloads.
+-setup pacman by editing pacman.conf to enable the multilib repo
+ and color
  (uncomment the lines):
 
     "/etc/pacman.conf"
@@ -172,7 +172,6 @@ wiki.archlinux.org.
     Color
     ...
     VerbosePkgLists
-    ParallelDownloads = 5
     ...
     [multilib]
     Include = /etc/pacman.d/mirrorlist
