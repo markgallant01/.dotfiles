@@ -136,7 +136,7 @@ wiki.archlinux.org.
 -First, verify that the microcode is loaded properly. Use this
  command and read the output:
 
-    # lsinitcpio --early /boot/initramfs-linux.img | head -n 5
+    # lsinitcpio --early /boot/initramfs-linux.img | head -n 6
 
 -The last 2 lines should reference microcode for your CPU.
 
