@@ -34,6 +34,7 @@ packages+=("libnatpmp")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
+packages+=("awesome")
 
 # graphical utilities
 packages+=("mpv" "network-manager-applet")
