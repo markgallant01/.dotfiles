@@ -300,6 +300,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add a section somewhere to set up pacman cache clearing timer.
+     consult the pacman maintenance page
     -add discord config file to dotfiles repo to automate that step
     -thunar starts up slowly on the first launch so look
      into that. read about daemon mode. there stuff about
