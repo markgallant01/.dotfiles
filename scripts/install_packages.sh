@@ -30,7 +30,7 @@ packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
 packages+=("picom" "ripgrep" "fd" "gnome-keyring" "proton-vpn-gtk-app" "qbittorrent")
-packages+=("libnatpmp")
+packages+=("libnatpmp" "polkit-gnome")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
