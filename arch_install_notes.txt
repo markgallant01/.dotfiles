@@ -301,6 +301,7 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -add discord config file to dotfiles repo to automate that step
     -thunar starts up slowly on the first launch so look
      into that. read about daemon mode. there stuff about
      it on the arch page
