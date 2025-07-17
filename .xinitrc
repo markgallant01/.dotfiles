@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# lua ~/.dotfiles/awesome/seasonal.lua
-
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -44,18 +42,10 @@ fi
 ~/.config/setup_screens.sh &
 nm-applet &
 blueman-applet &
-#~/.fehbg &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
-#urxvtd -q -f -o &
 ~/.dotfiles/scripts/start_polybar.sh &
-
-# statusbar loop
-#while true; do
-#    ~/.dotfiles/scripts/update_statusbar.sh
-#    sleep 5s   # update every 5 seconds
-#done &
 
 # set initial brightness to half
 # think of a better way to do this that doesnt depend on the hostname
@@ -64,7 +54,5 @@ if [[ "$hostname" == "archThinkpad" ]]; then
     echo 426 > /sys/class/backlight/intel_backlight/brightness
 fi
 
-#exec ~/.dotfiles/scripts/start_dwm.sh
 exec awesome
-#exec qtile start
 
