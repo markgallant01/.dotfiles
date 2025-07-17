@@ -10,18 +10,18 @@ set -x
 declare -a packages=()
 
 # file system programs (this will be different if not using xfs)
-packages+=("xfsprogs")
+packages+=("xfsprogs" "papirus-icon-theme")
 
 # development tools
-packages+=("base-devel" "clang" "gdb" "npm" "neovim" "jdk-openjdk")
+packages+=("base-devel" "make" "cmake" "clang" "gdb" "npm" "neovim" "jdk-openjdk")
 
 # CLI tools
 packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp" "feh")
-packages+=("scrot" "xclip" "wget" "curl" "htop" "git" "openssh")
-packages+=("usleep")
+packages+=("maim" "xclip" "wget" "curl" "htop" "git" "openssh")
+packages+=("usleep" "alacritty")
 
 # fonts
-packages+=("ttf-noto-nerd" "noto-fonts-cjk")
+packages+=("noto-fonts noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
@@ -29,46 +29,32 @@ packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
-packages+=("picom" "ripgrep")
+packages+=("picom" "ripgrep" "fd" "gnome-keyring" "proton-vpn-gtk-app" "qbittorrent")
+packages+=("libnatpmp")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
 
 # graphical utilities
-packages+=("vlc" "network-manager-applet")
+packages+=("mpv" "network-manager-applet")
 
 # file manager
 packages+=("thunar" "thunar-volman" "gvfs" "gvfs-mtp" "tumbler")
 packages+=("ffmpegthumbnailer")
 
 # web browsers
-packages+=("firefox" "firefox-developer-edition" "chromium")
+packages+=("chromium")
 
 # communication
 packages+=("discord")
 
 # game launchers
-packages+=("steam" "lutris")
-
-# wine dependencies
-packages+=("wine-staging" "lib32-giflib" "libpng" "lib32-libpng")
-packages+=("giflib" "libldap" "lib32-libldap" "gnutls" "lib32-gnutls")
-packages+=("mpg123" "lib32-mpg123" "openal" "lib32-openal" "v4l-utils") 
-packages+=("lib32-v4l-utils" "alsa-lib" "libpulse" "sqlite")
-packages+=("lib32-libpulse" "libgpg-error" "lib32-libgpg-error")
-packages+=("alsa-plugins" "lib32-alsa-plugins" "lib32-alsa-lib")
-packages+=("libjpeg-turbo" "lib32-libjpeg-turbo" "lib32-sqlite")
-packages+=("libxcomposite" "lib32-libxcomposite" "libxinerama")
-packages+=("lib32-libgcrypt" "ocl-icd" "lib32-ocl-icd")
-packages+=("libgcrypt" "lib32-libxinerama" "ncurses" "lib32-ncurses")
-packages+=("libxslt" "lib32-libxslt" "libva" "lib32-libva" "gtk3")
-packages+=("lib32-gtk3" "gst-plugins-base-libs" "vulkan-icd-loader")
-packages+=("lib32-vulkan-icd-loader" "lib32-gst-plugins-base-libs")
+packages+=("steam")
 
 # video drivers depend on GPU manufacturer:
 option=0
-while [[ "$option" != 1 ]] && 
-      [[ "$option" != 2 ]] && 
+while [[ "$option" != 1 ]] &&
+      [[ "$option" != 2 ]] &&
       [[ "$option" != 3 ]]
 do
   echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
@@ -93,3 +79,4 @@ fi
 
 # install all the compiled packages
 sudo pacman -S --needed "${packages[@]}"
+

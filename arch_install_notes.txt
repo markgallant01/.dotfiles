@@ -234,7 +234,7 @@ wiki.archlinux.org.
 
 -install any aur programs:
 
-    $ yay -S deadbeef
+    $ yay -S deadbeef pcsx2 duckstation brave-bin
 
 -if nvidia drivers were installed, you must edit the file
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
@@ -312,8 +312,6 @@ To-do:
     -get wallpaper script fully working with the day / night thing and
      look for new wallpapers for everything. i think i would prefer
      drawn stuff to the real images. check reddit for good stuff.
-    -trying gentoo again. if it works then retrofit this guide to
-     work with gentoo somehow.
     -figure out a nice font with the dot in the zero to
      use absolutely everywhere
     -get subtitle puller addon thing for jellyfin. check
@@ -334,10 +332,6 @@ To-do:
     -still need keybind to swap master and stack window super-"
     -get jellyfin up and running for media consumption
     -check out more wallpapers because the drawn ones seem better
-    -add papirus-icon-theme to install list
-    -currently using bibata-cursor-theme-bin from the aur. add this to
-     the installation under the aur section if we stick with it
-    -add ttf-nerd-fonts-symbols to installation list
     -make a nice landing page on web browser with common sites like
      arch wiki, reddit, youtube, etc. don't show bookmark bar by default
      because i rarely ever click it directly
@@ -348,10 +342,6 @@ To-do:
      function. get rid of the clock on the right side and replace it
      with a nice systray with good looking icons for volume, network,
      brightness, maybe buttons to restart and such
-    -add alacritty to install list if its not already there. remove
-     st section from install guide because its too stupid to patch
-    -remove firefox from install section, add chromium for testing
-     stuff.
     -fix nvim bufferline's background color to match lualine
     -sort out alacritty's font (nerdfont)
     -https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
@@ -369,22 +359,13 @@ To-do:
      disk utility. maybe look and see if theres a better one but this
      one is fine too.
     -configure alacritty and clean up stuff
-    -replace yay in the install script with yay-bin so we don't need
-     to compile it. See if this is possible with other AUR packages.
     -switch from nvidia to nvidia-open
     -get a good nerd font patched with icons
-    -add 'fd' to installed packages list. it's a utility
-     thing for finding files that telescope.nvim needs
     -add language servers to package install file. So
-     far just the lua one. Think of others. Clangd. pyright.
+     far just the lua one. Think of others. Clangd. pyright. check
+     nvim to see what we use
     -some kind of volume widget for pavucontrol that hangs out in the
      status bar would be cool
-    -maim keeps the cursor in the image by default so it has to be run
-     with the 'u' flag so the whole command looks like maim -us filename
-     to do the selection snipping thing we typically like to do. maybe
-     put this into a keybind or an alias so we don't have to remember
-    -replace scrot with maim in the program installation section
-    -add duckstation and pcsx2 to AUR section
     -stuff I want:
         -wallpaper spans entire screen including top bar. top bar should
          be transparent between the widgets because it looks cool
@@ -413,9 +394,6 @@ To-do:
      https://wiki.archlinux.org/title/Display_Power_Management_Signaling#Configuration
     -figure out why USB stuff seems to automount on laptop but not
      desktop
-    -add libnatpmp to install list because its needed for
-     the port_forwarding script to work. and add that script somewhere.
-    -put protonvpn app in installation list and qbittorrent
     -maybe get suspend / hibernate to work
     -also laptop is starting on incorrect brightness but idk why
     -modify brightness step because we should be able to go darker than
@@ -444,7 +422,6 @@ To-do:
     -consider adding a section about configuring Xorg. Consult
      https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
     -setup a pacman hook to clean up the paccache after each install
-    -I want a nice icon set for thunar
     -need a section to set up wallpapers or integrate it into the script
      somehow
     -use musicBrainz picard to tag all our music and sort it. then add
@@ -457,7 +434,6 @@ To-do:
      package
     -maybe add SDL stuff to installer
     -setup a good screen locker that blocks tty access maybe
-    -make keybind cheat sheet
     -add overthewire programs like telnet and nmap
     -look into this: https://wiki.archlinux.org/title/Gamemode#top-page
     -power management? (acpi?)
