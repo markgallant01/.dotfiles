@@ -300,6 +300,9 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -if we setup the chaotic aur repo before running the
+     installation script, we can put all our programs into
+     one script. try to do this
     -run through the general recommendations found here:
      https://wiki.archlinux.org/title/General_recommendations
     -I love this console rain:
