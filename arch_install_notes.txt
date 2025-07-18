@@ -302,6 +302,8 @@ wiki.archlinux.org.
 /***********/
 
 To-do:
+    -figure out how to make wallpaper set a default arch wallpaper
+     when its run without the wallpaper folder existing yet
     -if we setup the chaotic aur repo before running the
      installation script, we can put all our programs into
      one script. try to do this
