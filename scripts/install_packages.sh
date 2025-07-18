@@ -44,7 +44,7 @@ packages+=("thunar" "thunar-volman" "gvfs" "gvfs-mtp" "tumbler")
 packages+=("ffmpegthumbnailer")
 
 # web browsers
-packages+=("chromium")
+packages+=()
 
 # communication
 packages+=("discord")
