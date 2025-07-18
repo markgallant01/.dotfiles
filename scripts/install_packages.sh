@@ -37,7 +37,7 @@ packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
 packages+=("awesome")
 
 # graphical utilities
-packages+=("mpv" "network-manager-applet")
+packages+=("mpv" "loupe" "network-manager-applet")
 
 # file manager
 packages+=("thunar" "thunar-volman" "gvfs" "gvfs-mtp" "tumbler")
