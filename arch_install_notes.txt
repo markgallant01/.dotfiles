@@ -140,9 +140,11 @@ wiki.archlinux.org.
 
 -The last 2 lines should reference microcode for your CPU.
 
--setup a non-root user in the wheel groups and set the password:
+-setup a non-root user and set the password:
+-in the wheel group so they can sudo and video
+ so they can adjust the brightness
 
-    # useradd -m -G wheel <username>
+    # useradd -m -G wheel,video <username>
     # passwd *user*
 
 -add the new user to the sudoers file with visudo
