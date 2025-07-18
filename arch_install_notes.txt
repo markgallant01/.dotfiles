@@ -308,7 +308,7 @@ To-do:
     -remove the yay stuff from the guide because we dont
      need it if were gonna use chaotic aur
     -add a section to set up the chaotic aur and install
-     relevant packages: duckstation, pcsx2, deadbeef
+     relevant packages: duckstation, pcsx2, deadbeef, brave-bin
     -add a section somewhere to set up pacman cache clearing timer.
      consult the pacman maintenance page
     -add discord config file to dotfiles repo to automate that step
