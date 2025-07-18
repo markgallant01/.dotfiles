@@ -35,6 +35,7 @@ ln -sf ~/.dotfiles/gtk-3.0/ ~/.config/gtk-3.0
 sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
+sudo cp ~/.dotfiles/etc_conf_files/backlight.rules /etc/udev/rules.d/
 
 # clock synchronization service
 sudo systemctl enable systemd-timesyncd.service
