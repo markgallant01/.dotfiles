@@ -61,6 +61,8 @@ sudo cp ~/.dotfiles/etc_conf_files/10-extensions.conf /etc/X11/xorg.conf.d/
 sudo cp ~/.dotfiles/etc_conf_files/10-serverflags.conf /etc/X11/xorg.conf.d/
 # udev rules
 sudo cp ~/.dotfiles/etc_conf_files/backlight.rules /etc/udev/rules.d/
+# thunar config
+cp ~/.dotfiles/xfce4/helpers.rc ~/.config/xfce4/
 
 # clock synchronization service
 sudo systemctl enable systemd-timesyncd.service
