@@ -9,34 +9,28 @@ set -x
 # array to store package list
 declare -a packages=()
 
-# file system and drive utilities
-# (this will be different if not using xfs)
-packages+=("xfsprogs" "dosfstools" "smartmontools")
-
-# development tools
-packages+=("base-devel" "make" "cmake" "gdb")
-packages+=("neovim" "jdk-openjdk" "npm")
-
-# language servers
-packages+=("pyright" "clang" "lua-language-server")
-
 # CLI tools
 packages+=("alacritty" "fastfetch" "udisks2"  "unzip" )
 packages+=("maim" "xclip" "wget" "curl" "htop" "git" )
 packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
 
-# fonts
-packages+=("noto-fonts noto-fonts-cjk" "ttf-nerd-fonts-symbols")
+# misc utilities
+packages+=("xdg-user-dirs" "pacman-contrib" "fd")
+packages+=("ripgrep" "gnome-keyring" "libnatpmp")
+packages+=("polkit-gnome" "xdg-desktop-portal-gtk")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" )
 packages+=("pipewire-jack" "pipewire-pulse" "wireplumber")
 packages+=("blueman")
 
-# misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib" "fd")
-packages+=("ripgrep" "gnome-keyring" "libnatpmp")
-packages+=("polkit-gnome" "xdg-desktop-portal-gtk")
+# development tools
+packages+=("base-devel" "make" "cmake" "gdb")
+packages+=("neovim" "jdk-openjdk" "npm")
+
+# file manager
+packages+=("thunar" "thunar-volman" "tumbler")
+packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit")
@@ -46,24 +40,30 @@ packages+=("xorg-xrandr" "awesome" "picom")
 packages+=("network-manager-applet" "arandr")
 packages+=("proton-vpn-gtk-app" "pavucontrol")
 
+# gaming stuff
+packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
+
 # multimedia
 packages+=("mpv" "loupe" "qbittorrent" "deadbeef")
 
-# file manager
-packages+=("thunar" "thunar-volman" "tumbler")
-packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
+# file system and drive utilities
+# (this will be different if not using xfs)
+packages+=("xfsprogs" "dosfstools" "smartmontools")
+
+# language servers
+packages+=("pyright" "clang" "lua-language-server")
+
+# fonts
+packages+=("noto-fonts" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
+
+# cosmetic
+package+=("papirus-icon-theme")
 
 # web browsers
 packages+=("brave-bin")
 
 # communication
 packages+=("discord")
-
-# gaming stuff
-packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
-
-# cosmetic
-package+=("papirus-icon-theme")
 
 # random fun stuff
 packages+=("cava")
