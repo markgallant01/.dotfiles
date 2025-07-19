@@ -1,3 +1,4 @@
+
 This is a compilation of notes to be used as supplementary material for
 an arch linux install. Use alongside the installation guide found at
 wiki.archlinux.org.
@@ -178,15 +179,6 @@ wiki.archlinux.org.
     [multilib]
     Include = /etc/pacman.d/mirrorlist
 
--run pacman once to generate and sync databases:
-
-    $ sudo pacman -Syu
-
--run reflector once here for the fastest and most up to date mirrors
-
-    $ sudo reflector --latest 20 --sort rate \
-        --save /etc/pacman.d/mirrorlist
-
 -download the setup and config files:
 
     $ curl -LJO https://github.com/markgallant01/.dotfiles\
@@ -223,19 +215,6 @@ wiki.archlinux.org.
     $ rm -r ~/.dotfiles
     $ rm ~/.dotfiles-main.zip
     $ git clone git@github.com:markgallant01/.dotfiles.git
-
--install yay for the aur:
-
-    $ mkdir ~/aur
-    $ cd ~/aur
-    $ git clone https://aur.archlinux.org/yay.git
-    $ cd yay
-    $ makepkg -si
-    $ cd ~
-
--install any aur programs:
-
-    $ yay -S deadbeef pcsx2 duckstation brave-bin
 
 -if nvidia drivers were installed, you must edit the file
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
@@ -383,7 +362,7 @@ To-do:
     -NVM is slowing down the terminal startup due to the initialization
      stuff it adds to the bachrc file. this is a pain in the ass
     -maybe add curl nvm installation idk yet
-     Either AwesomeWM or Qtile. Stuff I want:
+     Stuff we want for awesomeWM:
         -nice program launcher that lets me search for programs
          I've forgotten. Maybe Rofi?
         -login manager that looks nice. LightDM?
@@ -426,6 +405,3 @@ To-do:
         https://wiki.archlinux.org/title/Gamemode#top-page
     -power management? (acpi?)
 
-Bugs:
-    -feh seems to span the wallpaper across both monitors if the timer
-     triggers the script to run while the screens are off.
