@@ -234,9 +234,9 @@ wiki.archlinux.org.
 /* FINISHING TOUCHES */
 /*********************/
 
--First, setup Firefox. Launch Firefox and log int so it syncs
+-First, setup Brave. Launch Brave and log in so it syncs
  everything.
--Log in to Lastpass so we get all our passwords.
+-Install and log in to Lastpass so we get all our passwords.
 -Set the initial UI stuff that does not sync. Set the bookmark bar
  to 'always show'
 -remove the unnecessary icons around the extentions and make sure
@@ -326,7 +326,6 @@ To-do:
      doesn't seem to show much info
     -problem with fullscreen since we added the floating rule so figure
      that out
-    -still need keybind to swap master and stack window super-"
     -get jellyfin up and running for media consumption
     -check out more wallpapers because the drawn ones seem better
     -make a nice landing page on web browser with common sites like
