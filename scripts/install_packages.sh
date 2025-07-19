@@ -9,48 +9,61 @@ set -x
 # array to store package list
 declare -a packages=()
 
-# file system programs (this will be different if not using xfs)
-packages+=("xfsprogs" "papirus-icon-theme")
+# file system and drive utilities
+# (this will be different if not using xfs)
+packages+=("xfsprogs" "dosfstools" "smartmontools")
 
 # development tools
-packages+=("base-devel" "make" "cmake" "clang" "gdb" "npm" "neovim" "jdk-openjdk")
+packages+=("base-devel" "make" "cmake" "gdb")
+packages+=("neovim" "jdk-openjdk" "npm")
+
+# language servers
+packages+=("pyright" "clang" "lua-language-server")
 
 # CLI tools
-packages+=("udisks2" "fastfetch" "zip" "unzip" "yt-dlp")
-packages+=("maim" "xclip" "wget" "curl" "htop" "git" "openssh")
-packages+=("usleep" "alacritty")
+packages+=("alacritty" "fastfetch" "udisks2"  "unzip" )
+packages+=("maim" "xclip" "wget" "curl" "htop" "git" )
+packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
 
 # fonts
 packages+=("noto-fonts noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 
 # sound system
-packages+=("pipewire" "lib32-pipewire" "pipewire-audio" "pipewire-pulse")
-packages+=("pipewire-jack" "blueman" "wireplumber" "pavucontrol")
+packages+=("pipewire" "lib32-pipewire" "pipewire-audio" )
+packages+=("pipewire-jack" "pipewire-pulse" "wireplumber")
+packages+=("blueman")
 
 # misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib" "xdg-desktop-portal-gtk")
-packages+=("picom" "ripgrep" "fd" "gnome-keyring" "proton-vpn-gtk-app" "qbittorrent")
-packages+=("libnatpmp" "polkit-gnome")
+packages+=("xdg-user-dirs" "pacman-contrib" "fd")
+packages+=("ripgrep" "gnome-keyring" "libnatpmp")
+packages+=("polkit-gnome" "xdg-desktop-portal-gtk")
 
 # display server & X tools
-packages+=("xorg-server" "xorg-xinit" "xorg-xrandr" "xorg-xsetroot")
-packages+=("awesome")
+packages+=("xorg-server" "xorg-xinit")
+packages+=("xorg-xrandr" "awesome" "picom")
 
-# graphical utilities
-packages+=("mpv" "loupe" "network-manager-applet" "arandr")
+# graphical front-ends
+packages+=("network-manager-applet" "arandr")
+packages+=("proton-vpn-gtk-app" "pavucontrol")
+
+# multimedia
+packages+=("mpv" "loupe" "qbittorrent" "deadbeef")
 
 # file manager
-packages+=("thunar" "thunar-volman" "gvfs" "gvfs-mtp" "tumbler")
-packages+=("ffmpegthumbnailer")
+packages+=("thunar" "thunar-volman" "tumbler")
+packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
 # web browsers
-packages+=()
+packages+=("brave-bin")
 
 # communication
 packages+=("discord")
 
-# game launchers
-packages+=("steam" "dolphin-emu")
+# gaming stuff
+packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
+
+# cosmetic
+package+=("papirus-icon-theme")
 
 # random fun stuff
 packages+=("cava")
@@ -67,8 +80,8 @@ done
 
 # nvidia:
 if [[ "$option" == 1 ]]; then
-  packages+=("nvidia" "nvidia-utils" "lib32-nvidia-utils")
-  packages+=("nvidia-settings")
+  packages+=("nvidia-open" "nvidia-settings")
+  packages+=("nvidia-utils" "lib32-nvidia-utils")
 fi
 
 # intel iGPU:

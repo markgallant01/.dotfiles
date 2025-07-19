@@ -32,9 +32,14 @@ ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
 ln -sf ~/.dotfiles/gtk-3.0/ ~/.config/gtk-3.0
 
 # copy conf files to appropriate folders
-sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
+# pacman hooks
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
+# xorg configuration files
+sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
+sudo cp ~/.dotfiles/etc_conf_files/10-extensions.conf /etc/X11/xorg.conf.d/
+sudo cp ~/.dotfiles/etc_conf_files/10-serverflags.conf /etc/X11/xorg.conf.d/
+# udev rules
 sudo cp ~/.dotfiles/etc_conf_files/backlight.rules /etc/udev/rules.d/
 
 # clock synchronization service
