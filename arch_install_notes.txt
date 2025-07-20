@@ -195,30 +195,9 @@ wiki.archlinux.org.
 
     $ ~/.dotfiles/scripts/setup.sh
 
--launch the display server
-
-    $ startx
-
--authenticate with github:
--launch web browser and login to github account.
--the installer script generated new ssh keys. print the public key:
-
-    $ cat ~/.ssh/id_ed25519.pub
-
--copy this output and add it to github ssh keys
--verify the connection:
-
-    $ ssh -T git@github.com
-
--once authenticated, fix dotfiles repo:
-
-    $ rm -r ~/.dotfiles
-    $ rm ~/.dotfiles-main.zip
-    $ git clone git@github.com:markgallant01/.dotfiles.git
-
 -if nvidia drivers were installed, you must edit the file
  /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
- This ensures the junk nouveau module will not be loaded during boot:
+ This ensures the nouveau module will not be loaded during boot:
 
     $ sudo vim /etc/mkinitcpio.conf
 
@@ -226,89 +205,117 @@ wiki.archlinux.org.
 
         $ sudo mkinitcpio -P
 
--now reboot and you should be finished:
+-Reboot and then launch the display server
 
-    $ reboot
+    $ startx
 
 /*********************/
-/* FINISHING TOUCHES */
+/* POST-INSTALLATION */
 /*********************/
 
--First, setup Brave. Launch Brave and log in so it syncs
- everything.
--Install and log in to Lastpass so we get all our passwords.
--Set the initial UI stuff that does not sync. Set the bookmark bar
- to 'always show'
--remove the unnecessary icons around the extentions and make sure
- Lastpass and Ublock are shown
--go into the settings and make sure everything looks right. Disable
- all search suggestions and set the default search engine to DuckDuckGo.
--Under 'Privacy & Security' disable 'Ask to save passwords', and all the
- 'Autofill' options. Disable all history saving.
--make sure the noto fonts are set correctly. They should be setup
- automatically.
--go through the settings for each extensions and enable them for Private
- browser tabs
--Go into the special Lastpass settings and disable autofill.
+-Some things cannot easily be automated and require manual setup here.
+-Starting with Brave and LastPass is easiest because you'll need to
+ log into things
 
--launch discord once to generate the config file.
--add the shown line in this file so Discord doesn't refuse to launch
- if there's an update that's not in the repo yet:
+BRAVE & LASTPASS:
+    -Launch Brave and bring up the settings
+    -go down through the settings and set things up how you like
+    -when you get to Sync, sync it with your phone
+    -Install LastPass & Reddit Enhancement Suite extensions
+        -Go into the LastPass extension settings and disable
+         "Automatically fill login information"
+        -make sure both extensions are pinned and active in private
+         browser sessions
+    -double check the browser font settings and set the history to
+     wipe every time you close the browser. Disable any kind of
+     autofill
 
-    ~/.config/discord/settings.json
-    "SKIP_HOST_UPDATE": true
+DISCORD:
+    -launch discord once to generate the config file.
+    -add the shown line in this file so Discord doesn't refuse
+     to launch if there's an update that's not in the repo yet:
 
--Log into discord and set it up. Set the font size to 20. Set mic
- threshold.
--Disable 'minimize to tray' and automatic startup under Linux settings
+        ~/.config/discord/settings.json
+        "SKIP_HOST_UPDATE": true
 
--On desktop, use this command to set the volume to 100%:
+    -go into the discord settings and set the font size to 20.
+    -adjust the mic threshold if you have a microphone setup
+    -Disable 'minimize to tray' and automatic startup under
+     Linux settings
 
-    $ pactl set-sink-volume @DEFAULT_SINK@ 100%
+THUNAR:
+    -edit /usr/share/gvfs/mounts/network.mount and change
+     the last line to:
 
--create additional directories in the home directory
- for any internal or external drives you want to mount:
+        /usr/share/gvfs/mounts/network.mount
+        AutoMount=false
 
-    $ mkdir nvme_games ssd_storage
+    -this helps with thunar taking a long time to startup the
+     first time
 
--set up the fstab here so that drives auto mount. Consult
- https://wiki.archlinux.org/title/Fstab for reference.
+WALLPAPERS:
+    -Log into google drive and download the Wallpaper folder.
+    -Unzip that folder into the ~/Pictures/ directory to make
+     them useable by the system's wallpaper scripts
 
--place any wallpapers in ~/Photos/wallpaper/ for feh to use them
+GITHUB:
+    -authenticate with github:
+    -launch web browser and login to github account.
+    -the installer script generated new ssh keys.
+    -print the public key:
+
+        $ cat ~/.ssh/id_ed25519.pub
+
+    -copy this output and add it to github ssh keys
+    -verify the connection:
+
+        $ ssh -T git@github.com
+
+    -once authenticated, fix dotfiles repo:
+
+        $ rm -r ~/.dotfiles
+        $ rm ~/.dotfiles-main.zip
+        $ git clone git@github.com:markgallant01/.dotfiles.git
+
+/******************/
+/* OPTIONAL STUFF */
+/******************/
+
+-This stuff depends on the PC setup and may or may not be done
+
+VOLUME:
+    -On desktop, you probably want to set the volume to 100%:
+
+        $ pactl set-sink-volume @DEFAULT_SINK@ 100%
+
+EXTERNAL DRIVES:
+    -create additional directories in the home directory
+     for any internal or external drives you want to mount:
+
+        $ mkdir nvme_games ssd_storage
+
+    -set up the fstab here so that drives auto mount. Consult
+     https://wiki.archlinux.org/title/Fstab for reference.
 
 /***********/
 /* THE END */
 /***********/
 
 To-do:
-    -go through Discord and Thunar arch wiki pages and add whatever
-     stuff we were looking at earlier
     -figure out how to make wallpaper set a default arch wallpaper
      when its run without the wallpaper folder existing yet
-    -if we setup the chaotic aur repo before running the
-     installation script, we can put all our programs into
-     one script. try to do this
     -run through the general recommendations found here:
      https://wiki.archlinux.org/title/General_recommendations
     -I love this console rain:
         https://github.com/saitamasahil/matrix
      so figure out how to incorporate this into our setup
-    -remove the yay stuff from the guide because we dont
-     need it if were gonna use chaotic aur
     -add a section somewhere to set up pacman cache clearing timer.
      consult the pacman maintenance page
-    -add discord config file to dotfiles repo to automate that step
-    -thunar starts up slowly on the first launch so look
-     into that. read about daemon mode. there stuff about
-     it on the arch page
     -take another look at awesomeWM and try to figure out the bar /
      widget system. it would be cleaner to use widgets for the top bar
      and for system info so we dont require polybar and conky. polybar
      is having some weird issues with how it interacts with the WM so
      it would just be cleaner.
-    -get wallpaper script fully working with the day / night thing and
-     look for new wallpapers for everything. i think i would prefer
-     drawn stuff to the real images. check reddit for good stuff.
     -figure out a nice font with the dot in the zero to
      use absolutely everywhere
     -get subtitle puller addon thing for jellyfin. check
@@ -327,7 +334,6 @@ To-do:
     -problem with fullscreen since we added the floating rule so figure
      that out
     -get jellyfin up and running for media consumption
-    -check out more wallpapers because the drawn ones seem better
     -make a nice landing page on web browser with common sites like
      arch wiki, reddit, youtube, etc. don't show bookmark bar by default
      because i rarely ever click it directly
