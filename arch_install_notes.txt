@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -get bookmarks transferred from Firefox to Brave temporarily.
+     then get them transferred to a third-party option like Raindrop.io
     -figure out how to make wallpaper set a default arch wallpaper
      when its run without the wallpaper folder existing yet
     -run through the general recommendations found here:
