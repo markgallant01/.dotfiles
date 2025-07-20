@@ -221,6 +221,10 @@ BRAVE & LASTPASS:
     -Launch Brave and bring up the settings
     -go down through the settings and set things up how you like
     -when you get to Sync, sync it with your phone
+    -Extensions to install:
+        -Reddit Enhancement Suite
+        -Raindrop.io
+        -LastPass
     -Install LastPass & Reddit Enhancement Suite extensions
         -Go into the LastPass extension settings and disable
          "Automatically fill login information"
