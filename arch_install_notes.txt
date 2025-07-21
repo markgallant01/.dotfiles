@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -set Rofi up
     -figure out how to make wallpaper set a default arch wallpaper
      when its run without the wallpaper folder existing yet
     -run through the general recommendations found here:
