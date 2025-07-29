@@ -306,6 +306,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -reconfigure the brave section to be about firefox. make homescreen
+     using common websites. currently: DGG, Github, Reddit, Wikipedia,
+     Arch Wiki, Arch Repository, Chaotic AUR, Raindrop(X), Drive,
+     Gumaverse, /tv/, /g/
     -add a section for configuring thunar maybe. enabling auto mounting
      of usb drives and displaying hidden files, anything else.
     -think about dwm vs awesome because i just dont know
