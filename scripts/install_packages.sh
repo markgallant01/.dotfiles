@@ -44,7 +44,7 @@ packages+=("proton-vpn-gtk-app" "pavucontrol")
 packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
 
 # multimedia
-packages+=("mpv" "loupe" "qbittorrent" "deadbeef")
+packages+=("mpv" "ffmpeg" "loupe" "qbittorrent" "deadbeef")
 
 # file system and drive utilities
 # (this will be different if not using xfs)
