@@ -52,7 +52,8 @@ vim.cmd("autocmd BufRead * normal zR")
 -- [[Diagnostic Config]]
 vim.diagnostic.config({
   virtual_text = false,
-  underline = false,
+  underline = true,
+  update_in_insert = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '',
