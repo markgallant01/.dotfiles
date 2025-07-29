@@ -306,6 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -maybe go back to firefox because brave is shitty and bloated
+     and chromium uses manifestV3 so can't adblock. maybe keep
+     chromium as an alternative testing browser
     -figure out what we need to do to set fonts system-wide. Awesome,
      terminal (alacritty), neovim, Brave, etc all need to use the same
      font
