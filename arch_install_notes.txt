@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -add a section for configuring thunar maybe. enabling auto mounting
+     of usb drives and displaying hidden files, anything else.
     -think about dwm vs awesome because i just dont know
     -use betterfox and update the part of the installer that deals
      with configuring Brave
