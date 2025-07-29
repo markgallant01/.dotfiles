@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -use betterfox and update the part of the installer that deals
+     with configuring Brave
     -maybe go back to firefox because brave is shitty and bloated
      and chromium uses manifestV3 so can't adblock. maybe keep
      chromium as an alternative testing browser
