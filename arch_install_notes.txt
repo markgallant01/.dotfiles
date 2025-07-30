@@ -272,11 +272,15 @@ GITHUB:
 
         $ ssh -T git@github.com
 
-    -once authenticated, fix dotfiles repo:
+    -once authenticated, fix cloned repos
 
-        $ rm -r ~/.dotfiles
-        $ rm ~/.dotfiles-main.zip
+        $ rm -rf ~/.dotfiles
+        $ rm -rf ~/dwm
+        $ rm -rf ~/st
+
         $ git clone git@github.com:markgallant01/.dotfiles.git
+        $ git clone git@github.com:markgallant01/dwm.git
+        $ git clone git@github.com:markgallant01/st.git
 
 /******************/
 /* OPTIONAL STUFF */
