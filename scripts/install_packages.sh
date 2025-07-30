@@ -15,7 +15,7 @@ packages+=("maim" "xclip" "wget" "curl" "htop" "git" )
 packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
 
 # misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib" "fd")
+packages+=("xdg-user-dirs" "pacman-contrib" "fd" "rofi")
 packages+=("ripgrep" "gnome-keyring" "libnatpmp")
 packages+=("polkit-gnome" "xdg-desktop-portal-gtk")
 
@@ -44,7 +44,7 @@ packages+=("proton-vpn-gtk-app" "pavucontrol")
 packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
 
 # multimedia
-packages+=("mpv" "ffmpeg" "loupe" "qbittorrent" "deadbeef")
+packages+=("mpv" "ffmpeg" "feh" "qbittorrent" "deadbeef")
 
 # file system and drive utilities
 # (this will be different if not using xfs)
@@ -60,7 +60,7 @@ packages+=("noto-fonts" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 package+=("papirus-icon-theme")
 
 # web browsers
-packages+=("chromium")
+packages+=("chromium" "firefox")
 
 # communication
 packages+=("discord")
