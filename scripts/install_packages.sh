@@ -95,5 +95,5 @@ fi
 #fi
 
 # install all the compiled packages
-sudo pacman -S --needed "${packages[@]}"
+sudo pacman -S --noconfirm --needed "${packages[@]}"
 
