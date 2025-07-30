@@ -181,10 +181,7 @@ wiki.archlinux.org.
 
 -download the setup and config files:
 
-    $ curl -LJO https://github.com/markgallant01/.dotfiles\
-        /archive/refs/heads/main.zip
-    $ unzip .dotfiles-main.zip
-    $ mv .dotfiles-main .dotfiles
+    $ git clone https://github.com/markgallant01/.dotfiles.git
 
 -make the setup scripts executable:
 
