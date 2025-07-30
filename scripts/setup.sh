@@ -78,3 +78,17 @@ ssh-keygen -t ed25519 -C markgallant01@gmail.com
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
+# clone and install dwm
+git clone https://github.com/markgallant01/dwm.git
+cd dwm
+sudo make install
+make clean
+cd
+
+# clone and install st
+git clone https://github.com/markgallant01/st.git
+cd st
+sudo make install
+make clean
+cd
+
