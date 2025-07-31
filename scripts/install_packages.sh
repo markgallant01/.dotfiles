@@ -10,7 +10,7 @@ set -x
 declare -a packages=()
 
 # CLI tools
-packages+=("alacritty" "fastfetch" "udisks2"  "unzip" )
+packages+=("fastfetch" "udisks2"  "unzip" "unzip" )
 packages+=("maim" "xclip" "wget" "curl" "htop" "git" )
 packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
 
@@ -34,7 +34,7 @@ packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit")
-packages+=("xorg-xrandr" "awesome" "picom")
+packages+=("xorg-xrandr" "picom")
 
 # graphical front-ends
 packages+=("network-manager-applet" "arandr")
