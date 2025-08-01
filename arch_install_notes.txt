@@ -307,6 +307,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -write a second guide for gentoo based on this one so that both
+     installs are identical and can be compared.
+    -check out tlp for power management on laptops. helps with battery
+     life potentially a lot
     -reconfigure the brave section to be about firefox. make homescreen
      using common websites. currently: DGG, Github, Reddit, Wikipedia,
      Arch Wiki, Arch Repository, Chaotic AUR, Raindrop(X), Drive,
