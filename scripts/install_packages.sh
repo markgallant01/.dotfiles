@@ -60,7 +60,7 @@ packages+=("noto-fonts" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 package+=("papirus-icon-theme")
 
 # web browsers
-packages+=("chromium" "firefox")
+packages+=("firefox")
 
 # communication
 packages+=("discord")
