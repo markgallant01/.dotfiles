@@ -211,16 +211,15 @@ wiki.archlinux.org.
 /*********************/
 
 -Some things cannot easily be automated and require manual setup here.
--Starting with Brave and LastPass is easiest because you'll need to
+-Starting with Firefox and LastPass is easiest because you'll need to
  log into things
 
-BRAVE & LASTPASS:
-    -Launch Brave and bring up the settings
-    -go down through the settings and set things up how you like
-    -when you get to Sync, sync it with your phone
+FIREFOX & LASTPASS:
+    -Launch Firefox and sign in to start syncing everything
+    -go down through the settings and verify everything
     -Extensions to install:
+        -uBlock Origin
         -Reddit Enhancement Suite
-        -Raindrop.io
         -LastPass
     -Install LastPass & Reddit Enhancement Suite extensions
         -Go into the LastPass extension settings and disable
