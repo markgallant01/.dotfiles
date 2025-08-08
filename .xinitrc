@@ -45,7 +45,6 @@ blueman-applet &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
-#~/.dotfiles/scripts/start_polybar.sh &
 
 # set initial brightness to half
 # think of a better way to do this that doesnt depend on the hostname
@@ -54,6 +53,5 @@ if [[ "$hostname" == "archThinkpad" ]]; then
     echo 426 > /sys/class/backlight/intel_backlight/brightness
 fi
 
-#exec awesome
-exec dwm
+exec ~/.dotfiles/scripts/start_dwm.sh
 
