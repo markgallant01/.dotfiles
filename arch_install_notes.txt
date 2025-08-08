@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -setup slock
     -set up 2 factor auth with the lastpass authenticator because
      google's authentication sucks
     -write a second guide for gentoo based on this one so that both
