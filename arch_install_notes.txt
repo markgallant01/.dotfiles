@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -look into gentoo mirrors and rsync mirrors
     -setup slock
     -set up 2 factor auth with the lastpass authenticator because
      google's authentication sucks
