@@ -45,6 +45,7 @@ blueman-applet &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
+~/.dotfiles/scripts/update_statusbar.sh &
 
 # set keyboard repetition rate and delay
 xet r rate 250 30
