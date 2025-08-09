@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -rework nvim config because startup time is attrocious. trim down
+     addons. consider trying native package manager
     -look into gentoo mirrors and rsync mirrors
     -setup slock
     -set up 2 factor auth with the lastpass authenticator because
