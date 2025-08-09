@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -add xsetroot to gentoo installation and section for dmenu setup
     -rework nvim config because startup time is attrocious. trim down
      addons. consider trying native package manager
     -look into gentoo mirrors and rsync mirrors
