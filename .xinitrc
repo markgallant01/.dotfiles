@@ -48,7 +48,7 @@ thunar --daemon &
 ~/.dotfiles/scripts/update_statusbar.sh &
 
 # set keyboard repetition rate and delay
-xet r rate 250 30
+xset r rate 250 30
 
 # set initial brightness to half
 # think of a better way to do this that doesnt depend on the hostname
