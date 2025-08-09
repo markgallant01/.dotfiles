@@ -56,7 +56,7 @@ else
             awk '{printf("%2d", $1)}')
         root_str+="[BAT:$bat0_pow%] "
     fi
-    
+
     if [ -d "$bat1" ]; then
         # directory exists
         root_str+="[BAT:$bat1_pow%] "
