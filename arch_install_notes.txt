@@ -308,8 +308,6 @@ EXTERNAL DRIVES:
 To-do:
     -st finally done I think so start modifying dwm to get it perfect.
      start with keybinds.
-    -keyboard delay and repeat rate aren't saving when we reset dwm so
-     look into that
     -add xsetroot to gentoo installation and section for dmenu setup
     -rework nvim config because startup time is attrocious. trim down
      addons. consider trying native package manager
