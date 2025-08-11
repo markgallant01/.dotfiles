@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -nvim takes way too long to startup so troubleshoot that:
+     :Lazy profile
     -add xdg-user-dirs to installation and run the command:
      xdg-user-dirs-update at some point after logged in as the new user
     -reduce keyboard repeat delay even more if possible
