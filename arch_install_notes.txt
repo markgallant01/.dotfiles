@@ -306,6 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -add xdg-user-dirs to installation and run the command:
+     xdg-user-dirs-update at some point after logged in as the new user
+    -reduce keyboard repeat delay even more if possible
     -st finally done I think so start modifying dwm to get it perfect.
      start with keybinds.
     -add xsetroot to gentoo installation and section for dmenu setup
