@@ -306,6 +306,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -the dwm systray and alpha patches conflict with each other so if
+     we want transparent top bar in the future we will need to figure
+     that out or switch to another bar like polybar so think about
+     that
     -nvim takes way too long to startup so troubleshoot that:
      :Lazy profile
     -add xdg-user-dirs to installation and run the command:
