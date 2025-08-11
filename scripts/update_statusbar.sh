@@ -26,7 +26,7 @@ vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
     grep --only-matching -P '\d*%' | head -1 | \
     awk '{printf("%2d", $1)}')
 
-root_str+="[VOL:$vol%] "
+root_str+="󰕾"
 
 # date
 date=$( date +"%m-%d-%Y" )
@@ -46,7 +46,7 @@ if [[ -d "$bat0" ]] && [[ -d "$bat1" ]]; then
         awk '{printf("%2d", $1)}')
 
     total_pow=$(( (bat0_pow + bat1_pow) / 2 ))
-    root_str+="[BAT:$total_pow%] "
+    root_str+="󰁹"
 else
     # take whichever battery exists, not sure if 0 or 1 on a single
     # battery system
@@ -69,7 +69,7 @@ fi
 # time
 time=$( date +"%I:%M%p" )
 
-root_str+="[$time]"
+root_str+="$time"
 
 xsetroot -name "$root_str"
 
