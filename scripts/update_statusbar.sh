@@ -26,7 +26,13 @@ vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
     grep --only-matching -P '\d*%' | head -1 | \
     awk '{printf("%2d", $1)}')
 
-root_str+="󰕾"
+if [[ "$vol" -le 33 ]]; then
+    root_str+="󰕿 "
+elif [[ "$vol" -gt 33 ]] && [[ "$vol" -le 66 ]]; then
+    root_str+="󰖀 "
+else
+    root_str+="󰕾 "
+fi
 
 # date
 date=$( date +"%m-%d-%Y" )
