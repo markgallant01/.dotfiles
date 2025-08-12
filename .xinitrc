@@ -16,7 +16,7 @@ blueman-applet &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
-#~/.dotfiles/scripts/update_statusbar.sh &
+~/.dotfiles/scripts/update_statusbar.sh &
 feh --no-fehbg --bg-fill $(~/.dotfiles/scripts/wallpaper/seasonal.sh) &
 
 # set keyboard repetition rate and delay
@@ -29,6 +29,5 @@ if [[ "$hostname" == "archThinkpad" ]]; then
     echo 426 > /sys/class/backlight/intel_backlight/brightness
 fi
 
-#exec ~/.dotfiles/scripts/start_dwm.sh
-exec awesome
+exec ~/.dotfiles/scripts/start_dwm.sh
 
