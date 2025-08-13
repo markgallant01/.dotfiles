@@ -26,6 +26,7 @@ vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
     grep --only-matching -P '\d*%' | head -1 | \
     awk '{printf("%2d", $1)}')
 
+# volume status icon
 if [[ "$vol" -le 33 ]]; then
     root_str+="󰕿 "
 elif [[ "$vol" -gt 33 ]] && [[ "$vol" -le 66 ]]; then
@@ -41,6 +42,7 @@ date=$( date +"%m-%d-%Y" )
 
 bat0=/sys/class/power_supply/BAT0
 bat1=/sys/class/power_supply/BAT1
+total_pow=0
 
 # if two batteries exist, take their combined value
 if [[ -d "$bat0" ]] && [[ -d "$bat1" ]]; then
@@ -52,7 +54,6 @@ if [[ -d "$bat0" ]] && [[ -d "$bat1" ]]; then
         awk '{printf("%2d", $1)}')
 
     total_pow=$(( (bat0_pow + bat1_pow) / 2 ))
-    root_str+="󰁹"
 else
     # take whichever battery exists, not sure if 0 or 1 on a single
     # battery system
@@ -60,7 +61,8 @@ else
         # directory exists
         bat0_pow=$( cat /sys/class/power_supply/BAT0/capacity | \
             awk '{printf("%2d", $1)}')
-        root_str+="[BAT:$bat0_pow%] "
+
+        total_pow=$bat0_pow
     fi
 
     if [ -d "$bat1" ]; then
@@ -69,8 +71,36 @@ else
 
         bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
             awk '{printf("%2d", $1)}')
+
+        total_pow=$bat1_pow
     fi
 fi
+
+# battery status icon
+if [[ "$total_pow" -le 10 ]]; then
+    root_str+="󰁺 "
+elif [[ "$total_pow" -le 20 ]]; then
+    root_str+="󰁻 "
+elif [[ "$total_pow" -le 30 ]]; then
+    root_str+="󰁼 "
+elif [[ "$total_pow" -le 40 ]]; then
+    root_str+="󰁽 "
+elif [[ "$total_pow" -le 50 ]]; then
+    root_str+="󰁾 "
+elif [[ "$total_pow" -le 60 ]]; then
+    root_str+="󰁿 "
+elif [[ "$total_pow" -le 70 ]]; then
+    root_str+="󰂀 "
+elif [[ "$total_pow" -le 80 ]]; then
+    root_str+="󰂁 "
+elif [[ "$total_pow" -le 90 ]]; then
+    root_str+="󰂂 "
+else
+    root_str+="󰁹 "
+fi
+
+# use this later for charging status
+#charg=󰂄
 
 # time
 time=$( date +"%I:%M%p" )
