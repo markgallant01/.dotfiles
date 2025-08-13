@@ -78,29 +78,41 @@ fi
 
 # battery status icon
 if [[ "$total_pow" -le 10 ]]; then
-    root_str+="󰁺 "
+    bat_stat="󰁺 "
 elif [[ "$total_pow" -le 20 ]]; then
-    root_str+="󰁻 "
+    bat_stat="󰁻 "
 elif [[ "$total_pow" -le 30 ]]; then
-    root_str+="󰁼 "
+    bat_stat="󰁼 "
 elif [[ "$total_pow" -le 40 ]]; then
-    root_str+="󰁽 "
+    bat_stat="󰁽 "
 elif [[ "$total_pow" -le 50 ]]; then
-    root_str+="󰁾 "
+    bat_stat="󰁾 "
 elif [[ "$total_pow" -le 60 ]]; then
-    root_str+="󰁿 "
+    bat_stat="󰁿 "
 elif [[ "$total_pow" -le 70 ]]; then
-    root_str+="󰂀 "
+    bat_stat="󰂀 "
 elif [[ "$total_pow" -le 80 ]]; then
-    root_str+="󰂁 "
+    bat_stat="󰂁 "
 elif [[ "$total_pow" -le 90 ]]; then
-    root_str+="󰂂 "
+    bat_stat="󰂂 "
 else
-    root_str+="󰁹 "
+    bat_stat="󰁹 "
 fi
 
-# use this later for charging status
-#charg=󰂄
+# check if any batteries are charging currently
+if [[ -d "$bat0" ]]; then
+    if [[ $( cat "$bat0"/status ) -eq "Charging" ]]; then
+        bat_stat="󰂄"
+    fi
+fi
+
+if [[ -d "$bat1" ]]; then
+    if [[ $( cat "$bat1"/status ) -eq "Charging" ]]; then
+        bat_stat="󰂄"
+    fi
+fi
+
+root_str+="$bat_stat "
 
 # time
 time=$( date +"%I:%M%p" )
