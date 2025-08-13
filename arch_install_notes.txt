@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -grub config is easy so add a section to installation about setting
+     the resolution appropriately
     -im not sure the color of the bluetooth and wifi symbols on the
      systray exactly match the pure white #ffffff of the statusbar icons
      I set up so find a way to verify this
