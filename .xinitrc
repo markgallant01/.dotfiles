@@ -31,7 +31,7 @@ fi
 # statusbar loop
 while true; do
     ~/.dotfiles/scripts/update_statusbar.sh
-    sleep 5s
+    sleep 1s
 done &
 
 exec ~/.dotfiles/scripts/start_dwm.sh
