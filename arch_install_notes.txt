@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -consider adding a section for steam setup including log-in and
+     settings. disable gpu acceleration because it sucks shit
     -pretty much done configuring dwm so move on to dmenu
     -grub config is easy so add a section to installation about setting
      the resolution appropriately
