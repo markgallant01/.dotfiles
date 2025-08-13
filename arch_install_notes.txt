@@ -306,11 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -pretty much done configuring dwm so move on to dmenu
     -grub config is easy so add a section to installation about setting
      the resolution appropriately
-    -im not sure the color of the bluetooth and wifi symbols on the
-     systray exactly match the pure white #ffffff of the statusbar icons
-     I set up so find a way to verify this
     -x11-misc/notification-daemon is leaving a systray icon for missed
      notifications and i dont like it. add dunst to the installation
      list so that x11-misc/notification-daemon isn't pulled in by
