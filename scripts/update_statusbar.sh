@@ -28,11 +28,11 @@ vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
 
 # volume status icon
 if [[ "$vol" -le 33 ]]; then
-    root_str+="󰕿 "
+    root_str+=" 󰕿 "
 elif [[ "$vol" -gt 33 ]] && [[ "$vol" -le 66 ]]; then
-    root_str+="󰖀 "
+    root_str+=" 󰖀 "
 else
-    root_str+="󰕾 "
+    root_str+=" 󰕾 "
 fi
 
 # date
@@ -112,12 +112,12 @@ if [[ -d "$bat1" ]]; then
     fi
 fi
 
-root_str+="$bat_stat"
+root_str+=" $bat_stat"
 
 # time
 time=$( date +"%I:%M%P" )
 
-root_str+="$time"
+root_str+=" $time"
 
 # fancy distro icon
 root_str+=" "
