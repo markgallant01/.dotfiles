@@ -115,9 +115,12 @@ fi
 root_str+="$bat_stat "
 
 # time
-time=$( date +"%I:%M%p" )
+time=$( date +"%I:%M%P" )
 
 root_str+="$time"
+
+# fancy distro icon
+root_str+=" "
 
 xsetroot -name "$root_str"
 
