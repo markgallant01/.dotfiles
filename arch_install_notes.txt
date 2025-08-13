@@ -306,6 +306,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -x11-misc/notification-daemon is leaving a systray icon for missed
+     notifications and i dont like it. add dunst to the installation
+     list so that x11-misc/notification-daemon isn't pulled in by
+     libnotify and then configure dunst at some point
     -find nice drawn wallpapers for fall / winter / spring just like
      we did for summer
     -nvim takes way too long to startup so troubleshoot that:
