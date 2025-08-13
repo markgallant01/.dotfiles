@@ -112,7 +112,7 @@ if [[ -d "$bat1" ]]; then
     fi
 fi
 
-root_str+="$bat_stat "
+root_str+="$bat_stat"
 
 # time
 time=$( date +"%I:%M%P" )
