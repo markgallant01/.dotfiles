@@ -306,6 +306,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -organize all the programs we compile from source into one folder
+     so they're not just cluttering up our home folder and we can easily
+     keep track of them
+    -get minecraft and wow added to the installer thing
     -sort all bookmarks
     -go through the browser setup section and make sure it's good
      for firefox. basically just log in and set settings and everything
