@@ -306,6 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -go through the browser setup section and make sure it's good
+     for firefox. basically just log in and set settings and everything
+     should sync
     -use the mouse keybindings in dwm to set a master toggle. consider
      a wallpaper switching keybind like before.
     -think about a screen locker and blocking tty and blocking killing
