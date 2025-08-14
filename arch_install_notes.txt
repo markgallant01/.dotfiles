@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -sort all bookmarks
     -go through the browser setup section and make sure it's good
      for firefox. basically just log in and set settings and everything
      should sync
