@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -install base vim so we get vimtutor
     -get a good st colorscheme
     -organize all the programs we compile from source into one folder
      so they're not just cluttering up our home folder and we can easily
