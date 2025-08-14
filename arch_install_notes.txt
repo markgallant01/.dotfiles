@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -use the mouse keybindings in dwm to set a master toggle. consider
+     a wallpaper switching keybind like before.
     -think about a screen locker and blocking tty and blocking killing
      the x server and whatever else. this is kinda complex and we might
      want a login manager to bypass it
