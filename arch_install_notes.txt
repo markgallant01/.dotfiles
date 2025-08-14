@@ -306,6 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -think about a screen locker and blocking tty and blocking killing
+     the x server and whatever else. this is kinda complex and we might
+     want a login manager to bypass it
     -consider adding a section for steam setup including log-in and
      settings. disable gpu acceleration because it sucks shit
     -pretty much done configuring dwm so move on to dmenu
