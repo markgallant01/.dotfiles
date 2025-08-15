@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -add a symlink for .Xresources
     -add rofi folder symlink:
      ln -sf ~/.dotfiles/rofi/ ~/.local/share/rofi
     -get a good st colorscheme
