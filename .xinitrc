@@ -1,5 +1,17 @@
 #!/bin/sh
 
+xrdb="xrdb"
+
+userresources="$HOME/.Xresources"
+
+if [ -f "$userresources" ]; then
+    if [ -x /usr/bin/cpp ] ; then
+        "$xrdb" -merge "$userresources"
+    else
+        "$xrdb" -nocpp -merge "$userresources"
+    fi
+fi
+
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
