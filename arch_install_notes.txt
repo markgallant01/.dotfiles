@@ -306,6 +306,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -making dmenu look good is too difficult so just use rofi if you
+     want something that looks good and revert dmenu to base install
+     for a lighter default option if we ever want it
     -get or make a good terminal theme probably copy solarized osaka
     -add a symlink for .Xresources
     -add rofi folder symlink:
