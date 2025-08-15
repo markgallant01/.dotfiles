@@ -322,13 +322,12 @@ To-do:
     -go through the browser setup section and make sure it's good
      for firefox. basically just log in and set settings and everything
      should sync
-    - consider a wallpaper switching keybind in dwm like before.
+    -consider a wallpaper switching keybind in dwm like before.
     -think about a screen locker and blocking tty and blocking killing
      the x server and whatever else. this is kinda complex and we might
      want a login manager to bypass it
     -consider adding a section for steam setup including log-in and
      settings. disable gpu acceleration because it sucks shit
-    -pretty much done configuring dwm so move on to dmenu
     -grub config is easy so add a section to installation about setting
      the resolution appropriately
     -x11-misc/notification-daemon is leaving a systray icon for missed
