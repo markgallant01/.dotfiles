@@ -67,8 +67,6 @@ else
 
     if [ -d "$bat1" ]; then
         # directory exists
-        root_str+="[BAT:$bat1_pow%] "
-
         bat1_pow=$( cat /sys/class/power_supply/BAT1/capacity | \
             awk '{printf("%2d", $1)}')
 
@@ -101,13 +99,13 @@ fi
 
 # check if any batteries are charging currently
 if [[ -d "$bat0" ]]; then
-    if [[ $( cat "$bat0"/status ) -eq "Charging" ]]; then
+    if [[ $( cat "$bat0"/status ) == "Charging" ]]; then
         bat_stat="󰂄"
     fi
 fi
 
 if [[ -d "$bat1" ]]; then
-    if [[ $( cat "$bat1"/status ) -eq "Charging" ]]; then
+    if [[ $( cat "$bat1"/status ) == "Charging" ]]; then
         bat_stat="󰂄"
     fi
 fi
