@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -get or make a good terminal theme probably copy solarized osaka
     -add a symlink for .Xresources
     -add rofi folder symlink:
      ln -sf ~/.dotfiles/rofi/ ~/.local/share/rofi
