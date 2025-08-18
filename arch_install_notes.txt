@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -think about if we want the mouse warp feature in dwm or not
     -revert dmenu to a base install, add our patches to it, dont add
      the center patch instead use the xyw patch. do biggest patches
      first. start with alpha probably. apply that prompt patch from
