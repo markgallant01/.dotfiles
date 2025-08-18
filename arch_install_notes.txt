@@ -306,6 +306,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -check out librewolf instead of firefox. will need an addon for
+     signing in and syncing stuff
     -making dmenu look good is too difficult so just use rofi if you
      want something that looks good and revert dmenu to base install
      for a lighter default option if we ever want it
