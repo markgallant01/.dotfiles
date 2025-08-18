@@ -306,6 +306,11 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -revert dmenu to a base install, add our patches to it, dont add
+     the center patch instead use the xyw patch. do biggest patches
+     first. start with alpha probably. apply that prompt patch from
+     the suckless subreddit and add the fix as a separate commit so
+     the tree makes sense
     -check out librewolf instead of firefox. will need an addon for
      signing in and syncing stuff
     -making dmenu look good is too difficult so just use rofi if you
