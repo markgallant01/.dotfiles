@@ -11,8 +11,8 @@ declare -a packages=()
 
 # CLI tools
 packages+=("fastfetch" "udisks2"  "unzip" "git")
-packages+=("maim" "xclip" "wget" "curl" "htop")
-packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
+packages+=("maim" "xclip" "wget" "curl")
+packages+=("usleep" "btop" "openssh" "yt-dlp" "zip")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "fd" "rofi")
@@ -54,7 +54,7 @@ packages+=("xfsprogs" "dosfstools" "smartmontools")
 packages+=("pyright" "clang" "lua-language-server")
 
 # fonts
-packages+=("noto-fonts" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
+packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 
 # cosmetic
 package+=("papirus-icon-theme")
