@@ -306,6 +306,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -check out the qtile-extras when we start ricing
     -start configuring qtile and see what we think
     -done with dmenu so start ricing rofi
     -the Xresources patch for dmenu sucks so come back to that later
