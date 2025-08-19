@@ -274,12 +274,8 @@ GITHUB:
     -once authenticated, fix cloned repos
 
         $ rm -rf ~/.dotfiles
-        $ rm -rf ~/dwm
-        $ rm -rf ~/st
 
         $ git clone git@github.com:markgallant01/.dotfiles.git
-        $ git clone git@github.com:markgallant01/dwm.git
-        $ git clone git@github.com:markgallant01/st.git
 
 /******************/
 /* OPTIONAL STUFF */
