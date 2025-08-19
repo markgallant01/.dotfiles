@@ -311,13 +311,6 @@ To-do:
     -the Xresources patch for dmenu sucks so come back to that later
      and think of how best to coordinate colors between dmenu and dwm
     -think about if we want the mouse warp feature in dwm or not
-    -revert dmenu to a base install, add our patches to it, dont add
-     the center patch instead use the xyw patch. do biggest patches
-     first. start with alpha probably. apply that prompt patch from
-     the suckless subreddit and add the fix as a separate commit so
-     the tree makes sense
-    -check out librewolf instead of firefox. will need an addon for
-     signing in and syncing stuff
     -get or make a good terminal theme probably copy solarized osaka
     -add a symlink for .Xresources
     -add rofi folder symlink:
@@ -337,27 +330,16 @@ To-do:
      want a login manager to bypass it
     -consider adding a section for steam setup including log-in and
      settings. disable gpu acceleration because it sucks shit
-    -grub config is easy so add a section to installation about setting
-     the resolution appropriately
-    -x11-misc/notification-daemon is leaving a systray icon for missed
-     notifications and i dont like it. add dunst to the installation
-     list so that x11-misc/notification-daemon isn't pulled in by
-     libnotify and then configure dunst at some point
     -find nice drawn wallpapers for fall / winter / spring just like
      we did for summer
     -nvim takes way too long to startup so troubleshoot that:
      :Lazy profile
-    -add xdg-user-dirs to installation and run the command:
-     xdg-user-dirs-update at some point after logged in as the new user
     -reduce keyboard repeat delay even more if possible
     -rework nvim config because startup time is attrocious. trim down
      addons. consider trying native package manager
-    -look into gentoo mirrors and rsync mirrors
     -setup slock or another screen locker
     -set up 2 factor auth with the lastpass authenticator because
      google's authentication sucks
-    -write a second guide for gentoo based on this one so that both
-     installs are identical and can be compared.
     -check out tlp for power management on laptops. helps with battery
      life potentially a lot
     -reconfigure the brave section to be about firefox. make homescreen
