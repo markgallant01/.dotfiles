@@ -43,13 +43,13 @@ git config --global pull.rebase false
 
 # symlink settings files
 ln -sf ~/.dotfiles/alacritty/ ~/.config/alacritty
-ln -sf ~/.dotfiles/awesome/ ~/.config/awesome
 ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/gtk-3.0/ ~/.config/gtk-3.0
 ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
 ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
 ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
 ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
+ln -sf ~/.dotfiles/qtile/ ~/.config/qtile
 
 # copy conf files to appropriate folders
 # pacman hooks
@@ -77,18 +77,4 @@ sudo systemctl enable bluetooth
 ssh-keygen -t ed25519 -C markgallant01@gmail.com
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-
-# clone and install dwm
-git clone https://github.com/markgallant01/dwm.git
-cd dwm
-sudo make install
-make clean
-cd
-
-# clone and install st
-git clone https://github.com/markgallant01/st.git
-cd st
-sudo make install
-make clean
-cd
 
