@@ -10,8 +10,8 @@ set -x
 declare -a packages=()
 
 # CLI tools
-packages+=("fastfetch" "udisks2"  "unzip" "unzip" )
-packages+=("maim" "xclip" "wget" "curl" "htop" "git" )
+packages+=("fastfetch" "udisks2"  "unzip" "git")
+packages+=("maim" "xclip" "wget" "curl" "htop")
 packages+=("usleep" "s-tui" "openssh" "yt-dlp" "zip")
 
 # misc utilities
