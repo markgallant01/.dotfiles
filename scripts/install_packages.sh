@@ -57,7 +57,7 @@ packages+=("pyright" "clang" "lua-language-server")
 packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 
 # cosmetic
-package+=("papirus-icon-theme")
+packages+=("papirus-icon-theme")
 
 # web browsers
 packages+=("firefox")
