@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -supress the output from tty because its polluting the login screen
+     (or use a login manager)
     -check out the qtile-extras when we start ricing
     -start configuring qtile and see what we think
     -done with dmenu so start ricing rofi
