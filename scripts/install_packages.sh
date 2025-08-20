@@ -51,7 +51,7 @@ packages+=("mpv" "ffmpeg" "feh" "qbittorrent" "deadbeef")
 packages+=("xfsprogs" "dosfstools" "smartmontools")
 
 # language servers
-packages+=("pyright" "clang" "lua-language-server")
+packages+=("bash-language-server" "clang" "lua-language-server" "pyright")
 
 # fonts
 packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
