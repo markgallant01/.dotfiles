@@ -123,9 +123,10 @@ require('plugins/bufferline')
 require('plugins/trailspace')
 
 -- LSP servers
-vim.lsp.enable('pyright')
-vim.lsp.enable('lua_ls')
+vim.lsp.enable('bashls')
 vim.lsp.enable('clangd')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('pyright')
 
 -- keymaps last because they need access to plugins
 require('keymaps')
