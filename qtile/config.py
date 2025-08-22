@@ -150,8 +150,10 @@ screens = [
                 widget.CurrentLayout(),
                 widget.Prompt(),
                 widget.Spacer(bar.STRETCH),
+                widget.Clock(format="%e %B, %Y"),
+                widget.Spacer(bar.STRETCH),
                 widget.Systray(),
-                widget.Clock(format="%I:%M %p"),
+                widget.Clock(format="%I:%M%P"),
             ],
             28,
             # Draw top and bottom borders
