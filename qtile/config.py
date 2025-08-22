@@ -151,9 +151,9 @@ screens = [
                 widget.GroupBox(),
                 widget.CurrentLayout(),
                 widget.Prompt(),
-                widget.WindowName(),
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
+                widget.Spacer(bar.STRETCH),
                 widget.Systray(),
                 widget.Clock(format="%I:%M %p"),
             ],
