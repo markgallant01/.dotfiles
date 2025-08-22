@@ -93,8 +93,7 @@ for vt in range(1, 8):
             f"f{vt}",
             lazy.core.change_vt(vt)
                 .when(func=lambda: qtile.core.name == "wayland"),
-            desc=f"Switch to VT{vt}")
-    )
+            desc=f"Switch to VT{vt}"))
 
 groups = [Group(i) for i in "123456789"]
 
