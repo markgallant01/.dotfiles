@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -get keybinds working for brightness and volume control
     -firefox custom user.js was added to dotfiles directory. incorporate
      it into the guide firefox section
     -supress the output from tty because its polluting the login screen
