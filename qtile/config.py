@@ -136,8 +136,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    font="Liberation",
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -148,34 +148,21 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
+                widget.CurrentLayout(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn",
-                               foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider
                 # using StatusNotifier instead widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Clock(format="%I:%M %p"),
             ],
-            24,
+            28,
             # Draw top and bottom borders
             # border_width=[2, 0, 2, 0],
             # Borders are magenta
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]
         ),
-        background="#000000",
-        wallpaper=logo,
-        wallpaper_mode="center",
         # You can uncomment this variable if you see that on X11
         # floating resize/moving is laggy. By default we handle
         # these events delayed to already improve performance,
