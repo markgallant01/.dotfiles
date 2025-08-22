@@ -25,6 +25,7 @@ fi
 # launch programs and window manager
 ~/.config/setup_screens.sh &
 nm-applet &
+pasystray &
 blueman-applet &
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
