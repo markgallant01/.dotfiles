@@ -69,7 +69,7 @@ packages+=("discord")
 packages+=("cava")
 
 # chaotic-aur
-packages+=("python-pulsectl-asyncio")
+packages+=()
 
 # video drivers depend on GPU manufacturer:
 option=0
