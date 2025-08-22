@@ -68,6 +68,9 @@ packages+=("discord")
 # random fun stuff
 packages+=("cava")
 
+# chaotic-aur
+packages+=("python-pulsectl-asyncio")
+
 # video drivers depend on GPU manufacturer:
 option=0
 while [[ "$option" != 1 ]] &&
