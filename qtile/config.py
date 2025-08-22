@@ -67,18 +67,26 @@ keys = [
         desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(),
-        desc="Toggle between layouts"),
+#    Key([mod], "t", lazy.next_layout(),
+#        desc="Use tiling layout (monadTall)"),
+#    Key([mod], "f", lazy.next_layout(),
+#        desc="Use floating layout"),
+
+    # window commands
     Key([mod], "w", lazy.window.kill(),
         desc="Kill focused window"),
     Key([mod], "g", lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window"),
-    Key([mod], "t", lazy.window.toggle_floating(),
+    Key([mod], "space", lazy.window.toggle_floating(),
         desc="Toggle floating on the focused window"),
+
+    # wm commands
     Key([mod, "control"], "r", lazy.reload_config(),
         desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(),
         desc="Shutdown Qtile"),
+
+    # program launcher
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 ]
