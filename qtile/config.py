@@ -88,8 +88,8 @@ keys = [
         desc="Shutdown Qtile"),
 
     # program launcher
-    Key([mod], "p", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
+    Key([mod], "p", lazy.spawn("rofi -show drun -show-icons"),
+        desc="Launch rofi"),
 ]
 
 groups = [Group(i) for i in "123456789"]
