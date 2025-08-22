@@ -87,7 +87,7 @@ keys = [
         desc="Shutdown Qtile"),
 
     # program launcher
-    Key([mod], "r", lazy.spawncmd(),
+    Key([mod], "p", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 ]
 
