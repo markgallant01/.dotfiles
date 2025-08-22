@@ -39,6 +39,7 @@ terminal = guess_terminal()
 keys = [
     # A list of available commands that can be bound to keys can be
     # found at https://docs.qtile.org/en/latest/manual/config/lazy.html
+
     # Switch between windows
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
