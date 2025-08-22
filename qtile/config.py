@@ -68,10 +68,10 @@ keys = [
         desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-#    Key([mod], "t", lazy.next_layout(),
-#        desc="Use tiling layout (monadTall)"),
-#    Key([mod], "f", lazy.next_layout(),
-#        desc="Use floating layout"),
+    Key([mod], "t", lazy.to_layout_index(0),    # tiling mode
+        desc="Use tiling layout (monadTall)"),
+    Key([mod], "f", lazy.to_layout_index(1),    # floating mode
+        desc="Use floating layout"),
 
     # window commands
     Key([mod], "w", lazy.window.kill(),
@@ -117,6 +117,7 @@ for i in groups:
 
 layouts = [
     layout.MonadTall(),
+    layout.Floating(),
     # Try more layouts by unleashing below layouts.
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"],
     #                 border_width=4),
