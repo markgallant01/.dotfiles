@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -probably write our own widgets for volume, brightness, battery,
+     etc. that way we dont need to install more dependencies and we
+     know exactly what its doing.
     -get keybinds working for brightness and volume control
     -firefox custom user.js was added to dotfiles directory. incorporate
      it into the guide firefox section
