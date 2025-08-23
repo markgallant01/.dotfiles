@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -keep learning about gentoo once we're at school. write up a guide
+     for it based on this one. I really do like it
     -probably write our own widgets for volume, brightness, battery,
      etc. that way we dont need to install more dependencies and we
      know exactly what its doing.
