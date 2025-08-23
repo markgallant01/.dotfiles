@@ -158,7 +158,6 @@ screens = [
             [
                 widget.GroupBox(highlight_method="block"),
                 widget.CurrentLayout(),
-                widget.Prompt(),
                 widget.Spacer(bar.STRETCH),
                 widget.Clock(format="%e %B, %Y"),
                 widget.Spacer(bar.STRETCH),
