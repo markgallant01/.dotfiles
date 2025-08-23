@@ -93,6 +93,9 @@ keys = [
 ]
 
 groups = [Group(i) for i in "123456789"]
+groups[0].label = ""
+groups[1].label = "󰈹"
+groups[3].label = ""
 
 for i in groups:
     keys.extend([
@@ -146,7 +149,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(highlight_method="block"),
                 widget.CurrentLayout(),
                 widget.Prompt(),
                 widget.Spacer(bar.STRETCH),
@@ -155,7 +158,7 @@ screens = [
                 widget.Systray(),
                 widget.Clock(format="%I:%M%P"),
             ],
-            28,
+            30,
             # Draw top and bottom borders
             # border_width=[2, 0, 2, 0],
             # Borders are magenta
