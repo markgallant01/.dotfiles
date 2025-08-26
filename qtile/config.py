@@ -90,6 +90,16 @@ keys = [
     # program launcher
     Key([mod], "p", lazy.spawn("rofi -show drun -show-icons"),
         desc="Launch rofi"),
+
+    # audio keys
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        desc="Toggle audio mute"),
+
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+        desc="Lower audio volume"),
+
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+        desc="Raise audio volume"),
 ]
 
 groups = [
