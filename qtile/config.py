@@ -208,6 +208,8 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="pavucontrol"),  # audio control menu
+        Match(wm_class="blueman-manager"),
+        Match(wm_class="Blueman-manager"),  # bluetooth gui
     ]
 )
 auto_fullscreen = True
