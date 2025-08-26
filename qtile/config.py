@@ -100,6 +100,13 @@ keys = [
 
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
         desc="Raise audio volume"),
+
+    # backlight
+    Key([], "XF86MonBrightnessUp", lazy.spawn("/home/mark/.dotfiles/scripts/inc_brightness.sh"),
+        desc="Increase brightness"),
+
+    Key([], "XF86MonBrightnessDown", lazy.spawn("/home/mark/.dotfiles/scripts/dec_brightness.sh"),
+        desc="Decrease Brightness"),
 ]
 
 groups = [
