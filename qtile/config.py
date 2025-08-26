@@ -92,17 +92,21 @@ keys = [
         desc="Launch rofi"),
 ]
 
-groups = [Group(i) for i in "123456789"]
-groups[0].label = ""
-groups[1].label = "󰈹"
-groups[2].label = "󰈙"
-groups[3].label = ""
-groups[4].label = ""
-groups[5].label = ""
-groups[6].label = ""
-groups[7].label = ""
-groups[8].label = ""
-
+groups = [
+    Group(name="1", label=""),
+    Group(name="2", matches=[Match(wm_class="firefox")], label="󰈹"),
+    Group(name="3", label="󰈙"),
+    Group(name="4", matches=[Match(wm_class="discord")], label=""),
+    Group(name="5", matches=[
+            Match(wm_class="Steam"),
+            Match(wm_class="steamwebhelper"),
+            Match(wm_class="steam"),
+        ], label=""),
+    Group(name="6", label=""),
+    Group(name="7", label=""),
+    Group(name="8", label=""),
+    Group(name="9", label=""),
+]
 
 for i in groups:
     keys.extend([
@@ -150,8 +154,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-logo = os.path.join(os.path.dirname(libqtile.resources.__file__),
-                    "logo.png")
 screens = [
     Screen(
         top=bar.Bar(
