@@ -311,31 +311,21 @@ To-do:
     -probably write our own widgets for volume, brightness, battery,
      etc. that way we dont need to install more dependencies and we
      know exactly what its doing.
-    -get keybinds working for brightness and volume control
-    -firefox custom user.js was added to dotfiles directory. incorporate
-     it into the guide firefox section
     -supress the output from tty because its polluting the login screen
      (or use a login manager)
     -check out the qtile-extras when we start ricing
     -start configuring qtile and see what we think
     -done with dmenu so start ricing rofi
-    -the Xresources patch for dmenu sucks so come back to that later
-     and think of how best to coordinate colors between dmenu and dwm
-    -think about if we want the mouse warp feature in dwm or not
     -get or make a good terminal theme probably copy solarized osaka
     -add a symlink for .Xresources
     -add rofi folder symlink:
      ln -sf ~/.dotfiles/rofi/ ~/.local/share/rofi
-    -get a good st colorscheme
-    -organize all the programs we compile from source into one folder
-     so they're not just cluttering up our home folder and we can easily
-     keep track of them
     -get minecraft and wow added to the installer thing
     -sort all bookmarks
     -go through the browser setup section and make sure it's good
      for firefox. basically just log in and set settings and everything
      should sync
-    -consider a wallpaper switching keybind in dwm like before.
+    -consider a wallpaper switching keybind in qtile like before.
     -think about a screen locker and blocking tty and blocking killing
      the x server and whatever else. this is kinda complex and we might
      want a login manager to bypass it
