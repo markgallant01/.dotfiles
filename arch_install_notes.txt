@@ -302,6 +302,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -add a firefox section to copy over the user.js and also make a
+     backup of the old profile
+    -try to make the install script copy its output to a log file so
+     we can check for any issues afterward
     -keep learning about gentoo once we're at school. write up a guide
      for it based on this one. I really do like it
     -probably write our own widgets for volume, brightness, battery,
