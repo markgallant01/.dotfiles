@@ -92,20 +92,25 @@ keys = [
         desc="Launch rofi"),
 
     # audio keys
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+    Key([], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
         desc="Toggle audio mute"),
 
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+    Key([], "XF86AudioLowerVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"),
         desc="Lower audio volume"),
 
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+    Key([], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),
         desc="Raise audio volume"),
 
     # backlight
-    Key([], "XF86MonBrightnessUp", lazy.spawn("/home/mark/.dotfiles/scripts/inc_brightness.sh"),
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn("/home/mark/.dotfiles/scripts/inc_brightness.sh"),
         desc="Increase brightness"),
 
-    Key([], "XF86MonBrightnessDown", lazy.spawn("/home/mark/.dotfiles/scripts/dec_brightness.sh"),
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn("/home/mark/.dotfiles/scripts/dec_brightness.sh"),
         desc="Decrease Brightness"),
 ]
 
