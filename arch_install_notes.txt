@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -check out qtile's Screen class and get a multi-monitor setup
+     working
     -add a firefox section to copy over the user.js and also make a
      backup of the old profile
     -try to make the install script copy its output to a log file so
