@@ -42,14 +42,14 @@ git config --global color.ui auto
 git config --global pull.rebase false
 
 # symlink settings files
-ln -sf ~/.dotfiles/alacritty/ ~/.config/alacritty
-ln -sf ~/.dotfiles/.bashrc ~/.bashrc
-ln -sf ~/.dotfiles/gtk-3.0/ ~/.config/gtk-3.0
-ln -sf ~/.dotfiles/nvim/ ~/.config/nvim
-ln -sf ~/.dotfiles/picom.conf ~/.config/picom.conf
-ln -sf ~/.dotfiles/ssh_config ~/.ssh/config
-ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
-ln -sf ~/.dotfiles/qtile/ ~/.config/qtile
+ln -sf ~/.dotfiles/.bashrc      ~/.bashrc
+ln -sf ~/.dotfiles/gtk-3.0/     ~/.config/gtk-3.0
+ln -sf ~/.dotfiles/nvim/        ~/.config/nvim
+ln -sf ~/.dotfiles/picom.conf   ~/.config/picom.conf
+ln -sf ~/.dotfiles/ssh_config   ~/.ssh/config
+ln -sf ~/.dotfiles/.xinitrc     ~/.xinitrc
+ln -sf ~/.dotfiles/.Xresources  ~/.Xresources
+ln -sf ~/.dotfiles/rofi         ~/.local/share/rofi
 
 # copy conf files to appropriate folders
 # pacman hooks
