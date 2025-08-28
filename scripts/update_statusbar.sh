@@ -118,7 +118,8 @@ time=$( date +"%I:%M%P" )
 root_str+=" $time"
 
 # fancy distro icon
-root_str+=" "
+#root_str+=" "
+root_str+=" "
 
 xsetroot -name "$root_str"
 
