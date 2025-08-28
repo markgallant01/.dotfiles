@@ -302,8 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
-    -check out qtile's Screen class and get a multi-monitor setup
-     working
+    -remove cursor warp from dwm
     -add a firefox section to copy over the user.js and also make a
      backup of the old profile
     -try to make the install script copy its output to a log file so
@@ -315,19 +314,14 @@ To-do:
      know exactly what its doing.
     -supress the output from tty because its polluting the login screen
      (or use a login manager)
-    -check out the qtile-extras when we start ricing
-    -start configuring qtile and see what we think
     -done with dmenu so start ricing rofi
     -get or make a good terminal theme probably copy solarized osaka
-    -add a symlink for .Xresources
-    -add rofi folder symlink:
-     ln -sf ~/.dotfiles/rofi/ ~/.local/share/rofi
     -get minecraft and wow added to the installer thing
     -sort all bookmarks
     -go through the browser setup section and make sure it's good
      for firefox. basically just log in and set settings and everything
      should sync
-    -consider a wallpaper switching keybind in qtile like before.
+    -consider a wallpaper switching keybind in dwm like before.
     -think about a screen locker and blocking tty and blocking killing
      the x server and whatever else. this is kinda complex and we might
      want a login manager to bypass it
