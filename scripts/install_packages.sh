@@ -11,8 +11,8 @@ declare -a packages=()
 
 # CLI tools
 packages+=("fastfetch" "udisks2"  "unzip" "git")
-packages+=("maim" "xclip" "wget" "curl" "alacritty")
-packages+=("usleep" "btop" "openssh" "yt-dlp" "zip")
+packages+=("maim" "xclip" "wget" "curl" "zip")
+packages+=("usleep" "btop" "openssh" "yt-dlp")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "fd" "rofi")
@@ -34,7 +34,7 @@ packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit")
-packages+=("xorg-xrandr" "picom" "qtile")
+packages+=("xorg-xrandr" "xorg-xsetroot" "picom")
 
 # graphical front-ends
 packages+=("network-manager-applet" "arandr")
@@ -51,7 +51,8 @@ packages+=("mpv" "ffmpeg" "feh" "qbittorrent" "deadbeef")
 packages+=("xfsprogs" "dosfstools" "smartmontools")
 
 # language servers
-packages+=("bash-language-server" "clang" "lua-language-server" "pyright")
+packages+=("bash-language-server" "clang")
+packages+=("lua-language-server" "pyright")
 
 # fonts
 packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
