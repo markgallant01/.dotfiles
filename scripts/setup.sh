@@ -27,6 +27,20 @@ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 # call install script to install system packages
 ~/.dotfiles/scripts/install_packages.sh
 
+# install dwm
+git clone git@github.com:markgallant01/dwm
+cd dwm
+sudo make install
+make clean
+cd
+
+# install st
+git clone git@github.com:markgallant01/st
+cd st
+sudo make install
+make clean
+cd
+
 # create some directories
 mkdir ~/Usb
 mkdir ~/Screenshots
