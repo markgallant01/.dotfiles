@@ -38,7 +38,7 @@ packages+=("xorg-xrandr" "xorg-xsetroot" "picom")
 
 # graphical front-ends
 packages+=("network-manager-applet" "arandr")
-packages+=("proton-vpn-gtk-app" "pavucontrol" "pasystray")
+packages+=("proton-vpn-gtk-app" "pavucontrol")
 
 # gaming stuff
 packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
