@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -id like a visual indicator for volume changes and brightness.
+     can definitely do this with eww. think if theres another way
     -copy the qtile symbols for the workspaces into dwm
     -start configuring polybar
     -add keyboard modifications to xorg configuration. use bookmarks
