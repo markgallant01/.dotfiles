@@ -27,20 +27,6 @@ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 # call install script to install system packages
 ~/.dotfiles/scripts/install_packages.sh
 
-# install dwm
-git clone git@github.com:markgallant01/dwm
-cd dwm
-sudo make install
-make clean
-cd
-
-# install st
-git clone git@github.com:markgallant01/st
-cd st
-sudo make install
-make clean
-cd
-
 # create some directories
 mkdir ~/Usb
 mkdir ~/Screenshots
@@ -64,6 +50,8 @@ ln -sf ~/.dotfiles/ssh_config   ~/.ssh/config
 ln -sf ~/.dotfiles/.xinitrc     ~/.xinitrc
 ln -sf ~/.dotfiles/.Xresources  ~/.Xresources
 ln -sf ~/.dotfiles/rofi         ~/.local/share/rofi
+ln -sf ~/.dotfiles/alacritty    ~/.config/alacritty
+ln -sf ~/.dotfiles/qtile        ~/.config/qtile
 
 # copy conf files to appropriate folders
 # pacman hooks
