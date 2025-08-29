@@ -42,10 +42,5 @@ if [[ "$hostname" == "archThinkpad" ]]; then
     echo 426 > /sys/class/backlight/intel_backlight/brightness
 fi
 
-while true; do
-    ~/.dotfiles/scripts/update_statusbar.sh
-    sleep 1s
-done &
-
-exec ~/.dotfiles/scripts/start_dwm.sh
+exec qtile start
 
