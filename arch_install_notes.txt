@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -start configuring polybar
     -add keyboard modifications to xorg configuration. use bookmarks
      to the arch wiki keyboard page. make the keyboard repeat rate
      persistent and do the caps lock / control swap for laptops
