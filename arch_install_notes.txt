@@ -305,8 +305,6 @@ To-do:
     -add keyboard modifications to xorg configuration. use bookmarks
      to the arch wiki keyboard page. make the keyboard repeat rate
      persistent and do the caps lock / control swap for laptops
-    -consider patching dwm to allow movement up and down the stack.
-     not sure if i really need this or not
     -add a firefox section to copy over the user.js and also make a
      backup of the old profile
     -try to make the install script copy its output to a log file so
