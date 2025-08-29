@@ -12,7 +12,7 @@ declare -a packages=()
 # CLI tools
 packages+=("fastfetch" "udisks2"  "unzip" "git")
 packages+=("maim" "xclip" "wget" "curl" "zip")
-packages+=("usleep" "btop" "openssh" "yt-dlp" "alacritty")
+packages+=("usleep" "btop" "openssh" "yt-dlp")
 
 # misc utilities
 packages+=("xdg-user-dirs" "pacman-contrib" "fd" "rofi")
@@ -34,7 +34,7 @@ packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
 # display server & X tools
 packages+=("xorg-server" "xorg-xinit")
-packages+=("xorg-xrandr" "qtile" "picom")
+packages+=("xorg-xrandr" "xorg-xsetroot" "picom")
 
 # graphical front-ends
 packages+=("network-manager-applet" "arandr")
