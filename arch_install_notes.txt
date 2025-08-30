@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -make it so that empty workspaces are darker color so its obvious
     -id like a visual indicator for volume changes and brightness.
      can definitely do this with eww. think if theres another way
     -copy the qtile symbols for the workspaces into dwm
