@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -find some good drawn fall wallpapers and think about qtile and
+     alacritty vs dwm and st
     -polybar should match rofi. maybe make some themes that can be
      swapped between. maybe even match them to wallpapers.
     -make it so that empty workspaces are darker color so its obvious
