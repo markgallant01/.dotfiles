@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -figure out docker containers with bookmarks and figure out how to
+     use neovim with our docker project for CS326
+    -trim down neovim
     -find some good drawn fall wallpapers and think about qtile and
      alacritty vs dwm and st
     -polybar should match rofi. maybe make some themes that can be
