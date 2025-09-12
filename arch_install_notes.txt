@@ -302,6 +302,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -try awesomewm again. qtile multi-monitor is too weird and i want
+     to get off of dwm. launching alacritty on qtile on desktop felt
+     really slow so try it with awesome and see if the problem is
+     qtile or alacritty or something else entirely
     -discord isn't showing the notification icon for unread messages
      or making the ping sound so figure that out. there's stuff about
      it on the wiki.
