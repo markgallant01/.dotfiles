@@ -1,133 +1,64 @@
--- Install package manager
--- https://github.com/folke/lazy.nvim
--- ':help lazy.nvim.txt' for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-		'clone',
-		'--filter=blob:none',
-		'https://github.com/folke/lazy.nvim.git',
-		'--branch=stable', -- latest stable release
-		lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
+-- Set <space> as the leader key
+-- See `:help mapleader`
+-- Note: this must happen before plugins are loaded so they use the correct
+-- leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
--- NOTE: Here is where you install your plugins.
--- You can configure plugins using the 'config' key.
--- You can also configure plugins after the setup call,
--- as they will be available in your neovim runtime.
-require('lazy').setup({
-  {
-    -- default LSP configs
-    'neovim/nvim-lspconfig'
-  },
+-- set to true if you have a Nerd Font installed and set in the temrinal
+vim.g.have_nerd_font = false
 
-  {
-    'saghen/blink.cmp',
-    dependencies = {
-      'rafamadriz/friendly-snippets'
-    },
-    version = '1.*'
-  },
+-- [[ Setting options ]]
+-- See `:help vim.o`
+-- For more options see `:help options-list`
 
-  {
-    -- colorschemes
-    'navarasu/onedark.nvim',
-    'loctvl842/monokai-pro.nvim',
-    { 'catppuccin/nvim', name = 'catppuccin' },
-    'craftzdog/solarized-osaka.nvim',
-    'AlphaTechnolog/pywal.nvim',
-    lazy = false,
-    priority = 1000,
-  },
+-- Make line numbers default
+vim.o.number = true
 
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-  },
+-- Add relative line numbers
+vim.o.relativenumber = true
 
-  {
-    -- bufferline
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons'
-  },
+-- Don't show the mode since it's in the status line
+vim.o.showmode = false
 
-  {
-    -- telescope fuzzy finder
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make'
-      },
-      {
-        'nvim-tree/nvim-web-devicons',
-        opts = {}
-      },
-    }
-  },
+-- Sync OS clipboard with Neovim
+-- See `:help 'clipboard'`
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end)
 
-  {
-    -- treesitter
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
-  },
+-- Enable break indent
+vim.o.breakindent = true
 
-  {
-    -- autopairs
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {},
-  },
+-- Save undo history
+vim.o.undofile = true
 
-  {
-    -- html auto tags
-    'windwp/nvim-ts-autotag',
-  },
+-- Case-insensitive searching unless capital letters in search term
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-  {
-    -- scope and indent lines
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
-  },
+-- Keep signcolumn on by default
+vim.o.signcolumn = 'yes'
 
-  {
-    'echasnovski/mini.trailspace',
-    version = '*'
-  }
-}, {})
+-- Decrease update time
+vim.o.updatetime = 250
 
--- setup my stuff
-require('colorscheme')
-require('vim_options')
+-- Decrease mapped sequence wait time
+vim.o.timeoutlen = 300
 
--- plugins
-require('plugins/lualine')
-require('plugins/treesitter')
-require('plugins/telescope')
-require('plugins/autotag')
-require('plugins/blink')
-require('plugins/indent-blankline')
-require('plugins/bufferline')
-require('plugins/trailspace')
+-- Live preview substitutions
+vim.o.inccommand = 'split'
 
--- LSP servers
-vim.lsp.enable('bashls')
-vim.lsp.enable('clangd')
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('pyright')
+-- Show which line your cursor is on
+vim.o.cursorline = true
 
--- keymaps last because they need access to plugins
-require('keymaps')
+-- Minimum number of lines to keep above and below cursor
+vim.o.scrolloff = 10
+
+-- Confirm before quitting without saving
+-- See `:help 'confirm'`
+vim.o.confirm = true
+
+-- [[ Basic Keymaps ]]
+-- See `:help vim.keymap.set()`
 
