@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-the performance issues from desktop were from picom
+	 glx backend. switching to xrender backend seems to
+	 fix it. investigate this.
 	-fix formatting here
 	-check out zathura document reader
     -discord isn't showing the notification icon for unread messages
