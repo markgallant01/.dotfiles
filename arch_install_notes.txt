@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-dual_kawase blur doesn't work with the xrender backend
+	 so figure that out. i kinda like it with no bur so
+	 think about it
 	-the performance issues from desktop were from picom
 	 glx backend. switching to xrender backend seems to
 	 fix it. investigate this.
