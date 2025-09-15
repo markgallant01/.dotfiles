@@ -30,6 +30,7 @@ picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
 feh --no-fehbg --bg-fill $(~/.dotfiles/scripts/wallpaper/seasonal.sh) &
+alacritty --daemon &
 
 # set keyboard repetition rate and delay
 xset r rate 250 30
