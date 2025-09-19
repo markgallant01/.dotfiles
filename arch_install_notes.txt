@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-check out mini.nvim and think about switching to a
+	 mainly mini-based setup
 	-dual_kawase blur doesn't work with the xrender backend
 	 so figure that out. i kinda like it with no bur so
 	 think about it
