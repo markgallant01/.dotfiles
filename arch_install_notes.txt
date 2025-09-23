@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-get duckstation and other emulators working out of
+	 the box as far as mounting automatically and having
+	 the emulator know where to find saves, box art, etc
 	-modify qtile layout widget so that clicking the
 	 widget name does not change the layout
 	-make some workspaces default to the second screen
