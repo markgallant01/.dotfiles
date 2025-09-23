@@ -30,7 +30,6 @@ picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 thunar --daemon &
 feh --no-fehbg --bg-fill $(~/.dotfiles/scripts/wallpaper/seasonal.sh) &
-alacritty --daemon &
 
 # set keyboard repetition rate and delay
 xset r rate 250 30
@@ -42,5 +41,5 @@ if [[ "$hostname" == "archThinkpad" ]]; then
     echo 426 > /sys/class/backlight/intel_backlight/brightness
 fi
 
-exec qtile start
+exec ~/.dotfiles/scripts/start_dwm.sh
 
