@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-make nvim use relative line numbers
+	-temporarily using dwm again until we can get
+	 qtile customized properly
 	-add a section to set up bnet with steam since
 	 it's kinda unique
 	-get duckstation and other emulators working out of
