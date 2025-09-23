@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-add a section to set up bnet with steam since
+	 it's kinda unique
 	-get duckstation and other emulators working out of
 	 the box as far as mounting automatically and having
 	 the emulator know where to find saves, box art, etc
