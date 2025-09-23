@@ -302,6 +302,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-modify qtile layout widget so that clicking the
+	 widget name does not change the layout
+	-make some workspaces default to the second screen
+	 if it exists
 	-check out mini.nvim and think about switching to a
 	 mainly mini-based setup
 	-dual_kawase blur doesn't work with the xrender backend
