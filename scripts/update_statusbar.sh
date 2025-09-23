@@ -110,7 +110,11 @@ if [[ -d "$bat1" ]]; then
     fi
 fi
 
-root_str+=" $bat_stat"
+# if there is no battery, like on desktop, don't add
+# any battery sumbol
+if [[ -d "$bat0" ]]; then
+	root_str+=" $bat_stat"
+fi
 
 # time
 time=$( date +"%I:%M%P" )
