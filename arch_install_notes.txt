@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-use python subprocess thing to run a custom
+	 bash script to get the number of monitors
+	 or something
 	-make nvim use relative line numbers
 	-temporarily using dwm again until we can get
 	 qtile customized properly
