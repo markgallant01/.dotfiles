@@ -302,21 +302,18 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
-	-use python subprocess thing to run a custom
-	 bash script to get the number of monitors
-	 or something
+	-get the color bar in nvim so it shows how far we
+	 should be typing
+	-awesomeWM is still getting updates so we should
+	 start switching back to that and getting it
+	 configured so we can get off suckless stuff.
+	 also switch back to alacritty.
 	-make nvim use relative line numbers
-	-temporarily using dwm again until we can get
-	 qtile customized properly
 	-add a section to set up bnet with steam since
 	 it's kinda unique
 	-get duckstation and other emulators working out of
 	 the box as far as mounting automatically and having
 	 the emulator know where to find saves, box art, etc
-	-modify qtile layout widget so that clicking the
-	 widget name does not change the layout
-	-make some workspaces default to the second screen
-	 if it exists
 	-check out mini.nvim and think about switching to a
 	 mainly mini-based setup
 	-dual_kawase blur doesn't work with the xrender backend
