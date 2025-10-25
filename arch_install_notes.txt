@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-add python-pip and / or uv to the installation list
 	-get the color bar in nvim so it shows how far we
 	 should be typing
 	-awesomeWM is still getting updates so we should
