@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-tabstop width is too big in nvim. no autopairs too.
+	 try to get things configured.
 	-figure out how to properly manage python packages and
 	 versions and stuff with uv
 	-add python-pip and / or uv to the installation list
