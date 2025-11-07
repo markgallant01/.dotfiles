@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+  -swap back to kickstart and make your own minimal
+   config because lazyvim is doing way too much
 	-no autopairs in nvim. try to get things configured.
 	-figure out how to properly manage python packages and
 	 versions and stuff with uv
