@@ -121,6 +121,11 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- set tab sizes
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
 -- Save undo history
 vim.o.undofile = true
 
