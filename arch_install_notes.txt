@@ -302,9 +302,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+	-need colorbar to see when we're typing too far
+	-maybe remove chaotic aur stuff because
+	 it seems to cause lots of problems
 	-add mount.exfat to the install list
-  -swap back to kickstart and make your own minimal
-   config because lazyvim is doing way too much
 	-no autopairs in nvim. try to get things configured.
 	-figure out how to properly manage python packages and
 	 versions and stuff with uv
