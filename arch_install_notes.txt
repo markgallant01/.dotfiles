@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -wallpapers are double setting now that we're on awesomewm again
+    -change lua files to use 2 space indent
 	-need colorbar to see when we're typing too far
 	-maybe remove chaotic aur stuff because
 	 it seems to cause lots of problems
