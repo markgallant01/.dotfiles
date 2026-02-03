@@ -25,9 +25,12 @@ mem_util=$(free | head -n 2 | tail -n 1 | \
 vol=$( pactl get-sink-volume @DEFAULT_SINK@ | \
     grep --only-matching -P '\d*%' | head -1 | \
     awk '{printf("%2d", $1)}')
+mute=$( pactl get-sink-mute @DEFAULT_SINK@ )
 
 # volume status icon
-if [[ "$vol" -le 33 ]]; then
+if [[ "$mute" == "Mute: yes" ]]; then
+    root_str+=" 󰝟 "
+elif [[ "$vol" -le 33 ]]; then
     root_str+=" 󰕿 "
 elif [[ "$vol" -gt 33 ]] && [[ "$vol" -le 66 ]]; then
     root_str+=" 󰖀 "
