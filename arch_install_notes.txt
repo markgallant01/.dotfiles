@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -awesome doesn't respect the time of day when setting the wallpaper
+     so figure that out or just use feh and don't have awesome set the
+     wallpaper at all
     -awesome needs keybinds to swap between monitors and such
     -wallpapers are double setting now that we're on awesomewm again
     -change lua files to use 2 space indent
