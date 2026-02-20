@@ -302,6 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -install and setup tlp. consult the documentation, it seems mostly
+     automatic. test battery life on both laptops before and after. if it
+     works well, add it to this guide.
     -awesome doesn't respect the time of day when setting the wallpaper
      so figure that out or just use feh and don't have awesome set the
      wallpaper at all
