@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -awesome needs keybinds to swap between monitors and such
     -wallpapers are double setting now that we're on awesomewm again
     -change lua files to use 2 space indent
 	-need colorbar to see when we're typing too far
