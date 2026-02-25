@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -considering trying Niri window manager, which requires switching to
+     Wayland. Maybe time to finally do this.
     -install and setup tlp. consult the documentation, it seems mostly
      automatic. test battery life on both laptops before and after. if it
      works well, add it to this guide.
@@ -475,8 +477,6 @@ To-do:
     -modify brightness step because we should be able to go darker than
      we currently can
     -get brighntess control working for desktop monitors
-    -TLP for laptop battery saving. IDK if this will mess up desktop
-     so come back to it
     -add tlp and the systemctl stuff to make it work. default settings.
     -add minecraft audio fix maybe
     -something weird going on with mounting the other drives on
