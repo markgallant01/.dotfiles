@@ -302,6 +302,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -disable networkmanager applet icon and bluetooth icon because
+     DMS includes its own.
     -add niri and dank material shell to installer. simplifies things
      a lot. reconfigure the installation to use DMS and do it all
      manually. make sure all the necessary stuff is included and
