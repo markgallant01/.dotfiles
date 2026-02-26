@@ -302,6 +302,7 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -make ghostty start daemon so it's quick
     -disable networkmanager applet icon and bluetooth icon because
      DMS includes its own.
     -add niri and dank material shell to installer. simplifies things
