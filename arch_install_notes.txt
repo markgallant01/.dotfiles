@@ -302,8 +302,10 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
-    -considering trying Niri window manager, which requires switching to
-     Wayland. Maybe time to finally do this.
+    -add niri and dank material shell to installer. simplifies things
+     a lot. reconfigure the installation to use DMS and do it all
+     manually. make sure all the necessary stuff is included and
+     connect all the config files.
     -install and setup tlp. consult the documentation, it seems mostly
      automatic. test battery life on both laptops before and after. if it
      works well, add it to this guide.
