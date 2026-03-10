@@ -302,9 +302,9 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
-    -make ghostty start daemon so it's quick
-    -disable networkmanager applet icon and bluetooth icon because
-     DMS includes its own.
+    -write a bash script to check if the AC power is plugged in at startup
+     and modify power-profiles-daemon appropriately with powerprofilesctl.
+     Set this as a systemD service so it runs at boot.
     -add niri and dank material shell to installer. simplifies things
      a lot. reconfigure the installation to use DMS and do it all
      manually. make sure all the necessary stuff is included and
