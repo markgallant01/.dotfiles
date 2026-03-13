@@ -1,22 +1,51 @@
 
 This is a compilation of notes to be used as supplementary material for
-an arch linux install. Use alongside the installation guide found at
-wiki.archlinux.org.
+a gentoo linux install. Use alongside the handbook found at
+wiki.gentoo.org
 
 /***********************/
 /* 1. Pre-installation */
 /***********************/
 
-1.1 Acqure an installation image
-1.2 Verify signature
-1.3 Prepare an installation medium
-    -use a fresh arch iso
-    -dd command is easiest:
+1. Prepare an installation medium
+    -The easiest thing to do is boot into a live Linux iso of some kind with
+     a graphical desktop all set up. This makes it nice and easy to connect
+     to the internet and do everything you'll have to do. Linux Mint is a
+     good choice.
+    -Download a fresh iso and use the dd utility to make a bootable live usb:
 
         $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive \
-            conv=fsync oflag=direct status=progress
+             status=progress; sync
 
-1.4 Boot the live environment
+    -Once you're booted into a live environment, get set up and ready to
+     install.
+    -Make sure you're connected to the internet, pull up a terminal and a
+     web browser and get comfy
+    -I usually disable pointer acceleration too and you might need to install
+     vim depending on the live iso you're using:
+
+        (for Mint and other Debian derivatives)
+        $ sudo apt install neovim
+
+    -Once you're ready to go, navigate to this URL:
+
+        https://wiki.gentoo.org/wiki/Installation_alternatives#Installation_from_non-Gentoo_live_environments
+
+    -That page has special instructions that need to be followed at various
+     points in the install process, so keep it up for reference.
+    -Begin following the handbook starting here:
+
+        https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
+
+
+
+
+
+
+
+
+
+
 1.5 Set the console keyboard layout and font
 1.6 Verify the boot mode
 1.7 Connect to the internet
@@ -302,6 +331,8 @@ EXTERNAL DRIVES:
 /***********/
 
 To-do:
+    -wl-clipboard enables copy and paste from clipboard to neovim so install
+     that
     -write a bash script to check if the AC power is plugged in at startup
      and modify power-profiles-daemon appropriately with powerprofilesctl.
      Set this as a systemD service so it runs at boot.
