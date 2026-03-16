@@ -38,6 +38,9 @@ wiki.gentoo.org
         https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
 
 
+/**************************/
+/* 2. Preparing the disks */
+/**************************/
 
 
 
