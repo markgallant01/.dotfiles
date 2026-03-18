@@ -3,6 +3,9 @@ This is a compilation of notes to be used as supplementary material for
 a gentoo linux install. Use alongside the handbook found at
 wiki.gentoo.org
 
+Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
+
+
 /***********************/
 /* 1. Pre-installation */
 /***********************/
@@ -33,6 +36,16 @@ wiki.gentoo.org
 
     -That page has special instructions that need to be followed at various
      points in the install process, so keep it up for reference.
+
+    -in the terminal, switch to the root user so you don't need to type
+     sudo before every command:
+
+        $ sudo su
+
+    -then, create the /mnt/gentoo mount point:
+
+        # mkdir /mnt/gentoo
+
     -Begin following the handbook starting here:
 
         https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks
@@ -42,122 +55,265 @@ wiki.gentoo.org
 /* 2. Preparing the disks */
 /**************************/
 
+    -for the partition setup, use 3 partitions as follows:
+    
+        [partition] [filesystem]    [size]      [description]
+        /dev/sdx1   fat321          1 GiB       EFI (boot) partition
+        /dev/sdx2   swap            RAM * 1.5   Swap partition
+        /dev/sdx3   xfs             remainder   root partition
+
+    -for explanations of the setup or alternatives, consult the handbook page
+    -use cfdisk to make the partitions, it's easier than fdisk
+    -if cfdisk isn't available for some reason, fdisk instructions are given
+     in the handbook
+    -after making the partitions, create the filesystems
+    -EFI partition gets formatted as fat32:
+
+        # mkfs.vfat -F 32 /dev/sdx1
+
+    -root partition as xfs:
+
+        # mkfs.xfs -c options=/usr/share/xfsprogs/mkfs/lts_6.6.conf /dev/sdx3
+
+    -activate the swap partition:
+
+        # mkswap /dev/sdx2
+        # swapon /dev/sdx2
+
+    -mount the partitions:
+
+        # mount /dev/sdx3 /mnt/gentoo
+        # mkdir /mnt/gentoo/efi
+        # mount /dev/sdx1 /mnt/gentoo/efi
 
 
+/*********************/
+/* 3. The stage file */
+/*********************/
+
+    -set the current directory to the location of the mount used for the
+     install:
+
+        # cd /mnt/gentoo
+
+    -download the stage tarball. In a browser, navigate to this link:
+
+        https://www.gentoo.org/downloads/#other-arches
+
+    -select your architecture, probably amd64, and choose a stage file,
+     probably 'desktop profile | systemd'
+    -copy the URL for the stage file download and paste it into a wget
+     command:
+
+        # wget <STAGE_FILE_URL>
+
+    -the URL as of our last installation is here for convenience:
+
+        https://distfiles.gentoo.org/releases/amd64/autobuilds/20260316T093103Z/stage3-amd64-desktop-systemd-20260316T093103Z.tar.xz
+
+    -extract the tar file with the following command:
+    -note that this command is slightly different from the one in the
+     handbook, it's to be used when installing from a live Linux environment:
+
+        # tar --numeric-owner --xattrs -xvJpf stage3-*.tar.xz -C /mnt/gentoo
+
+    -use an editor to set the make.conf variables:
+
+        # nvim /mnt/gentoo/etc/portage/make.conf
+
+    [[EDIT NOTE]]
+    either add a section here on setting all the variables, or just advise
+    to read the handbook and go through them that way, or add a section
+    for pulling our make.conf down from somewhere at this section. come
+    back to this.
+
+    https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage#Configuring_compile_options
 
 
+/*****************************/
+/* 4. Installing base system */
+/*****************************/
+
+    -copy DNS info so the chrooted environment can still connect to the
+     internet:
+
+    # cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
+
+    -mount all necessary filesystems:
+
+        # mount -o bind /proc /mnt/gentoo/proc
+        # mount --rbind /sys /mnt/gentoo/sys
+        # mount --make-rslave /mnt/gentoo/sys
+        # mount --rbind /dev /mnt/gentoo/dev
+        # mount --make-rslave /mnt/gentoo/dev
+        # mount --bind /run /mnt/gentoo/run
+        # mount --make-slave /mnt/gentoo/run
+
+    -change root to the new system:
+
+        # chroot /mnt/gentoo /bin/env -i TERM=$TERM /bin/bash
+        # env-update
+        # source /etc/profile
+        # export PS1="(chroot) $PS1"
+
+    -pull the latest portage tree:
+
+        # emerge --sync
+
+    -edit the make.conf file and set these variables:
+    -these are flags to ADD to the variables. if the variables already
+     have some default options, add these in addition to those already
+     there.
+
+        "/etc/portage/make.conf"
+        COMMON_FLAGS="-march=native"
+        RUSTFLAGS="-C target-cpu=native"
+        MAKEOPTS="-jX -lX"
+        FEATURES="parallel-fetch getbinpkg"
+        EMERGE_DEFAULT_OPTS="--jobs=X --load-average=X --usepkg=y \
+                             --binpkg-respect-use=n"
+        ACCEPT_LICENSE="*"
+
+    -set the PORTAGE_BINHOST variable to these URLs for downloading binary
+     packages:
+
+        "https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3/ \
+         https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64/"
+
+    -now update the mirrors with the mirrorlist tool. first install it:
+
+        # emerge -a --oneshot app-portage/mirrorselect
+
+    -run this command to select the 5 fastest mirrors:
+
+        # mirrorselect -s5 -o >> /etc/portage/make.conf
+
+    -list any news items with portage:
+
+        # eselect news list
+
+    -and read through them:
+
+        # eselect news read
+
+    -clear them when done:
+
+        # eselect news purge
+
+    -select the correct profile (should match the stage file used earlier):
+
+        # eselect profile list
+        # eselect profile set <CHOICE>
+
+    -run the getuto command so that binary packages can be downloaded:
+
+        # getuto
+
+    -set CPU specific flags:
+
+        # emerge -a --oneshot app-portage/cpuid2cpuflags
+        # echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/00cpu-flags
+
+    -unset the default GPU flag and set an appropriate one:
+    -GPU_DRIVER_NAME will likely be one of "nvidia", "intel", or 
+     "amdgpu radeonsi" consult the handbook for a comprehensive list
+
+        "/etc/portage/package.use/00video_cards"
+        */* VIDEO_CARDS: -* <GPU_DRIVER_NAME>
+
+    -update the system to account for any changes made so far:
+
+        # emerge -a --update --deep --changed-use @world
+
+    -remove and unused packages after updating:
+
+        # emerge -a --depclean
+
+    -set timezone:
+
+        # ln -sf ../usr/share/zoneinfo/America/New_York /etc/localtime
+
+    -set locales by un-commenting the relevant line in the locale.gen file:
+
+        "/etc/locale.gen"
+        en_US
+
+    -generate locales:
+
+        # locale-gen
+
+    -list the locales and then select the correct one:
+
+        # eselect locale list
+        # eselect locale set <CHOICE>
+
+    -reload environment:
+
+        # env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+
+/*****************************/
+/* 5. Configuring the kernel */
+/*****************************/
+
+    -install linux firmware:
+
+        # emerge -a sys-kernel/linux-firmware
+        # emerge -a sys-kernel/sof-firmware
+
+    -install CPU microcode updates. AMD CPUs are included in the above
+     firmware package. Intel CPUs require:
+
+        # emerge -a sys-firmware/intel-microcode
+
+    -to choose the bootloader, create this file with the following flags:
+
+        "/etc/portage/package.use/systemd-boot"
+        sys-apps/systemd boot
+        sys-apps/systemd-utils boot kernel-install
+        sys-kernel/installkernel systemd systemd-boot
+
+    -then create the following file:
+
+        "/etc/kernel/cmdline"
+        quiet splash
+
+    -and symlink it with this other file:
+
+        # mkdir -p /etc/cmdline.d
+        # ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf
+
+    -then install the installkernel:
+
+        # emerge -a sys-kernel/installkernel
+
+    -set this flag so the installkernel handles the initramfs with dracut:
+
+        "/etc/portage/package.use/installkernel"
+        sys-kernel/installkernel dracut
+
+    -some bootloaders need the root partition explicitly defined:
+
+        # mkdir /etc/dracut.conf.d
+        # blkid >> /etc/dracut.conf.d/00-installkernel.conf
+
+    -go into that new file and identify the root partition and set it up like
+     so (note leading and trailing spaces before and after the UUID):
+
+        "/etc/dracut.conf.d/00-installkernel.conf"
+        kernel_cmdline=" root=UUID=XXXXXXXXX... "
+
+    [[NOTE]]
+    Do we need UKI? no idea
+
+    -install the distribution kernel:
+
+        # emerge -a sys-kernel/gentoo-kernel-bin
+
+    -clean up after install:
+
+        # emerge --depclean
 
 
-
-1.5 Set the console keyboard layout and font
-1.6 Verify the boot mode
-1.7 Connect to the internet
-    -If you're wired then just plug in the ethernet and it should work
-    -If using wifi, connect to the network with iwctl.
-
-    # iwctl                 // this will give you an interactive prompt
-    [iwd]# device list               // get the name of wireless device
-    [iwd]# station *device* scan          // scan for wireless networks
-    [iwd]# station *device* get-networks               // list networks
-    [iwd]# station *device* connect *SSID*        // connect to network
-
-    -enter the password when prompted and then exit with Ctrl+d.
-    -verify the connection with:
-
-        # ping archlinux.org
-
-1.8 Update the system clock
-1.9 Partition the disks
-    -format root drive as xfs.
-    -boot drive needs 2 partitions: a 1G EFI boot partition
-     and the rest of the drive is Linux x86_64 root xfs
-    -list the drives with:
-
-        # lsblk -l
-
-    -and use cfdisk to make the partitioning easy.
-
-    -for the swap file, on desktop suspend is unnecessary so 16G is
-     more than enough. On a laptop use 1.5x RAM.
-
-1.10 Format the partitions
-1.11 Mount the file system
-
-/*******************/
-/* 2. Installation */
-/*******************/
-
-2.1 Select the mirrors
-    -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and
-     move the American mirror to the top of the list.
-
-2.2 Install essential packages
-    -in addition to the essential packages, install some more stuff that
-     will be useful.
-
-        # pacstrap -K /mnt base linux linux-firmware
-            man-db man-pages texinfo
-            vim networkmanager sudo
-            reflector git
-            xfsprogs                 <- depends on filesystem
-            intel-ucode OR amd-ucode <- choose correct for CPU
-
-/***************************/
-/* 3. Configure the system */
-/***************************/
-
-3.1 Fstab
-3.2 Chroot
-3.3 Time zone
-3.4 Localization
-3.5 Network configuration
-    -after setting up the hostname file, run this command to ensure
-     NetworkManager starts up on reboot:
-
-        # systemctl enable NetworkManager.service
-
-3.6 Initramfs
-3.7 Root password
-3.8 Boot loader
-    -Systemd-boot comes with systemD and is easy to use. It's already
-     installed on the system. Initialize it:
-
-        # bootctl install
-
-    -Next, a loader configuration file must be created and set:
-     (note 'efi' below corresponds to wherever the EFI directory was
-     mounted. Probably /boot.)
-    -These fields are separated by a space, not a tab.
-     SystemD won't read tabs.
-
-        "efi/loader/loader.conf"
-        default arch.conf
-        timeout 0
-        console-mode keep
-
-    -You'll need a corresponding arch.conf file in efi/loader/entries.
-    -The UUID must be replaced with the UUID of the root partition.
-     Copy it from the /etc/fstab file.
-    -These can be tab-separated:
-
-        "efi/loader/entries/arch.conf"
-        title   Arch Linux
-        linux   /vmlinuz-linux
-        initrd  /initramfs-linux.img
-        options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
-
-    -use this command to make sure there's a new Arch Linux boot entry:
-
-        # bootctl list
-
--finished with basic installation
--exit chroot, unmount drives and shutdown:
-
-    # exit
-    # umount -R /mnt
-    # shutdown +0
-
--remove the installation USB and boot into the new system.
 
 /****************/
 /* Post-install */
