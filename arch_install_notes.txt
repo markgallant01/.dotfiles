@@ -3,6 +3,8 @@ This is a compilation of notes to be used as supplementary material for
 an arch linux install. Use alongside the installation guide found at
 wiki.archlinux.org.
 
+Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
+
 /***********************/
 /* 1. Pre-installation */
 /***********************/
