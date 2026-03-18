@@ -5,6 +5,7 @@ wiki.archlinux.org.
 
 Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
+
 /***********************/
 /* 1. Pre-installation */
 /***********************/
@@ -53,6 +54,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 1.10 Format the partitions
 1.11 Mount the file system
 
+
 /*******************/
 /* 2. Installation */
 /*******************/
@@ -71,6 +73,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
             reflector git
             xfsprogs                 <- depends on filesystem
             intel-ucode OR amd-ucode <- choose correct for CPU
+
 
 /***************************/
 /* 3. Configure the system */
@@ -128,6 +131,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
     # shutdown +0
 
 -remove the installation USB and boot into the new system.
+
 
 /****************/
 /* Post-install */
@@ -208,6 +212,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
     $ startx
 
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
@@ -279,6 +284,7 @@ GITHUB:
 
         $ git clone git@github.com:markgallant01/.dotfiles.git
 
+
 /******************/
 /* OPTIONAL STUFF */
 /******************/
@@ -298,6 +304,7 @@ EXTERNAL DRIVES:
 
     -set up the fstab here so that drives auto mount. Consult
      https://wiki.archlinux.org/title/Fstab for reference.
+
 
 /***********/
 /* THE END */
