@@ -170,8 +170,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
         RUSTFLAGS="-C target-cpu=native"
         MAKEOPTS="-jX -lX"
         FEATURES="parallel-fetch getbinpkg"
-        EMERGE_DEFAULT_OPTS="--jobs=X --load-average=X --usepkg=y \
-                             --binpkg-respect-use=n"
+        EMERGE_DEFAULT_OPTS="--jobs=X --load-average=X --usepkg=y"
         ACCEPT_LICENSE="*"
 
     -set the PORTAGE_BINHOST variable to these URLs for downloading binary
