@@ -117,15 +117,19 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
         # tar --numeric-owner --xattrs -xvJpf stage3-*.tar.xz -C /mnt/gentoo
 
-    -use an editor to set the make.conf variables:
+    -use an editor to set the initial make.conf variables:
 
-        # nvim /mnt/gentoo/etc/portage/make.conf
+        "/mnt/gentoo/etc/portage/make.conf"
+	COMMON_FLAGS="-march=native"
+	RUSTFLAGS="${RUSTFLAGS} -C target-cpu=native"
+	MAKEOPTS="-jN -lN"
 
-    [[EDIT NOTE]]
-    either add a section here on setting all the variables, or just advise
-    to read the handbook and go through them that way, or add a section
-    for pulling our make.conf down from somewhere at this section. come
-    back to this.
+    -these are flags to ADD to the variables. if the variables already
+     have some default options, add these in addition to those already
+     there.
+    -these are just the initial basic settings. -jN and -lN should use some
+     value for N that makes sense for the target system. Reference the
+     following URL for more info:
 
     https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage#Configuring_compile_options
 
@@ -156,36 +160,9 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
         # source /etc/profile
         # export PS1="(chroot) $PS1"
 
-    -pull the latest portage tree:
+    -pull the latest snapshot:
 
-        # emerge --sync
-
-    -edit the make.conf file and set these variables:
-    -these are flags to ADD to the variables. if the variables already
-     have some default options, add these in addition to those already
-     there.
-
-        "/etc/portage/make.conf"
-        COMMON_FLAGS="-march=native"
-        RUSTFLAGS="-C target-cpu=native"
-        MAKEOPTS="-jX -lX"
-        FEATURES="parallel-fetch getbinpkg"
-        EMERGE_DEFAULT_OPTS="--jobs=X --load-average=X --usepkg=y"
-        ACCEPT_LICENSE="*"
-
-    -set the PORTAGE_BINHOST variable to these URLs for downloading binary
-     packages:
-
-        "https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3/ \
-         https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64/"
-
-    -now update the mirrors with the mirrorlist tool. first install it:
-
-        # emerge -a --oneshot app-portage/mirrorselect
-
-    -run this command to select the 5 fastest mirrors:
-
-        # mirrorselect -s5 -o >> /etc/portage/make.conf
+        # emerge-webrsync
 
     -list any news items with portage:
 
@@ -199,14 +176,47 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
         # eselect news purge
 
+    -edit the make.conf file and set these variables:
+    -you'll need to use nano just this once before vim is installed.
+    -these are flags to ADD to the variables. if the variables already
+     have some default options, add these in addition to those already
+     there.
+
+        "/etc/portage/make.conf"
+        FEATURES="parallel-fetch getbinpkg"
+        EMERGE_DEFAULT_OPTS="--jobs=X --load-average=X --usepkg=y"
+        ACCEPT_LICENSE="*"
+
+    -set the PORTAGE_BINHOST variable to these URLs for downloading binary
+     packages:
+
+        "https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3/ \
+         https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64/"
+
+	[[NOTE]]
+	maybe update this section to use the binrepos.conf file because
+	the way we do it here is technically deprecated
+
+    -run this command so that binary packages can be used:
+
+        # getuto
+
+    -now update the mirrors with the mirrorlist tool. first install it:
+
+        # emerge -a --oneshot app-portage/mirrorselect
+
+    -run this command to select the 5 fastest mirrors:
+
+        # mirrorselect -s5 -o >> /etc/portage/make.conf
+
+    -install neovim so it's easier to edit these files:
+
+        # emerge -a app-editors/neovim
+
     -select the correct profile (should match the stage file used earlier):
 
         # eselect profile list
         # eselect profile set <CHOICE>
-
-    -run the getuto command so that binary packages can be downloaded:
-
-        # getuto
 
     -set CPU specific flags:
 
@@ -257,7 +267,7 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
     -install linux firmware:
 
         # emerge -a sys-kernel/linux-firmware
-        # emerge -a sys-kernel/sof-firmware
+        # emerge -a sys-firmware/sof-firmware
 
     -install CPU microcode updates. AMD CPUs are included in the above
      firmware package. Intel CPUs require:
@@ -312,7 +322,108 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
         # emerge --depclean
 
+    -add this USE flag globally to make.conf so that the initramfs are
+     automatically rebuilt when the kernel updgrades:
 
+         "/etc/portage/make.conf"
+	 USE="dist-kernel"
+
+/*****************************/
+/* 6. Configuring the system */
+/*****************************/
+
+    -set up your fstab file. The handbook does this manually but genfstab is
+     easy.
+
+        # emerge -a sys-fs/genfstab
+
+    -generate the fstab using UUID labels
+
+        # genfstab / -U > /etc/fstab
+
+    -set the hostname:
+
+        # echo <HOSTNAME> > /etc/hostname
+
+    -set up network manager by first adding the USE flag to make.conf:
+
+        "/etc/portage/make.conf"
+	USE="networkmanager"
+
+    -then install the package:
+
+        # emerge -a net-misc/networkmanager
+
+    -finally, enable the service:
+
+        # systemctl enable NetworkManager
+
+    -edit the hosts file:
+
+        [[NOTE]]
+	I'm not sure how necessary this is so come back to this. Consult the
+	handbook for now
+
+    -set the root password:
+
+        # passwd
+
+    -run some finalization commands for systemd:
+
+        # systemd-machine-id-setup
+	# systemd-firstboot --prompt
+
+    -the second command opened a TUI and asked me about the keyboard layout
+     and nothing else. I think it might only prompt for stuff that isn't
+     explicitly set.
+
+        # systemctl preset-all --preset-mode=enable-only
+
+/******************************/
+/* 7. Installing system tools */
+/******************************/
+
+    -install a file indexer to speed up file location:
+
+        # emerge -a sys-apps/mlocate
+
+    -install shell completion:
+
+        # emerge -a app-shells/bash-completion
+
+    -timesync service for the clock:
+
+        # systemctl enable systemd-timesyncd.service
+
+    -filesystem tools:
+
+        # emerge -a sys-fs/xfsprogs sys-fs/dosfstools
+
+    -recommended for correct scheduling behavior:
+
+        # emerge -a sys-block/io-scheduler-udev-rules
+
+/*********************************/
+/* 8. Configuring the bootloader */
+/*********************************/
+
+    -systemd-boot should already be installed
+
+        # bootctl install
+
+    -check for a new boot entry with this:
+
+        # bootctl list
+
+    -exit the chrooted environment and unmount all partitions:
+
+        # exit
+	# cd
+	# umount -l /mnt/gentoo/dev{/shm,/pts,}
+	# umount -R /mnt/gentoo
+
+    -finally, reboot. Be sure to remove the installation medium before
+     restarting.
 
 /****************/
 /* Post-install */
