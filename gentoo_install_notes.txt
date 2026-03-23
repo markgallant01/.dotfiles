@@ -429,21 +429,16 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 /* Post-install */
 /****************/
 
+[[NOTE]]
+Need to install app-admin/sudo at some point before exiting the chroot
+
 -this section sets up the newly installed system. Login to the
  new system as root.
 
--First, verify that the microcode is loaded properly. Use this
- command and read the output:
-
-    # lsinitcpio --early /boot/initramfs-linux.img | head -n 6
-
--The last 2 lines should reference microcode for your CPU.
-
 -setup a non-root user and set the password:
--in the wheel group so they can sudo and video
- so they can adjust the brightness
+-in the wheel group so they can sudo
 
-    # useradd -m -G wheel,video <username>
+    # useradd -m -G wheel <username>
     # passwd *user*
 
 -add the new user to the sudoers file with visudo
@@ -462,20 +457,6 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
     $ nmcli device wifi list
     $ nmcli device wifi connect "SSID" password "password"
-
--setup pacman by editing pacman.conf to enable the multilib repo
- and color
- (uncomment the lines):
-
-    "/etc/pacman.conf"
-    [options]
-    ...
-    Color
-    ...
-    VerbosePkgLists
-    ...
-    [multilib]
-    Include = /etc/pacman.d/mirrorlist
 
 -download the setup and config files:
 
@@ -503,6 +484,38 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 -Reboot and then launch the display server
 
     $ startx
+
+Gentoo installed stuff at this point:
+-www-client/firefox
+-gui-apps/foot
+-app-eselect/eselect-repository
+
+-enable the Guru repository:
+
+    $ sudo eselect repository enable guru
+    $ sudo emerge --sync guru
+
+-unmask niri:
+
+    "/etc/portage/package.accept_keywords/niri"
+    gui-wm/niri ~amd64
+
+-and then install:
+
+    $ sudo emerge -a gui-wm/niri
+
+-added some guy's overlay for dankmaterialshell and it's pulling in a bunch
+ of dependencies so maybe we should make our own for installing dank material
+ shell
+-removed that dankmaterialshell install. try to reverse everything it did and
+ remove the overlay
+-installed noctalia-shell from guru following the official instructions. add
+ that stuff here. check optional dependencies
+ -optional stuff i'm installing:
+    -app-misc/cliphist
+    -gui-apps/wlsunset
+    -sys-power/power-profiles-daemon
+    -app-misc/ddcutil
 
 /*********************/
 /* POST-INSTALLATION */
