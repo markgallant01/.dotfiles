@@ -534,7 +534,11 @@ variable because we need some extra stuff for intel at least:
 
 	$ sudo emerge -a media-libs/libva-intel-media-driver
 
--that enables hardware accel for intel iGPU's
+-that enables hardware accel for intel iGPU's. Do we need this for other GPU's too?
+
+-after that we've installed discord and fastfetch. noctalia-shell needs fastfetch for sys info
+
+	$ sudo emerge -a app-misc/fastfetch app-im/discord
 
 /*********************/
 /* POST-INSTALLATION */
