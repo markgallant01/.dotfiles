@@ -524,6 +524,7 @@ STUFF TO STILL DO:
     -rip settings and keybinds and stuff from DMS
     -add the settings to be backed up in our config file. figure out a way
      to get our /etc/portage stuff in there too.
+    -maybe number the Niri workstations so they stay around when empty
 
 /*********************/
 /* POST-INSTALLATION */
