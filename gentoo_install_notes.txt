@@ -526,6 +526,7 @@ STUFF TO STILL DO:
      to get our /etc/portage stuff in there too.
     -maybe number the Niri workstations so they stay around when empty
     -package install script
+    -customize foot terminal
 
 add a GPU section or maybe add this stuff above when setting the VIDEO_CARDS
 variable because we need some extra stuff for intel at least:
