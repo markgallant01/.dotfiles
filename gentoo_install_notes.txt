@@ -527,6 +527,7 @@ STUFF TO STILL DO:
     -maybe number the Niri workstations so they stay around when empty
     -package install script
     -customize foot terminal
+    -should we add the vaapi flag to the USE flags? consult gentoo VAAPI page
 
 add a GPU section or maybe add this stuff above when setting the VIDEO_CARDS
 variable because we need some extra stuff for intel at least:
