@@ -540,6 +540,9 @@ variable because we need some extra stuff for intel at least:
 
 	$ sudo emerge -a app-misc/fastfetch app-im/discord
 
+-configure foot. we created the config file and changed some stuff.
+ add it to the config and link it up.
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
