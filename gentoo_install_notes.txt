@@ -517,6 +517,14 @@ Gentoo installed stuff at this point:
     -sys-power/power-profiles-daemon
     -app-misc/ddcutil
 
+STUFF TO STILL DO:
+    -figure out what else is needed for noctalia shell. there's more
+     optional stuff that's missing
+    -look at the settings and junk and change what you want
+    -rip settings and keybinds and stuff from DMS
+    -add the settings to be backed up in our config file. figure out a way
+     to get our /etc/portage stuff in there too.
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
