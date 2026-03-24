@@ -526,6 +526,13 @@ STUFF TO STILL DO:
      to get our /etc/portage stuff in there too.
     -maybe number the Niri workstations so they stay around when empty
 
+add a GPU section or maybe add this stuff above when setting the VIDEO_CARDS
+variable because we need some extra stuff for intel at least:
+
+	$ sudo emerge -a media-libs/libva-intel-media-driver
+
+-that enables hardware accel for intel iGPU's
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
