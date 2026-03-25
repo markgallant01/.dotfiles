@@ -543,6 +543,14 @@ variable because we need some extra stuff for intel at least:
 -configure foot. we created the config file and changed some stuff.
  add it to the config and link it up.
 
+-set up audio by doing this:
+
+	$ systemctl --user enable --now pipewire-pulse.socket
+	$ systemctl --user enable --now wireplumber.service
+
+	-pipewire should be enabled by default on the desktop profile
+	 so this should be all you need to do
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
