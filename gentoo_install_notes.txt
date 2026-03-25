@@ -437,8 +437,9 @@ Need to install app-admin/sudo at some point before exiting the chroot
 
 -setup a non-root user and set the password:
 -in the wheel group so they can sudo
+-pipewire group for audio scheduling stuff
 
-    # useradd -m -G wheel <username>
+    # useradd -m -G wheel,pipewire <username>
     # passwd *user*
 
 -add the new user to the sudoers file with visudo
@@ -516,6 +517,9 @@ Gentoo installed stuff at this point:
     -gui-apps/wlsunset
     -sys-power/power-profiles-daemon
     -app-misc/ddcutil
+
+    -there's more optional deps I think. check here at some point:
+    https://docs.noctalia.dev/getting-started/installation/#manual-install
 
 STUFF TO STILL DO:
     -figure out what else is needed for noctalia shell. there's more
