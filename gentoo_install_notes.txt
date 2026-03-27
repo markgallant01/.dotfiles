@@ -403,6 +403,10 @@ Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
 
         # emerge -a sys-block/io-scheduler-udev-rules
 
+    -portage tools:
+
+    	# emerge -a app-portage/gentoolkit
+
 /*********************************/
 /* 8. Configuring the bootloader */
 /*********************************/
