@@ -562,6 +562,8 @@ variable because we need some extra stuff for intel at least:
 
 -searching with portage is slow so read about eix and add a section for it
 
+-add a section to start / enable bluetooth (it should all be installed automatically)
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
