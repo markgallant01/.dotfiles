@@ -564,6 +564,10 @@ variable because we need some extra stuff for intel at least:
 
 -add a section to start / enable bluetooth (it should all be installed automatically)
 
+-installed eix because it's a lot faster for querying package stuff:
+
+	$ sudo emerge -a app-portage/eix
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
