@@ -568,6 +568,14 @@ variable because we need some extra stuff for intel at least:
 
 	$ sudo emerge -a app-portage/eix
 
+-discord wouldn't run without xwayland-satellite so include that with niri:
+	
+	$ sudo emerge -a gui-apps/xwayland-satellite
+
+	-there's stuff you have to do. unmask the testing thing like normal and then
+	 put some stuff in your niri config. It's on the gentoo niri page. Add all this
+	 stuff somewhere that makes sense
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
