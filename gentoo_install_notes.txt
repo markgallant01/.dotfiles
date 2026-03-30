@@ -578,6 +578,9 @@ variable because we need some extra stuff for intel at least:
 
 	$ sudo emerge -a net-libs/nodejs
 
+-add Steam install instructions. Use the wiki page and follow the flatpak instructions
+ so we don't need to compile a ton of 32 bit libraries
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
