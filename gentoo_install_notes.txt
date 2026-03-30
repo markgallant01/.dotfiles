@@ -574,6 +574,10 @@ variable because we need some extra stuff for intel at least:
 
 	-there's stuff you have to do. unmask the testing thing.
 
+-add a section for development stuff. so far we've installed:
+
+	$ sudo emerge -a net-libs/nodejs
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
