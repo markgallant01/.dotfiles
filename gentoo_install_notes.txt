@@ -581,6 +581,9 @@ variable because we need some extra stuff for intel at least:
 -add Steam install instructions. Use the wiki page and follow the flatpak instructions
  so we don't need to compile a ton of 32 bit libraries
 
+-set up fonts somewhere in here. There's a wiki page for it. I hate having those missing
+ glyph symbols so make sure we have everything we need
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
