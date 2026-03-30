@@ -572,9 +572,7 @@ variable because we need some extra stuff for intel at least:
 	
 	$ sudo emerge -a gui-apps/xwayland-satellite
 
-	-there's stuff you have to do. unmask the testing thing like normal and then
-	 put some stuff in your niri config. It's on the gentoo niri page. Add all this
-	 stuff somewhere that makes sense
+	-there's stuff you have to do. unmask the testing thing.
 
 /*********************/
 /* POST-INSTALLATION */
