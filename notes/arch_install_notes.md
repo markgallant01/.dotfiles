@@ -1,190 +1,295 @@
-pandoc -s input_file.md -o output_file.html
+# Arch Linux Installation
 
-This is a compilation of notes to be used as supplementary material for
-an arch linux install. Use alongside the installation guide found at
-wiki.archlinux.org.
+*html file created with this command:*
 
-Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
+`pandoc -s input_file.md -o output_file.html`
 
+*This is a compilation of notes to be used as supplementary material for
+an Arch linux install. Use alongside the installation guide found
+[here](wiki.archlinux.org).*
 
-/***********************/
-/* 1. Pre-installation */
-/***********************/
+*Steps are numbered according to their corresponding Arch Wiki section. Any
+skipped steps require no action from the user, but should be double checked.*
 
-1.1 Acqure an installation image
-1.2 Verify signature
-1.3 Prepare an installation medium
-    -use a fresh arch iso
-    -dd command is easiest:
+*[Comfy installation theme](https://www.youtube.com/watch?v=Z6hRV-Nq1Q0)*
 
-        $ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive \
-            conv=fsync oflag=direct status=progress
+## 1. Pre-installation
 
-1.4 Boot the live environment
-1.5 Set the console keyboard layout and font
-1.6 Verify the boot mode
-1.7 Connect to the internet
-    -If you're wired then just plug in the ethernet and it should work
-    -If using wifi, connect to the network with iwctl.
+### 1.3 Prepare an installation medium
 
-    # iwctl                 // this will give you an interactive prompt
-    [iwd]# device list               // get the name of wireless device
-    [iwd]# station *device* scan          // scan for wireless networks
-    [iwd]# station *device* get-networks               // list networks
-    [iwd]# station *device* connect *SSID*        // connect to network
-
-    -enter the password when prompted and then exit with Ctrl+d.
-    -verify the connection with:
-
-        # ping archlinux.org
-
-1.8 Update the system clock
-1.9 Partition the disks
-    -format root drive as xfs.
-    -boot drive needs 2 partitions: a 1G EFI boot partition
-     and the rest of the drive is Linux x86_64 root xfs
-    -list the drives with:
-
-        # lsblk -l
-
-    -and use cfdisk to make the partitioning easy.
-
-    -for the swap file, on desktop suspend is unnecessary so 16G is
-     more than enough. On a laptop use 1.5x RAM.
-
-1.10 Format the partitions
-1.11 Mount the file system
+A fresh up-to-date Arch linux ISO should be used. Download one and make a
+bootable usb with the dd command:
 
 
-/*******************/
-/* 2. Installation */
-/*******************/
+`$ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive conv=fsync
+oflag=direct status=progress`
 
-2.1 Select the mirrors
-    -use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and
-     move the American mirror to the top of the list.
+Boot into the live environment and continue.
 
-2.2 Install essential packages
-    -in addition to the essential packages, install some more stuff that
-     will be useful.
+### 1.7 Connect to the internet
 
-        # pacstrap -K /mnt base linux linux-firmware
-            man-db man-pages texinfo
-            vim networkmanager sudo
-            reflector git
-            xfsprogs                 <- depends on filesystem
-            intel-ucode OR amd-ucode <- choose correct for CPU
+If you're wired then just plug in the ethernet and it should work. If using
+wifi, connect to the network with iwctl.
 
+```
+# iwctl                 // this will give you an interactive prompt
+[iwd]# device list               // get the name of wireless device
+[iwd]# station *device* scan          // scan for wireless networks
+[iwd]# station *device* get-networks               // list networks
+[iwd]# station *device* connect *SSID*        // connect to network
+```
 
-/***************************/
-/* 3. Configure the system */
-/***************************/
+Enter the password when prompted and then exit with Ctrl+d. Verify the
+connection:
 
-3.1 Fstab
-3.2 Chroot
-3.3 Time zone
-3.4 Localization
-3.5 Network configuration
-    -after setting up the hostname file, run this command to ensure
-     NetworkManager starts up on reboot:
+`# ping archlinux.org`
 
-        # systemctl enable NetworkManager.service
+### 1.9 Partition the disks
 
-3.6 Initramfs
-3.7 Root password
-3.8 Boot loader
-    -Systemd-boot comes with systemD and is easy to use. It's already
-     installed on the system. Initialize it:
+On a standard setup you'll want 3 partitions. One EFI boot partition, one
+SWAP partition, and one root partition. The drives can be listed with
+this command:
 
-        # bootctl install
+`# lsblk -l`
 
-    -Next, a loader configuration file must be created and set:
-     (note 'efi' below corresponds to wherever the EFI directory was
-     mounted. Probably /boot.)
-    -These fields are separated by a space, not a tab.
-     SystemD won't read tabs.
+The cfdisk utility makes partitioning easy. You'll likely want to set up
+partitions according to the following table:
 
-        "efi/loader/loader.conf"
-        default arch.conf
-        timeout 0
-        console-mode keep
+| partition | filesystem | size      | description          |
+| --------- | ---------- | --------- | -------------------- |
+| /dev/sdx1 | fat32      | 1 GiB     | EFI (boot) partition |
+| /dev/sdx2 | swap       | RAM * 1.5 | Swap partition       |
+| /dev/sdx3 | ext4       | remainder | root partition       |
 
-    -You'll need a corresponding arch.conf file in efi/loader/entries.
-    -The UUID must be replaced with the UUID of the root partition.
-     Copy it from the /etc/fstab file.
-    -These can be tab-separated:
+For the swap file, on desktop suspend is unnecessary so 16G is more than
+enough. On a laptop use 1.5x RAM.
 
-        "efi/loader/entries/arch.conf"
-        title   Arch Linux
-        linux   /vmlinuz-linux
-        initrd  /initramfs-linux.img
-        options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
+### 1.10 Format the partitions
 
-    -use this command to make sure there's a new Arch Linux boot entry:
+After partitioning, you'll need to format each partition and create the
+filesystems. The following commands will create the setup outlined in the
+table above:
 
-        # bootctl list
+```
+# mkfs.fat -F 32 /dev/efi_system_partition
+# mkswap /dev/swap_partition
+# mkfs.ext4 /dev/root_partition
+```
 
--finished with basic installation
--exit chroot, unmount drives and shutdown:
+*Note: Take care to use the correct /dev/sdx labels for your particular disk.
+If you desire a more unique setup that differs from the table above, consult
+the wiki.*
 
-    # exit
-    # umount -R /mnt
-    # shutdown +0
+### 1.11 Mount the file system
 
--remove the installation USB and boot into the new system.
+Each created partition will need to be mounted before it can be accessed.
+Create any mount points that don't exist. The last command activates the
+swap partition.
+
+```
+# mount /dev/root_partition /mnt
+# mount --mkdir /dev/efi_system /mnt/boot
+# swapon /dev/swap_partition
+```
 
 
-/****************/
-/* Post-install */
-/****************/
+## 2. Installation
 
--this section sets up the newly installed system. Login to the
- new system as root.
+### 2.1 Select the mirrors
 
--First, verify that the microcode is loaded properly. Use this
- command and read the output:
+Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and ensure that the
+US mirror is uncommented and the first in the list.
 
-    # lsinitcpio --early /boot/initramfs-linux.img | head -n 6
+### 2.2 Install essential packages
 
--The last 2 lines should reference microcode for your CPU.
+You'll want to install some additional tools that will come in handy later,
+in addition to the necessary base system packages:
 
--setup a non-root user and set the password:
--in the wheel group so they can sudo and video
- so they can adjust the brightness
+```
+# pacstrap -K /mnt base linux linux-firmware
+                   man-db man-pages texinfo
+                   vim networkmanager sudo
+                   reflector git
+                   intel-ucode OR amd-ucode <- choose correct for CPU
+```
 
-    # useradd -m -G wheel,video <username>
-    # passwd *user*
 
--add the new user to the sudoers file with visudo
+## 3. Configure the system
 
-    # EDITOR=vim visudo
+### 3.1 Fstab
 
-    %wheel ALL=(ALL:ALL) ALL    // uncomment this line
+You'll need an fstab file to get your disks mounted on boot. The genfstab
+tool makes this simple:
 
--then logout of root and login as the new user.
+`# genfstab -U /mnt >> /mnt/etc/fstab`
 
--verify the internet:
+### 3.2 Chroot
 
-    $ ping archlinux.org
+You can now change root into the new system to begin configuring it directly:
 
--if on wifi, you may need to connect manually:
+`# arch-chroot /mnt`
 
-    $ nmcli device wifi list
-    $ nmcli device wifi connect "SSID" password "password"
+### 3.3 Time
 
--setup pacman by editing pacman.conf to enable the multilib repo
- and color
- (uncomment the lines):
+Set the appropriate time zone:
 
-    "/etc/pacman.conf"
-    [options]
-    ...
-    Color
-    ...
-    VerbosePkgLists
-    ...
-    [multilib]
-    Include = /etc/pacman.d/mirrorlist
+`# ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime`
+
+*Note: Modify the above file path in accordance with your location*
+
+Run hwclock to generate /etc/adjtime:
+
+`# hwclock --systohc`
+
+You'll also want to enable time synchronization via an NTP client to ensure
+accurate time. This can be done simply with a systemd service:
+
+`# systemctl enable systemd-timesyncd.service`
+
+### 3.4 Localization
+
+Enable your chosen locales by editing the /etc/locale.gen file and
+uncommenting whichever you want (likely just `en_US.UTF-8`)
+
+` # vim /etc/locale.gen`
+
+Then generate the locales:
+
+`# locale-gen`
+
+Finally, create a `locale.conf` file and set the `LANG` variable:
+
+```
+"/etc/locale.conf"
+-----------------
+LANG=en_US.UTF-8
+```
+
+### 3.5 Network configuration
+
+Assign a consistent identifiable name for your system on the network by
+creating a hostname file:
+
+```
+"/etc/hostname"
+---------------
+<CHOSEN_HOSTNAME>
+```
+
+After setting up the hostname, the network must be configured. With
+NetworkManager, all you have to do is start the service so that it starts
+on boot.
+
+`# systemctl enable NetworkManager.service`
+
+### 3.7 Root password
+
+Set a secure password for the root user:
+
+`# passwd`
+
+### 3.8 Boot loader
+
+Systemd-boot comes with systemd and is easy to use. It's already installed
+on the system. Initialize it:
+
+`# bootctl install`
+
+Next, a loader configuration file must be created and set:
+
+*Note: These fields are separated by a space, not a tab. SystemD won't
+read tabs.*
+
+```
+"/boot/loader/loader.conf"
+--------------------------
+default arch.conf
+timeout 0
+console-mode keep
+```
+
+You'll need a corresponding arch.conf file in /boot/loader/entries.
+The UUID must be replaced with the UUID of the root partition.
+Copy it from the /etc/fstab file.
+These can be tab-separated:
+
+```
+"efi/loader/entries/arch.conf"
+------------------------------
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
+```
+
+Use this command to make sure there's a new Arch Linux boot entry:
+
+`# bootctl list`
+
+You are now finished with the basic installation. Exit the chroot, unmount
+the drives, and shut down.
+
+```
+# exit
+# umount -R /mnt
+# shutdown +0
+```
+
+Remove the installation USB and boot into the new system.
+
+## Post-install Configuration
+
+This section sets configures the newly installed system. Login to the
+new system as root.
+
+Setup a non-root user and set the password:
+
+*Note: Make sure the user is in the "wheel" group if you want them to be
+able to use sudo*
+
+```
+# useradd -m -G wheel <username>
+# passwd *user*
+```
+
+Add the new user to the sudoers file with **visudo**
+
+```
+# EDITOR=vim visudo
+
+%wheel ALL=(ALL:ALL) ALL    // uncomment this line
+```
+
+Then logout of root and login as the new user.
+
+Once logged in, verify the internet:
+
+`$ ping archlinux.org`
+
+If you're on wifi, you may need to connect manually:
+
+```
+$ nmcli device wifi list
+$ nmcli device wifi connect "SSID" password "password"
+```
+
+Setup pacman by editing `pacman.conf` to enable the multilib repo and color
+support:
+
+*Note: just uncomment these lines.*
+
+```
+"/etc/pacman.conf"
+------------------
+[options]
+...
+Color
+...
+VerbosePkgLists
+...
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
 
 -download the setup and config files:
 

@@ -49,7 +49,8 @@ packages+=("vlc" "vlc-plugin-ffmpeg")
 
 # file system and drive utilities
 # (this will be different if not using xfs)
-packages+=("xfsprogs" "dosfstools" "smartmontools")
+packages+=("dosfstools" "exfatprogs" "exfat-utils" "smartmontools")
+packages+=("e2fsprogs")
 
 # language servers
 packages+=("bash-language-server" "clang")

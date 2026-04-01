@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>arch_install_notes</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="arch-linux-installation">Arch Linux Installation</h1>
+<p><em>html file created with this command:</em></p>
+<p><code>pandoc -s input_file.md -o output_file.html</code></p>
+<p><em>This is a compilation of notes to be used as supplementary
+material for an Arch linux install. Use alongside the installation guide
+found <a href="wiki.archlinux.org">here</a>.</em></p>
+<p><em>Steps are numbered according to their corresponding Arch Wiki
+section. Any skipped steps require no action from the user, but should
+be double checked.</em></p>
+<p><em><a href="https://www.youtube.com/watch?v=Z6hRV-Nq1Q0">Comfy
+installation theme</a></em></p>
+<h2 id="pre-installation">1. Pre-installation</h2>
+<h3 id="prepare-an-installation-medium">1.3 Prepare an installation
+medium</h3>
+<p>A fresh up-to-date Arch linux ISO should be used. Download one and
+make a bootable usb with the dd command:</p>
+<p><code>$ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive conv=fsync oflag=direct status=progress</code></p>
+<p>Boot into the live environment and continue.</p>
+<h3 id="connect-to-the-internet">1.7 Connect to the internet</h3>
+<p>If you’re wired then just plug in the ethernet and it should work. If
+using wifi, connect to the network with iwctl.</p>
+<pre><code># iwctl                 // this will give you an interactive prompt
+[iwd]# device list               // get the name of wireless device
+[iwd]# station *device* scan          // scan for wireless networks
+[iwd]# station *device* get-networks               // list networks
+[iwd]# station *device* connect *SSID*        // connect to network</code></pre>
+<p>Enter the password when prompted and then exit with Ctrl+d. Verify
+the connection:</p>
+<p><code># ping archlinux.org</code></p>
+<h3 id="partition-the-disks">1.9 Partition the disks</h3>
+<p>On a standard setup you’ll want 3 partitions. One EFI boot partition,
+one SWAP partition, and one root partition. The drives can be listed
+with this command:</p>
+<p><code># lsblk -l</code></p>
+<p>The cfdisk utility makes partitioning easy. You’ll likely want to set
+up partitions according to the following table:</p>
+<table>
+<thead>
+<tr>
+<th>partition</th>
+<th>filesystem</th>
+<th>size</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/dev/sdx1</td>
+<td>fat32</td>
+<td>1 GiB</td>
+<td>EFI (boot) partition</td>
+</tr>
+<tr>
+<td>/dev/sdx2</td>
+<td>swap</td>
+<td>RAM * 1.5</td>
+<td>Swap partition</td>
+</tr>
+<tr>
+<td>/dev/sdx3</td>
+<td>ext4</td>
+<td>remainder</td>
+<td>root partition</td>
+</tr>
+</tbody>
+</table>
+<p>For the swap file, on desktop suspend is unnecessary so 16G is more
+than enough. On a laptop use 1.5x RAM.</p>
+<h3 id="format-the-partitions">1.10 Format the partitions</h3>
+<p>After partitioning, you’ll need to format each partition and create
+the filesystems. The following commands will create the setup outlined
+in the table above:</p>
+<pre><code># mkfs.fat -F 32 /dev/efi_system_partition
+# mkswap /dev/swap_partition
+# mkfs.ext4 /dev/root_partition</code></pre>
+<p><em>Note: Take care to use the correct /dev/sdx labels for your
+particular disk. If you desire a more unique setup that differs from the
+table above, consult the wiki.</em></p>
+<h3 id="mount-the-file-system">1.11 Mount the file system</h3>
+<p>Each created partition will need to be mounted before it can be
+accessed. Create any mount points that don’t exist. The last command
+activates the swap partition.</p>
+<pre><code># mount /dev/root_partition /mnt
+# mount --mkdir /dev/efi_system /mnt/boot
+# swapon /dev/swap_partition</code></pre>
+<h2 id="installation">2. Installation</h2>
+<h3 id="select-the-mirrors">2.1 Select the mirrors</h3>
+<p>Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and ensure
+that the US mirror is uncommented and the first in the list.</p>
+<h3 id="install-essential-packages">2.2 Install essential packages</h3>
+<p>You’ll want to install some additional tools that will come in handy
+later, in addition to the necessary base system packages:</p>
+<pre><code># pacstrap -K /mnt base linux linux-firmware
+                   man-db man-pages texinfo
+                   vim networkmanager sudo
+                   reflector git
+                   intel-ucode OR amd-ucode &lt;- choose correct for CPU</code></pre>
+<h2 id="configure-the-system">3. Configure the system</h2>
+<h3 id="fstab">3.1 Fstab</h3>
+<p>You’ll need an fstab file to get your disks mounted on boot. The
+genfstab tool makes this simple:</p>
+<p><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
+<h3 id="chroot">3.2 Chroot</h3>
+<p>You can now change root into the new system to begin configuring it
+directly:</p>
+<p><code># arch-chroot /mnt</code></p>
+<h3 id="time">3.3 Time</h3>
+<p>Set the appropriate time zone:</p>
+<p><code># ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime</code></p>
+<p><em>Note: Modify the above file path in accordance with your
+location</em></p>
+<p>Run hwclock to generate /etc/adjtime:</p>
+<p><code># hwclock --systohc</code></p>
+<p>You’ll also want to enable time synchronization via an NTP client to
+ensure accurate time. This can be done simply with a systemd
+service:</p>
+<p><code># systemctl enable systemd-timesyncd.service</code></p>
+<h3 id="localization">3.4 Localization</h3>
+<p>Enable your chosen locales by editing the /etc/locale.gen file and
+uncommenting whichever you want (likely just
+<code>en_US.UTF-8</code>)</p>
+<p><code># vim /etc/locale.gen</code></p>
+<p>Then generate the locales:</p>
+<p><code># locale-gen</code></p>
+<p>Finally, create a <code>locale.conf</code> file and set the
+<code>LANG</code> variable:</p>
+<pre><code>&quot;/etc/locale.conf&quot;
+-----------------
+LANG=en_US.UTF-8</code></pre>
+<h3 id="network-configuration">3.5 Network configuration</h3>
+<p>Assign a consistent identifiable name for your system on the network
+by creating a hostname file:</p>
+<pre><code>&quot;/etc/hostname&quot;
+---------------
+&lt;CHOSEN_HOSTNAME&gt;</code></pre>
+<p>After setting up the hostname, the network must be configured. With
+NetworkManager, all you have to do is start the service so that it
+starts on boot.</p>
+<p><code># systemctl enable NetworkManager.service</code></p>
+<h3 id="root-password">3.7 Root password</h3>
+<p>Set a secure password for the root user:</p>
+<p><code># passwd</code></p>
+<h3 id="boot-loader">3.8 Boot loader</h3>
+<p>Systemd-boot comes with systemd and is easy to use. It’s already
+installed on the system. Initialize it:</p>
+<p><code># bootctl install</code></p>
+<p>Next, a loader configuration file must be created and set:</p>
+<p><em>Note: These fields are separated by a space, not a tab. SystemD
+won’t read tabs.</em></p>
+<pre><code>&quot;/boot/loader/loader.conf&quot;
+--------------------------
+default arch.conf
+timeout 0
+console-mode keep</code></pre>
+<p>You’ll need a corresponding arch.conf file in /boot/loader/entries.
+The UUID must be replaced with the UUID of the root partition. Copy it
+from the /etc/fstab file. These can be tab-separated:</p>
+<pre><code>&quot;efi/loader/entries/arch.conf&quot;
+------------------------------
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw</code></pre>
+<p>Use this command to make sure there’s a new Arch Linux boot
+entry:</p>
+<p><code># bootctl list</code></p>
+<p>You are now finished with the basic installation. Exit the chroot,
+unmount the drives, and shut down.</p>
+<pre><code># exit
+# umount -R /mnt
+# shutdown +0</code></pre>
+<p>Remove the installation USB and boot into the new system.</p>
+<h2 id="post-install-configuration">Post-install Configuration</h2>
+<p>This section sets configures the newly installed system. Login to the
+new system as root.</p>
+<p>Setup a non-root user and set the password:</p>
+<p><em>Note: Make sure the user is in the “wheel” group if you want them
+to be able to use sudo</em></p>
+<pre><code># useradd -m -G wheel &lt;username&gt;
+# passwd *user*</code></pre>
+<p>Add the new user to the sudoers file with <strong>visudo</strong></p>
+<pre><code># EDITOR=vim visudo
+
+%wheel ALL=(ALL:ALL) ALL    // uncomment this line</code></pre>
+<p>Then logout of root and login as the new user.</p>
+<p>Once logged in, verify the internet:</p>
+<p><code>$ ping archlinux.org</code></p>
+<p>If you’re on wifi, you may need to connect manually:</p>
+<pre><code>$ nmcli device wifi list
+$ nmcli device wifi connect &quot;SSID&quot; password &quot;password&quot;</code></pre>
+<p>Setup pacman by editing <code>pacman.conf</code> to enable the
+multilib repo and color support:</p>
+<p><em>Note: just uncomment these lines.</em></p>
+<pre><code>&quot;/etc/pacman.conf&quot;
+------------------
+[options]
+...
+Color
+...
+VerbosePkgLists
+...
+[multilib]
+Include = /etc/pacman.d/mirrorlist</code></pre>
+<p>-download the setup and config files:</p>
+<pre><code>$ git clone https://github.com/markgallant01/.dotfiles.git</code></pre>
+<p>-make the setup scripts executable:</p>
+<pre><code>$ chmod +x ~/.dotfiles/scripts/setup.sh
+$ chmod +x ~/.dotfiles/scripts/install_packages.sh</code></pre>
+<p>-run the setup script:</p>
+<pre><code>$ ~/.dotfiles/scripts/setup.sh</code></pre>
+<p>-if nvidia drivers were installed, you must edit the file
+/etc/mkinitcpio.conf to remove the ‘kms’ module from the HOOKS array.
+This ensures the nouveau module will not be loaded during boot:</p>
+<pre><code>$ sudo vim /etc/mkinitcpio.conf
+
+-after that, re-run the command to regenerate the initramfs
+
+    $ sudo mkinitcpio -P</code></pre>
+<p>-Reboot and then launch the display server</p>
+<pre><code>$ startx</code></pre>
+<p>/*********************/ /* POST-INSTALLATION <em>/
+/</em>********************/</p>
+<p>-Some things cannot easily be automated and require manual setup
+here. -Starting with Firefox and LastPass is easiest because you’ll need
+to log into things</p>
+<p>FIREFOX &amp; LASTPASS: -Launch Firefox and sign in to start syncing
+everything -go down through the settings and verify everything
+-Extensions to install: -uBlock Origin -Reddit Enhancement Suite
+-LastPass -Install LastPass &amp; Reddit Enhancement Suite extensions
+-Go into the LastPass extension settings and disable “Automatically fill
+login information” -make sure both extensions are pinned and active in
+private browser sessions -double check the browser font settings and set
+the history to wipe every time you close the browser. Disable any kind
+of autofill</p>
+<p>DISCORD: -launch discord once to generate the config file. -add the
+shown line in this file so Discord doesn’t refuse to launch if there’s
+an update that’s not in the repo yet:</p>
+<pre><code>    ~/.config/discord/settings.json
+    &quot;SKIP_HOST_UPDATE&quot;: true
+
+-go into the discord settings and set the font size to 20.
+-adjust the mic threshold if you have a microphone setup
+-Disable &#39;minimize to tray&#39; and automatic startup under
+ Linux settings</code></pre>
+<p>THUNAR: -edit /usr/share/gvfs/mounts/network.mount and change the
+last line to:</p>
+<pre><code>    /usr/share/gvfs/mounts/network.mount
+    AutoMount=false
+
+-this helps with thunar taking a long time to startup the
+ first time</code></pre>
+<p>WALLPAPERS: -Log into google drive and download the Wallpaper folder.
+-Unzip that folder into the ~/Pictures/ directory to make them useable
+by the system’s wallpaper scripts</p>
+<p>GITHUB: -authenticate with github: -launch web browser and login to
+github account. -the installer script generated new ssh keys. -print the
+public key:</p>
+<pre><code>    $ cat ~/.ssh/id_ed25519.pub
+
+-copy this output and add it to github ssh keys
+-verify the connection:
+
+    $ ssh -T git@github.com
+
+-once authenticated, fix cloned repos
+
+    $ rm -rf ~/.dotfiles
+
+    $ git clone git@github.com:markgallant01/.dotfiles.git</code></pre>
+<p>/******************/ /* OPTIONAL STUFF <em>/
+/</em>*****************/</p>
+<p>-This stuff depends on the PC setup and may or may not be done</p>
+<p>VOLUME: -On desktop, you probably want to set the volume to 100%:</p>
+<pre><code>    $ pactl set-sink-volume @DEFAULT_SINK@ 100%</code></pre>
+<p>EXTERNAL DRIVES: -create additional directories in the home directory
+for any internal or external drives you want to mount:</p>
+<pre><code>    $ mkdir nvme_games ssd_storage
+
+-set up the fstab here so that drives auto mount. Consult
+ https://wiki.archlinux.org/title/Fstab for reference.</code></pre>
+<p>/***********/ /* THE END <em>/ /</em>**********/</p>
+<p>To-do: -write a bash script to check if the AC power is plugged in at
+startup and modify power-profiles-daemon appropriately with
+powerprofilesctl. Set this as a systemD service so it runs at boot. -add
+niri and dank material shell to installer. simplifies things a lot.
+reconfigure the installation to use DMS and do it all manually. make
+sure all the necessary stuff is included and connect all the config
+files. -install and setup tlp. consult the documentation, it seems
+mostly automatic. test battery life on both laptops before and after. if
+it works well, add it to this guide. -awesome doesn’t respect the time
+of day when setting the wallpaper so figure that out or just use feh and
+don’t have awesome set the wallpaper at all -awesome needs keybinds to
+swap between monitors and such -wallpapers are double setting now that
+we’re on awesomewm again -change lua files to use 2 space indent -need
+colorbar to see when we’re typing too far -maybe remove chaotic aur
+stuff because it seems to cause lots of problems -add mount.exfat to the
+install list -no autopairs in nvim. try to get things configured.
+-figure out how to properly manage python packages and versions and
+stuff with uv -add python-pip and / or uv to the installation list -get
+the color bar in nvim so it shows how far we should be typing -awesomeWM
+is still getting updates so we should start switching back to that and
+getting it configured so we can get off suckless stuff. also switch back
+to alacritty. -make nvim use relative line numbers -add a section to set
+up bnet with steam since it’s kinda unique -get duckstation and other
+emulators working out of the box as far as mounting automatically and
+having the emulator know where to find saves, box art, etc -check out
+mini.nvim and think about switching to a mainly mini-based setup
+-dual_kawase blur doesn’t work with the xrender backend so figure that
+out. i kinda like it with no bur so think about it -the performance
+issues from desktop were from picom glx backend. switching to xrender
+backend seems to fix it. investigate this. -fix formatting here -check
+out zathura document reader -discord isn’t showing the notification icon
+for unread messages or making the ping sound so figure that out. there’s
+stuff about it on the wiki. -figure out docker containers with bookmarks
+and figure out how to use neovim with our docker project for CS326 -trim
+down neovim -find some good drawn fall wallpapers and think about qtile
+and alacritty vs dwm and st -polybar should match rofi. maybe make some
+themes that can be swapped between. maybe even match them to wallpapers.
+-make it so that empty workspaces are darker color so its obvious -id
+like a visual indicator for volume changes and brightness. can
+definitely do this with eww. think if theres another way -copy the qtile
+symbols for the workspaces into dwm -start configuring polybar -add
+keyboard modifications to xorg configuration. use bookmarks to the arch
+wiki keyboard page. make the keyboard repeat rate persistent and do the
+caps lock / control swap for laptops -add a firefox section to copy over
+the user.js and also make a backup of the old profile -try to make the
+install script copy its output to a log file so we can check for any
+issues afterward -keep learning about gentoo once we’re at school. write
+up a guide for it based on this one. I really do like it -probably write
+our own widgets for volume, brightness, battery, etc. that way we dont
+need to install more dependencies and we know exactly what its doing.
+-supress the output from tty because its polluting the login screen (or
+use a login manager) -done with dmenu so start ricing rofi -get or make
+a good terminal theme probably copy solarized osaka -get minecraft and
+wow added to the installer thing -sort all bookmarks -go through the
+browser setup section and make sure it’s good for firefox. basically
+just log in and set settings and everything should sync -consider a
+wallpaper switching keybind in dwm like before. -think about a screen
+locker and blocking tty and blocking killing the x server and whatever
+else. this is kinda complex and we might want a login manager to bypass
+it -consider adding a section for steam setup including log-in and
+settings. disable gpu acceleration because it sucks shit -find nice
+drawn wallpapers for fall / winter / spring just like we did for summer
+-nvim takes way too long to startup so troubleshoot that: :Lazy profile
+-reduce keyboard repeat delay even more if possible -rework nvim config
+because startup time is attrocious. trim down addons. consider trying
+native package manager -setup slock or another screen locker -set up 2
+factor auth with the lastpass authenticator because google’s
+authentication sucks -check out tlp for power management on laptops.
+helps with battery life potentially a lot -reconfigure the brave section
+to be about firefox. make homescreen using common websites. currently:
+DGG, Github, Reddit, Wikipedia, Arch Wiki, Arch Repository, Chaotic AUR,
+Raindrop(X), Drive, Gumaverse, /tv/, /g/ -add a section for configuring
+thunar maybe. enabling auto mounting of usb drives and displaying hidden
+files, anything else. -use betterfox and update the part of the
+installer that deals with configuring Brave -figure out what we need to
+do to set fonts system-wide. Awesome, terminal (alacritty), neovim,
+firefox, etc all need to use the same font -set Rofi up -figure out how
+to make wallpaper set a default gentoo wallpaper when its run without
+the wallpaper folder existing yet -run through the general
+recommendations found here:
+https://wiki.archlinux.org/title/General_recommendations -I love this
+console rain: https://github.com/saitamasahil/matrix so figure out how
+to incorporate this into our setup -take another look at awesomeWM and
+try to figure out the bar / widget system. it would be cleaner to use
+widgets for the top bar and for system info so we dont require polybar
+and conky. polybar is having some weird issues with how it interacts
+with the WM so it would just be cleaner. -get subtitle puller addon
+thing for jellyfin. check bookmarks -maybe get nicer icons for
+qBittorrent and protonVPN but probably not -make awesomeWM open all new
+windows in the center -find a better disk utility than the baobab one.
+it doesn’t seem to show much info -problem with fullscreen since we
+added the floating rule so figure that out -get jellyfin up and running
+for media consumption -make a nice landing page on web browser with
+common sites like arch wiki, reddit, youtube, etc. don’t show bookmark
+bar by default because i rarely ever click it directly -keep configuring
+topbar. make the tags group look good and function. get rid of the clock
+on the right side and replace it with a nice systray with good looking
+icons for volume, network, brightness, maybe buttons to restart and such
+-fix nvim bufferline’s background color to match lualine -sort out
+alacritty’s font (nerdfont)
+-https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step see if this
+fixes gnome-keyring asking for password sometimes, like when brave
+browser is launched. try to remember what else would cause the keyring
+to launch. if it’s fixed, add a section to the installation guide.
+-looks like thunar is handling auto-mounting so look into that -continue
+to configure alacritty. font size? -configure alacritty and clean up
+stuff -get a good nerd font patched with icons -stuff I want: -wallpaper
+spans entire screen including top bar. top bar should be transparent
+between the widgets because it looks cool -make menu stuff transparent
+like rofi and terminal with blur for a nice modern glass effect -neovim
+should not be transparent -if something isn’t transparent it should have
+the same back ground as the desktop (like rofi) -window border should be
+thicker and color should match color scheme too -reduce keyboard
+repetition rate so that we can fly around nvim faster -NVM is slowing
+down the terminal startup due to the initialization stuff it adds to the
+bachrc file. this is a pain in the ass -maybe add curl nvm installation
+idk yet Stuff we want for awesomeWM: -nice program launcher that lets me
+search for programs I’ve forgotten. Maybe Rofi? -login manager that
+looks nice. LightDM? -lock screen finally so we can walk away from PC
+without killing the x-server -figure out why USB stuff seems to
+automount on laptop but not desktop -maybe get suspend / hibernate to
+work -also laptop is starting on incorrect brightness but idk why
+-modify brightness step because we should be able to go darker than we
+currently can -get brighntess control working for desktop monitors -add
+tlp and the systemctl stuff to make it work. default settings. -add
+minecraft audio fix maybe -something weird going on with mounting the
+other drives on desktop. Maybe switch to UUIDs in case the labels are
+switching -get a cool nvim startup screen -change the wallpaper script
+to not switch to daytime wallpaper until 5am. 4 is too early. -modify
+the setup script to copy the screen setup script to the .config folder
+and add a step to set that up properly -might want to add a note about
+the intel i915 psr kernel parameter for that weird screen bug:
+https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
+-consider adding a section about configuring Xorg. Consult
+https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration -setup a
+pacman hook to clean up the paccache after each install -use musicBrainz
+picard to tag all our music and sort it. then add picard to the install
+list -customize brave new tab page with custom css -add something about
+the symlink fix for fmod pipewire bug:
+https://wiki.archlinux.org/title/PipeWire#<br />
+FMOD_games_crashing_under_PipeWire -maybe add SDL stuff to installer
+-setup a good screen locker that blocks tty access maybe -add
+overthewire programs like telnet and nmap as we go through it -look into
+this: https://wiki.archlinux.org/title/Gamemode#top-page -power
+management? (acpi?)</p>
+</body>
+</html>
