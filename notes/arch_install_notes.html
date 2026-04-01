@@ -372,23 +372,21 @@ VerbosePkgLists
 ...
 [multilib]
 Include = /etc/pacman.d/mirrorlist</code></pre>
-<p>-download the setup and config files:</p>
-<pre><code>$ git clone https://github.com/markgallant01/.dotfiles.git</code></pre>
-<p>-make the setup scripts executable:</p>
+<p>Download the setup and config files:</p>
+<p><code>$ git clone https://github.com/markgallant01/.dotfiles.git</code></p>
+<p>Make the setup scripts executable:</p>
 <pre><code>$ chmod +x ~/.dotfiles/scripts/setup.sh
 $ chmod +x ~/.dotfiles/scripts/install_packages.sh</code></pre>
-<p>-run the setup script:</p>
-<pre><code>$ ~/.dotfiles/scripts/setup.sh</code></pre>
-<p>-if nvidia drivers were installed, you must edit the file
+<p>Run the setup script:</p>
+<p><code>$ ~/.dotfiles/scripts/setup.sh</code></p>
+<p>If nvidia drivers were installed, you must edit the file
 /etc/mkinitcpio.conf to remove the ‘kms’ module from the HOOKS array.
 This ensures the nouveau module will not be loaded during boot:</p>
-<pre><code>$ sudo vim /etc/mkinitcpio.conf
-
--after that, re-run the command to regenerate the initramfs
-
-    $ sudo mkinitcpio -P</code></pre>
-<p>-Reboot and then launch the display server</p>
-<pre><code>$ startx</code></pre>
+<p><code>$ sudo vim /etc/mkinitcpio.conf</code></p>
+<p>After that, re-run the command to regenerate the initramfs</p>
+<p><code>$ sudo mkinitcpio -P</code></p>
+<p>Reboot and then launch <strong>Niri</strong></p>
+<p><code>$ niri-session</code></p>
 <p>/*********************/ /* POST-INSTALLATION <em>/
 /</em>********************/</p>
 <p>-Some things cannot easily be automated and require manual setup

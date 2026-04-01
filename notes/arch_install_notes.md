@@ -291,32 +291,34 @@ VerbosePkgLists
 Include = /etc/pacman.d/mirrorlist
 ```
 
--download the setup and config files:
+Download the setup and config files:
 
-    $ git clone https://github.com/markgallant01/.dotfiles.git
+`$ git clone https://github.com/markgallant01/.dotfiles.git`
 
--make the setup scripts executable:
+Make the setup scripts executable:
 
-    $ chmod +x ~/.dotfiles/scripts/setup.sh
-    $ chmod +x ~/.dotfiles/scripts/install_packages.sh
+```
+$ chmod +x ~/.dotfiles/scripts/setup.sh
+$ chmod +x ~/.dotfiles/scripts/install_packages.sh
+```
 
--run the setup script:
+Run the setup script:
 
-    $ ~/.dotfiles/scripts/setup.sh
+`$ ~/.dotfiles/scripts/setup.sh`
 
--if nvidia drivers were installed, you must edit the file
- /etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
- This ensures the nouveau module will not be loaded during boot:
+If nvidia drivers were installed, you must edit the file
+/etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+This ensures the nouveau module will not be loaded during boot:
 
-    $ sudo vim /etc/mkinitcpio.conf
+`$ sudo vim /etc/mkinitcpio.conf`
 
-    -after that, re-run the command to regenerate the initramfs
+After that, re-run the command to regenerate the initramfs
 
-        $ sudo mkinitcpio -P
+`$ sudo mkinitcpio -P`
 
--Reboot and then launch the display server
+Reboot and then launch **Niri**
 
-    $ startx
+`$ niri-session`
 
 
 /*********************/
