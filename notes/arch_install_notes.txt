@@ -1,3 +1,4 @@
+pandoc -s input_file.md -o output_file.html
 
 This is a compilation of notes to be used as supplementary material for
 an arch linux install. Use alongside the installation guide found at
