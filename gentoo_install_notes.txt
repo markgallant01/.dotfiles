@@ -584,6 +584,10 @@ variable because we need some extra stuff for intel at least:
 -set up fonts somewhere in here. There's a wiki page for it. I hate having those missing
  glyph symbols so make sure we have everything we need
 
+-installed pandoc:
+
+	$ sudo emerge -a app-text/pandoc-bin
+
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
