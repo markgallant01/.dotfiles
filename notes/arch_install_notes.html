@@ -183,9 +183,13 @@ installation theme</a></em></p>
 <h2 id="pre-installation">1. Pre-installation</h2>
 <h3 id="prepare-an-installation-medium">1.3 Prepare an installation
 medium</h3>
-<p>A fresh up-to-date Arch linux ISO should be used. Download one and
-make a bootable usb with the dd command:</p>
+<p>A fresh up-to-date Arch linux ISO should be used. Download one <a
+href="https://archlinux.org/download/">here</a> and make a bootable usb
+with the <strong>dd</strong> command:</p>
 <p><code>$ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive conv=fsync oflag=direct status=progress</code></p>
+<p><em>Note: use the</em> <strong><code>lsblk</code></strong>
+<em>command to identify the USB drive before running the above
+command</em></p>
 <p>Boot into the live environment and continue.</p>
 <h3 id="connect-to-the-internet">1.7 Connect to the internet</h3>
 <p>If you’re wired then just plug in the ethernet and it should work. If
@@ -195,16 +199,16 @@ using wifi, connect to the network with iwctl.</p>
 [iwd]# station *device* scan          // scan for wireless networks
 [iwd]# station *device* get-networks               // list networks
 [iwd]# station *device* connect *SSID*        // connect to network</code></pre>
-<p>Enter the password when prompted and then exit with Ctrl+d. Verify
-the connection:</p>
+<p>Enter the password when prompted and then exit with
+<code>Ctrl+d</code>. Verify the connection:</p>
 <p><code># ping archlinux.org</code></p>
 <h3 id="partition-the-disks">1.9 Partition the disks</h3>
 <p>On a standard setup you’ll want 3 partitions. One EFI boot partition,
 one SWAP partition, and one root partition. The drives can be listed
 with this command:</p>
 <p><code># lsblk -l</code></p>
-<p>The cfdisk utility makes partitioning easy. You’ll likely want to set
-up partitions according to the following table:</p>
+<p>The <strong>cfdisk</strong> utility makes partitioning easy. You’ll
+likely want to set up partitions according to the following table:</p>
 <table>
 <thead>
 <tr>
@@ -237,6 +241,8 @@ up partitions according to the following table:</p>
 </table>
 <p>For the swap file, on desktop suspend is unnecessary so 16G is more
 than enough. On a laptop use 1.5x RAM.</p>
+<p>Run <strong>cfdisk</strong> and partition things how you want.</p>
+<p><code># cfdisk /dev/sdX</code></p>
 <h3 id="format-the-partitions">1.10 Format the partitions</h3>
 <p>After partitioning, you’ll need to format each partition and create
 the filesystems. The following commands will create the setup outlined
@@ -256,8 +262,8 @@ activates the swap partition.</p>
 # swapon /dev/swap_partition</code></pre>
 <h2 id="installation">2. Installation</h2>
 <h3 id="select-the-mirrors">2.1 Select the mirrors</h3>
-<p>Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and ensure
-that the US mirror is uncommented and the first in the list.</p>
+<p>Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and move
+the US mirrors up to the top of the list.</p>
 <h3 id="install-essential-packages">2.2 Install essential packages</h3>
 <p>You’ll want to install some additional tools that will come in handy
 later, in addition to the necessary base system packages:</p>
@@ -269,7 +275,7 @@ later, in addition to the necessary base system packages:</p>
 <h2 id="configure-the-system">3. Configure the system</h2>
 <h3 id="fstab">3.1 Fstab</h3>
 <p>You’ll need an fstab file to get your disks mounted on boot. The
-genfstab tool makes this simple:</p>
+<strong>genfstab</strong> tool makes this simple:</p>
 <p><code># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
 <h3 id="chroot">3.2 Chroot</h3>
 <p>You can now change root into the new system to begin configuring it
@@ -280,12 +286,15 @@ directly:</p>
 <p><code># ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime</code></p>
 <p><em>Note: Modify the above file path in accordance with your
 location</em></p>
-<p>Run hwclock to generate /etc/adjtime:</p>
+<p>Run <strong>hwclock</strong> to generate /etc/adjtime:</p>
 <p><code># hwclock --systohc</code></p>
 <p>You’ll also want to enable time synchronization via an NTP client to
 ensure accurate time. This can be done simply with a systemd
 service:</p>
 <p><code># systemctl enable systemd-timesyncd.service</code></p>
+<blockquote>
+<p>TODO: Consider moving this into the automated script section</p>
+</blockquote>
 <h3 id="localization">3.4 Localization</h3>
 <p>Enable your chosen locales by editing the /etc/locale.gen file and
 uncommenting whichever you want (likely just
@@ -305,18 +314,18 @@ by creating a hostname file:</p>
 ---------------
 &lt;CHOSEN_HOSTNAME&gt;</code></pre>
 <p>After setting up the hostname, the network must be configured. With
-NetworkManager, all you have to do is start the service so that it
-starts on boot.</p>
+<strong>NetworkManager</strong>, all you have to do is start the service
+so that it starts on boot.</p>
 <p><code># systemctl enable NetworkManager.service</code></p>
 <h3 id="root-password">3.7 Root password</h3>
 <p>Set a secure password for the root user:</p>
 <p><code># passwd</code></p>
 <h3 id="boot-loader">3.8 Boot loader</h3>
-<p>Systemd-boot comes with systemd and is easy to use. It’s already
-installed on the system. Initialize it:</p>
+<p><strong>Systemd-boot</strong> comes with systemd and is easy to use.
+It’s already installed on the system. Initialize it:</p>
 <p><code># bootctl install</code></p>
 <p>Next, a loader configuration file must be created and set:</p>
-<p><em>Note: These fields are separated by a space, not a tab. SystemD
+<p><em>Note: These fields are separated by a space, not a tab. Systemd
 won’t read tabs.</em></p>
 <pre><code>&quot;/boot/loader/loader.conf&quot;
 --------------------------
@@ -325,13 +334,16 @@ timeout 0
 console-mode keep</code></pre>
 <p>You’ll need a corresponding arch.conf file in /boot/loader/entries.
 The UUID must be replaced with the UUID of the root partition. Copy it
-from the /etc/fstab file. These can be tab-separated:</p>
-<pre><code>&quot;efi/loader/entries/arch.conf&quot;
+from the /etc/fstab file:</p>
+<p><code># cat /etc/fstab &gt;&gt; /boot/loader/entries/arch.conf</code></p>
+<p>Then format the file like this:</p>
+<pre><code>&quot;/boot/loader/entries/arch.conf&quot;
 ------------------------------
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
 options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw</code></pre>
+<p><em>Note: These fields can be separated by tabs</em></p>
 <p>Use this command to make sure there’s a new Arch Linux boot
 entry:</p>
 <p><code># bootctl list</code></p>
@@ -342,8 +354,8 @@ unmount the drives, and shut down.</p>
 # shutdown +0</code></pre>
 <p>Remove the installation USB and boot into the new system.</p>
 <h2 id="post-install-configuration">Post-install Configuration</h2>
-<p>This section sets configures the newly installed system. Login to the
-new system as root.</p>
+<p>This section configures the newly installed system. Login to the new
+system as root.</p>
 <p>Setup a non-root user and set the password:</p>
 <p><em>Note: Make sure the user is in the “wheel” group if you want them
 to be able to use sudo</em></p>

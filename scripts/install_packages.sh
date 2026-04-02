@@ -9,43 +9,62 @@ set -x
 # array to store package list
 declare -a packages=()
 
-# CLI tools
-packages+=("fastfetch" "udisks2"  "unzip" "git")
-packages+=("maim" "xclip" "wget" "curl" "zip")
-packages+=("usleep" "btop" "openssh" "yt-dlp")
-
-# misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib" "fd" "rofi")
-packages+=("ripgrep" "gnome-keyring" "libnatpmp")
-packages+=("polkit-gnome" "xdg-desktop-portal-gtk")
+# pacman
+packages+=("pacman-contrib")
 
 # sound system
 packages+=("pipewire" "lib32-pipewire" "pipewire-audio" )
 packages+=("pipewire-jack" "pipewire-pulse" "wireplumber")
-packages+=("blueman")
+packages+=("bluez" "bluez-utils")
+
+# Niri deps
+packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome" "gnome-keyring")
+packages+=("polkit-kde-agent" "xwayland-satellite")
+
+# Dank Material Shell deps (non-AUR)
+packages+=("dgop" "matugen" "i2c-tools" "wl-clipboard" "cliphist" "cava")
+packages+=("qt6-multimedia-ffmpeg")
+
+# do we need polkit-kde-agent? it pulls in a lot of kde stuff.
+
+# CLI tools
+packages+=("fastfetch" "unzip" "git")
+packages+=("wget" "curl" "zip")
+packages+=("btop" "openssh" "yt-dlp")
+packages+=("foot")
+
+# misc utilities
+packages+=("xdg-user-dirs" "pacman-contrib")
+
+# proton-vpn port forwarding script deps
+packages+=("libnatpmp")
+
+# neovim stuff
+packages+=("fd" "ripgrep")
 
 # development tools
 packages+=("base-devel" "make" "cmake" "gdb")
 packages+=("neovim" "jdk-openjdk" "npm")
+packages+=("docker" "docker-compose")
 
 # file manager
 packages+=("thunar" "thunar-volman" "tumbler")
 packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
 
-# display server & X tools
-packages+=("xorg-server" "xorg-xinit")
-packages+=("xorg-xrandr" "xorg-xsetroot" "picom")
+# consider trying Nautilus since it comes with the gnome xdg portal
 
 # graphical front-ends
-packages+=("network-manager-applet" "arandr")
 packages+=("proton-vpn-gtk-app" "pavucontrol")
 
 # gaming stuff
-packages+=("steam" "dolphin-emu" "duckstation" "pcsx2-git")
+packages+=("steam" "gamescope")
 
 # multimedia
-packages+=("ffmpeg" "feh" "qbittorrent" "deadbeef")
-packages+=("vlc" "vlc-plugin-ffmpeg")
+packages+=("ffmpeg" "qbittorrent")
+packages+=("vlc" "vlc-plugins-all")
+
+# try to figure out if we actually need all those plugins for vlc to work
+# with subtitles and stuff
 
 # file system and drive utilities
 # (this will be different if not using xfs)
@@ -63,16 +82,10 @@ packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
 packages+=("papirus-icon-theme")
 
 # web browsers
-packages+=("firefox")
+packages+=("firefox" "chromium")
 
 # communication
 packages+=("discord")
-
-# random fun stuff
-packages+=("cava")
-
-# chaotic-aur
-packages+=()
 
 # video drivers depend on GPU manufacturer:
 option=0
@@ -102,4 +115,14 @@ fi
 
 # install all the compiled packages
 sudo pacman -S --noconfirm --needed "${packages[@]}"
+
+# install yay for AUR access
+cd
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+cd
+
+# install DankMaterialShell from the AUR (and dependency)
+yay -S dms-shell-bin dsearch-bin
 

@@ -3,21 +3,6 @@
 # echo on
 set -x
 
-# enable chaotic AUR
-# retrieve primary key
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-sudo pacman-key --lsign-key 3056513887B78AEB
-
-# install keyring and mirrorlist packages
-sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-
-# enable chaotic-aur in pacman.conf
-echo "" | sudo tee -a /etc/pacman.conf >/dev/null
-echo "[chaotic-aur]" | sudo tee -a /etc/pacman.conf >/dev/null
-echo "Include = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
-echo "" | sudo tee -a /etc/pacman.conf >/dev/null
-
 # run pacman once to generate and sync databases
 sudo pacman -Syu --noconfirm
 
@@ -27,24 +12,7 @@ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 # call install script to install system packages
 ~/.dotfiles/scripts/install_packages.sh
 
-# dwm
-cd
-git clone git@github.com:markgallant01/dwm
-cd dwm
-sudo make install
-make clean
-cd
-
-# st
-cd
-git clone git@github.com:markgallant01/st
-cd st
-sudo make install
-make clean
-cd
-
 # create some directories
-mkdir ~/Usb
 mkdir ~/Screenshots
 mkdir ~/Trash
 mkdir ~/.config
@@ -73,23 +41,26 @@ ln -sf ~/.dotfiles/qtile        ~/.config/qtile
 # pacman hooks
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
-# xorg configuration files
-sudo cp ~/.dotfiles/etc_conf_files/00-input-devices.conf /etc/X11/xorg.conf.d/
-sudo cp ~/.dotfiles/etc_conf_files/10-extensions.conf /etc/X11/xorg.conf.d/
-sudo cp ~/.dotfiles/etc_conf_files/10-serverflags.conf /etc/X11/xorg.conf.d/
-# udev rules
-sudo cp ~/.dotfiles/etc_conf_files/backlight.rules /etc/udev/rules.d/
 # thunar config
 cp ~/.dotfiles/xfce4/helpers.rc ~/.config/xfce4/
 
 # clock synchronization service
 sudo systemctl enable systemd-timesyncd.service
 
-# sound system
-systemctl --user enable pipewire-pulse.service
+# enable weekly cleaning of the pacman cache
+sudo systemctl enable paccache.timer
+
+# enable weekly running of reflector
+sudo systemctl enable reflector.timer
+
+# sound system (if sound works fine then this isn't needed. test.)
+# systemctl --user enable pipewire-pulse.service
 
 # enable bluetooth
-sudo systemctl enable bluetooth
+sudo systemctl enable bluetooth.service
+
+# enable Dank Material Shell
+systemctl --user enable dms
 
 # generate new ssh keys for github
 ssh-keygen -t ed25519 -C markgallant01@gmail.com

@@ -17,12 +17,15 @@ skipped steps require no action from the user, but should be double checked.*
 
 ### 1.3 Prepare an installation medium
 
-A fresh up-to-date Arch linux ISO should be used. Download one and make a
-bootable usb with the dd command:
-
+A fresh up-to-date Arch linux ISO should be used. Download one 
+[here](https://archlinux.org/download/) and make a bootable usb with the **dd**
+command:
 
 `$ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive conv=fsync
 oflag=direct status=progress`
+
+*Note: use the* **`lsblk`** *command to identify the USB drive before running
+the above command*
 
 Boot into the live environment and continue.
 
@@ -39,7 +42,7 @@ wifi, connect to the network with iwctl.
 [iwd]# station *device* connect *SSID*        // connect to network
 ```
 
-Enter the password when prompted and then exit with Ctrl+d. Verify the
+Enter the password when prompted and then exit with `Ctrl+d`. Verify the
 connection:
 
 `# ping archlinux.org`
@@ -52,7 +55,7 @@ this command:
 
 `# lsblk -l`
 
-The cfdisk utility makes partitioning easy. You'll likely want to set up
+The **cfdisk** utility makes partitioning easy. You'll likely want to set up
 partitions according to the following table:
 
 | partition | filesystem | size      | description          |
@@ -63,6 +66,10 @@ partitions according to the following table:
 
 For the swap file, on desktop suspend is unnecessary so 16G is more than
 enough. On a laptop use 1.5x RAM.
+
+Run **cfdisk** and partition things how you want.
+
+`# cfdisk /dev/sdX`
 
 ### 1.10 Format the partitions
 
@@ -97,8 +104,8 @@ swap partition.
 
 ### 2.1 Select the mirrors
 
-Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and ensure that the
-US mirror is uncommented and the first in the list.
+Use vim to open the mirrorlist at /etc/pacman.d/mirrorlist and move the US
+mirrors up to the top of the list.
 
 ### 2.2 Install essential packages
 
@@ -118,7 +125,7 @@ in addition to the necessary base system packages:
 
 ### 3.1 Fstab
 
-You'll need an fstab file to get your disks mounted on boot. The genfstab
+You'll need an fstab file to get your disks mounted on boot. The **genfstab**
 tool makes this simple:
 
 `# genfstab -U /mnt >> /mnt/etc/fstab`
@@ -137,7 +144,7 @@ Set the appropriate time zone:
 
 *Note: Modify the above file path in accordance with your location*
 
-Run hwclock to generate /etc/adjtime:
+Run **hwclock** to generate /etc/adjtime:
 
 `# hwclock --systohc`
 
@@ -145,6 +152,8 @@ You'll also want to enable time synchronization via an NTP client to ensure
 accurate time. This can be done simply with a systemd service:
 
 `# systemctl enable systemd-timesyncd.service`
+
+> TODO: Consider moving this into the automated script section
 
 ### 3.4 Localization
 
@@ -177,7 +186,7 @@ creating a hostname file:
 ```
 
 After setting up the hostname, the network must be configured. With
-NetworkManager, all you have to do is start the service so that it starts
+**NetworkManager**, all you have to do is start the service so that it starts
 on boot.
 
 `# systemctl enable NetworkManager.service`
@@ -190,14 +199,14 @@ Set a secure password for the root user:
 
 ### 3.8 Boot loader
 
-Systemd-boot comes with systemd and is easy to use. It's already installed
+**Systemd-boot** comes with systemd and is easy to use. It's already installed
 on the system. Initialize it:
 
 `# bootctl install`
 
 Next, a loader configuration file must be created and set:
 
-*Note: These fields are separated by a space, not a tab. SystemD won't
+*Note: These fields are separated by a space, not a tab. Systemd won't
 read tabs.*
 
 ```
@@ -210,17 +219,22 @@ console-mode keep
 
 You'll need a corresponding arch.conf file in /boot/loader/entries.
 The UUID must be replaced with the UUID of the root partition.
-Copy it from the /etc/fstab file.
-These can be tab-separated:
+Copy it from the /etc/fstab file:
+
+`# cat /etc/fstab >> /boot/loader/entries/arch.conf`
+
+Then format the file like this:
 
 ```
-"efi/loader/entries/arch.conf"
+"/boot/loader/entries/arch.conf"
 ------------------------------
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
 options root=UUID=xxxx-xxxxx-xxxx-xxxx-xxxx-xxxx  rw
 ```
+
+*Note: These fields can be separated by tabs*
 
 Use this command to make sure there's a new Arch Linux boot entry:
 
@@ -239,7 +253,7 @@ Remove the installation USB and boot into the new system.
 
 ## Post-install Configuration
 
-This section sets configures the newly installed system. Login to the
+This section configures the newly installed system. Login to the
 new system as root.
 
 Setup a non-root user and set the password:
@@ -324,6 +338,20 @@ Reboot and then launch **Niri**
 /*********************/
 /* POST-INSTALLATION */
 /*********************/
+
+STILL WORKING ON THIS:
+work though everything listed at https://wiki.archlinux.org/title/General_recommendations
+and make sure it's all sorted out.
+
+-take a look at the reflector timer and see if we like the settings
+
+-figure out how to start polkit-kde-agent with niri
+
+-look over the fonts pages and figure fonts out for reals
+
+https://wiki.archlinux.org/title/Fonts
+
+https://wiki.archlinux.org/title/Font_configuration
 
 -Some things cannot easily be automated and require manual setup here.
 -Starting with Firefox and LastPass is easiest because you'll need to
