@@ -34,7 +34,7 @@ packages+=("btop" "openssh" "yt-dlp")
 packages+=("foot")
 
 # misc utilities
-packages+=("xdg-user-dirs" "pacman-contrib")
+packages+=("xdg-user-dirs")
 
 # proton-vpn port forwarding script deps
 packages+=("libnatpmp")

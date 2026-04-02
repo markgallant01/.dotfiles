@@ -148,13 +148,6 @@ Run **hwclock** to generate /etc/adjtime:
 
 `# hwclock --systohc`
 
-You'll also want to enable time synchronization via an NTP client to ensure
-accurate time. This can be done simply with a systemd service:
-
-`# systemctl enable systemd-timesyncd.service`
-
-> TODO: Consider moving this into the automated script section
-
 ### 3.4 Localization
 
 Enable your chosen locales by editing the /etc/locale.gen file and
@@ -321,7 +314,7 @@ Run the setup script:
 `$ ~/.dotfiles/scripts/setup.sh`
 
 If nvidia drivers were installed, you must edit the file
-/etc/mkinitcpio.conf to remove the 'kms' module from the HOOKS array.
+`/etc/mkinitcpio.conf` to remove the 'kms' module from the HOOKS array.
 This ensures the nouveau module will not be loaded during boot:
 
 `$ sudo vim /etc/mkinitcpio.conf`
@@ -334,324 +327,150 @@ Reboot and then launch **Niri**
 
 `$ niri-session`
 
+## More Configuration
 
-/*********************/
-/* POST-INSTALLATION */
-/*********************/
+Some applications require manual configuration. Starting with Firefox and
+LastPass makes the most sense because it will be easier to log into things
+once those are set up.
 
-STILL WORKING ON THIS:
-work though everything listed at https://wiki.archlinux.org/title/General_recommendations
-and make sure it's all sorted out.
+### Firefox & LastPass:
 
--take a look at the reflector timer and see if we like the settings
+Launch Firefox and sign in to start syncing everything. Go down through the
+settings and verify everything is set up how you want it. Some things to
+check:
 
--figure out how to start polkit-kde-agent with niri
+* Browser fonts
+* History
+* Autofill
+* Search engine
+* Start screen
 
--look over the fonts pages and figure fonts out for reals
+The extensions should sync and install themselves. Once LastPass shows up,
+change somesettings:
 
-https://wiki.archlinux.org/title/Fonts
+* Disable "Automatically fill login information" in the extension settings
+* Make sure all extensions are active in private browsing sessions
+* Pin whatever extensions you want to the browser bar
 
-https://wiki.archlinux.org/title/Font_configuration
+### Discord:
 
--Some things cannot easily be automated and require manual setup here.
--Starting with Firefox and LastPass is easiest because you'll need to
- log into things
+Launch discord once to generate the config file. Add the line below to the
+config file so Discord doesn't refuse to launch if there's an update that's
+not in the repos yet:
 
-FIREFOX & LASTPASS:
-    -Launch Firefox and sign in to start syncing everything
-    -go down through the settings and verify everything
-    -Extensions to install:
-        -uBlock Origin
-        -Reddit Enhancement Suite
-        -LastPass
-    -Install LastPass & Reddit Enhancement Suite extensions
-        -Go into the LastPass extension settings and disable
-         "Automatically fill login information"
-        -make sure both extensions are pinned and active in private
-         browser sessions
-    -double check the browser font settings and set the history to
-     wipe every time you close the browser. Disable any kind of
-     autofill
+```
+~/.config/discord/settings.json
+-------------------------------
+"SKIP_HOST_UPDATE": true
+```
 
-DISCORD:
-    -launch discord once to generate the config file.
-    -add the shown line in this file so Discord doesn't refuse
-     to launch if there's an update that's not in the repo yet:
+Some settings to configure within the Discord app:
 
-        ~/.config/discord/settings.json
-        "SKIP_HOST_UPDATE": true
+* Font size 20
+* Adjust mic threshold if necessary
+* Disable 'minimize to tray' and automatic startup under Linux settings
 
-    -go into the discord settings and set the font size to 20.
-    -adjust the mic threshold if you have a microphone setup
-    -Disable 'minimize to tray' and automatic startup under
-     Linux settings
+### Thunar:
 
-THUNAR:
-    -edit /usr/share/gvfs/mounts/network.mount and change
-     the last line to:
+Edit `/usr/share/gvfs/mounts/network.mount` and change the last line to:
 
-        /usr/share/gvfs/mounts/network.mount
-        AutoMount=false
+```
+/usr/share/gvfs/mounts/network.mount
+------------------------------------
+AutoMount=false
+```
 
-    -this helps with thunar taking a long time to startup the
-     first time
+This helps with Thunar's slow initial startup time.
 
-WALLPAPERS:
-    -Log into google drive and download the Wallpaper folder.
-    -Unzip that folder into the ~/Pictures/ directory to make
-     them useable by the system's wallpaper scripts
+### Wallpapers:
 
-GITHUB:
-    -authenticate with github:
-    -launch web browser and login to github account.
-    -the installer script generated new ssh keys.
-    -print the public key:
+Log into google drive and download the Wallpaper folder. Unzip that folder
+into the `~/Pictures/` directory to make it useable by the system's wallpaper
+system.
 
-        $ cat ~/.ssh/id_ed25519.pub
+### Github:
 
-    -copy this output and add it to github ssh keys
-    -verify the connection:
+Set up authentication with Github by first launching the web browser and
+logging into your Github account. The installation script generated new ssh
+keys. Print the public key:
 
-        $ ssh -T git@github.com
+`$ cat ~/.ssh/id_ed25519.pub`
 
-    -once authenticated, fix cloned repos
+Copy this output and add it to the Github ssh keys under your account
+settings. After that, verify the connection works:
 
-        $ rm -rf ~/.dotfiles
+`$ ssh -T git@github.com`
 
-        $ git clone git@github.com:markgallant01/.dotfiles.git
+Once authenticated, delete and re-clone the dotfiles folder so everything
+is connected properly.
 
+```
+$ rm -rf ~/.dotfiles
+$ git clone git@github.com:markgallant01/.dotfiles.git
+```
+## Optional Extras
 
-/******************/
-/* OPTIONAL STUFF */
-/******************/
+This stuff depends on the PC setup and may or may not be done
 
--This stuff depends on the PC setup and may or may not be done
+### External drives:
 
-VOLUME:
-    -On desktop, you probably want to set the volume to 100%:
+If there are any additional storage drives in the PC, you should add them
+to the fstab file so they auto mount at startup. Consult
+[this link](https://wiki.archlinux.org/title/Fstab) for reference.
 
-        $ pactl set-sink-volume @DEFAULT_SINK@ 100%
+## The End
 
-EXTERNAL DRIVES:
-    -create additional directories in the home directory
-     for any internal or external drives you want to mount:
+### New Guide to-do:
 
-        $ mkdir nvme_games ssd_storage
+* Think about Nautilus vs Thunar. Nautilus comes with the gnome desktop
+portal so it's gonna be there already. If we don't like it then add the
+Niri setup step to have the browser use the Gtk file picker instead.
+* Look at the installer script and see if it can be better organized or
+cleaned up. You should be able to run everything with one `yay` call at
+the very end, since it can do the normal repos and the AUR.
+* Rip whatever config stuff we want from the Dell laptop and then get the
+dotfiles folder sorted out. Link up the DMS settings and niri-settings
+and everything we need. Consult the Niri docs and DMS docs.
+* Take a look at the reflector timer and see if we like the settings
+* Figure out how to start polkit-kde-agent with Niri
+* Look over the Arch
+[fonts pages](https://wiki.archlinux.org/title/Fonts) and see if we have
+[everything](https://wiki.archlinux.org/title/Font_configuration) covered
 
-    -set up the fstab here so that drives auto mount. Consult
-     https://wiki.archlinux.org/title/Fstab for reference.
+### Old to-do:
 
-
-/***********/
-/* THE END */
-/***********/
-
-To-do:
-    -write a bash script to check if the AC power is plugged in at startup
-     and modify power-profiles-daemon appropriately with powerprofilesctl.
-     Set this as a systemD service so it runs at boot.
-    -add niri and dank material shell to installer. simplifies things
-     a lot. reconfigure the installation to use DMS and do it all
-     manually. make sure all the necessary stuff is included and
-     connect all the config files.
-    -install and setup tlp. consult the documentation, it seems mostly
-     automatic. test battery life on both laptops before and after. if it
-     works well, add it to this guide.
-    -awesome doesn't respect the time of day when setting the wallpaper
-     so figure that out or just use feh and don't have awesome set the
-     wallpaper at all
-    -awesome needs keybinds to swap between monitors and such
-    -wallpapers are double setting now that we're on awesomewm again
-    -change lua files to use 2 space indent
-	-need colorbar to see when we're typing too far
-	-maybe remove chaotic aur stuff because
-	 it seems to cause lots of problems
-	-add mount.exfat to the install list
-	-no autopairs in nvim. try to get things configured.
-	-figure out how to properly manage python packages and
-	 versions and stuff with uv
-	-add python-pip and / or uv to the installation list
-	-get the color bar in nvim so it shows how far we
-	 should be typing
-	-awesomeWM is still getting updates so we should
-	 start switching back to that and getting it
-	 configured so we can get off suckless stuff.
-	 also switch back to alacritty.
-	-make nvim use relative line numbers
-	-add a section to set up bnet with steam since
-	 it's kinda unique
-	-get duckstation and other emulators working out of
-	 the box as far as mounting automatically and having
-	 the emulator know where to find saves, box art, etc
-	-check out mini.nvim and think about switching to a
-	 mainly mini-based setup
-	-dual_kawase blur doesn't work with the xrender backend
-	 so figure that out. i kinda like it with no bur so
-	 think about it
-	-the performance issues from desktop were from picom
-	 glx backend. switching to xrender backend seems to
-	 fix it. investigate this.
-	-fix formatting here
-	-check out zathura document reader
-    -discord isn't showing the notification icon for unread messages
-     or making the ping sound so figure that out. there's stuff about
-     it on the wiki.
-    -figure out docker containers with bookmarks and figure out how to
-     use neovim with our docker project for CS326
-    -trim down neovim
-    -find some good drawn fall wallpapers and think about qtile and
-     alacritty vs dwm and st
-    -polybar should match rofi. maybe make some themes that can be
-     swapped between. maybe even match them to wallpapers.
-    -make it so that empty workspaces are darker color so its obvious
-    -id like a visual indicator for volume changes and brightness.
-     can definitely do this with eww. think if theres another way
-    -copy the qtile symbols for the workspaces into dwm
-    -start configuring polybar
-    -add keyboard modifications to xorg configuration. use bookmarks
-     to the arch wiki keyboard page. make the keyboard repeat rate
-     persistent and do the caps lock / control swap for laptops
-    -add a firefox section to copy over the user.js and also make a
-     backup of the old profile
-    -try to make the install script copy its output to a log file so
-     we can check for any issues afterward
-    -keep learning about gentoo once we're at school. write up a guide
-     for it based on this one. I really do like it
-    -probably write our own widgets for volume, brightness, battery,
-     etc. that way we dont need to install more dependencies and we
-     know exactly what its doing.
-    -supress the output from tty because its polluting the login screen
-     (or use a login manager)
-    -done with dmenu so start ricing rofi
-    -get or make a good terminal theme probably copy solarized osaka
-    -get minecraft and wow added to the installer thing
-    -sort all bookmarks
-    -go through the browser setup section and make sure it's good
-     for firefox. basically just log in and set settings and everything
-     should sync
-    -consider a wallpaper switching keybind in dwm like before.
-    -think about a screen locker and blocking tty and blocking killing
-     the x server and whatever else. this is kinda complex and we might
-     want a login manager to bypass it
-    -consider adding a section for steam setup including log-in and
-     settings. disable gpu acceleration because it sucks shit
-    -find nice drawn wallpapers for fall / winter / spring just like
-     we did for summer
-    -nvim takes way too long to startup so troubleshoot that:
-     :Lazy profile
-    -reduce keyboard repeat delay even more if possible
-    -rework nvim config because startup time is attrocious. trim down
-     addons. consider trying native package manager
-    -setup slock or another screen locker
-    -set up 2 factor auth with the lastpass authenticator because
-     google's authentication sucks
-    -check out tlp for power management on laptops. helps with battery
-     life potentially a lot
-    -reconfigure the brave section to be about firefox. make homescreen
-     using common websites. currently: DGG, Github, Reddit, Wikipedia,
-     Arch Wiki, Arch Repository, Chaotic AUR, Raindrop(X), Drive,
-     Gumaverse, /tv/, /g/
-    -add a section for configuring thunar maybe. enabling auto mounting
-     of usb drives and displaying hidden files, anything else.
-    -use betterfox and update the part of the installer that deals
-     with configuring Brave
-    -figure out what we need to do to set fonts system-wide. Awesome,
-     terminal (alacritty), neovim, firefox, etc all need to use the same
-     font
-    -set Rofi up
-    -figure out how to make wallpaper set a default gentoo wallpaper
-     when its run without the wallpaper folder existing yet
-    -run through the general recommendations found here:
-     https://wiki.archlinux.org/title/General_recommendations
-    -I love this console rain:
-        https://github.com/saitamasahil/matrix
-     so figure out how to incorporate this into our setup
-    -take another look at awesomeWM and try to figure out the bar /
-     widget system. it would be cleaner to use widgets for the top bar
-     and for system info so we dont require polybar and conky. polybar
-     is having some weird issues with how it interacts with the WM so
-     it would just be cleaner.
-    -get subtitle puller addon thing for jellyfin. check
-     bookmarks
-    -maybe get nicer icons for qBittorrent and protonVPN but probably
-     not
-    -make awesomeWM open all new windows in the center
-    -find a better disk utility than the baobab one. it
-     doesn't seem to show much info
-    -problem with fullscreen since we added the floating rule so figure
-     that out
-    -get jellyfin up and running for media consumption
-    -make a nice landing page on web browser with common sites like
-     arch wiki, reddit, youtube, etc. don't show bookmark bar by default
-     because i rarely ever click it directly
-    -keep configuring topbar. make the tags group look good and
-     function. get rid of the clock on the right side and replace it
-     with a nice systray with good looking icons for volume, network,
-     brightness, maybe buttons to restart and such
-    -fix nvim bufferline's background color to match lualine
-    -sort out alacritty's font (nerdfont)
-    -https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
-     see if this fixes gnome-keyring asking for password sometimes,
-     like when brave browser is launched. try to remember what else
-     would cause the keyring to launch. if it's fixed, add a section
-     to the installation guide.
-    -looks like thunar is handling auto-mounting so look into that
-    -continue to configure alacritty. font size?
-    -configure alacritty and clean up stuff
-    -get a good nerd font patched with icons
-    -stuff I want:
-        -wallpaper spans entire screen including top bar. top bar should
-         be transparent between the widgets because it looks cool
-        -make menu stuff transparent like rofi and terminal with blur
-         for a nice modern glass effect
-        -neovim should not be transparent
-        -if something isn't transparent it should have the same back
-         ground as the desktop (like rofi)
-        -window border should be thicker and color should match color
-         scheme too
-    -reduce keyboard repetition rate so that we can fly around nvim
-     faster
-    -NVM is slowing down the terminal startup due to the initialization
-     stuff it adds to the bachrc file. this is a pain in the ass
-    -maybe add curl nvm installation idk yet
-     Stuff we want for awesomeWM:
-        -nice program launcher that lets me search for programs
-         I've forgotten. Maybe Rofi?
-        -login manager that looks nice. LightDM?
-        -lock screen finally so we can walk away from PC without
-         killing the x-server
-    -figure out why USB stuff seems to automount on laptop but not
-     desktop
-    -maybe get suspend / hibernate to work
-    -also laptop is starting on incorrect brightness but idk why
-    -modify brightness step because we should be able to go darker than
-     we currently can
-    -get brighntess control working for desktop monitors
-    -add tlp and the systemctl stuff to make it work. default settings.
-    -add minecraft audio fix maybe
-    -something weird going on with mounting the other drives on
-     desktop. Maybe switch to UUIDs in case the labels are switching
-    -get a cool nvim startup screen
-    -change the wallpaper script to not switch to daytime wallpaper
-     until 5am. 4 is too early.
-    -modify the setup script to copy the screen setup script to the
-     .config folder and add a step to set that up properly
-    -might want to add a note about the intel i915 psr kernel parameter
-     for that weird screen bug:
-     https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
-    -consider adding a section about configuring Xorg. Consult
-        https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration
-    -setup a pacman hook to clean up the paccache after each install
-    -use musicBrainz picard to tag all our music and sort it. then add
-     picard to the install list
-    -customize brave new tab page with custom css
-    -add something about the symlink fix for fmod pipewire bug:
-     https://wiki.archlinux.org/title/PipeWire#\
-     FMOD_games_crashing_under_PipeWire
-    -maybe add SDL stuff to installer
-    -setup a good screen locker that blocks tty access maybe
-    -add overthewire programs like telnet and nmap as we go through it
-    -look into this:
-        https://wiki.archlinux.org/title/Gamemode#top-page
-    -power management? (acpi?)
+* Write a bash script to check if the AC power is plugged in at startup
+and modify power-profiles-daemon appropriately with powerprofilesctl. Set
+this as a systemD service so it runs at boot.
+* Add python-pip and / or uv to the installation list
+* Add a section to set up bnet with steam since it's kinda unique
+* Get duckstation and other emulators working out of the box as far as
+mounting automatically and having the emulator know where to find saves,
+box art, etc
+* Check out zathura document reader
+* Trim down neovim
+* Add a firefox section to copy over the user.js and also make a
+backup of the old profile
+* Try to make the install script copy its output to a log file so we can
+check for any issues afterward
+* Get minecraft and wow added to the installer thing
+* Consider adding a section for steam setup including log-in and settings.
+Disable gpu acceleration because it sucks shit.
+* Find nice drawn wallpapers for fall / winter / spring just like we did for
+summer
+* Configure Firefox homescreen using common websites. currently: DGG, Github,
+Reddit, Wikipedia, Arch Wiki, Arch Repository, Drive, Gumaverse, /tv/, /g/
+* Add a section for configuring thunar maybe. enabling auto mounting of usb
+drives and displaying hidden files, anything else.
+* Use betterfox and add it to the Firefox section
+* I love this [console rain](https://github.com/saitamasahil/matrix) so
+figure out how to incorporate this into our setup.
+* Get subtitle puller addon thing for jellyfin. check bookmarks
+* Get jellyfin up and running for media consumption
+* NVM is slowing down the terminal startup due to the initialization stuff
+it adds to the bachrc file. this is a pain in the ass.
+* Maybe add curl nvm installation idk yet
+* Check out musicBrainz picard for music library
+* Add something about the symlink fix for
+[fmod pipewire bug](https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire).
 

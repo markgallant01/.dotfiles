@@ -12,8 +12,11 @@ sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 # call install script to install system packages
 ~/.dotfiles/scripts/install_packages.sh
 
-# create some directories
-mkdir ~/Screenshots
+# create xdg_usr_dirs
+xdg-user-dirs-update
+
+# create some more directories
+mkdir ~/Pictures/Screenshots
 mkdir ~/Trash
 mkdir ~/.config
 mkdir ~/.ssh
@@ -29,13 +32,7 @@ git config --global pull.rebase false
 ln -sf ~/.dotfiles/.bashrc      ~/.bashrc
 ln -sf ~/.dotfiles/gtk-3.0/     ~/.config/gtk-3.0
 ln -sf ~/.dotfiles/nvim/        ~/.config/nvim
-ln -sf ~/.dotfiles/picom.conf   ~/.config/picom.conf
 ln -sf ~/.dotfiles/ssh_config   ~/.ssh/config
-ln -sf ~/.dotfiles/.xinitrc     ~/.xinitrc
-ln -sf ~/.dotfiles/.Xresources  ~/.Xresources
-ln -sf ~/.dotfiles/rofi         ~/.local/share/rofi
-ln -sf ~/.dotfiles/alacritty    ~/.config/alacritty
-ln -sf ~/.dotfiles/qtile        ~/.config/qtile
 
 # copy conf files to appropriate folders
 # pacman hooks
@@ -52,9 +49,6 @@ sudo systemctl enable paccache.timer
 
 # enable weekly running of reflector
 sudo systemctl enable reflector.timer
-
-# sound system (if sound works fine then this isn't needed. test.)
-# systemctl --user enable pipewire-pulse.service
 
 # enable bluetooth
 sudo systemctl enable bluetooth.service
