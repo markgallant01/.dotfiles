@@ -422,6 +422,7 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
+* DMS needs numbered workstations so they exist even without windows on them
 * Think about Nautilus vs Thunar. Nautilus comes with the gnome desktop
 portal so it's gonna be there already. If we don't like it then add the
 Niri setup step to have the browser use the Gtk file picker instead.

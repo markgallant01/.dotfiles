@@ -638,7 +638,6 @@ workspace "1"
 workspace "2"
 workspace "3"
 workspace "4"
-workspace "5"
 
 // set the regular wallpaper on the backdrop
 layer-rule {
