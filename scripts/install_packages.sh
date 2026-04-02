@@ -18,12 +18,12 @@ packages+=("pipewire-jack" "pipewire-pulse" "wireplumber")
 packages+=("bluez" "bluez-utils")
 
 # Niri deps
-packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome" "gnome-keyring")
-packages+=("polkit-kde-agent" "xwayland-satellite")
+packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome")
+packages+=("gnome-keyring" "polkit-kde-agent" "xwayland-satellite")
 
 # Dank Material Shell deps (non-AUR)
 packages+=("dgop" "matugen" "i2c-tools" "wl-clipboard" "cliphist" "cava")
-packages+=("qt6-multimedia-ffmpeg")
+packages+=("qt6-multimedia-ffmpeg" "fprintd" "khal")
 
 # do we need polkit-kde-agent? it pulls in a lot of kde stuff.
 
