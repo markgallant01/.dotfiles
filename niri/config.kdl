@@ -639,23 +639,5 @@ workspace "2"
 workspace "3"
 workspace "4"
 
-// set the regular wallpaper on the backdrop
-layer-rule {
-	match namespace="^noctalia-wallpaper*"
-	place-within-backdrop true
-}
-
-// disable workspace shadows in overview
-overview {
-	workspace-shadow {
-		off
-	}
-}
-
-cursor {
-	xcursor-theme "Adwaita"
-}
-
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "qs" "-c" "noctalia-shell"
 
