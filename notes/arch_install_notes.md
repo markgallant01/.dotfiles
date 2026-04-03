@@ -422,6 +422,9 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
+* Add Noctalia-shell and the deps to the install list. They're all outlined
+on the Manual Install section on the Noctalia docs. After that, add whatever
+config Noctalia needs to startup to the Niri config file.
 * `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
 actually need all those plugins for vlc to work with subtitles and stuff.
 * Consider trying Nautilus since it comes with the gnome xdg portal.
