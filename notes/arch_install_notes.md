@@ -422,11 +422,6 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
-* Swap from DMS to Noctalia. Dump Niri config stuff and start fresh since we
-can't really tell what we added vs what DMS added. We didn't add much.
-Update the setup.sh to not start the DMS service and update the installer
-script to install Noctalia rather than DMS. Check optional deps and add
-necessary config stuff to niri.
 * `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
 actually need all those plugins for vlc to work with subtitles and stuff.
 * Consider trying Nautilus since it comes with the gnome xdg portal.
