@@ -22,10 +22,8 @@ packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome")
 packages+=("gnome-keyring" "polkit-kde-agent" "xwayland-satellite")
 
 # Dank Material Shell deps (non-AUR)
-packages+=("dgop" "matugen" "i2c-tools" "wl-clipboard" "cliphist" "cava")
-packages+=("qt6-multimedia-ffmpeg" "fprintd" "khal")
-
-# do we need polkit-kde-agent? it pulls in a lot of kde stuff.
+packages+=("dgop" "matugen" "i2c-tools" "wl-clipboard" "cliphist")
+packages+=("qt6-multimedia-ffmpeg" "fprintd" "khal" "cava")
 
 # CLI tools
 packages+=("fastfetch" "unzip" "git")
@@ -36,7 +34,7 @@ packages+=("foot")
 # misc utilities
 packages+=("xdg-user-dirs")
 
-# proton-vpn port forwarding script deps
+# prototon vpn port-forwarding script deps
 packages+=("libnatpmp")
 
 # neovim stuff
@@ -45,13 +43,11 @@ packages+=("fd" "ripgrep")
 # development tools
 packages+=("base-devel" "make" "cmake" "gdb")
 packages+=("neovim" "jdk-openjdk" "npm")
-packages+=("docker" "docker-compose")
+packages+=("docker" "docker-compose" "uv")
 
 # file manager
 packages+=("thunar" "thunar-volman" "tumbler")
 packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
-
-# consider trying Nautilus since it comes with the gnome xdg portal
 
 # graphical front-ends
 packages+=("proton-vpn-gtk-app" "pavucontrol")
@@ -62,9 +58,6 @@ packages+=("steam" "gamescope")
 # multimedia
 packages+=("ffmpeg" "qbittorrent")
 packages+=("vlc" "vlc-plugins-all")
-
-# try to figure out if we actually need all those plugins for vlc to work
-# with subtitles and stuff
 
 # file system and drive utilities
 # (this will be different if not using xfs)
@@ -113,9 +106,6 @@ fi
 #if [[ "$option" == 3]]; then
 #fi
 
-# install all the compiled packages
-sudo pacman -S --noconfirm --needed "${packages[@]}"
-
 # install yay for AUR access
 cd
 git clone https://aur.archlinux.org/yay-bin.git
@@ -123,6 +113,9 @@ cd yay-bin
 makepkg -si
 cd
 
-# install DankMaterialShell from the AUR (and dependency)
-yay -S dms-shell-bin dsearch-bin
+# Dank Material Shell + DMS AUR deps
+packages+=("dms-shell-bin" "dsearch-bin")
+
+# install all the packages
+yay -S --noconfirm --needed "${packages[@]}"
 
