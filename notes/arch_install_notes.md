@@ -422,6 +422,11 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
+* `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
+actually need all those plugins for vlc to work with subtitles and stuff.
+* Consider trying Nautilus since it comes with the gnome xdg portal.
+* Do we need polkit-kde-agent? it pulls in a lot of kde stuff. We need some
+sort of polkit agent but there are lots of options.
 * DMS needs numbered workstations so they exist even without windows on them
 * Think about Nautilus vs Thunar. Nautilus comes with the gnome desktop
 portal so it's gonna be there already. If we don't like it then add the
