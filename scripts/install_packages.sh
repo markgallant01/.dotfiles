@@ -21,9 +21,11 @@ packages+=("bluez" "bluez-utils")
 packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome")
 packages+=("gnome-keyring" "polkit-kde-agent" "xwayland-satellite")
 
-# Dank Material Shell deps (non-AUR)
-packages+=("dgop" "matugen" "i2c-tools" "wl-clipboard" "cliphist")
-packages+=("qt6-multimedia-ffmpeg" "fprintd" "khal" "cava")
+# Noctalia shell deps (non-AUR)
+packages+=("brightnessctl" "imagemagick")
+
+# Noctalia shell optional deps (non-AUR)
+packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
 
 # CLI tools
 packages+=("fastfetch" "unzip" "git")
@@ -113,8 +115,8 @@ cd yay-bin
 makepkg -si
 cd
 
-# Dank Material Shell + DMS AUR deps
-packages+=("dms-shell-bin" "dsearch-bin")
+# Noctalia shell + AUR deps
+packages+=("noctalia-qs" "noctalia-shell")
 
 # install all the packages
 yay -S --noconfirm --needed "${packages[@]}"
