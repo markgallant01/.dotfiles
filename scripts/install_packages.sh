@@ -63,7 +63,7 @@ packages+=("vlc" "vlc-plugins-all")
 
 # file system and drive utilities
 # (this will be different if not using xfs)
-packages+=("dosfstools" "exfatprogs" "exfat-utils" "smartmontools")
+packages+=("dosfstools" "exfatprogs" "smartmontools")
 packages+=("e2fsprogs")
 
 # language servers
