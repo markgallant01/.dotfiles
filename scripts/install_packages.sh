@@ -26,6 +26,7 @@ packages+=("brightnessctl" "imagemagick")
 
 # Noctalia shell optional deps (non-AUR)
 packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
+packages+=("power-profiles-daemon")
 
 # CLI tools
 packages+=("fastfetch" "unzip" "git")
