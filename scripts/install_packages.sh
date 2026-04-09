@@ -32,7 +32,7 @@ packages+=("power-profiles-daemon")
 packages+=("fastfetch" "unzip" "git")
 packages+=("wget" "curl" "zip")
 packages+=("btop" "openssh" "yt-dlp")
-packages+=("foot")
+packages+=("foot" "man-db" "man-pages" "texinfo")
 
 # misc utilities
 packages+=("xdg-user-dirs")

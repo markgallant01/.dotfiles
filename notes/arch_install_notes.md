@@ -114,7 +114,6 @@ in addition to the necessary base system packages:
 
 ```
 # pacstrap -K /mnt base linux linux-firmware
-                   man-db man-pages texinfo
                    vim networkmanager sudo
                    reflector git base-devel
 ```
