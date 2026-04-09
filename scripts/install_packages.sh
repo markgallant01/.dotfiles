@@ -83,24 +83,44 @@ packages+=("firefox" "chromium")
 # communication
 packages+=("discord")
 
+# cpu microcode depnds on CPU manufacturer:
+cpu_option=0
+while [[ "$cpu_option" != 1]] &&
+      [[ "$cpu_option" != 2]]
+do
+    echo "Choose CPU type: [1] Intel, [2] AMD..."
+    read cpu_option
+done
+
+# intel CPU microcode
+if [[ "$cpu_option" == 1 ]]; then
+    packages+=("intel-ucode")
+fi
+
+
+# AMD CPU microcode
+if [[ "$cpu_option" == 2 ]]; then
+    packages+=("amd-ucode")
+fi
+
 # video drivers depend on GPU manufacturer:
-option=0
-while [[ "$option" != 1 ]] &&
-      [[ "$option" != 2 ]] &&
-      [[ "$option" != 3 ]]
+gpu_option=0
+while [[ "$gpu_option" != 1 ]] &&
+      [[ "$gpu_option" != 2 ]] &&
+      [[ "$gpu_option" != 3 ]]
 do
   echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
-  read option
+  read gpu_option
 done
 
 # nvidia:
-if [[ "$option" == 1 ]]; then
+if [[ "$gpu_option" == 1 ]]; then
   packages+=("nvidia-open" "nvidia-settings")
   packages+=("nvidia-utils" "lib32-nvidia-utils")
 fi
 
 # intel iGPU:
-if [[ "$option" == 2 ]]; then
+if [[ "$gpu_option" == 2 ]]; then
   packages+=("mesa" "lib32-mesa" "vulkan-intel")
   packages+=("lib32-vulkan-intel" "intel-media-driver")
 fi

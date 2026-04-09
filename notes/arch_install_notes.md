@@ -117,7 +117,6 @@ in addition to the necessary base system packages:
                    man-db man-pages texinfo
                    vim networkmanager sudo
                    reflector git base-devel
-                   intel-ucode OR amd-ucode <- choose correct for CPU
 ```
 
 
