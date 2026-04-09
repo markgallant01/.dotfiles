@@ -420,6 +420,13 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
+* After the setup script finishes, and we reboot, Noctalia-shell does not
+start on the first Niri launch. We have to quit Niri and launch one more time
+and then Noctalia starts up. To see what the issue is, we must run the install
+script and boot the system, modify the installed Niri config so that it does
+not auto-launch Noctalia, launch Niri, and then manually launch Noctalia
+from a terminal. This way we can see the output on the initial launch, which
+will hopefully fail.
 * `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
 actually need all those plugins for vlc to work with subtitles and stuff.
 * Consider trying Nautilus since it comes with the gnome xdg portal.
