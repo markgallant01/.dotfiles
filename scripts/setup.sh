@@ -41,6 +41,7 @@ ln -sf ~/.dotfiles/foot         ~/.config/foot
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
 # thunar config
+mkdir ~/.config/xfce4
 cp ~/.dotfiles/xfce4/helpers.rc ~/.config/xfce4/
 
 # clock synchronization service
