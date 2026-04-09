@@ -85,8 +85,8 @@ packages+=("discord")
 
 # cpu microcode depnds on CPU manufacturer:
 cpu_option=0
-while [[ "$cpu_option" != 1]] &&
-      [[ "$cpu_option" != 2]]
+while [[ "$cpu_option" != 1 ]] &&
+      [[ "$cpu_option" != 2 ]]
 do
     echo "Choose CPU type: [1] Intel, [2] AMD..."
     read cpu_option
