@@ -115,7 +115,7 @@ in addition to the necessary base system packages:
 ```
 # pacstrap -K /mnt base linux linux-firmware
                    vim networkmanager sudo
-                   reflector git base-devel
+                   reflector git
 ```
 
 
