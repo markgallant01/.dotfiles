@@ -97,7 +97,6 @@ if [[ "$cpu_option" == 1 ]]; then
     packages+=("intel-ucode")
 fi
 
-
 # AMD CPU microcode
 if [[ "$cpu_option" == 2 ]]; then
     packages+=("amd-ucode")
