@@ -109,6 +109,9 @@ fi
 #if [[ "$option" == 3]]; then
 #fi
 
+# install arch repo packages
+sudo pacman -S --needed "${packages[@]}"
+
 # install yay for AUR access
 cd
 git clone https://aur.archlinux.org/yay-bin.git
@@ -116,9 +119,6 @@ cd yay-bin
 makepkg -si
 cd
 
-# Noctalia shell + AUR deps
-packages+=("noctalia-qs" "noctalia-shell")
-
-# install all the packages
-yay -S --needed "${packages[@]}"
+# install Noctalia shell + AUR deps from AUR
+yay -S noctalia-qs noctalia-shell
 
