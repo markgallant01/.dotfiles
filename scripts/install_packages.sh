@@ -120,5 +120,5 @@ cd
 packages+=("noctalia-qs" "noctalia-shell")
 
 # install all the packages
-yay -S --noconfirm --needed "${packages[@]}"
+yay -S --needed "${packages[@]}"
 
