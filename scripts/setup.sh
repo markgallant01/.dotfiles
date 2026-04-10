@@ -56,6 +56,9 @@ sudo systemctl enable reflector.timer
 # enable bluetooth
 sudo systemctl enable bluetooth.service
 
+# docker service
+sudo systemctl enable docker.socket
+
 # generate new ssh keys for github
 ssh-keygen -t ed25519 -C markgallant01@gmail.com
 eval "$(ssh-agent -s)"

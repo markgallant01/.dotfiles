@@ -350,7 +350,9 @@ system as root.</p>
 <p>Setup a non-root user and set the password:</p>
 <p><em>Note: Make sure the user is in the “wheel” group if you want them
 to be able to use sudo</em></p>
-<pre><code># useradd -m -G wheel &lt;username&gt;
+<p>*Note: “docker” group allows user to run docker containers as
+non-root user</p>
+<pre><code># useradd -m -G wheel,docker &lt;username&gt;
 # passwd *user*</code></pre>
 <p>Add the new user to the sudoers file with <strong>visudo</strong></p>
 <pre><code># EDITOR=vim visudo
