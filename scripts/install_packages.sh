@@ -129,7 +129,7 @@ fi
 #fi
 
 # install arch repo packages
-sudo pacman -S --needed "${packages[@]}"
+sudo pacman -S --noconfirm --needed "${packages[@]}"
 
 # install yay for AUR access
 cd
@@ -139,5 +139,5 @@ makepkg -si
 cd
 
 # install Noctalia shell + AUR deps from AUR
-yay -S noctalia-qs noctalia-shell
+yay -S --noconfirm noctalia-qs noctalia-shell
 
