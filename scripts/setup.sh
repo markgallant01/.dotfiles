@@ -34,6 +34,7 @@ ln -sf ~/.dotfiles/gtk-3.0/     ~/.config/gtk-3.0
 ln -sf ~/.dotfiles/nvim/        ~/.config/nvim
 ln -sf ~/.dotfiles/ssh_config   ~/.ssh/config
 ln -sf ~/.dotfiles/niri         ~/.config/niri
+ln -sf ~/.dotfiles/noctalia     ~/.config/noctalia
 ln -sf ~/.dotfiles/foot         ~/.config/foot
 
 # copy conf files to appropriate folders
