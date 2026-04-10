@@ -252,7 +252,7 @@ Setup a non-root user and set the password:
 *Note: Make sure the user is in the "wheel" group if you want them to be
 able to use sudo*
 
-*Note: "docker" group allows user to run docker containers as non-root user
+*Note: "docker" group allows user to run docker containers as non-root user*
 
 ```
 # useradd -m -G wheel,docker <username>
