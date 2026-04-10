@@ -30,7 +30,7 @@ packages+=("power-profiles-daemon")
 
 # CLI tools
 packages+=("fastfetch" "unzip" "git")
-packages+=("wget" "curl" "zip")
+packages+=("wget" "curl" "zip" "pandoc")
 packages+=("btop" "openssh" "yt-dlp")
 packages+=("foot" "man-db" "man-pages" "texinfo")
 
