@@ -352,7 +352,8 @@ system as root.</p>
 to be able to use sudo</em></p>
 <p><em>Note: “docker” group allows user to run docker containers as
 non-root user</em></p>
-<pre><code># useradd -m -G wheel,docker &lt;username&gt;
+<pre><code># groupadd docker
+# useradd -m -G wheel,docker &lt;username&gt;
 # passwd *user*</code></pre>
 <p>Add the new user to the sudoers file with <strong>visudo</strong></p>
 <pre><code># EDITOR=vim visudo

@@ -255,6 +255,7 @@ able to use sudo*
 *Note: "docker" group allows user to run docker containers as non-root user*
 
 ```
+# groupadd docker
 # useradd -m -G wheel,docker <username>
 # passwd *user*
 ```
