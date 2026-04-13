@@ -265,6 +265,10 @@ layout {
         // top 64
         // bottom 64
     }
+
+    // set transparent workspace background color so you can see the backdrop
+    // at all times
+    background-color "transparent"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -344,11 +348,15 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+// Noctalia window rule stuff
+window-rule {
+    geometry-corner-radius 20
     clip-to-geometry true
+}
+
+debug {
+    // allows notification actions and window activation from Noctalia
+    honor-xdg-activation-with-invalid-serial
 }
 
 binds {
@@ -631,6 +639,20 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+// Noctalia wallpaper stuff
+// set regular wallpaper on backdrop
+layer-rule {
+    match namespace="^noctalia-wallpaper*"
+    place-within-backdrop true
+}
+
+// disable workspace shadows in the overview
+overview {
+    workspace-shadow {
+        off
+    }
 }
 
 workspace "1"
