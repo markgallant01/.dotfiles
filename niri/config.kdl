@@ -316,6 +316,8 @@ animations {
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
+// the command: $ niri msg pick-window
+// can be used to identify window information
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -325,6 +327,12 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+// default terminal window size
+window-rule {
+    match app-id="foot"
+    default-column-width { fixed 896; }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
