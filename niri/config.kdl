@@ -335,6 +335,12 @@ window-rule {
     default-column-width { fixed 896; }
 }
 
+// default firefox window size
+window-rule {
+    match app-id="firefox"
+    default-column-width { fixed 1350; }
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
