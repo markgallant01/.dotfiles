@@ -423,6 +423,7 @@ to the fstab file so they auto mount at startup. Consult
 
 ### New Guide to-do:
 
+* take a look at wl-mirror for screen mirroring on Niri
 * set up a screen locker like swaylock
 * `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
 actually need all those plugins for vlc to work with subtitles and stuff.
