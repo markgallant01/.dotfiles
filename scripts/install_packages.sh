@@ -70,6 +70,11 @@ packages+=("e2fsprogs")
 # language servers
 packages+=("bash-language-server" "clang")
 packages+=("lua-language-server" "pyright")
+packages+=("vscode-css-languageserver")
+packages+=("dockerfile-language-server")
+packages+=("vscode-html-languageserver")
+packages+=("vscode-json-languageserver")
+packages+=("deno")
 
 # fonts
 packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
