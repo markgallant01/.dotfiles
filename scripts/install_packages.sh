@@ -108,25 +108,25 @@ while [[ "$gpu_option" != 1 ]] &&
       [[ "$gpu_option" != 2 ]] &&
       [[ "$gpu_option" != 3 ]]
 do
-  echo "Choose GPU type: [1] Nvidia, [2] Intel, [3] AMD..."
+  echo "Choose GPU type: [1] Intel, [2] AMD, [3] Nvidia..."
   read gpu_option
 done
 
-# nvidia:
-if [[ "$gpu_option" == 1 ]]; then
-  packages+=("nvidia-open" "nvidia-settings")
-  packages+=("nvidia-utils" "lib32-nvidia-utils")
-fi
-
 # intel iGPU:
-if [[ "$gpu_option" == 2 ]]; then
+if [[ "$gpu_option" == 1 ]]; then
   packages+=("mesa" "lib32-mesa" "vulkan-intel")
   packages+=("lib32-vulkan-intel" "intel-media-driver")
 fi
 
 # AMD CPU GPU? --todo
-#if [[ "$option" == 3]]; then
+#if [[ "$option" == 2]]; then
 #fi
+
+# nvidia:
+if [[ "$gpu_option" == 3 ]]; then
+  packages+=("nvidia-open" "nvidia-settings")
+  packages+=("nvidia-utils" "lib32-nvidia-utils")
+fi
 
 # install arch repo packages
 sudo pacman -S --noconfirm --needed "${packages[@]}"
