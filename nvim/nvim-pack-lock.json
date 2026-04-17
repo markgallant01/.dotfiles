@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "solarized-osaka.nvim": {
+      "rev": "f0c2f0ba0bd56108d53c9bfae4bb28ff6c67bbdb",
+      "src": "https://github.com/craftzdog/solarized-osaka.nvim"
+    }
+  }
+}
