@@ -40,8 +40,20 @@ vim.o.filetype = on
 
 -- plugins
 vim.pack.add({
-    "https://github.com/craftzdog/solarized-osaka.nvim"
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/craftzdog/solarized-osaka.nvim',
 })
+
+-- enable LSPs
+vim.lsp.enable('bashls')
+vim.lsp.enable('clangd')
+vim.lsp.enable('cssls')
+vim.lsp.enable('denols')
+vim.lsp.enable('dockerls')
+vim.lsp.enable('html')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('pyright')
 
 -- setup colorscheme
 require("solarized-osaka").setup({
