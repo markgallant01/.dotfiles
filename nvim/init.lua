@@ -55,6 +55,17 @@ vim.lsp.enable('jsonls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
 
+-- extra config for LSPs
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {'vim'}
+            }
+        }
+    }
+})
+
 -- setup colorscheme
 require("solarized-osaka").setup({
   -- your configuration comes here
