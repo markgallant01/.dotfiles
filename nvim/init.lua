@@ -36,6 +36,8 @@ vim.o.guicursor = 'n-v-c-i:block'
 vim.o.scrolloff = 10
 vim.o.wrap = false
 
+vim.o.filetype = on
+
 -- plugins
 vim.pack.add({
     "https://github.com/craftzdog/solarized-osaka.nvim"
