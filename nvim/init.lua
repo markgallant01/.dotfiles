@@ -37,7 +37,9 @@ vim.o.scrolloff = 10
 vim.o.wrap = false
 
 -- plugins
-vim.pack.add({"https://github.com/craftzdog/solarized-osaka.nvim"})
+vim.pack.add({
+    "https://github.com/craftzdog/solarized-osaka.nvim"
+})
 
 -- setup colorscheme
 require("solarized-osaka").setup({
