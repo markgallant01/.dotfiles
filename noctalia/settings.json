@@ -491,7 +491,7 @@
         "clearDismissed": true,
         "criticalUrgencyDuration": 15,
         "density": "default",
-        "enableBatteryToast": true,
+        "enableBatteryToast": false,
         "enableKeyboardLayoutToast": true,
         "enableMarkdown": false,
         "enableMediaToast": false,
