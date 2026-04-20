@@ -348,6 +348,12 @@ window-rule {
     default-column-width { fixed 1350; }
 }
 
+// default steam window size
+window-rule {
+    match app-id="steam"
+    default-column-width { fixed 1503; }
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
