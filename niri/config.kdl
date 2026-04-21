@@ -111,6 +111,18 @@ input {
     position x=1280 y=0
 }
 
+// desktop monitor
+output "DP-3" {
+    mode "2560x1440@119.998"
+    variable-refresh-rate
+}
+
+// other desktop monito
+output "DP-2" {
+    mode "2560x1440@119.998"
+    variable-refresh-rate
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
