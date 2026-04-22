@@ -347,7 +347,7 @@ check:
 * Start screen
 
 The extensions should sync and install themselves. Once LastPass shows up,
-change somesettings:
+change some settings:
 
 * Disable "Automatically fill login information" in the extension settings
 * Make sure all extensions are active in private browsing sessions
