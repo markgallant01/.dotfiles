@@ -1,0 +1,42 @@
+-ran graphical installer, chose base OS package on left,
+ 'networkmanager submodules' and 'common stuff' on the right
+-had to usb tether to phone for initial internet connection so that intel
+ wifi drivers could be installed:
+    sudo dnf install iwlwifi-mvm-firmware
+ then after reboot had internet. set hostname with:
+    sudo hostnamectl set-hostname <hostname>
+ then log out and back in.
+-installed DMS through their COPR repo:
+    sudo dnf copr enable avengemedia/dms
+    sudo dnf install dms
+-then Niri, minus alacritty:
+    sudo dnf install niri --exclude=alacritty
+-installed git:
+    sudo dnf install git
+-ran dms setup (not sure if this is necessary if we're gonna clone our stuff):
+    dms setup
+-then enabled the dms service:
+    systemctl --user enable dms
+
+-stuff DMS is missing:
+    -power-profiles-daemon
+    -cups-pk-helper
+    -kimageformats
+    -terminal
+    -khal
+
+-terminal:
+    sudo dnf install foot
+-calendar:
+    sudo dnf install khal
+-kimage thing:
+    // this one did not resolve the warning in DMS so come back to it
+    sudo dnf install kf5-kimageformats
+-cups thing:
+    sudo dnf install cups-pk-helper
+-power profiles daemon:
+    sudo dnf install power-profiles-daemon
+-dms greeter:
+    dms greeter install
+-firefox
+    sudo dnf install firefox
