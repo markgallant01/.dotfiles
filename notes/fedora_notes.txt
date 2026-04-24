@@ -40,3 +40,14 @@
     dms greeter install
 -firefox
     sudo dnf install firefox
+-xdg-user-dirs
+    sudo dnf install xdg-user-dirs
+    xdg-user-dirs-update
+-generate ssh keys for github from setup.sh
+
+to-do:
+    -go through the setup.sh file and make sure fedora does all that too.
+     stuff like configuring github.
+    -figure out how to incorporate dms. we will have to install dms, go
+     through the setup, then remove the config folders before doing the
+     symlinks
