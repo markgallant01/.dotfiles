@@ -51,3 +51,5 @@ to-do:
     -figure out how to incorporate dms. we will have to install dms, go
      through the setup, then remove the config folders before doing the
      symlinks
+    -modify the install script to install the correct Fedora packages and
+     the setup script to properly set everything up.
