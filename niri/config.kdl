@@ -701,6 +701,12 @@ overview {
     }
 }
 
+// dms stuff
+config-notification {
+    // disables the "Failed to parse the config file" notification
+    disable-failed
+}
+
 gestures {
     hot-corners {
         off
