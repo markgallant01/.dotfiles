@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>fedora_install_notes</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="arch-linux-installation">Arch Linux Installation</h1>
+<p><em>html file created with this command:</em></p>
+<p><code>pandoc -s input_file.md -o output_file.html</code></p>
+<p>*This is a compilation of notes for setting up a Fedora install</p>
+<h2 id="net-everything-installer">1. Net Everything Installer</h2>
+<h3 id="prepare-an-installation-medium">1.1 Prepare an installation
+medium</h3>
+<p>A minimal Fedora installation requires using the net Everyting
+Installer. Download it <a
+href="https://fedoraproject.org/misc/#everything">here</a> and make a
+bootable usb with the <strong>dd</strong> command:</p>
+<p><code>$ dd bs=4M if=path/to/fedora_linux.iso of=/dev/flashDrive conv=fsync oflag=direct status=progress</code></p>
+<p><em>Note: use the</em> <strong><code>lsblk</code></strong>
+<em>command to identify the USB drive before running the above
+command</em></p>
+<p>Boot into the live environment and continue.</p>
+<h3 id="using-the-graphical-installer">1.2 Using the graphical
+installer</h3>
+<p>The graphical installer makes installation relatively simple. Make
+sure you’re connected to the internet so you can download the packages.
+Choose how you want the disks set up (probably defaults, wiping existing
+paritions). Set up a user and enable root permissions for it. You don’t
+need an actual root user.</p>
+<p>Enable the closest mirror for the repositories and determine which
+packages you want. Currently these are the options we choose:</p>
+<pre><code>Base Environment: Fedora Custom Operating System
+
+Additional software for Selected Environment:
+
+    Common NetworkManager Submodules
+    Standard
+    C Development Tools and Libraries
+    Development Tools
+
+Note: The Development Tools option might be a little heavy. The only
+    thing we actually want might be git. We can take a closer look at
+    these package groups once we have a functional system and see if
+    any of these should be skipped. We may just want to install stuff
+    like git, gcc, g++, etc on our own to avoid all the rest.</code></pre>
+<p>Once the installation completes, reboot the PC and remove the USB.
+Log in with your created user.</p>
+<p>On the initial login you likely won’t have internet if you’re on
+wifi. You can plug into ethernet if possible, or USB tether to a phone.
+Whichever you choose, you can install the firmware for your wifi card
+first:</p>
+<p><code>$ sudo dnf install iwlwifi-mvm-firmware</code></p>
+<p>That installs firmware for intel wifi cards. For different brands,
+you’ll have to look up the corresponding package. Once that’s done you
+can either reboot to use the wifi, or stay tethered for the rest of the
+installation.</p>
+<p>In either case, set your hostname:</p>
+<p><code>$ sudo hostnamectl set-hostname &lt;hostname&gt;</code></p>
+<p>Git should already be installed. Use it to download the setup and
+config files:</p>
+<p><code>$ git clone https://github.com/markgallant01/.dotfiles.git</code></p>
+<p>You might need to make the setup scripts executable:</p>
+<pre><code>$ chmod +x ~/.dotfiles/scripts/fedora/setup.sh
+$ chmod +x ~/.dotfiles/scripts/fedora/install_packages.sh</code></pre>
+<p>Run the setup script:</p>
+<p><code>$ ~/.dotfiles/scripts/fedora/setup.sh</code></p>
+<p>Reboot one more time and everything should be all set.</p>
+<h2 id="more-configuration">More Configuration</h2>
+<p>Some applications require manual configuration. Starting with Firefox
+and LastPass makes the most sense because it will be easier to log into
+things once those are set up.</p>
+<h3 id="firefox-lastpass">Firefox &amp; LastPass:</h3>
+<p>Launch Firefox and sign in to start syncing everything. Go down
+through the settings and verify everything is set up how you want it.
+Some things to check:</p>
+<ul>
+<li>Browser fonts</li>
+<li>History</li>
+<li>Autofill</li>
+<li>Search engine</li>
+<li>Start screen</li>
+</ul>
+<p>The extensions should sync and install themselves. Once LastPass
+shows up, change some settings:</p>
+<ul>
+<li>Disable “Automatically fill login information” in the extension
+settings</li>
+<li>Make sure all extensions are active in private browsing
+sessions</li>
+<li>Pin whatever extensions you want to the browser bar</li>
+</ul>
+<h3 id="discord">Discord:</h3>
+<p>Launch discord once to generate the config file. Add the line below
+to the config file so Discord doesn’t refuse to launch if there’s an
+update that’s not in the repos yet:</p>
+<pre><code>~/.config/discord/settings.json
+-------------------------------
+&quot;SKIP_HOST_UPDATE&quot;: true</code></pre>
+<p>Some settings to configure within the Discord app:</p>
+<ul>
+<li>Font size 20</li>
+<li>Adjust mic threshold if necessary</li>
+<li>Disable ‘minimize to tray’ and automatic startup under Linux
+settings</li>
+</ul>
+<h3 id="wallpapers">Wallpapers:</h3>
+<p>Log into google drive and download the Wallpaper folder. Unzip that
+folder into the <code>~/Pictures/</code> directory to make it useable by
+the system’s wallpaper system.</p>
+<h3 id="github">Github:</h3>
+<p>Set up authentication with Github by first launching the web browser
+and logging into your Github account. The installation script generated
+new ssh keys. Print the public key:</p>
+<p><code>$ cat ~/.ssh/id_ed25519.pub</code></p>
+<p>Copy this output and add it to the Github ssh keys under your account
+settings. After that, verify the connection works:</p>
+<p><code>$ ssh -T git@github.com</code></p>
+<p>Once authenticated, delete and re-clone the dotfiles folder so
+everything is connected properly.</p>
+<pre><code>$ rm -rf ~/.dotfiles
+$ git clone git@github.com:markgallant01/.dotfiles.git</code></pre>
+<h2 id="optional-extras">Optional Extras</h2>
+<p>This stuff depends on the PC setup and may or may not be done</p>
+<h3 id="external-drives">External drives:</h3>
+<p>If there are any additional storage drives in the PC, you should add
+them to the fstab file so they auto mount at startup. Consult <a
+href="https://wiki.archlinux.org/title/Fstab">this link</a> for
+reference.</p>
+<h2 id="the-end">The End</h2>
+<p>-lsp stuff figure it out -generate ssh keys for github from
+setup.sh</p>
+<p>-make sure we have the full ffmpeg: sudo dnf swap ffmpeg-free ffmpeg
+–allowerasing</p>
+<p>to-do: -figure out how to incorporate dms. we will have to install
+dms, go through the setup, then remove the config folders before doing
+the symlinks -verify cpu microcode is automatically installed -figure
+out gpu drivers section</p>
+<p><em>Note: “docker” group allows user to run docker containers as
+non-root user</em></p>
+<pre><code># groupadd docker
+# useradd -m -G wheel,docker &lt;username&gt;
+# passwd *user*</code></pre>
+<p>-stuff DMS is missing: -kimageformats</p>
+<p>-kimage thing: // this one did not resolve the warning in DMS so come
+back to it sudo dnf install kf5-kimageformats</p>
+<h3 id="new-guide-to-do">New Guide to-do:</h3>
+<ul>
+<li>take a look at wl-mirror for screen mirroring on Niri</li>
+<li>set up a screen locker like swaylock</li>
+<li><code>vlc-plugins-all</code> pulls in a lot of plugins. Try to
+figure out if we actually need all those plugins for vlc to work with
+subtitles and stuff.</li>
+<li>Consider trying Nautilus since it comes with the gnome xdg
+portal.</li>
+<li>Do we need polkit-kde-agent? it pulls in a lot of kde stuff. We need
+some sort of polkit agent but there are lots of options.</li>
+<li>DMS needs numbered workstations so they exist even without windows
+on them</li>
+<li>Think about Nautilus vs Thunar. Nautilus comes with the gnome
+desktop portal so it’s gonna be there already. If we don’t like it then
+add the Niri setup step to have the browser use the Gtk file picker
+instead.</li>
+<li>Look at the installer script and see if it can be better organized
+or cleaned up. You should be able to run everything with one
+<code>yay</code> call at the very end, since it can do the normal repos
+and the AUR.</li>
+<li>Rip whatever config stuff we want from the Dell laptop and then get
+the dotfiles folder sorted out. Link up the DMS settings and
+niri-settings and everything we need. Consult the Niri docs and DMS
+docs.</li>
+<li>Take a look at the reflector timer and see if we like the
+settings</li>
+<li>Figure out how to start polkit-kde-agent with Niri</li>
+<li>Look over the Arch <a
+href="https://wiki.archlinux.org/title/Fonts">fonts pages</a> and see if
+we have <a
+href="https://wiki.archlinux.org/title/Font_configuration">everything</a>
+covered</li>
+</ul>
+<h3 id="old-to-do">Old to-do:</h3>
+<ul>
+<li>Write a bash script to check if the AC power is plugged in at
+startup and modify power-profiles-daemon appropriately with
+powerprofilesctl. Set this as a systemD service so it runs at boot.</li>
+<li>Add python-pip and / or uv to the installation list</li>
+<li>Add a section to set up bnet with steam since it’s kinda unique</li>
+<li>Get duckstation and other emulators working out of the box as far as
+mounting automatically and having the emulator know where to find saves,
+box art, etc</li>
+<li>Check out zathura document reader</li>
+<li>Trim down neovim</li>
+<li>Add a firefox section to copy over the user.js and also make a
+backup of the old profile</li>
+<li>Try to make the install script copy its output to a log file so we
+can check for any issues afterward</li>
+<li>Get minecraft and wow added to the installer thing</li>
+<li>Consider adding a section for steam setup including log-in and
+settings. Disable gpu acceleration because it sucks shit.</li>
+<li>Find nice drawn wallpapers for fall / winter / spring just like we
+did for summer</li>
+<li>Configure Firefox homescreen using common websites. currently: DGG,
+Github, Reddit, Wikipedia, Arch Wiki, Arch Repository, Drive, Gumaverse,
+/tv/, /g/</li>
+<li>Add a section for configuring thunar maybe. enabling auto mounting
+of usb drives and displaying hidden files, anything else.</li>
+<li>Use betterfox and add it to the Firefox section</li>
+<li>I love this <a href="https://github.com/saitamasahil/matrix">console
+rain</a> so figure out how to incorporate this into our setup.</li>
+<li>Get subtitle puller addon thing for jellyfin. check bookmarks</li>
+<li>Get jellyfin up and running for media consumption</li>
+<li>NVM is slowing down the terminal startup due to the initialization
+stuff it adds to the bachrc file. this is a pain in the ass.</li>
+<li>Maybe add curl nvm installation idk yet</li>
+<li>Check out musicBrainz picard for music library</li>
+<li>Add something about the symlink fix for <a
+href="https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire">fmod
+pipewire bug</a>.</li>
+</ul>
+</body>
+</html>
