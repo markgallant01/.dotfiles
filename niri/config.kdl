@@ -452,6 +452,8 @@ debug {
     honor-xdg-activation-with-invalid-serial
 }
 
+include "dms/binds.kdl"
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key
     // name in the end. To find an XKB name for a particular key, you may use
@@ -788,7 +790,6 @@ spawn-at-startup "qs" "-c" "noctalia-shell"
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
-include "dms/binds.kdl"
 include "dms/outputs.kdl"
 include "dms/cursor.kdl"
 
