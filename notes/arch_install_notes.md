@@ -306,8 +306,8 @@ Download the setup and config files:
 Make the setup scripts executable:
 
 ```
-$ chmod +x ~/.dotfiles/scripts/setup.sh
-$ chmod +x ~/.dotfiles/scripts/install_packages.sh
+$ chmod +x ~/.dotfiles/scripts/arch/setup.sh
+$ chmod +x ~/.dotfiles/scripts/arch/install_packages.sh
 ```
 
 Run the setup script:
