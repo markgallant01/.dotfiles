@@ -312,7 +312,7 @@ $ chmod +x ~/.dotfiles/scripts/arch/install_packages.sh
 
 Run the setup script:
 
-`$ ~/.dotfiles/scripts/setup.sh`
+`$ ~/.dotfiles/scripts/arch/setup.sh`
 
 If nvidia drivers were installed, you must edit the file
 `/etc/mkinitcpio.conf` to remove the 'kms' module from the HOOKS array.
