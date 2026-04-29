@@ -1,2 +1,10 @@
 #!/bin/bash
-pandoc -s ./arch_install_notes.md -o ./arch_install_notes.html
+
+# ensure proper args
+if [[ "$#" != 1 ]]; then
+    echo "Incorrect number of args."
+    echo "Usage: make_doc [arch/fedora/gentoo]"
+else
+    pandoc -s ./"$1"/"$1"_install_notes.md -o ./"$1"/"$"_install_notes.html
+fi
+
