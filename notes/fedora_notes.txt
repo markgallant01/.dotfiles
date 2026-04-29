@@ -45,11 +45,51 @@
     xdg-user-dirs-update
 -generate ssh keys for github from setup.sh
 
+more installs from following installer script:
+niri deps:
+	polkit-kde
+CLI tools:
+	pandoc btop yt-dlp tldr texinfo
+proton vpn port-forward script deps:
+	libnatpmp
+neovim deps:
+	fd-find
+development tools:
+	cmake gdb java-latest-openjdk-devel.x86_64 docker docker-compose uv
+graphical frontends:
+	proton-vpn-gnome-desktop pavucontrol
+
+proton vpn gui app steps:
+	wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+
+	sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+
+	sudo dnf install proton-vpn-gnome-desktop
+
+steam steps:
+	sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+
+	sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+
+	sudo dnf install steam
+
+gaming stuff:
+	steam gamescope
+multimedia:
+	qbittorrent vlc
+language servers:
+	-installing these with mason is probably cleanest and easiest
+web browser:
+	firefox
+communication:
+	discord
+
 to-do:
+    -did we install fastfetch manually? check
     -go through the setup.sh file and make sure fedora does all that too.
      stuff like configuring github.
     -figure out how to incorporate dms. we will have to install dms, go
      through the setup, then remove the config folders before doing the
      symlinks
-    -modify the install script to install the correct Fedora packages and
-     the setup script to properly set everything up.
+    -verify cpu microcode is automatically installed
+    -figure out gpu drivers section
