@@ -1,5 +1,17 @@
 -ran graphical installer, chose base OS package on left,
- 'networkmanager submodules' and 'common stuff' on the right
+-Base Environment: Fedora Custom Operating System
+-Additional software for Selected Environment:
+    -Common NetworkManager Submodules
+    -Standard
+    -C Development Tools and Libraries
+    -Development Tools
+
+    Notes: The Development Tools option might be a little heavy. The only
+        thing we actually want might be git. We can take a closer look at
+        these package groups once we have a functional system and see if
+        any of these should be skipped. We may just want to install stuff
+        like git, gcc, g++, etc on our own to avoid all the rest.
+
 -had to usb tether to phone for initial internet connection so that intel
  wifi drivers could be installed:
     sudo dnf install iwlwifi-mvm-firmware
@@ -11,19 +23,11 @@
     sudo dnf install dms
 -then Niri, minus alacritty:
     sudo dnf install niri --exclude=alacritty
--installed git:
-    sudo dnf install git
--ran dms setup (not sure if this is necessary if we're gonna clone our stuff):
-    dms setup
 -then enabled the dms service:
     systemctl --user enable dms
 
 -stuff DMS is missing:
-    -power-profiles-daemon
-    -cups-pk-helper
     -kimageformats
-    -terminal
-    -khal
 
 -terminal:
     sudo dnf install foot
@@ -36,20 +40,19 @@
     sudo dnf install cups-pk-helper
 -power profiles daemon:
     sudo dnf install power-profiles-daemon
--dms greeter:
-    dms greeter install
 -firefox
     sudo dnf install firefox
 -xdg-user-dirs
     sudo dnf install xdg-user-dirs
     xdg-user-dirs-update
--generate ssh keys for github from setup.sh
+-dms greeter:
+    dms greeter install
 
 more installs from following installer script:
 niri deps:
 	polkit-kde
 CLI tools:
-	pandoc btop yt-dlp tldr texinfo
+	pandoc btop yt-dlp tldr texinfo fastfetch
 proton vpn port-forward script deps:
 	libnatpmp
 neovim deps:
@@ -57,14 +60,28 @@ neovim deps:
 development tools:
 	cmake gdb java-latest-openjdk-devel.x86_64 docker docker-compose uv
 graphical frontends:
-	proton-vpn-gnome-desktop pavucontrol
+	pavucontrol
+gaming stuff:
+	gamescope
+multimedia:
+	qbittorrent vlc
+language servers:
+	-installing these with mason is probably cleanest and easiest
 
-proton vpn gui app steps:
-	wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+-generate ssh keys for github from setup.sh
 
-	sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+-enable RPM Fusion repos for discord and steam:
+$ sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
-	sudo dnf install proton-vpn-gnome-desktop
+$ sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+communication:
+	discord
+
+-make sure we have the full ffmpeg:
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 
 steam steps:
 	sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
@@ -73,19 +90,17 @@ steam steps:
 
 	sudo dnf install steam
 
-gaming stuff:
-	steam gamescope
-multimedia:
-	qbittorrent vlc
-language servers:
-	-installing these with mason is probably cleanest and easiest
-web browser:
-	firefox
-communication:
-	discord
+proton vpn gui app steps:
+	wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+
+	sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+
+	sudo dnf install proton-vpn-gnome-desktop
+
+for intel iGPU:
+    sudo dnf install intel-media-driver
 
 to-do:
-    -did we install fastfetch manually? check
     -go through the setup.sh file and make sure fedora does all that too.
      stuff like configuring github.
     -figure out how to incorporate dms. we will have to install dms, go
