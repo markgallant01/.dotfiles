@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>gentoo_install_notes</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<p><em>This is a compilation of notes to be used as supplementary
+material for a gentoo linux install. Use alongside the handbook found at
+wiki.gentoo.org</em></p>
+<p>Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0</p>
+<h1 id="pre-installation">1. Pre-installation</h1>
+<h2 id="prepare-an-installation-medium">1.1 Prepare an installation
+medium</h2>
+<p>The easiest thing to do is boot into a live Linux iso of some kind
+with a graphical desktop all set up. This makes it nice and easy to
+connect to the internet and do everything you’ll have to do. Linux Mint
+is a good choice.</p>
+<p>Download a fresh iso and use the dd utility to make a bootable live
+usb:</p>
+<p><code>$ dd bs=4M if=path/to/archlinux.iso of=/dev/flashDrive status=progress; sync</code></p>
+<p>Once you’re booted into a live environment, get set up and ready to
+install. Make sure you’re connected to the internet, pull up a terminal
+and a web browser and get comfy I usually disable pointer acceleration
+too and you might need to install vim depending on the live iso you’re
+using:</p>
+<p>(for Mint and other Debian derivatives):</p>
+<p><code>$ sudo apt install neovim</code></p>
+<p>Once you’re ready to go, open the <a
+href="https://wiki.gentoo.org/wiki/Installation_alternatives#Installation_from_non-Gentoo_live_environments">Gentoo
+Installation Alternatives</a> page.</p>
+<p>That page has special instructions that need to be followed at
+various points in the install process, so keep it up for reference.</p>
+<p>In the terminal, switch to the root user so you don’t need to type
+sudo before every command:</p>
+<p><code>$ sudo su</code></p>
+<p>Then, create the /mnt/gentoo mount point:</p>
+<p><code># mkdir /mnt/gentoo</code></p>
+<p>Begin following the handbook from the <a
+href="https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Disks">Disks</a>
+page.</p>
+<h1 id="preparing-the-disks">2. Preparing the disks</h1>
+<p>For the partition setup, use 3 partitions as follows:</p>
+<table>
+<thead>
+<tr>
+<th>partition</th>
+<th>filesystem</th>
+<th>size</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/dev/sdx1</td>
+<td>fat32</td>
+<td>1 GiB</td>
+<td>EFI (boot) partition</td>
+</tr>
+<tr>
+<td>/dev/sdx2</td>
+<td>swap</td>
+<td>RAM * 1.5</td>
+<td>Swap partition</td>
+</tr>
+<tr>
+<td>/dev/sdx3</td>
+<td>xfs</td>
+<td>remainder</td>
+<td>root partition</td>
+</tr>
+</tbody>
+</table>
+<p>For explanations of the setup or alternatives, consult the handbook
+page. Use cfdisk to make the partitions, it’s easier than fdisk. If
+cfdisk isn’t available for some reason, fdisk instructions are given in
+the handbook. After making the partitions, create the filesystems.</p>
+<p>EFI partition gets formatted as fat32:</p>
+<p><code># mkfs.vfat -F 32 /dev/sdx1</code></p>
+<p>Root partition as xfs:</p>
+<p><code># mkfs.xfs -c options=/usr/share/xfsprogs/mkfs/lts_6.6.conf /dev/sdx3</code></p>
+<p>Activate the swap partition:</p>
+<pre><code># mkswap /dev/sdx2
+# swapon /dev/sdx2</code></pre>
+<p>Mount the partitions:</p>
+<pre><code># mount /dev/sdx3 /mnt/gentoo
+# mkdir /mnt/gentoo/efi
+# mount /dev/sdx1 /mnt/gentoo/efi</code></pre>
+<h1 id="the-stage-file">3. The stage file</h1>
+<p>Set the current directory to the location of the mount used for the
+install:</p>
+<p><code># cd /mnt/gentoo</code></p>
+<p>Download the stage tarball. In a browser, open the <a
+href="https://www.gentoo.org/downloads/#other-arches">downloads
+page</a>.</p>
+<p>Select your architecture, probably amd64, and choose a stage file,
+probably ‘desktop profile | systemd’</p>
+<p>Copy the URL for the stage file download and paste it into a wget
+command:</p>
+<p><code># wget &lt;STAGE_FILE_URL&gt;</code></p>
+<p>The URL as of our last installation is <a
+href="https://distfiles.gentoo.org/releases/amd64/autobuilds/20260316T093103Z/stage3-amd64-desktop-systemd-20260316T093103Z.tar.xz">here</a>
+for convenience.</p>
+<p>Extract the tar file with the following command:</p>
+<p>Note that this command is slightly different from the one in the
+handbook, it’s to be used when installing from a live Linux
+environment:</p>
+<p><code># tar --numeric-owner --xattrs -xvJpf stage3-*.tar.xz -C /mnt/gentoo</code></p>
+<p>Use an editor to set the initial make.conf variables:</p>
+<pre><code>&quot;/mnt/gentoo/etc/portage/make.conf&quot;
+-----------------------------------
+COMMON_FLAGS=&quot;-march=native&quot;
+RUSTFLAGS=&quot;${RUSTFLAGS} -C target-cpu=native&quot;
+MAKEOPTS=&quot;-jN -lN&quot;</code></pre>
+<p>Note that These are flags to ADD to the variables. if the variables
+already have some default options, add these in addition to those
+already there. These are just the initial basic settings.</p>
+<p>The values for -jN and -lN should be something that makes sense for
+the target system. Reference <a
+href="https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage#Configuring_compile_options">this
+page</a> for more info.</p>
+<h1 id="installing-base-system">4. Installing base system</h1>
+<p>Copy DNS info so the chrooted environment can still connect to the
+internet:</p>
+<p><code># cp --dereference /etc/resolv.conf /mnt/gentoo/etc/</code></p>
+<p>Mount all necessary filesystems:</p>
+<pre><code># mount -o bind /proc /mnt/gentoo/proc
+# mount --rbind /sys /mnt/gentoo/sys
+# mount --make-rslave /mnt/gentoo/sys
+# mount --rbind /dev /mnt/gentoo/dev
+# mount --make-rslave /mnt/gentoo/dev
+# mount --bind /run /mnt/gentoo/run
+# mount --make-slave /mnt/gentoo/run</code></pre>
+<p>Change root to the new system:</p>
+<pre><code># chroot /mnt/gentoo /bin/env -i TERM=$TERM /bin/bash
+# env-update
+# source /etc/profile
+# export PS1=&quot;(chroot) $PS1&quot;</code></pre>
+<p>Pull the latest snapshot:</p>
+<p><code># emerge-webrsync</code></p>
+<p>List any news items with portage:</p>
+<p><code># eselect news list</code></p>
+<p>and read through them:</p>
+<p><code># eselect news read</code></p>
+<p>Clear them when done:</p>
+<p><code># eselect news purge</code></p>
+<p>Edit the make.conf file and set these variables. You’ll need to use
+nano just this once before vim is installed. These are flags to ADD to
+the variables. If the variables already have some default options, add
+these in addition to those already there.</p>
+<pre><code>&quot;/etc/portage/make.conf&quot;
+------------------------
+FEATURES=&quot;parallel-fetch getbinpkg&quot;
+EMERGE_DEFAULT_OPTS=&quot;--jobs=X --load-average=X --usepkg=y&quot;
+ACCEPT_LICENSE=&quot;*&quot;</code></pre>
+<p>Set the <code>PORTAGE_BINHOST</code> variable to these URLs for
+downloading binary packages:</p>
+<pre><code>https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3/ \
+https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64/</code></pre>
+<blockquote>
+<p>Note: Maybe update this section to use the binrepos.conf file because
+the way we do it here is technically deprecated</p>
+</blockquote>
+<p>Run this command so that binary packages can be used:</p>
+<p><code># getuto</code></p>
+<p>Now update the mirrors with the mirrorlist tool. first install
+it:</p>
+<p><code># emerge -a --oneshot app-portage/mirrorselect</code></p>
+<p>Run this command to select the 5 fastest mirrors:</p>
+<p><code># mirrorselect -s5 -o &gt;&gt; /etc/portage/make.conf</code></p>
+<p>Install neovim so it’s easier to edit these files:</p>
+<p><code># emerge -a app-editors/neovim</code></p>
+<p>Select the correct profile (should match the stage file used
+earlier):</p>
+<pre><code># eselect profile list
+# eselect profile set &lt;CHOICE&gt;</code></pre>
+<p>Set CPU specific flags:</p>
+<pre><code># emerge -a --oneshot app-portage/cpuid2cpuflags
+# echo &quot;*/* $(cpuid2cpuflags)&quot; &gt; /etc/portage/package.use/00cpu-flags</code></pre>
+<p>Unset the default GPU flag and set an appropriate one.
+<code>GPU_DRIVER_NAME</code> will likely be one of <code>nvidia</code>,
+<code>intel</code>, or <code>amdgpu radeonsi</code>. consult the
+handbook for a comprehensive list.</p>
+<pre><code>&quot;/etc/portage/package.use/00video_cards&quot;
+----------------------------------------
+*/* VIDEO_CARDS: -* &lt;GPU_DRIVER_NAME&gt;</code></pre>
+<p>Update the system to account for any changes made so far:</p>
+<p><code># emerge -a --update --deep --changed-use @world</code></p>
+<p>Remove and unused packages after updating:</p>
+<p><code># emerge -a --depclean</code></p>
+<p>Set timezone:</p>
+<p><code># ln -sf ../usr/share/zoneinfo/America/New_York /etc/localtime</code></p>
+<p>Set locales by un-commenting the relevant line in the locale.gen
+file:</p>
+<pre><code>&quot;/etc/locale.gen&quot;
+-----------------
+en_US</code></pre>
+<p>Generate locales:</p>
+<p><code># locale-gen</code></p>
+<p>List the locales and then select the correct one:</p>
+<pre><code># eselect locale list
+# eselect locale set &lt;CHOICE&gt;</code></pre>
+<p>Reload environment:</p>
+<p><code># env-update &amp;&amp; source /etc/profile &amp;&amp; export PS1="(chroot) ${PS1}"</code></p>
+<h1 id="configuring-the-kernel">5. Configuring the kernel</h1>
+<p>Install linux firmware:</p>
+<pre><code># emerge -a sys-kernel/linux-firmware
+# emerge -a sys-firmware/sof-firmware</code></pre>
+<p>Install CPU microcode updates. AMD CPUs are included in the above
+firmware package. Intel CPUs require:</p>
+<p><code># emerge -a sys-firmware/intel-microcode</code></p>
+<p>To choose the bootloader, create this file with the following
+flags:</p>
+<pre><code>&quot;/etc/portage/package.use/systemd-boot&quot;
+---------------------------------------
+sys-apps/systemd boot
+sys-apps/systemd-utils boot kernel-install
+sys-kernel/installkernel systemd systemd-boot</code></pre>
+<p>Then create the following file:</p>
+<pre><code>&quot;/etc/kernel/cmdline&quot;
+---------------------
+quiet splash</code></pre>
+<p>And symlink it with this other file:</p>
+<pre><code># mkdir -p /etc/cmdline.d
+# ln -s /etc/kernel/cmdline /etc/cmdline.d/00-installkernel.conf</code></pre>
+<p>Then install the installkernel:</p>
+<p><code># emerge -a sys-kernel/installkernel</code></p>
+<p>Set this flag so the installkernel handles the initramfs with
+dracut:</p>
+<pre><code>&quot;/etc/portage/package.use/installkernel&quot;
+----------------------------------------
+sys-kernel/installkernel dracut</code></pre>
+<p>Some bootloaders need the root partition explicitly defined:</p>
+<pre><code># mkdir /etc/dracut.conf.d
+# blkid &gt;&gt; /etc/dracut.conf.d/00-installkernel.conf</code></pre>
+<p>Go into that new file and identify the root partition and set it up
+like so (note leading and trailing spaces before and after the
+UUID):</p>
+<pre><code>&quot;/etc/dracut.conf.d/00-installkernel.conf&quot;
+kernel_cmdline=&quot; root=UUID=XXXXXXXXX... &quot;</code></pre>
+<blockquote>
+<p>Note: Do we need UKI? no idea</p>
+</blockquote>
+<p>Install the distribution kernel:</p>
+<p><code># emerge -a sys-kernel/gentoo-kernel-bin</code></p>
+<p>Clean up after install:</p>
+<p><code># emerge --depclean</code></p>
+<p>Add this USE flag globally to make.conf so that the initramfs are
+automatically rebuilt when the kernel updgrades:</p>
+<pre><code>&quot;/etc/portage/make.conf&quot;
+------------------------
+USE=&quot;dist-kernel&quot;</code></pre>
+<h1 id="configuring-the-system">6. Configuring the system</h1>
+<p>Set up your fstab file. The handbook does this manually but genfstab
+is easy.</p>
+<p><code># emerge -a sys-fs/genfstab</code></p>
+<p>Generate the fstab using UUID labels</p>
+<p><code># genfstab / -U &gt; /etc/fstab</code></p>
+<p>Set the hostname:</p>
+<p><code># echo &lt;HOSTNAME&gt; &gt; /etc/hostname</code></p>
+<p>Set up network manager by first adding the USE flag to make.conf:</p>
+<pre><code>&quot;/etc/portage/make.conf&quot;
+------------------------
+USE=&quot;networkmanager&quot;</code></pre>
+<p>Then install the package:</p>
+<p><code># emerge -a net-misc/networkmanager</code></p>
+<p>Finally, enable the service:</p>
+<p><code># systemctl enable NetworkManager</code></p>
+<p>Edit the hosts file /etc/hosts.</p>
+<blockquote>
+<p>Note: I’m not sure how necessary this is so come back to this.
+Consult the handbook for now</p>
+</blockquote>
+<p>Set the root password:</p>
+<p><code># passwd</code></p>
+<p>Run some finalization commands for systemd:</p>
+<pre><code># systemd-machine-id-setup
+# systemd-firstboot --prompt</code></pre>
+<blockquote>
+<p>Note: The second command opened a TUI and asked me about the keyboard
+layout and nothing else. I think it might only prompt for stuff that
+isn’t explicitly set.</p>
+</blockquote>
+<p><code># systemctl preset-all --preset-mode=enable-only</code></p>
+<h1 id="installing-system-tools">7. Installing system tools</h1>
+<p>Install a file indexer to speed up file location:</p>
+<p><code># emerge -a sys-apps/mlocate</code></p>
+<p>Install shell completion:</p>
+<p><code># emerge -a app-shells/bash-completion</code></p>
+<p>Timesync service for the clock:</p>
+<p><code># systemctl enable systemd-timesyncd.service</code></p>
+<p>Filesystem tools:</p>
+<p><code># emerge -a sys-fs/xfsprogs sys-fs/dosfstools</code></p>
+<p>Recommended for correct scheduling behavior:</p>
+<p><code># emerge -a sys-block/io-scheduler-udev-rules</code></p>
+<p>Portage tools:</p>
+<p><code># emerge -a app-portage/gentoolkit</code></p>
+<blockquote>
+<p>Note: Automate this whole section. Also add the eix program.</p>
+</blockquote>
+<h1 id="configuring-the-bootloader">8. Configuring the bootloader</h1>
+<p>Systemd-boot should already be installed</p>
+<p><code># bootctl install</code></p>
+<p>Check for a new boot entry with this:</p>
+<p><code># bootctl list</code></p>
+<p>Exit the chrooted environment and unmount all partitions:</p>
+<pre><code># exit
+# cd
+# umount -l /mnt/gentoo/dev{/shm,/pts,}
+# umount -R /mnt/gentoo</code></pre>
+<p>Finally, reboot. Be sure to remove the installation medium before
+restarting.</p>
+<h1 id="post-install">Post-install</h1>
+<blockquote>
+<p>Note: Need to install app-admin/sudo at some point before exiting the
+chroot</p>
+</blockquote>
+<blockquote>
+<p>Note: This whole section needs to be reworked for Gentoo</p>
+</blockquote>
+<p>This section sets up the newly installed system. Login to the new
+system as root.</p>
+<p>Setup a non-root user and set the password. User is in the wheel
+group so they can sudo and the pipewire group for audio scheduling
+stuff.</p>
+<pre><code># useradd -m -G wheel,pipewire &lt;username&gt;
+# passwd *user*</code></pre>
+<p>Add the new user to the sudoers file with visudo</p>
+<pre><code># EDITOR=vim visudo
+%wheel ALL=(ALL:ALL) ALL    // uncomment this line</code></pre>
+<p>Then logout of root and login as the new user.</p>
+<p>Verify the internet:</p>
+<p><code>$ ping archlinux.org</code></p>
+<p>If on wifi, you may need to connect manually:</p>
+<pre><code>$ nmcli device wifi list
+$ nmcli device wifi connect &quot;SSID&quot; password &quot;password&quot;</code></pre>
+<p>Download the setup and config files:</p>
+<p><code>$ git clone https://github.com/markgallant01/.dotfiles.git</code></p>
+<p>Make the setup scripts executable:</p>
+<pre><code>$ chmod +x ~/.dotfiles/scripts/setup.sh
+$ chmod +x ~/.dotfiles/scripts/install_packages.sh</code></pre>
+<p>Run the setup script:</p>
+<p><code>$ ~/.dotfiles/scripts/setup.sh</code></p>
+<p>If nvidia drivers were installed, you must edit the file
+/etc/mkinitcpio.conf to remove the ‘kms’ module from the HOOKS array.
+This ensures the nouveau module will not be loaded during boot:</p>
+<p><code>$ sudo vim /etc/mkinitcpio.conf</code></p>
+<p>After that, re-run the command to regenerate the initramfs</p>
+<p><code>$ sudo mkinitcpio -P</code></p>
+<p>Reboot and then launch the display server</p>
+<p><code>$ startx</code></p>
+<p>Gentoo installed stuff at this point:</p>
+<pre><code>-www-client/firefox
+-gui-apps/foot
+-app-eselect/eselect-repository</code></pre>
+<p>Enable the Guru repository:</p>
+<pre><code>$ sudo eselect repository enable guru
+$ sudo emerge --sync guru</code></pre>
+<p>Unmask niri:</p>
+<pre><code>&quot;/etc/portage/package.accept_keywords/niri&quot;
+-------------------------------------------
+gui-wm/niri ~amd64</code></pre>
+<p>And then install:</p>
+<p><code>$ sudo emerge -a gui-wm/niri</code></p>
+<p>Niri has a bunch of other stuff that should be installed. Consult <a
+href="https://niri-wm.github.io/niri/Important-Software.html">this
+page</a>.</p>
+<p>Installed noctalia-shell from guru following the official
+instructions. add that stuff here. check optional dependencies</p>
+<p>Optional stuff i’m installing:</p>
+<pre><code>-app-misc/cliphist
+-gui-apps/wlsunset
+-sys-power/power-profiles-daemon
+-app-misc/ddcutil</code></pre>
+<p>There’s more optional deps I think. check <a
+href="https://docs.noctalia.dev/getting-started/installation/#manual-install">here</a>
+at some point.</p>
+<blockquote>
+<p>STUFF TO STILL DO:</p>
+</blockquote>
+<blockquote>
+<p>figure out what else is needed for noctalia shell. there’s more
+optional stuff that’s missing</p>
+</blockquote>
+<blockquote>
+<p>look at the settings and junk and change what you want</p>
+</blockquote>
+<blockquote>
+<p>rip settings and keybinds and stuff from DMS</p>
+</blockquote>
+<blockquote>
+<p>add the settings to be backed up in our config file. figure out a way
+to get our /etc/portage stuff in there too.</p>
+</blockquote>
+<blockquote>
+<p>maybe number the Niri workstations so they stay around when empty</p>
+</blockquote>
+<blockquote>
+<p>package install script</p>
+</blockquote>
+<blockquote>
+<p>customize foot terminal</p>
+</blockquote>
+<blockquote>
+<p>should we add the vaapi flag to the USE flags? consult gentoo VAAPI
+page</p>
+</blockquote>
+<p>Add a GPU section or maybe add this stuff above when setting the
+VIDEO_CARDS variable because we need some extra stuff for intel at
+least:</p>
+<p><code>$ sudo emerge -a media-libs/libva-intel-media-driver</code></p>
+<p>That enables hardware accel for intel iGPU’s. Do we need this for
+other GPU’s too?</p>
+<p>After that we’ve installed discord and fastfetch. noctalia-shell
+needs fastfetch for sys info</p>
+<p><code>$ sudo emerge -a app-misc/fastfetch app-im/discord</code></p>
+<p>Configure foot. we created the config file and changed some stuff.
+add it to the config and link it up.</p>
+<p>Set up audio by doing this:</p>
+<pre><code>$ systemctl --user enable --now pipewire-pulse.socket
+$ systemctl --user enable --now wireplumber.service
+$ systemctl --user enable --now pipewire.service</code></pre>
+<p>Pipewire should be enabled by default on the desktop profile so this
+should be all you need to do.</p>
+<p>-searching with portage is slow so read about eix and add a section
+for it</p>
+<p>-add a section to start / enable bluetooth (it should all be
+installed automatically)</p>
+<p>-installed eix because it’s a lot faster for querying package
+stuff:</p>
+<pre><code>$ sudo emerge -a app-portage/eix</code></pre>
+<p>-discord wouldn’t run without xwayland-satellite so include that with
+niri:</p>
+<pre><code>$ sudo emerge -a gui-apps/xwayland-satellite
+
+-there&#39;s stuff you have to do. unmask the testing thing.</code></pre>
+<p>-add a section for development stuff. so far we’ve installed:</p>
+<pre><code>$ sudo emerge -a net-libs/nodejs</code></pre>
+<p>-add Steam install instructions. Use the wiki page and follow the
+flatpak instructions so we don’t need to compile a ton of 32 bit
+libraries</p>
+<p>-set up fonts somewhere in here. There’s a wiki page for it. I hate
+having those missing glyph symbols so make sure we have everything we
+need</p>
+<p>-installed pandoc:</p>
+<pre><code>$ sudo emerge -a app-text/pandoc-bin</code></pre>
+<p>-installed Thunar file manager</p>
+<pre><code>$ sudo emerge -a xfce-base/thunar
+
+-to make this work as the default file picker you have to add a line to the portal
+ config:
+
+&quot;/usr/share/xdg-desktop-portal/niri-portals.conf&quot;
+org.freedesktop.impl.portal.FileChooser=gtk;</code></pre>
+<h1 id="post-installation">POST-INSTALLATION</h1>
+<p>-Some things cannot easily be automated and require manual setup
+here. -Starting with Firefox and LastPass is easiest because you’ll need
+to log into things</p>
+<p>FIREFOX &amp; LASTPASS: -Launch Firefox and sign in to start syncing
+everything -go down through the settings and verify everything
+-Extensions to install: -uBlock Origin -Reddit Enhancement Suite
+-LastPass -Install LastPass &amp; Reddit Enhancement Suite extensions
+-Go into the LastPass extension settings and disable “Automatically fill
+login information” -make sure both extensions are pinned and active in
+private browser sessions -double check the browser font settings and set
+the history to wipe every time you close the browser. Disable any kind
+of autofill</p>
+<p>DISCORD: -launch discord once to generate the config file. -add the
+shown line in this file so Discord doesn’t refuse to launch if there’s
+an update that’s not in the repo yet:</p>
+<pre><code>    ~/.config/discord/settings.json
+    &quot;SKIP_HOST_UPDATE&quot;: true
+
+-go into the discord settings and set the font size to 20.
+-adjust the mic threshold if you have a microphone setup
+-Disable &#39;minimize to tray&#39; and automatic startup under
+ Linux settings</code></pre>
+<p>THUNAR: -edit /usr/share/gvfs/mounts/network.mount and change the
+last line to:</p>
+<pre><code>    /usr/share/gvfs/mounts/network.mount
+    AutoMount=false
+
+-this helps with thunar taking a long time to startup the
+ first time</code></pre>
+<p>WALLPAPERS: -Log into google drive and download the Wallpaper folder.
+-Unzip that folder into the ~/Pictures/ directory to make them useable
+by the system’s wallpaper scripts</p>
+<p>GITHUB: -authenticate with github: -launch web browser and login to
+github account. -the installer script generated new ssh keys. -print the
+public key:</p>
+<pre><code>    $ cat ~/.ssh/id_ed25519.pub
+
+-copy this output and add it to github ssh keys
+-verify the connection:
+
+    $ ssh -T git@github.com
+
+-once authenticated, fix cloned repos
+
+    $ rm -rf ~/.dotfiles
+
+    $ git clone git@github.com:markgallant01/.dotfiles.git</code></pre>
+<p>/******************/ /* OPTIONAL STUFF <em>/
+/</em>*****************/</p>
+<p>-This stuff depends on the PC setup and may or may not be done</p>
+<p>VOLUME: -On desktop, you probably want to set the volume to 100%:</p>
+<pre><code>    $ pactl set-sink-volume @DEFAULT_SINK@ 100%</code></pre>
+<p>EXTERNAL DRIVES: -create additional directories in the home directory
+for any internal or external drives you want to mount:</p>
+<pre><code>    $ mkdir nvme_games ssd_storage
+
+-set up the fstab here so that drives auto mount. Consult
+ https://wiki.archlinux.org/title/Fstab for reference.</code></pre>
+<p>/***********/ /* THE END <em>/ /</em>**********/</p>
+<p>To-do: -wl-clipboard enables copy and paste from clipboard to neovim
+so install that -write a bash script to check if the AC power is plugged
+in at startup and modify power-profiles-daemon appropriately with
+powerprofilesctl. Set this as a systemD service so it runs at boot. -add
+niri and dank material shell to installer. simplifies things a lot.
+reconfigure the installation to use DMS and do it all manually. make
+sure all the necessary stuff is included and connect all the config
+files. -install and setup tlp. consult the documentation, it seems
+mostly automatic. test battery life on both laptops before and after. if
+it works well, add it to this guide. -awesome doesn’t respect the time
+of day when setting the wallpaper so figure that out or just use feh and
+don’t have awesome set the wallpaper at all -awesome needs keybinds to
+swap between monitors and such -wallpapers are double setting now that
+we’re on awesomewm again -change lua files to use 2 space indent -need
+colorbar to see when we’re typing too far -maybe remove chaotic aur
+stuff because it seems to cause lots of problems -add mount.exfat to the
+install list -no autopairs in nvim. try to get things configured.
+-figure out how to properly manage python packages and versions and
+stuff with uv -add python-pip and / or uv to the installation list -get
+the color bar in nvim so it shows how far we should be typing -awesomeWM
+is still getting updates so we should start switching back to that and
+getting it configured so we can get off suckless stuff. also switch back
+to alacritty. -make nvim use relative line numbers -add a section to set
+up bnet with steam since it’s kinda unique -get duckstation and other
+emulators working out of the box as far as mounting automatically and
+having the emulator know where to find saves, box art, etc -check out
+mini.nvim and think about switching to a mainly mini-based setup
+-dual_kawase blur doesn’t work with the xrender backend so figure that
+out. i kinda like it with no bur so think about it -the performance
+issues from desktop were from picom glx backend. switching to xrender
+backend seems to fix it. investigate this. -fix formatting here -check
+out zathura document reader -discord isn’t showing the notification icon
+for unread messages or making the ping sound so figure that out. there’s
+stuff about it on the wiki. -figure out docker containers with bookmarks
+and figure out how to use neovim with our docker project for CS326 -trim
+down neovim -find some good drawn fall wallpapers and think about qtile
+and alacritty vs dwm and st -polybar should match rofi. maybe make some
+themes that can be swapped between. maybe even match them to wallpapers.
+-make it so that empty workspaces are darker color so its obvious -id
+like a visual indicator for volume changes and brightness. can
+definitely do this with eww. think if theres another way -copy the qtile
+symbols for the workspaces into dwm -start configuring polybar -add
+keyboard modifications to xorg configuration. use bookmarks to the arch
+wiki keyboard page. make the keyboard repeat rate persistent and do the
+caps lock / control swap for laptops -add a firefox section to copy over
+the user.js and also make a backup of the old profile -try to make the
+install script copy its output to a log file so we can check for any
+issues afterward -keep learning about gentoo once we’re at school. write
+up a guide for it based on this one. I really do like it -probably write
+our own widgets for volume, brightness, battery, etc. that way we dont
+need to install more dependencies and we know exactly what its doing.
+-supress the output from tty because its polluting the login screen (or
+use a login manager) -done with dmenu so start ricing rofi -get or make
+a good terminal theme probably copy solarized osaka -get minecraft and
+wow added to the installer thing -sort all bookmarks -go through the
+browser setup section and make sure it’s good for firefox. basically
+just log in and set settings and everything should sync -consider a
+wallpaper switching keybind in dwm like before. -think about a screen
+locker and blocking tty and blocking killing the x server and whatever
+else. this is kinda complex and we might want a login manager to bypass
+it -consider adding a section for steam setup including log-in and
+settings. disable gpu acceleration because it sucks shit -find nice
+drawn wallpapers for fall / winter / spring just like we did for summer
+-nvim takes way too long to startup so troubleshoot that: :Lazy profile
+-reduce keyboard repeat delay even more if possible -rework nvim config
+because startup time is attrocious. trim down addons. consider trying
+native package manager -setup slock or another screen locker -set up 2
+factor auth with the lastpass authenticator because google’s
+authentication sucks -check out tlp for power management on laptops.
+helps with battery life potentially a lot -reconfigure the brave section
+to be about firefox. make homescreen using common websites. currently:
+DGG, Github, Reddit, Wikipedia, Arch Wiki, Arch Repository, Chaotic AUR,
+Raindrop(X), Drive, Gumaverse, /tv/, /g/ -add a section for configuring
+thunar maybe. enabling auto mounting of usb drives and displaying hidden
+files, anything else. -use betterfox and update the part of the
+installer that deals with configuring Brave -figure out what we need to
+do to set fonts system-wide. Awesome, terminal (alacritty), neovim,
+firefox, etc all need to use the same font -set Rofi up -figure out how
+to make wallpaper set a default gentoo wallpaper when its run without
+the wallpaper folder existing yet -run through the general
+recommendations found here:
+https://wiki.archlinux.org/title/General_recommendations -I love this
+console rain: https://github.com/saitamasahil/matrix so figure out how
+to incorporate this into our setup -take another look at awesomeWM and
+try to figure out the bar / widget system. it would be cleaner to use
+widgets for the top bar and for system info so we dont require polybar
+and conky. polybar is having some weird issues with how it interacts
+with the WM so it would just be cleaner. -get subtitle puller addon
+thing for jellyfin. check bookmarks -maybe get nicer icons for
+qBittorrent and protonVPN but probably not -make awesomeWM open all new
+windows in the center -find a better disk utility than the baobab one.
+it doesn’t seem to show much info -problem with fullscreen since we
+added the floating rule so figure that out -get jellyfin up and running
+for media consumption -make a nice landing page on web browser with
+common sites like arch wiki, reddit, youtube, etc. don’t show bookmark
+bar by default because i rarely ever click it directly -keep configuring
+topbar. make the tags group look good and function. get rid of the clock
+on the right side and replace it with a nice systray with good looking
+icons for volume, network, brightness, maybe buttons to restart and such
+-fix nvim bufferline’s background color to match lualine -sort out
+alacritty’s font (nerdfont)
+-https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step see if this
+fixes gnome-keyring asking for password sometimes, like when brave
+browser is launched. try to remember what else would cause the keyring
+to launch. if it’s fixed, add a section to the installation guide.
+-looks like thunar is handling auto-mounting so look into that -continue
+to configure alacritty. font size? -configure alacritty and clean up
+stuff -get a good nerd font patched with icons -stuff I want: -wallpaper
+spans entire screen including top bar. top bar should be transparent
+between the widgets because it looks cool -make menu stuff transparent
+like rofi and terminal with blur for a nice modern glass effect -neovim
+should not be transparent -if something isn’t transparent it should have
+the same back ground as the desktop (like rofi) -window border should be
+thicker and color should match color scheme too -reduce keyboard
+repetition rate so that we can fly around nvim faster -NVM is slowing
+down the terminal startup due to the initialization stuff it adds to the
+bachrc file. this is a pain in the ass -maybe add curl nvm installation
+idk yet Stuff we want for awesomeWM: -nice program launcher that lets me
+search for programs I’ve forgotten. Maybe Rofi? -login manager that
+looks nice. LightDM? -lock screen finally so we can walk away from PC
+without killing the x-server -figure out why USB stuff seems to
+automount on laptop but not desktop -maybe get suspend / hibernate to
+work -also laptop is starting on incorrect brightness but idk why
+-modify brightness step because we should be able to go darker than we
+currently can -get brighntess control working for desktop monitors -add
+tlp and the systemctl stuff to make it work. default settings. -add
+minecraft audio fix maybe -something weird going on with mounting the
+other drives on desktop. Maybe switch to UUIDs in case the labels are
+switching -get a cool nvim startup screen -change the wallpaper script
+to not switch to daytime wallpaper until 5am. 4 is too early. -modify
+the setup script to copy the screen setup script to the .config folder
+and add a step to set that up properly -might want to add a note about
+the intel i915 psr kernel parameter for that weird screen bug:
+https://wiki.archlinux.org/title/intel_graphics#Screen_flickering
+-consider adding a section about configuring Xorg. Consult
+https://wiki.archlinux.org/title/NVIDIA#Xorg_configuration -setup a
+pacman hook to clean up the paccache after each install -use musicBrainz
+picard to tag all our music and sort it. then add picard to the install
+list -customize brave new tab page with custom css -add something about
+the symlink fix for fmod pipewire bug:
+https://wiki.archlinux.org/title/PipeWire#<br />
+FMOD_games_crashing_under_PipeWire -maybe add SDL stuff to installer
+-setup a good screen locker that blocks tty access maybe -add
+overthewire programs like telnet and nmap as we go through it -look into
+this: https://wiki.archlinux.org/title/Gamemode#top-page -power
+management? (acpi?)</p>
+</body>
+</html>

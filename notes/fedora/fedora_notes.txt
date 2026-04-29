@@ -1,0 +1,219 @@
+-ran graphical installer, chose base OS package on left,
+-Base Environment: Fedora Custom Operating System
+-Additional software for Selected Environment:
+    -Common NetworkManager Submodules
+    -Standard
+    -C Development Tools and Libraries
+    -Development Tools
+
+    Notes: The Development Tools option might be a little heavy. The only
+        thing we actually want might be git. We can take a closer look at
+        these package groups once we have a functional system and see if
+        any of these should be skipped. We may just want to install stuff
+        like git, gcc, g++, etc on our own to avoid all the rest.
+
+-had to usb tether to phone for initial internet connection so that intel
+ wifi drivers could be installed:
+    sudo dnf install iwlwifi-mvm-firmware
+
+ then after reboot had internet. set hostname with:
+    sudo hostnamectl set-hostname <hostname>
+ then log out and back in.
+
+
+
+-lsp stuff figure it out
+-generate ssh keys for github from setup.sh
+
+-make sure we have the full ffmpeg:
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+
+to-do:
+    -go through the setup.sh file and make sure fedora does all that too.
+     stuff like configuring github.
+    -figure out how to incorporate dms. we will have to install dms, go
+     through the setup, then remove the config folders before doing the
+     symlinks
+    -verify cpu microcode is automatically installed
+    -figure out gpu drivers section
+
+COPIED STUFF:
+
+*html file created with this command:*
+
+`pandoc -s input_file.md -o output_file.html`
+
+*Note: "docker" group allows user to run docker containers as non-root user*
+
+```
+# groupadd docker
+# useradd -m -G wheel,docker <username>
+# passwd *user*
+```
+
+Download the setup and config files:
+
+`$ git clone https://github.com/markgallant01/.dotfiles.git`
+
+Make the setup scripts executable:
+
+```
+$ chmod +x ~/.dotfiles/scripts/arch/setup.sh
+$ chmod +x ~/.dotfiles/scripts/arch/install_packages.sh
+```
+
+Run the setup script:
+
+`$ ~/.dotfiles/scripts/setup.sh`
+
+## More Configuration
+
+Some applications require manual configuration. Starting with Firefox and
+LastPass makes the most sense because it will be easier to log into things
+once those are set up.
+
+### Firefox & LastPass:
+
+Launch Firefox and sign in to start syncing everything. Go down through the
+settings and verify everything is set up how you want it. Some things to
+check:
+
+* Browser fonts
+* History
+* Autofill
+* Search engine
+* Start screen
+
+The extensions should sync and install themselves. Once LastPass shows up,
+change some settings:
+
+* Disable "Automatically fill login information" in the extension settings
+* Make sure all extensions are active in private browsing sessions
+* Pin whatever extensions you want to the browser bar
+
+### Discord:
+
+Launch discord once to generate the config file. Add the line below to the
+config file so Discord doesn't refuse to launch if there's an update that's
+not in the repos yet:
+
+```
+~/.config/discord/settings.json
+-------------------------------
+"SKIP_HOST_UPDATE": true
+```
+
+Some settings to configure within the Discord app:
+
+* Font size 20
+* Adjust mic threshold if necessary
+* Disable 'minimize to tray' and automatic startup under Linux settings
+
+
+### Wallpapers:
+
+Log into google drive and download the Wallpaper folder. Unzip that folder
+into the `~/Pictures/` directory to make it useable by the system's wallpaper
+system.
+
+### Github:
+
+Set up authentication with Github by first launching the web browser and
+logging into your Github account. The installation script generated new ssh
+keys. Print the public key:
+
+`$ cat ~/.ssh/id_ed25519.pub`
+
+Copy this output and add it to the Github ssh keys under your account
+settings. After that, verify the connection works:
+
+`$ ssh -T git@github.com`
+
+Once authenticated, delete and re-clone the dotfiles folder so everything
+is connected properly.
+
+```
+$ rm -rf ~/.dotfiles
+$ git clone git@github.com:markgallant01/.dotfiles.git
+```
+## Optional Extras
+
+This stuff depends on the PC setup and may or may not be done
+
+### External drives:
+
+If there are any additional storage drives in the PC, you should add them
+to the fstab file so they auto mount at startup. Consult
+[this link](https://wiki.archlinux.org/title/Fstab) for reference.
+
+## The End
+
+-stuff DMS is missing:
+    -kimageformats
+
+-kimage thing:
+    // this one did not resolve the warning in DMS so come back to it
+    sudo dnf install kf5-kimageformats
+
+### New Guide to-do:
+
+* take a look at wl-mirror for screen mirroring on Niri
+* set up a screen locker like swaylock
+* `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
+actually need all those plugins for vlc to work with subtitles and stuff.
+* Consider trying Nautilus since it comes with the gnome xdg portal.
+* Do we need polkit-kde-agent? it pulls in a lot of kde stuff. We need some
+sort of polkit agent but there are lots of options.
+* DMS needs numbered workstations so they exist even without windows on them
+* Think about Nautilus vs Thunar. Nautilus comes with the gnome desktop
+portal so it's gonna be there already. If we don't like it then add the
+Niri setup step to have the browser use the Gtk file picker instead.
+* Look at the installer script and see if it can be better organized or
+cleaned up. You should be able to run everything with one `yay` call at
+the very end, since it can do the normal repos and the AUR.
+* Rip whatever config stuff we want from the Dell laptop and then get the
+dotfiles folder sorted out. Link up the DMS settings and niri-settings
+and everything we need. Consult the Niri docs and DMS docs.
+* Take a look at the reflector timer and see if we like the settings
+* Figure out how to start polkit-kde-agent with Niri
+* Look over the Arch
+[fonts pages](https://wiki.archlinux.org/title/Fonts) and see if we have
+[everything](https://wiki.archlinux.org/title/Font_configuration) covered
+
+### Old to-do:
+
+* Write a bash script to check if the AC power is plugged in at startup
+and modify power-profiles-daemon appropriately with powerprofilesctl. Set
+this as a systemD service so it runs at boot.
+* Add python-pip and / or uv to the installation list
+* Add a section to set up bnet with steam since it's kinda unique
+* Get duckstation and other emulators working out of the box as far as
+mounting automatically and having the emulator know where to find saves,
+box art, etc
+* Check out zathura document reader
+* Trim down neovim
+* Add a firefox section to copy over the user.js and also make a
+backup of the old profile
+* Try to make the install script copy its output to a log file so we can
+check for any issues afterward
+* Get minecraft and wow added to the installer thing
+* Consider adding a section for steam setup including log-in and settings.
+Disable gpu acceleration because it sucks shit.
+* Find nice drawn wallpapers for fall / winter / spring just like we did for
+summer
+* Configure Firefox homescreen using common websites. currently: DGG, Github,
+Reddit, Wikipedia, Arch Wiki, Arch Repository, Drive, Gumaverse, /tv/, /g/
+* Add a section for configuring thunar maybe. enabling auto mounting of usb
+drives and displaying hidden files, anything else.
+* Use betterfox and add it to the Firefox section
+* I love this [console rain](https://github.com/saitamasahil/matrix) so
+figure out how to incorporate this into our setup.
+* Get subtitle puller addon thing for jellyfin. check bookmarks
+* Get jellyfin up and running for media consumption
+* NVM is slowing down the terminal startup due to the initialization stuff
+it adds to the bachrc file. this is a pain in the ass.
+* Maybe add curl nvm installation idk yet
+* Check out musicBrainz picard for music library
+* Add something about the symlink fix for
+[fmod pipewire bug](https://wiki.archlinux.org/title/PipeWire#FMOD_games_crashing_under_PipeWire).
+
