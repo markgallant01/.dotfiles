@@ -10,7 +10,7 @@ sudo pacman -Syu --noconfirm
 sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 # call install script to install system packages
-~/.dotfiles/scripts/install_packages.sh
+~/.dotfiles/scripts/arch/install_packages.sh
 
 # create xdg_usr_dirs
 xdg-user-dirs-update
