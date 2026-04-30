@@ -133,6 +133,15 @@ Some settings to configure within the Discord app:
 * Adjust mic threshold if necessary
 * Disable 'minimize to tray' and automatic startup under Linux settings
 
+### Steam:
+
+There's a bug in steam on Wayland where it will likely show a black window
+when you first launch it. The interface is there and the buttons work, you
+just can't see anything. The fix is to click the Steam menu option in the very
+top left corner, which should bring up the menu, and then go into the settings
+and disable GPU acceleration in the web view under the interface settings
+section.
+
 
 ### Wallpapers:
 
