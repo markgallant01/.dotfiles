@@ -1,4 +1,4 @@
-# Arch Linux Installation
+# Fedora Linux Installation
 
 *html file created with this command:*
 
@@ -96,11 +96,16 @@ Launch Firefox and sign in to start syncing everything. Go down through the
 settings and verify everything is set up how you want it. Some things to
 check:
 
-* Browser fonts
+* Default browser
+* Show sidebar
+* Fonts
+* New windows and tabs
+* Firefox Home Content
+* Default search engine
+* Firefox Suggest
+* Passwords, Payment methods, Addressess...
 * History
-* Autofill
-* Search engine
-* Start screen
+* AI Controls
 
 The extensions should sync and install themselves. Once LastPass shows up,
 change some settings:
@@ -114,6 +119,7 @@ change some settings:
 Launch discord once to generate the config file. Add the line below to the
 config file so Discord doesn't refuse to launch if there's an update that's
 not in the repos yet:
+(This may already be there depending on the distro)
 
 ```
 ~/.config/discord/settings.json

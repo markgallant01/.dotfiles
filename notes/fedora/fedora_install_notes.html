@@ -169,7 +169,7 @@
   </style>
 </head>
 <body>
-<h1 id="arch-linux-installation">Arch Linux Installation</h1>
+<h1 id="fedora-linux-installation">Fedora Linux Installation</h1>
 <p><em>html file created with this command:</em></p>
 <p><code>pandoc -s input_file.md -o output_file.html</code></p>
 <p>*This is a compilation of notes for setting up a Fedora install</p>
@@ -239,11 +239,16 @@ things once those are set up.</p>
 through the settings and verify everything is set up how you want it.
 Some things to check:</p>
 <ul>
-<li>Browser fonts</li>
+<li>Default browser</li>
+<li>Show sidebar</li>
+<li>Fonts</li>
+<li>New windows and tabs</li>
+<li>Firefox Home Content</li>
+<li>Default search engine</li>
+<li>Firefox Suggest</li>
+<li>Passwords, Payment methods, Addressess…</li>
 <li>History</li>
-<li>Autofill</li>
-<li>Search engine</li>
-<li>Start screen</li>
+<li>AI Controls</li>
 </ul>
 <p>The extensions should sync and install themselves. Once LastPass
 shows up, change some settings:</p>
@@ -257,7 +262,8 @@ sessions</li>
 <h3 id="discord">Discord:</h3>
 <p>Launch discord once to generate the config file. Add the line below
 to the config file so Discord doesn’t refuse to launch if there’s an
-update that’s not in the repos yet:</p>
+update that’s not in the repos yet: (This may already be there depending
+on the distro)</p>
 <pre><code>~/.config/discord/settings.json
 -------------------------------
 &quot;SKIP_HOST_UPDATE&quot;: true</code></pre>
