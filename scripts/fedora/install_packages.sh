@@ -41,8 +41,8 @@ packages+=("fd-find")
 packages+=("cmake" "gdb" "java-latest-openjdk-devel.x86_64")
 packages+=("docker" "docker-compose" "uv")
 
-# graphical frontends
-packages+=("pavucontrol")
+# graphical tools
+packages+=("pavucontrol" "nautilus")
 
 # gaming stuff
 packages+=("gamescope" "steam")
