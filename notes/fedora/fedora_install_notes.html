@@ -298,22 +298,16 @@ them to the fstab file so they auto mount at startup. Consult <a
 href="https://wiki.archlinux.org/title/Fstab">this link</a> for
 reference.</p>
 <h2 id="the-end">The End</h2>
-<p>-lsp stuff figure it out -generate ssh keys for github from
-setup.sh</p>
-<p>-make sure we have the full ffmpeg: sudo dnf swap ffmpeg-free ffmpeg
-–allowerasing</p>
-<p>to-do: -figure out how to incorporate dms. we will have to install
-dms, go through the setup, then remove the config folders before doing
-the symlinks -verify cpu microcode is automatically installed -figure
-out gpu drivers section</p>
-<p><em>Note: “docker” group allows user to run docker containers as
-non-root user</em></p>
-<pre><code># groupadd docker
-# useradd -m -G wheel,docker &lt;username&gt;
-# passwd *user*</code></pre>
-<p>-stuff DMS is missing: -kimageformats</p>
-<p>-kimage thing: // this one did not resolve the warning in DMS so come
-back to it sudo dnf install kf5-kimageformats</p>
+<h3 id="fedora-to-do">Fedora to-do:</h3>
+<ul>
+<li>figure out lsp stuff for neovim. it has to be configured to use lazy
+again, since we’re not on 0.12 yet, and to use mason to download and
+install LSP’s.</li>
+<li>figure out the GPU driver stuff for the installation script</li>
+<li>dms is still missing kimageformats. figure that out.</li>
+<li>go through the following two to-do lists and figure out what still
+applies to our Fedora install vs what we can ditch.</li>
+</ul>
 <h3 id="new-guide-to-do">New Guide to-do:</h3>
 <ul>
 <li>take a look at wl-mirror for screen mirroring on Niri</li>

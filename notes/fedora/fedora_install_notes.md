@@ -172,34 +172,14 @@ to the fstab file so they auto mount at startup. Consult
 
 ## The End
 
--lsp stuff figure it out
--generate ssh keys for github from setup.sh
+### Fedora to-do:
 
--make sure we have the full ffmpeg:
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-
-to-do:
-    -figure out how to incorporate dms. we will have to install dms, go
-     through the setup, then remove the config folders before doing the
-     symlinks
-    -verify cpu microcode is automatically installed
-    -figure out gpu drivers section
-
-
-*Note: "docker" group allows user to run docker containers as non-root user*
-
-```
-# groupadd docker
-# useradd -m -G wheel,docker <username>
-# passwd *user*
-```
-
--stuff DMS is missing:
-    -kimageformats
-
--kimage thing:
-    // this one did not resolve the warning in DMS so come back to it
-    sudo dnf install kf5-kimageformats
+* figure out lsp stuff for neovim. it has to be configured to use lazy again,
+since we're not on 0.12 yet, and to use mason to download and install LSP's.
+* figure out the GPU driver stuff for the installation script
+* dms is still missing kimageformats. figure that out.
+* go through the following two to-do lists and figure out what still applies
+to our Fedora install vs what we can ditch.
 
 ### New Guide to-do:
 
