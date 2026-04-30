@@ -57,6 +57,9 @@ ln -sf ~/.dotfiles/foot         ~/.config/foot
 # enable DMS service
 systemctl --user enable dms
 
+# clean up home directory
+rm ~/protonvpn-stable-release-*
+
 # generate new ssh keys for github
 ssh-keygen -t ed25519 -C markgallant01@gmail.com
 eval "$(ssh-agent -s)"
