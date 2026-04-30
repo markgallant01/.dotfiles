@@ -26,6 +26,7 @@ packages+=("foot")
 
 # CLI tools
 packages+=("pandoc" "btop" "yt-dlp" "tldr" "texinfo" "fastfetch")
+packages+=("neovim")
 
 # VPN port-forward script dep
 packages+=("libnatpmp")
