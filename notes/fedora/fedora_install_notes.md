@@ -4,7 +4,7 @@
 
 `pandoc -s input_file.md -o output_file.html`
 
-*This is a compilation of notes for setting up a Fedora install
+*This is a compilation of notes for setting up a Fedora install*
 
 ## 1. Net Everything Installer
 
