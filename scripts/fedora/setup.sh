@@ -5,15 +5,15 @@ set -x
 
 # set up repos
 # enable DMS COPR repo:
-sudo dnf copr enable avengemedia/dms
+sudo dnf copr enable -y avengemedia/dms
 
 # enable RPM Fusion repos for discord and steam:
 # free repo:
-sudo dnf install \
+sudo dnf install -y \
     https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 # non-free repo:
-sudo dnf install \
+sudo dnf install -y \
     https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # config for steam:
@@ -24,7 +24,7 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
 
 # install proton-vpn repo:
-sudo dnf install \
+sudo dnf install -y \
     ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
 
 # call install script to install system packages

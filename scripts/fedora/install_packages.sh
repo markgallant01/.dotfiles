@@ -86,7 +86,7 @@ fi
 # install full package list. --exclude=alacritty skips the weak dependency
 # for niri that installs alacritty by default. we dont need it since we have
 # foot.
-sudo dnf install "${packages[@]}" --exclude=alacritty
+sudo dnf install -y "${packages[@]}" --exclude=alacritty
 
 # install DMS greeter
 dms greeter install
