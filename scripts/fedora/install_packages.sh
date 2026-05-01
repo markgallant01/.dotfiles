@@ -35,7 +35,7 @@ packages+=("libnatpmp")
 packages+=("proton-vpn-gnome-desktop")
 
 # neovim deps
-packages+=("fd-find")
+packages+=("fd-find" "luarocks")
 
 # development tools
 packages+=("cmake" "gdb" "java-latest-openjdk-devel.x86_64")
