@@ -58,6 +58,14 @@ vim.diagnostic.config {
   -- Auto open the float, so you can easily read the errors when jumping with
   -- `[d` and `]d`
   jump = { float = true },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.HINT] = '',
+      [vim.diagnostic.severity.INFO] = ''
+    }
+  }
 }
 
 -- Diagnostic keybinds
