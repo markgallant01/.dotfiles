@@ -183,9 +183,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
-* figure out lsp stuff for neovim. it has to be configured to use lazy again,
-since we're not on 0.12 yet, and to use mason to download and install LSP's.
-* figure out the GPU driver stuff for the installation script
+* install any more plugins we need for neovim. Definitely still need:
+Telescope, blink, file tree (nerd tree? something else?)
 * dms is still missing kimageformats. figure that out.
 * go through the following two to-do lists and figure out what still applies
 to our Fedora install vs what we can ditch.
