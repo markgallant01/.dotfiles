@@ -4,8 +4,15 @@ return {
   config = function()
     require('mason-tool-installer').setup({
       ensure_installed = {
+        "bashls",
+        "clangd",
+        "cssls",
+        "deno",
+        "dockerfile-language-server",
+        "html",
+        "jsonls",
         "lua-language-server",
-        "clangd"
+        "pyright",
       },
       run_on_start = true
     })
