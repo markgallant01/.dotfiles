@@ -11,7 +11,7 @@ return {
         "dockerfile-language-server",
         "html",
         "jsonls",
-        "lua-language-server",
+        "lua_ls",
         "pyright",
       },
       run_on_start = true
