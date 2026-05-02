@@ -183,6 +183,9 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* consider adding a section for setting up DMS settings. Wallpaper, muting
+Discord notifications, etc.
+* figure out nerd font stuff. have a good guide bookmarked.
 * install any more plugins we need for neovim. Definitely still need:
 Telescope, blink, file tree (nerd tree? something else?)
 * dms is still missing kimageformats. figure that out.
