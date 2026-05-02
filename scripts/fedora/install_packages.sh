@@ -65,7 +65,7 @@ while [[ "$gpu_option" != 1 ]] &&
       [[ "$gpu_option" != 2 ]] &&
       [[ "$gpu_option" != 3 ]]
 do
-  echo "Choose GPU type: [1] Intel" #, [2] AMD, [3] Nvidia..."
+  echo "Choose GPU type: [1] Intel, [2] Nvidia..." #, [3] AMD"
   read gpu_option
 done
 
@@ -74,13 +74,13 @@ if [[ "$gpu_option" == 1 ]]; then
     packages+=("intel-media-driver")
 fi
 
-# AMD CPU GPU? --todo
-#if [[ "$option" == 2]]; then
-#fi
-
 # nvidia:
-#if [[ "$gpu_option" == 3 ]]; then
-#    packages+=()
+if [[ "$gpu_option" == 2 ]]; then
+    packages+=("akmod-nvidia")
+fi
+
+# AMD CPU GPU? --todo
+#if [[ "$option" == 3]]; then
 #fi
 
 # install full package list. --exclude=alacritty skips the weak dependency
