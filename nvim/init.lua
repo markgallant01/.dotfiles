@@ -9,6 +9,10 @@ require('config.vim_opts')
 -- load up the plugins defined and configured in the /lua/plugins/ folder
 require('config.lazy')
 
+-- load plugin keybinds after lazy so the plugins are loaded before binds
+-- are set
+require('config.plugin_keybinds')
+
 -- load colorscheme. this happens here instead of in the colorscheme's config
 -- file so that we could have multiple colorschemes installed and we can
 -- just pick whichever one we want to load here
