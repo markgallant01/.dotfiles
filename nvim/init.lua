@@ -13,8 +13,3 @@ require('config.lazy')
 -- are set
 require('config.plugin_keybinds')
 
--- load colorscheme. this happens here instead of in the colorscheme's config
--- file so that we could have multiple colorschemes installed and we can
--- just pick whichever one we want to load here
-vim.cmd[[colorscheme solarized-osaka]]
-
