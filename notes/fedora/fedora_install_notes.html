@@ -308,15 +308,17 @@ reference.</p>
 <h2 id="the-end">The End</h2>
 <h3 id="fedora-to-do">Fedora to-do:</h3>
 <ul>
+<li>Plugins left to install and configure: treesitter, indent-blankline,
+and blink.</li>
+<li>Need to incorporate nerd font because terminal won’t work without
+it. Figure this out asap. Probably just back up the .zip for the font
+and unzip it to .local/share/fonts as part of the install process.</li>
 <li>set better size rules for stuff because things are too small on
 desktop. Stuff like Firefox should probably be either sized by a
 percentage of the screen size or just take up all of the screen on
 laptop. Discord too.</li>
 <li>consider adding a section for setting up DMS settings. Wallpaper,
 muting Discord notifications, etc.</li>
-<li>figure out nerd font stuff. have a good guide bookmarked.</li>
-<li>install any more plugins we need for neovim. Definitely still need:
-Telescope, blink, file tree (nerd tree? something else?)</li>
 <li>dms is still missing kimageformats. figure that out.</li>
 <li>go through the following two to-do lists and figure out what still
 applies to our Fedora install vs what we can ditch.</li>
@@ -324,36 +326,6 @@ applies to our Fedora install vs what we can ditch.</li>
 <h3 id="new-guide-to-do">New Guide to-do:</h3>
 <ul>
 <li>take a look at wl-mirror for screen mirroring on Niri</li>
-<li>set up a screen locker like swaylock</li>
-<li><code>vlc-plugins-all</code> pulls in a lot of plugins. Try to
-figure out if we actually need all those plugins for vlc to work with
-subtitles and stuff.</li>
-<li>Consider trying Nautilus since it comes with the gnome xdg
-portal.</li>
-<li>Do we need polkit-kde-agent? it pulls in a lot of kde stuff. We need
-some sort of polkit agent but there are lots of options.</li>
-<li>DMS needs numbered workstations so they exist even without windows
-on them</li>
-<li>Think about Nautilus vs Thunar. Nautilus comes with the gnome
-desktop portal so it’s gonna be there already. If we don’t like it then
-add the Niri setup step to have the browser use the Gtk file picker
-instead.</li>
-<li>Look at the installer script and see if it can be better organized
-or cleaned up. You should be able to run everything with one
-<code>yay</code> call at the very end, since it can do the normal repos
-and the AUR.</li>
-<li>Rip whatever config stuff we want from the Dell laptop and then get
-the dotfiles folder sorted out. Link up the DMS settings and
-niri-settings and everything we need. Consult the Niri docs and DMS
-docs.</li>
-<li>Take a look at the reflector timer and see if we like the
-settings</li>
-<li>Figure out how to start polkit-kde-agent with Niri</li>
-<li>Look over the Arch <a
-href="https://wiki.archlinux.org/title/Fonts">fonts pages</a> and see if
-we have <a
-href="https://wiki.archlinux.org/title/Font_configuration">everything</a>
-covered</li>
 </ul>
 <h3 id="old-to-do">Old to-do:</h3>
 <ul>
@@ -366,28 +338,20 @@ powerprofilesctl. Set this as a systemD service so it runs at boot.</li>
 mounting automatically and having the emulator know where to find saves,
 box art, etc</li>
 <li>Check out zathura document reader</li>
-<li>Trim down neovim</li>
 <li>Add a firefox section to copy over the user.js and also make a
 backup of the old profile</li>
-<li>Try to make the install script copy its output to a log file so we
-can check for any issues afterward</li>
-<li>Get minecraft and wow added to the installer thing</li>
-<li>Consider adding a section for steam setup including log-in and
-settings. Disable gpu acceleration because it sucks shit.</li>
 <li>Find nice drawn wallpapers for fall / winter / spring just like we
 did for summer</li>
 <li>Configure Firefox homescreen using common websites. currently: DGG,
 Github, Reddit, Wikipedia, Arch Wiki, Arch Repository, Drive, Gumaverse,
 /tv/, /g/</li>
-<li>Add a section for configuring thunar maybe. enabling auto mounting
-of usb drives and displaying hidden files, anything else.</li>
 <li>Use betterfox and add it to the Firefox section</li>
 <li>I love this <a href="https://github.com/saitamasahil/matrix">console
 rain</a> so figure out how to incorporate this into our setup.</li>
 <li>Get subtitle puller addon thing for jellyfin. check bookmarks</li>
 <li>Get jellyfin up and running for media consumption</li>
 <li>NVM is slowing down the terminal startup due to the initialization
-stuff it adds to the bachrc file. this is a pain in the ass.</li>
+stuff it adds to the bashrc file. this is a pain in the ass.</li>
 <li>Maybe add curl nvm installation idk yet</li>
 <li>Check out musicBrainz picard for music library</li>
 <li>Add something about the symlink fix for <a

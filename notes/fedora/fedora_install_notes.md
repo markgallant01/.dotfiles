@@ -183,15 +183,17 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* Plugins left to install and configure: treesitter, indent-blankline, and
+blink.
+* Need to incorporate nerd font because terminal won't work without it.
+Figure this out asap. Probably just back up the .zip for the font and
+unzip it to .local/share/fonts as part of the install process.
 * set better size rules for stuff because things are too small on
 desktop. Stuff like Firefox should probably be either sized by
 a percentage of the screen size or just take up all of the screen
 on laptop. Discord too.
 * consider adding a section for setting up DMS settings. Wallpaper, muting
 Discord notifications, etc.
-* figure out nerd font stuff. have a good guide bookmarked.
-* install any more plugins we need for neovim. Definitely still need:
-Telescope, blink, file tree (nerd tree? something else?)
 * dms is still missing kimageformats. figure that out.
 * go through the following two to-do lists and figure out what still applies
 to our Fedora install vs what we can ditch.
@@ -199,27 +201,6 @@ to our Fedora install vs what we can ditch.
 ### New Guide to-do:
 
 * take a look at wl-mirror for screen mirroring on Niri
-* set up a screen locker like swaylock
-* `vlc-plugins-all` pulls in a lot of plugins. Try to figure out if we
-actually need all those plugins for vlc to work with subtitles and stuff.
-* Consider trying Nautilus since it comes with the gnome xdg portal.
-* Do we need polkit-kde-agent? it pulls in a lot of kde stuff. We need some
-sort of polkit agent but there are lots of options.
-* DMS needs numbered workstations so they exist even without windows on them
-* Think about Nautilus vs Thunar. Nautilus comes with the gnome desktop
-portal so it's gonna be there already. If we don't like it then add the
-Niri setup step to have the browser use the Gtk file picker instead.
-* Look at the installer script and see if it can be better organized or
-cleaned up. You should be able to run everything with one `yay` call at
-the very end, since it can do the normal repos and the AUR.
-* Rip whatever config stuff we want from the Dell laptop and then get the
-dotfiles folder sorted out. Link up the DMS settings and niri-settings
-and everything we need. Consult the Niri docs and DMS docs.
-* Take a look at the reflector timer and see if we like the settings
-* Figure out how to start polkit-kde-agent with Niri
-* Look over the Arch
-[fonts pages](https://wiki.archlinux.org/title/Fonts) and see if we have
-[everything](https://wiki.archlinux.org/title/Font_configuration) covered
 
 ### Old to-do:
 
@@ -232,27 +213,19 @@ this as a systemD service so it runs at boot.
 mounting automatically and having the emulator know where to find saves,
 box art, etc
 * Check out zathura document reader
-* Trim down neovim
 * Add a firefox section to copy over the user.js and also make a
 backup of the old profile
-* Try to make the install script copy its output to a log file so we can
-check for any issues afterward
-* Get minecraft and wow added to the installer thing
-* Consider adding a section for steam setup including log-in and settings.
-Disable gpu acceleration because it sucks shit.
 * Find nice drawn wallpapers for fall / winter / spring just like we did for
 summer
 * Configure Firefox homescreen using common websites. currently: DGG, Github,
 Reddit, Wikipedia, Arch Wiki, Arch Repository, Drive, Gumaverse, /tv/, /g/
-* Add a section for configuring thunar maybe. enabling auto mounting of usb
-drives and displaying hidden files, anything else.
 * Use betterfox and add it to the Firefox section
 * I love this [console rain](https://github.com/saitamasahil/matrix) so
 figure out how to incorporate this into our setup.
 * Get subtitle puller addon thing for jellyfin. check bookmarks
 * Get jellyfin up and running for media consumption
 * NVM is slowing down the terminal startup due to the initialization stuff
-it adds to the bachrc file. this is a pain in the ass.
+it adds to the bashrc file. this is a pain in the ass.
 * Maybe add curl nvm installation idk yet
 * Check out musicBrainz picard for music library
 * Add something about the symlink fix for
