@@ -8,6 +8,10 @@ vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>',
 vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>',
   { desc = 'Previous buffer' } )
 
+-- neo-tree
+vim.keymap.set('n', '\\', '<Cmd>Neotree toggle<CR>',
+  { desc = 'Toggle neo-tree' } )
+
 -- telescope
 -- See `:help telescope.builtin`
 local builtin = require('telescope.builtin')
