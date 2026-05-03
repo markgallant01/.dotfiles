@@ -1,6 +1,13 @@
 -- this file sets up plugin keybinds.
 -- it will be loaded after lazy loads the plugins.
 
+-- bufferline
+vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>',
+  { desc = 'Next buffer' } )
+
+vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>',
+  { desc = 'Previous buffer' } )
+
 -- telescope
 -- See `:help telescope.builtin`
 local builtin = require('telescope.builtin')
