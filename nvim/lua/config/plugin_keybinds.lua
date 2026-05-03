@@ -1,7 +1,7 @@
 -- this file sets up plugin keybinds.
 -- it will be loaded after lazy loads the plugins.
 
--- treesitter
+-- telescope
 -- See `:help telescope.builtin`
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>sf', builtin.find_files,
