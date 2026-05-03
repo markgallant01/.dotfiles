@@ -183,6 +183,10 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* set better size rules for stuff because things are too small on
+desktop. Stuff like Firefox should probably be either sized by
+a percentage of the screen size or just take up all of the screen
+on laptop. Discord too.
 * consider adding a section for setting up DMS settings. Wallpaper, muting
 Discord notifications, etc.
 * figure out nerd font stuff. have a good guide bookmarked.
