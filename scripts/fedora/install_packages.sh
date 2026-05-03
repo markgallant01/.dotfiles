@@ -76,7 +76,7 @@ fi
 
 # nvidia:
 if [[ "$gpu_option" == 2 ]]; then
-    packages+=("akmod-nvidia")
+    packages+=("akmod-nvidia" "xorg-x11-drv-nvidia-cuda")
 fi
 
 # AMD CPU GPU? --todo
