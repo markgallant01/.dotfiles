@@ -43,6 +43,8 @@ vim.o.wrap = false
 
 vim.o.filetype = 'on'
 
+vim.o.termguicolors = true
+
 -- Diagnostic Config
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config {
