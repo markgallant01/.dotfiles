@@ -9,7 +9,7 @@ return {
       -- or leave it empty to use the default settings
 
       -- Enable this to disable setting the background color
-      transparent = false,
+      transparent = true,
 
       -- Configure the colors used when opening a `:terminal` in
       -- [Neovim](https://github.com/neovim/neovim)
