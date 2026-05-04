@@ -376,7 +376,7 @@ window-rule {
 // default terminal window size
 window-rule {
     match app-id="foot"
-    default-column-width { fixed 896; }
+    default-column-width { fixed 990; }
     draw-border-with-background false
 }
 
