@@ -1,3 +1,4 @@
+-- config file for neo-tree plugin
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
