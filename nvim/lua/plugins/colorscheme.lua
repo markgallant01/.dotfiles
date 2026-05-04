@@ -1,5 +1,12 @@
+-- configuration for colorschemes
+
+-- each colorscheme is defined as a table. at the bottom of the file, one
+-- table is returned. This is the enabled colorscheme. To change colorschemes,
+-- only change which table is returned at the very bottom.
+
+
 -- configuration for solarized-osaka plugin
-return {
+local solarized_osaka = {
   "craftzdog/solarized-osaka.nvim",
   lazy = false,
   priority = 1000,
@@ -62,4 +69,7 @@ return {
     vim.cmd[[colorscheme solarized-osaka]]
   end,
 }
+
+-- enable chosen colorscheme here
+return solarized_osaka
 
