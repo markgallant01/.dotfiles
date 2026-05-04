@@ -183,8 +183,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
-* Plugins left to install and configure: treesitter, indent-blankline, and
-blink.
+* Skipping treesitter plugin for now because it's complicated and i'm not
+sure if it's worth it. Use vim for a bit and see if you care.
 * Need to incorporate nerd font because terminal won't work without it.
 Figure this out asap. Probably just back up the .zip for the font and
 unzip it to .local/share/fonts as part of the install process.
@@ -195,8 +195,6 @@ on laptop. Discord too.
 * consider adding a section for setting up DMS settings. Wallpaper, muting
 Discord notifications, etc.
 * dms is still missing kimageformats. figure that out.
-* go through the following two to-do lists and figure out what still applies
-to our Fedora install vs what we can ditch.
 
 ### New Guide to-do:
 
