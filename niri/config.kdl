@@ -389,13 +389,13 @@ window-rule {
 // default firefox window size
 window-rule {
     match app-id="firefox"
-    default-column-width { fixed 1350; }
+    default-column-width { fixed 1504; }
 }
 
 // default steam window size
 window-rule {
     match app-id="steam"
-    default-column-width { fixed 1503; }
+    default-column-width { fixed 1504; }
 }
 
 // open file browser in floating mode
