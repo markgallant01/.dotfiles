@@ -47,12 +47,12 @@ git config --global color.ui auto
 git config --global pull.rebase false
 
 # symlink settings files
-ln -sf ~/.dotfiles/.bashrc      ~/.bashrc
-ln -sf ~/.dotfiles/gtk-3.0/     ~/.config/gtk-3.0
-ln -sf ~/.dotfiles/nvim/        ~/.config/nvim
-ln -sf ~/.dotfiles/ssh_config   ~/.ssh/config
-ln -sf ~/.dotfiles/niri         ~/.config/niri
-ln -sf ~/.dotfiles/foot         ~/.config/foot
+ln -sf ~/.dotfiles/config/.bashrc      ~/.bashrc
+ln -sf ~/.dotfiles/config/gtk-3.0/     ~/.config/gtk-3.0
+ln -sf ~/.dotfiles/config/nvim/        ~/.config/nvim
+ln -sf ~/.dotfiles/config/ssh_config   ~/.ssh/config
+ln -sf ~/.dotfiles/config/niri         ~/.config/niri
+ln -sf ~/.dotfiles/config/foot         ~/.config/foot
 
 # enable DMS service
 systemctl --user enable dms
