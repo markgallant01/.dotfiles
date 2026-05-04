@@ -9,6 +9,7 @@ alias ls='ls -Av --color=auto --group-directories-first'
 alias ll='ls -1A --group-directories-first'
 alias vi='vim'
 alias vim='nvim'
+alias ff='fastfetch'
 
 # run in vi mode
 set -o vi
