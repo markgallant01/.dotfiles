@@ -114,13 +114,13 @@ input {
 // desktop monitor
 output "DP-3" {
     mode "2560x1440@119.998"
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
 }
 
 // other desktop monito
 output "DP-2" {
     mode "2560x1440@119.998"
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
 }
 
 // Settings that influence how windows are positioned and sized.
