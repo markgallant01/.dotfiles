@@ -183,6 +183,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* Add some LSP keybinds at some point. Not sure which ones we'll want yet.
+A good starting point would be to copy the ones from the Kickstart repo.
 * Skipping treesitter plugin for now because it's complicated and i'm not
 sure if it's worth it. Use vim for a bit and see if you care.
 * Need to incorporate nerd font because terminal won't work without it.
