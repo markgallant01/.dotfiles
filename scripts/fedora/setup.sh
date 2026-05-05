@@ -62,9 +62,9 @@ ln -sf ~/.dotfiles/config/foot         ~/.config/foot
 systemctl --user enable dms
 
 # install LiterationMono Nerd Font
-cp ~/.dotfiles/assets/LiberationMono.zip ~/.local/share/fonts/
+cp ~/.dotfiles/assets/JetBrainsMono.zip ~/.local/share/fonts/
 cd ~/.local/share/fonts/
-unzip LiberationMono.zip
+unzip JetBrainsMono.zip
 cd; fc-cache -fv
 
 # clean up home directory
