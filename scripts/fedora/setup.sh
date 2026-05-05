@@ -62,7 +62,7 @@ systemctl --user enable dms
 cp ~/.dotfiles/assets/LiberationMono.zip ~/.local/share/fonts/
 cd ~/.local/share/fonts/
 unzip LiberationMono.zip
-cd
+cd; fc-cache -fv
 
 # clean up home directory
 rm ~/protonvpn-stable-release-*
