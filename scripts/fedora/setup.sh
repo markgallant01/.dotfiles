@@ -38,6 +38,7 @@ mkdir ~/Pictures/Screenshots
 mkdir ~/Trash
 mkdir ~/.config
 mkdir ~/.ssh
+mkdir ~/.local/share/fonts
 
 # configure git
 git config --global user.name markgallant01
@@ -56,6 +57,12 @@ ln -sf ~/.dotfiles/config/foot         ~/.config/foot
 
 # enable DMS service
 systemctl --user enable dms
+
+# install LiterationMono Nerd Font
+cp ~/.dotfiles/assets/LiberationMono.zip ~/.local/share/fonts/
+cd ~/.local/share/fonts/
+unzip LiberationMono.zip
+cd
 
 # clean up home directory
 rm ~/protonvpn-stable-release-*
