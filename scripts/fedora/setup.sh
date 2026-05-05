@@ -61,8 +61,9 @@ ln -sf ~/.dotfiles/config/foot         ~/.config/foot
 # enable DMS service
 systemctl --user enable dms
 
-# install LiterationMono Nerd Font
-cp ~/.dotfiles/assets/JetBrainsMono.zip ~/.local/share/fonts/
+# install JetBrainsMono Nerd Font
+cp; curl -LO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+mv ~/JetBrainsMono.zip ~/.local/share/fonts/JetBrainsMono.zip
 cd ~/.local/share/fonts/
 unzip JetBrainsMono.zip
 cd; fc-cache -fv
