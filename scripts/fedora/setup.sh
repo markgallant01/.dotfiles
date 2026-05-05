@@ -27,6 +27,9 @@ wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f
 sudo dnf install -y \
     ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
 
+# increase parallel downloads before installing everything
+sudo dnf config-manager setopt max_parallel_downloads=10
+
 # call install script to install system packages
 ~/.dotfiles/scripts/fedora/install_packages.sh
 
