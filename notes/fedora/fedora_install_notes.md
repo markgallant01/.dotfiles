@@ -183,6 +183,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* try out the `fish` shell and if we like it add it to the list of package
+installations and figure out how to make it the default shell
 * Add some LSP keybinds at some point. Not sure which ones we'll want yet.
 A good starting point would be to copy the ones from the Kickstart repo.
 * Skipping treesitter plugin for now because it's complicated and i'm not
