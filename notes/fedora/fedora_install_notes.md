@@ -183,6 +183,7 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* look into nvim-ts-autotag for auto closing html tags. it requires treesitter
 * look into trimming down the initial package base by reading what packages
 are installed in the package groups we select from the everything installer.
 we probably don't actually need all of those.
