@@ -183,6 +183,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* if we like fish, add the configuration files to the dotfiles repo and tie it
+all together in the setup script
 * look into nvim-ts-autotag for auto closing html tags. it requires treesitter
 * look into trimming down the initial package base by reading what packages
 are installed in the package groups we select from the everything installer.
