@@ -183,6 +183,9 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* look into trimming down the initial package base by reading what packages
+are installed in the package groups we select from the everything installer.
+we probably don't actually need all of those.
 * try out the `fish` shell and if we like it add it to the list of package
 installations and figure out how to make it the default shell
 * Add some LSP keybinds at some point. Not sure which ones we'll want yet.
