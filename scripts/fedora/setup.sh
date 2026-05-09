@@ -57,6 +57,7 @@ ln -sf ~/.dotfiles/config/nvim/        ~/.config/nvim
 ln -sf ~/.dotfiles/config/ssh_config   ~/.ssh/config
 ln -sf ~/.dotfiles/config/niri         ~/.config/niri
 ln -sf ~/.dotfiles/config/foot         ~/.config/foot
+ln -sf ~/.dotfiles/config/fish/        ~/.config/fish
 
 # enable DMS service
 systemctl --user enable dms
