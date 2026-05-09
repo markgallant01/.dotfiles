@@ -12,7 +12,7 @@ declare -a packages=()
 # wifi drivers (add more for other wifi cards)
 packages+=("iwlwifi-mvm-firmware")
 
-# window manager and shell
+# window manager and quickshell
 packages+=("niri" "dms")
 
 # niri deps
@@ -21,8 +21,8 @@ packages+=("polkit-kde")
 # DMS integrations
 packages+=("khal" "cups-pk-helper" "power-profiles-daemon")
 
-# terminal
-packages+=("foot")
+# terminal & shell
+packages+=("foot" "fish")
 
 # CLI tools
 packages+=("pandoc" "btop" "yt-dlp" "tldr" "texinfo" "fastfetch")
