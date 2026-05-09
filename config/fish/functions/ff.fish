@@ -1,0 +1,4 @@
+function ff
+    fastfetch
+end
+
