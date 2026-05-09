@@ -17,12 +17,12 @@ return {
         "bashls",
         "clangd",
         "cssls",
-        "deno",
         "dockerfile-language-server",
         "html",
         "jsonls",
         "lua_ls",
         "pyright",
+        "ts_ls"
       },
       run_on_start = true
     })
