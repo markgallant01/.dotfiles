@@ -42,7 +42,7 @@ packages+=("cmake" "gdb" "java-latest-openjdk-devel.x86_64")
 packages+=("docker" "docker-compose" "uv")
 
 # graphical tools
-packages+=("pavucontrol" "nautilus")
+packages+=("pavucontrol" "nautilus" "gnome-disk-utility")
 
 # gaming stuff
 packages+=("gamescope" "steam")
