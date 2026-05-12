@@ -111,15 +111,20 @@ input {
     position x=1280 y=0
 }
 
-// desktop monitor
-output "DP-3" {
+// left monitor
+output "DP-2" {
     mode "2560x1440@119.998"
+    scale 1
+    position x=0 y=0
+    focus-at-startup
     variable-refresh-rate on-demand=true
 }
 
-// other desktop monito
-output "DP-2" {
+// right monitor
+output "DP-3" {
     mode "2560x1440@119.998"
+    scale 1
+    position x=2560 y=0
     variable-refresh-rate on-demand=true
 }
 
@@ -790,13 +795,21 @@ environment {
     XDG_CURRENT_DESKTOP "niri"
 }
 
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
+// workspaces
+workspace "1" {
+    open-on-output "DP-2"
+}
+workspace "2" {
+    open-on-output "DP-2"
+}
+workspace "3" {
+    open-on-output "DP-2"
+}
+workspace "4" {
+    open-on-output "DP-2"
+}
 
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "qs" "-c" "noctalia-shell"
 
 // Include dms files
 include "dms/colors.kdl"
