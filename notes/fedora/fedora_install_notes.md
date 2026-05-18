@@ -183,6 +183,9 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Fedora to-do:
 
+* consider Brave rather than Firefox
+* on desktop the Firefox window looks a bit small. find a way to make it
+bigger without messing things up on laptop
 * if we like fish, add the configuration files to the dotfiles repo and tie it
 all together in the setup script
 * look into nvim-ts-autotag for auto closing html tags. it requires treesitter
