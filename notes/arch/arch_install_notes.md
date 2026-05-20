@@ -421,6 +421,12 @@ to the fstab file so they auto mount at startup. Consult
 
 ## The End
 
+### Newest to-do:
+
+* cross-reference the Fedora to-do list and see what needs to be transferred
+to this one
+* update the firefox section of this guide to use brave instead
+
 ### New Guide to-do:
 
 * take a look at wl-mirror for screen mirroring on Niri
