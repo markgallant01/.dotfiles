@@ -48,10 +48,6 @@ packages+=("base-devel" "make" "cmake" "gdb")
 packages+=("neovim" "jdk-openjdk" "npm")
 packages+=("docker" "docker-compose" "uv")
 
-# file manager
-packages+=("thunar" "thunar-volman" "tumbler")
-packages+=("gvfs-mtp" "gvfs" "ffmpegthumbnailer")
-
 # graphical front-ends
 packages+=("proton-vpn-gtk-app" "pavucontrol")
 
@@ -68,13 +64,7 @@ packages+=("dosfstools" "exfatprogs" "smartmontools")
 packages+=("e2fsprogs")
 
 # fonts
-packages+=("ttf-liberation" "noto-fonts-cjk" "ttf-nerd-fonts-symbols")
-
-# cosmetic
-packages+=("papirus-icon-theme")
-
-# web browsers
-packages+=("firefox" "chromium")
+packages+=("ttf-jetbrains-mono-nerd" "noto-fonts-cjk")
 
 # communication
 packages+=("discord")
@@ -134,6 +124,15 @@ cd yay-bin
 makepkg -si
 cd
 
-# install Noctalia shell + AUR deps from AUR
-yay -S --noconfirm noctalia-qs noctalia-shell
+# array to store AUR package list
+declare -a aur_packages=()
+
+# web browser
+aur_packages+=("brave-bin")
+
+# noctalia shell + noctalia deps
+aur_packages+=("noctalia-qs" "noctalia-shell")
+
+# install AUR packages
+yay -S --noconfirm "${aur_packages[@]}"
 
