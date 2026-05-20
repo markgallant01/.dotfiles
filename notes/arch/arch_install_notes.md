@@ -371,18 +371,6 @@ Some settings to configure within the Discord app:
 * Adjust mic threshold if necessary
 * Disable 'minimize to tray' and automatic startup under Linux settings
 
-### Thunar:
-
-Edit `/usr/share/gvfs/mounts/network.mount` and change the last line to:
-
-```
-/usr/share/gvfs/mounts/network.mount
-------------------------------------
-AutoMount=false
-```
-
-This helps with Thunar's slow initial startup time.
-
 ### Wallpapers:
 
 Log into google drive and download the Wallpaper folder. Unzip that folder
