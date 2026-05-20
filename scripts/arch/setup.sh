@@ -36,14 +36,12 @@ ln -sf ~/.dotfiles/config/ssh_config   ~/.ssh/config
 ln -sf ~/.dotfiles/config/niri         ~/.config/niri
 ln -sf ~/.dotfiles/config/noctalia     ~/.config/noctalia
 ln -sf ~/.dotfiles/config/foot         ~/.config/foot
+ln -sf ~/.dotfiles/config/fish/        ~/.config/fish
 
 # copy conf files to appropriate folders
 # pacman hooks
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
-# thunar config
-mkdir ~/.config/xfce4
-cp ~/.dotfiles/xfce4/helpers.rc ~/.config/xfce4/
 
 # clock synchronization service
 sudo systemctl enable systemd-timesyncd.service
