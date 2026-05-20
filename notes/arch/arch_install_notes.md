@@ -411,6 +411,9 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Newest to-do:
 
+* consider adding a section about nautilus and disks. in order for devices
+to show up in the nautilus file browser, use the Disks utility to edit
+partitions and select "show in user interface"
 * cross-reference the Fedora to-do list and see what needs to be transferred
 to this one
 * update the firefox section of this guide to use brave instead
