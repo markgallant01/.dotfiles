@@ -49,7 +49,7 @@ packages+=("neovim" "jdk-openjdk" "npm")
 packages+=("docker" "docker-compose" "uv")
 
 # graphical front-ends
-packages+=("proton-vpn-gtk-app" "pavucontrol")
+packages+=("proton-vpn-gtk-app" "pavucontrol" "gnome-disk-utility")
 
 # gaming stuff
 packages+=("steam" "gamescope")
