@@ -28,11 +28,14 @@ packages+=("brightnessctl" "imagemagick")
 packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
 packages+=("power-profiles-daemon")
 
+# terminal & shell
+packages+=("foot" "fish")
+
 # CLI tools
 packages+=("fastfetch" "unzip" "git")
 packages+=("wget" "curl" "zip" "pandoc")
 packages+=("btop" "openssh" "yt-dlp" "tldr")
-packages+=("foot" "man-db" "man-pages" "texinfo")
+packages+=("man-db" "man-pages" "texinfo")
 
 # misc utilities
 packages+=("xdg-user-dirs")
@@ -41,7 +44,7 @@ packages+=("xdg-user-dirs")
 packages+=("libnatpmp")
 
 # neovim stuff
-packages+=("fd" "ripgrep")
+packages+=("fd" "ripgrep" "luarocks")
 
 # development tools
 packages+=("base-devel" "make" "cmake" "gdb")
@@ -50,6 +53,7 @@ packages+=("docker" "docker-compose" "uv")
 
 # graphical front-ends
 packages+=("proton-vpn-gtk-app" "pavucontrol" "gnome-disk-utility")
+packages+=("nautilus")
 
 # gaming stuff
 packages+=("steam" "gamescope")
