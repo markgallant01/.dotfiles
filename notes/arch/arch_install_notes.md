@@ -411,6 +411,8 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Newest to-do:
 
+* maybe add a section about gamescope and the gamescope commands we want to use
+for some games like WoW. Make sure it's installed, too.
 * consider adding a section about nautilus and disks. in order for devices
 to show up in the nautilus file browser, use the Disks utility to edit
 partitions and select "show in user interface"
