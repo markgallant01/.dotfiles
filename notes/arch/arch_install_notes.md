@@ -411,6 +411,12 @@ to the fstab file so they auto mount at startup. Consult
 
 ### Newest to-do:
 
+* on DMS when waking up the screen after walking away from the PC for a while,
+Discord and Steam both have crashed after unlocking, and Firefox is in a weird
+bugged state where no small menus can pop up like the bookmark thing and the
+right-click menu. Investigate this. see if it happens on Noctalia too and if it
+does, see if it's from just the screen locking or if it's from the monitor
+shutting off.
 * maybe add a section about gamescope and the gamescope commands we want to use
 for some games like WoW. Make sure it's installed, too.
 * consider adding a section about nautilus and disks. in order for devices
