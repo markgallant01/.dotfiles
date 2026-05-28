@@ -44,12 +44,19 @@ packages+=("xdg-user-dirs")
 packages+=("libnatpmp")
 
 # neovim stuff
-packages+=("fd" "ripgrep" "luarocks")
+packages+=("fd" "ripgrep")
+
+# programming languages & programming language utilities
+packages+=("gcc" "gdb")
+packages+=("nodejs" "npm" "typescript")
+packages+=("python" "python-pip" "uv")
+packages+=("jdk-openjdk")
+packages+=("lua" "luarocks")
 
 # development tools
-packages+=("base-devel" "make" "cmake" "gdb")
-packages+=("neovim" "jdk-openjdk" "npm")
-packages+=("docker" "docker-compose" "uv")
+packages+=("base-devel" "make" "cmake")
+packages+=("neovim")
+packages+=("docker" "docker-compose")
 
 # graphical front-ends
 packages+=("proton-vpn-gtk-app" "pavucontrol" "gnome-disk-utility")
