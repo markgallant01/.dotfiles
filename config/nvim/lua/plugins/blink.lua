@@ -51,7 +51,10 @@ return {
     -- `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+
+    -- experimental signature help
+    signature = { enabled = true }
   },
   opts_extend = { "sources.default" }
 }
