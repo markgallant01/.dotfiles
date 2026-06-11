@@ -44,7 +44,7 @@ packages+=("xdg-user-dirs")
 packages+=("libnatpmp")
 
 # neovim stuff
-packages+=("fd" "ripgrep")
+packages+=("fd" "ripgrep" "tree-sitter-cli")
 
 # programming languages & programming language utilities
 packages+=("gcc" "gdb")
