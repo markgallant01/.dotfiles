@@ -80,6 +80,9 @@ packages+=("ttf-jetbrains-mono-nerd" "noto-fonts-cjk")
 # communication
 packages+=("discord")
 
+# web browser
+packages+=("firefox")
+
 # cpu microcode depnds on CPU manufacturer:
 cpu_option=0
 while [[ "$cpu_option" != 1 ]] &&
@@ -137,9 +140,6 @@ cd
 
 # array to store AUR package list
 declare -a aur_packages=()
-
-# web browser
-aur_packages+=("brave-bin")
 
 # noctalia shell + noctalia deps
 aur_packages+=("noctalia-qs" "noctalia-shell")
