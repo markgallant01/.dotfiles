@@ -810,8 +810,9 @@ workspace "4" {
 }
 
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 
-// Include dms files
+// Include dms filesspawn-at-startup "qs" "-c" "noctalia-shell"
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
