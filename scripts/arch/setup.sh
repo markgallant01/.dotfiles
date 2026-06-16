@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# validate root perms
+echo "This script requires root privileges"
+sudo -v
+
+# keep sudo alive in the background while the script runs so it doesn't
+# pause and ask for another password input
+while true; do
+    sudo -n true
+    sleep 60s
+    kill -0 "$$" || exit
+done 2>/dev/null &
+
+# start logging
+exec > >(tee -a install_log.txt) 2>&1
+
 # echo on
 set -x
 
