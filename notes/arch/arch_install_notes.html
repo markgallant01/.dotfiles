@@ -384,7 +384,7 @@ Include = /etc/pacman.d/mirrorlist</code></pre>
 <pre><code>$ chmod u+rwx ~/.dotfiles/scripts/arch/setup.sh
 $ chmod u+rwx ~/.dotfiles/scripts/arch/install_packages.sh</code></pre>
 <p>Run the setup script and copy the output to a log file</p>
-<p><code>$ ~/.dotfiles/scripts/arch/setup.sh 2&gt;&amp;1 | tee ~/install_log_file.txt</code></p>
+<p><code>$ ~/.dotfiles/scripts/arch/setup.sh</code></p>
 <p>If nvidia drivers were installed, you must edit the file
 <code>/etc/mkinitcpio.conf</code> to remove the ‘kms’ module from the
 HOOKS array. This ensures the nouveau module will not be loaded during
