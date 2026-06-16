@@ -1,5 +1,5 @@
 -- these settings get automatically applied to the "lua_ls" LSP
-vim.lsp.config("lua_ls", {
+return {
   settings = {
     Lua = {
       diagnostics = {
@@ -10,5 +10,5 @@ vim.lsp.config("lua_ls", {
       }
     }
   }
-})
+}
 
