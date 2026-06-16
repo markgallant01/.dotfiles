@@ -490,7 +490,7 @@ binds {
     // locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Application Launcher" {
-        spawn "dms" "ipc" "call" "spotlight" "toggle";
+        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
     }
     Mod+Ctrl+L hotkey-overlay-title="Lock Screen" {
         spawn "dms" "ipc" "call" "lock" "lock";
@@ -543,10 +543,10 @@ binds {
     // through "sh"), but you need to manually put each argument in separate
     // "" quotes.
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+        spawn-sh "qs -c noctalia-shell ipc call brightness decrease";
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+        spawn-sh "qs -c noctalia-shell ipc call brightness increase";
     }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
