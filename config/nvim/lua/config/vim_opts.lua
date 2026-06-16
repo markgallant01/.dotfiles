@@ -3,6 +3,9 @@
 -- This is not the place for plugin keybinds or plugin options. This file
 -- is loaded before any plugins.
 
+-- cache lua modules for faster startup
+vim.loader.enable()
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -35,6 +38,8 @@ vim.o.colorcolumn = '80'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
+vim.o.inccommand = 'split'
+
 vim.o.cursorline = true
 vim.o.guicursor = 'n-v-c-i:block'
 
@@ -44,6 +49,9 @@ vim.o.wrap = false
 vim.o.filetype = 'on'
 
 vim.o.termguicolors = true
+
+-- confirm before closing without changes
+vim.o.confirm = true
 
 -- Diagnostic Config
 -- See :help vim.diagnostic.Opts
