@@ -75,7 +75,7 @@ packages+=("dosfstools" "exfatprogs" "smartmontools")
 packages+=("e2fsprogs")
 
 # fonts
-packages+=("ttf-jetbrains-mono-nerd" "noto-fonts-cjk")
+packages+=("ttf-jetbrains-mono-nerd" "noto-fonts" "noto-fonts-cjk")
 
 # communication
 packages+=("discord")
