@@ -102,9 +102,6 @@ do
   -- Preview substitutions live, as you type!
   vim.o.inccommand = 'split'
 
-  -- Show which line your cursor is on
-  vim.o.cursorline = true
-
   -- block cursor
   vim.o.guicursor = 'n-v-c-i:block'
 
@@ -158,10 +155,21 @@ do
         }
       end,
     },
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.HINT] = '',
+        [vim.diagnostic.severity.INFO] = ''
+      }
+    }
   }
 
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist,
     { desc = 'Open diagnostic [Q]uickfix list' })
+
+  vim.keymap.set('n', '<leader>w', vim.diagnostic.open_float,
+    { desc = 'Open diagnostic floating [W]indow' })
 
   -- Exit terminal mode in the builtin terminal with a shortcut that is a
   -- bit easier for people to discover. Otherwise, you normally need to
@@ -288,7 +296,7 @@ local function gh(repo) return 'https://github.com/' .. repo end
 
 -- ============================================================
 -- SECTION 4: UI / CORE UX PLUGINS
--- guess-indent, gitsigns, which-key, colorscheme, todo-comments, mini modules
+-- guess-indent, which-key, colorscheme, todo-comments, mini modules
 -- ============================================================
 do
   -- [[ Installing and Configuring Plugins ]]
@@ -308,23 +316,6 @@ do
   -- and then call its `setup()` function to start it with default settings.
   vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
   require('guess-indent').setup {}
-
-  -- Here is a more advanced configuration example that passes options to
-  -- `gitsigns.nvim`
-  --
-  -- See `:help gitsigns` to understand what each configuration key does.
-  -- Adds git related signs to the gutter, as well as utilities for managing
-  -- changes
-  vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
-  require('gitsigns').setup {
-    signs = {
-      add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-      change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-      delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-      topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-      changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
-    },
-  }
 
   -- Useful plugin to show you pending keybinds.
   vim.pack.add { gh 'folke/which-key.nvim' }
@@ -359,11 +350,44 @@ do
     },
   }
 
+  vim.pack.add({ "https://github.com/craftzdog/solarized-osaka.nvim" })
+  require("solarized-osaka").setup({
+    transparent = true, -- Enable this to disable setting the background color
+    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+    styles = {
+      -- Style to be applied to different syntax groups
+      -- Value is any valid attr-list value for `:help nvim_set_hl`
+      comments = { italic = true },
+      keywords = { italic = true },
+      functions = {},
+      variables = {},
+      -- Background styles. Can be "dark", "transparent" or "normal"
+      sidebars = "dark", -- style for sidebars, see below
+      floats = "dark", -- style for floating windows
+    },
+    sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+    day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+    hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+    dim_inactive = false, -- dims inactive windows
+    lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+
+    --- You can override specific color groups to use other groups or a hex color
+    --- function will be called with a ColorScheme table
+    ---@param colors ColorScheme
+    on_colors = function(colors) end,
+
+    --- You can override specific highlights to use other groups or a hex color
+    --- function will be called with a Highlights and ColorScheme table
+    ---@param highlights Highlights
+    ---@param colors ColorScheme
+    on_highlights = function(highlights, colors) end,
+  })
+
   -- Load the colorscheme here.
   -- Like many other themes, this one has different styles, and you
   -- could load any other, such as 'tokyonight-storm', 'tokyonight-moon',
   -- or 'tokyonight-day'.
-  vim.cmd.colorscheme 'tokyonight-night'
+  vim.cmd.colorscheme("solarized-osaka")
 
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
@@ -402,6 +426,7 @@ do
   -- - sr)'  - [S]urround [R]eplace [)] [']
   require('mini.surround').setup()
 
+  --[[
   -- Simple and easy statusline.
   --  You could remove this setup call if you don't like it,
   --  and try some other statusline plugin
@@ -417,6 +442,7 @@ do
 
   -- ... and there is more!
   --  Check out: https://github.com/nvim-mini/mini.nvim
+  ]]--
 end
 
 -- ============================================================
@@ -640,7 +666,7 @@ do
 
   -- Useful status updates for LSP.
   vim.pack.add { gh 'j-hui/fidget.nvim' }
-  require('fidget').setup {}
+  require('fidget').setup({})
 
   --  This function gets run when an LSP attaches to a particular buffer.
   --    That is to say, every time a new file is opened that is associated
@@ -729,7 +755,7 @@ do
         map('<leader>th', function()
           vim.lsp.inlay_hint.enable(
             not vim.lsp.inlay_hint.is_enabled({
-              bufnr = event.buf 
+              bufnr = event.buf
             })
           )
         end, '[T]oggle Inlay [H]ints')
@@ -743,17 +769,13 @@ do
   --    See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
-    -- gopls = {},
+    bashls = {},
+    clangd = {},
+    cssls = {},
+    html = {},
+    jsonls = {},
     pyright = {},
-    -- rust_analyzer = {},
-    --
-    -- Some languages (like typescript) have entire language plugins that
-    -- can be useful:
-    --    https://github.com/pmizio/typescript-tools.nvim
-    --
-    -- But for many setups, the LSP (`ts_ls`) will work just fine
-    -- ts_ls = {},
+    ts_ls = {},
 
     stylua = {}, -- Used to format Lua code
 
@@ -796,7 +818,14 @@ do
       settings = {
         Lua = {
           -- Disable formatting (formatting is done by stylua)
-          format = { enable = false },        },
+          format = { enable = false },
+          diagnostics = {
+            disable = { "lowercase-global" },
+            -- warn the LSP disgnostic about the undefined global "vim" so that
+            -- we don't see a million warnings in our vim config files
+            globals = { "vim" }
+          }
+        },
       },
     },
   }
@@ -809,7 +838,7 @@ do
   }
 
   -- Automatically install LSPs and related tools to stdpath for Neovim
-  require('mason').setup {}
+  require('mason').setup({})
 
   -- Ensure the servers and tools above are installed
   --
@@ -1049,37 +1078,45 @@ do
   })
 end
 
--- ============================================================
--- SECTION 10: OPTIONAL EXAMPLES / NEXT STEPS
--- kickstart.plugins.* examples
--- ============================================================
-do
-  -- The following comments only work if you have downloaded the kickstart
-  -- repo, not just copy pasted the init.lua. If you want these files,
-  -- they are in the repository, so you can just download them and
-  -- place them in the correct locations.
+vim.pack.add({ gh("akinsho/bufferline.nvim") })
+require("bufferline").setup({})
 
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional
-  -- plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart
-  --  repository. Uncomment any of the lines below to enable them
-  --  (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug'
-  -- require 'kickstart.plugins.indent_line'
-  -- require 'kickstart.plugins.lint'
-  -- require 'kickstart.plugins.autopairs'
-  -- require 'kickstart.plugins.neo-tree'
-  -- require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
+vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>',
+  { desc = 'Next buffer' } )
 
-  -- NOTE: You can add your own plugins, configuration, etc from
-  -- `lua/custom/plugins/*.lua`
-  --
-  --  Uncomment the following line and add your plugins to
-  --  `lua/custom/plugins/*.lua` to get going.
-  -- require 'custom.plugins'
-end
+vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>',
+  { desc = 'Previous buffer' } )
+
+
+vim.pack.add { { src = gh "nvim-neo-tree/neo-tree.nvim",
+  version = vim.version.range '3.*' } }
+
+-- neo-tree deps
+vim.pack.add({
+  gh("nvim-lua/plenary.nvim"),
+  gh("MunifTanjim/nui.nvim"),
+  gh("nvim-tree/nvim-web-devicons"),
+})
+
+vim.keymap.set('n', '\\', '<Cmd>Neotree toggle<CR>',
+  { desc = 'Toggle neo-tree' } )
+
+
+vim.pack.add({ gh("windwp/nvim-autopairs") })
+require("nvim-autopairs").setup({})
+
+
+vim.pack.add({ gh("lukas-reineke/indent-blankline.nvim") })
+require("ibl").setup({})
+
+
+vim.pack.add({ gh("nvim-lualine/lualine.nvim") })
+require("lualine").setup({
+  theme = "solarized_dark"
+})
+
+-- lualine deps
+vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
