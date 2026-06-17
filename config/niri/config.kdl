@@ -476,7 +476,11 @@ binds {
         spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
     }
     Mod+Ctrl+L hotkey-overlay-title="Lock Screen" {
-        spawn "dms" "ipc" "call" "lock" "lock";
+        spawn-sh "qs -c noctalia-shell ipc call lockScreen lock";
+    }
+
+    Mod+X hotkey-overlay-title="Session Menu" {
+        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";
     }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes,
