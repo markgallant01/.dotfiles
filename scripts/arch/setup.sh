@@ -18,7 +18,23 @@ exec > >(tee -a install_log.txt) 2>&1
 # echo on
 set -x
 
-# run pacman once to generate and sync databases
+# chaotic-aur
+# retrieve primary key to enable the installation of keyring and mirror list
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
+
+# install chaotic-keyring and chaotic-mirrorlist packages
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
+# append repo info to /etc/pacman.conf:
+echo "
+# chaotic-aur repo for precompiled aur packages
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+" | sudo tee -a /etc/pacman.conf > /dev/null
+
+# generate and sync databases
 sudo pacman -Syu --noconfirm
 
 # run reflector once to get fast up to date mirrors
