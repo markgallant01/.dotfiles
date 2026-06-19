@@ -28,6 +28,9 @@ packages+=("brightnessctl" "imagemagick")
 packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
 packages+=("power-profiles-daemon")
 
+# noctalia shell + noctalia AUR deps (via chaotic-aur)
+packages+=("noctalia-qs" "noctalia-shell")
+
 # terminal & shell
 packages+=("foot" "fish")
 
@@ -132,18 +135,12 @@ fi
 sudo pacman -S --noconfirm --needed "${packages[@]}"
 
 # install yay for AUR access
+# (this is left here just in case we ever need yay. the chaotic-aur should
+# cover what we need. this may get removed at some point if we never end
+# up using it)
 cd
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 cd
-
-# array to store AUR package list
-declare -a aur_packages=()
-
-# noctalia shell + noctalia deps
-aur_packages+=("noctalia-qs" "noctalia-shell")
-
-# install AUR packages
-yay -S --noconfirm "${aur_packages[@]}"
 
