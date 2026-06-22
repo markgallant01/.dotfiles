@@ -1052,6 +1052,9 @@ vim.keymap.set('n', '\\', '<Cmd>Neotree toggle<CR>',
 vim.pack.add({ gh("windwp/nvim-autopairs") })
 require("nvim-autopairs").setup({})
 
+vim.pack.add({ gh("windwp/nvim-ts-autotag") })
+require("nvim-ts-autotag").setup()
+
 
 vim.pack.add({ gh("lukas-reineke/indent-blankline.nvim") })
 require("ibl").setup({
