@@ -371,9 +371,6 @@ do
   })
 
   -- Load the colorscheme here.
-  -- Like many other themes, this one has different styles, and you
-  -- could load any other, such as 'tokyonight-storm', 'tokyonight-moon',
-  -- or 'tokyonight-day'.
   vim.cmd.colorscheme("solarized-osaka")
 
   -- [[ mini.nvim ]]
@@ -413,23 +410,6 @@ do
   -- - sr)'  - [S]urround [R]eplace [)] [']
   require('mini.surround').setup()
 
-  --[[
-  -- Simple and easy statusline.
-  --  You could remove this setup call if you don't like it,
-  --  and try some other statusline plugin
-  local statusline = require 'mini.statusline'
-  -- Set `use_icons` to true if you have a Nerd Font
-  statusline.setup { use_icons = vim.g.have_nerd_font }
-
-  -- You can configure sections in the statusline by overriding their
-  -- default behavior. For example, here we set the section for
-  -- cursor location to LINE:COLUMN
-  ---@diagnostic disable-next-line: duplicate-set-field
-  statusline.section_location = function() return '%2l:%-2v' end
-
-  -- ... and there is more!
-  --  Check out: https://github.com/nvim-mini/mini.nvim
-  ]]--
 end
 
 -- ============================================================
@@ -622,34 +602,6 @@ end
 -- ============================================================
 do
   -- [[ LSP Configuration ]]
-  -- Brief aside: **What is LSP?**
-  --
-  -- LSP is an initialism you've probably heard, but might not understand
-  -- what it is.
-  --
-  -- LSP stands for Language Server Protocol. It's a protocol that helps
-  -- editors and language tooling communicate in a standardized fashion.
-  --
-  -- In general, you have a "server" which is some tool built to understand
-  -- a particular language (such as `gopls`, `lua_ls`, `rust_analyzer`,
-  -- etc.). These Language Servers (sometimes called LSP servers, but
-  -- that's kind of like ATM Machine) are standalone processes that
-  -- communicate with some "client" - in this case, Neovim!
-  --
-  -- LSP provides Neovim with features like:
-  --  - Go to definition
-  --  - Find references
-  --  - Autocompletion
-  --  - Symbol Search
-  --  - and more!
-  --
-  -- Thus, Language Servers are external tools that must be installed
-  -- separately from Neovim. This is where `mason` and related plugins
-  -- come into play.
-  --
-  -- If you're wondering about lsp vs treesitter, you can check out
-  -- the wonderfully and elegantly composed help section,
-  -- `:help lsp-vs-treesitter`
 
   -- Useful status updates for LSP.
   vim.pack.add { gh 'j-hui/fidget.nvim' }
