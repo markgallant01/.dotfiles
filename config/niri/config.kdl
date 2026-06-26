@@ -550,9 +550,9 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    // Mod+Comma  { consume-window-into-column; }
+    Mod+U  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    // Mod+Period { expel-window-from-column; }
+    Mod+I { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
