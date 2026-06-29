@@ -637,6 +637,12 @@ binds {
     Mod+Alt+P { power-off-monitors; }
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 blur {
     // off
     passes 2
