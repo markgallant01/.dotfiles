@@ -3,7 +3,7 @@
 a gentoo linux install. Use alongside the handbook found at
 wiki.gentoo.org*
 
-Installation theme: https://www.youtube.com/watch?v=Z6hRV-Nq1Q0
+Installation theme: [Undertale - Once Upon a Time (Soft Piano Arrangement)](https://www.youtube.com/watch?v=Z6hRV-Nq1Q0)
 
 
 # 1. Pre-installation
