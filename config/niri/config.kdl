@@ -655,7 +655,10 @@ blur {
 
 // Noctalia window rules
 window-rule {
+    // rounded corners for modern look
     geometry-corner-radius 20
+
+    // clips window contents to the rounded corner boundaries
     clip-to-geometry true
 }
 
