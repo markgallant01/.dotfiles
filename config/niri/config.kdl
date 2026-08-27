@@ -363,14 +363,14 @@ binds {
     // locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+P hotkey-overlay-title="Application Launcher" {
-        spawn-sh "qs -c noctalia-shell ipc call launcher toggle";
+        spawn-sh "noctalia msg panel-toggle launcher";
     }
     Mod+Ctrl+L hotkey-overlay-title="Lock Screen" {
-        spawn-sh "qs -c noctalia-shell ipc call lockScreen lock";
+        spawn-sh "noctalia msg session lock";
     }
 
     Mod+X hotkey-overlay-title="Session Menu" {
-        spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle";
+        spawn-sh "noctalia msg panel-toggle session";
     }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes,
@@ -420,10 +420,10 @@ binds {
     // through "sh"), but you need to manually put each argument in separate
     // "" quotes.
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call brightness decrease";
+        spawn-sh "noctalia msg brightness-down";
     }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn-sh "qs -c noctalia-shell ipc call brightness increase";
+        spawn-sh "noctalia msg brightness-up";
     }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
