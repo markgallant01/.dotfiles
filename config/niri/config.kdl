@@ -678,7 +678,7 @@ debug {
 // Noctalia wallpaper stuff
 // set regular wallpaper on backdrop
 layer-rule {
-    match namespace="^noctalia-wallpaper*"
+    match namespace="^noctalia-wallpaper"
     place-within-backdrop true
 }
 
