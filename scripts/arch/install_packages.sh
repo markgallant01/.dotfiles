@@ -28,8 +28,8 @@ packages+=("brightnessctl" "imagemagick")
 packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
 packages+=("power-profiles-daemon")
 
-# noctalia shell + noctalia AUR deps (via chaotic-aur)
-packages+=("noctalia-qs" "noctalia-shell")
+# noctalia
+packages+=("noctalia")
 
 # terminal & shell
 packages+=("foot" "fish")
