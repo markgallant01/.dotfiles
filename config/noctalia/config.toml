@@ -252,7 +252,7 @@ event_time_format           = "%H:%M"       # time format used for events
 [weather]
 enabled         = true
 refresh_minutes = 30
-unit            = "fahrenheit"         # celsius | fahrenheit
+unit            = "imperial"         # metric | imperial
 effects         = true              # visual weather effects
 # Weather uses the coordinates resolved by [location] (see below).
 
