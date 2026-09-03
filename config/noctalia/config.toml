@@ -358,7 +358,7 @@ capsule            = false
 
 start  = ["workspaces", "media"]
 center = ["clock", "weather"]
-end    = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "control-center"]
+end    = ["tray", "notifications", "sysmon", "network", "bluetooth", "volume", "brightness", "battery", "control-center"]
 
 # Commands for the bar margin outside widget sections (dead zone):
 # [bar.main.dead_zone.actions]
@@ -563,4 +563,8 @@ show_label = false
 max_length       = 180
 show_condition   = false
 show_temperature = true
+
+[widget.sysmon]
+show_value = false
+visualization = "none"
 
