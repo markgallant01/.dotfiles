@@ -332,10 +332,10 @@ window-rule {
     default-column-width { fixed 1352; }
 }
 
-// open file browser in floating mode
+// file browser
 window-rule {
     match app-id="Nautilus"
-    //open-floating true
+    default-column-width { fixed 896; }
 }
 
 // open gnome-disks in floating mode
