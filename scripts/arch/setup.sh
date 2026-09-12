@@ -6,6 +6,12 @@ exec > >(tee -a install_log.txt) 2>&1
 # echo on
 set -x
 
+# generate and sync databases
+sudo pacman -Syu --noconfirm
+
+# run reflector once to get fast up to date mirrors
+sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+
 # chaotic-aur
 # retrieve primary key to enable the installation of keyring and mirror list
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
@@ -21,12 +27,6 @@ echo "
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist
 " | sudo tee -a /etc/pacman.conf > /dev/null
-
-# generate and sync databases
-sudo pacman -Syu --noconfirm
-
-# run reflector once to get fast up to date mirrors
-sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 # call install script to install system packages
 ~/.dotfiles/scripts/arch/install_packages.sh
