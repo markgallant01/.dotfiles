@@ -213,6 +213,7 @@ hl.config({
   master = {
     mfact = 0.50,
     new_status = "master",
+    new_on_top = true
   },
 })
 
@@ -292,7 +293,6 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 --     border_size = 0,
 --     rounding    = 0,
 -- })
-
 
 --------------------------------
 ---- WINDOWS RULES -------------
