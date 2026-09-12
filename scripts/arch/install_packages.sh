@@ -21,15 +21,18 @@ packages+=("bluez" "bluez-utils")
 packages+=("niri" "xdg-desktop-portal-gtk" "xdg-desktop-portal-gnome")
 packages+=("gnome-keyring" "polkit-kde-agent" "xwayland-satellite")
 
-# Noctalia shell deps (non-AUR)
+# Noctalia shell deps
 packages+=("brightnessctl" "imagemagick")
 
-# Noctalia shell optional deps (non-AUR)
+# Noctalia shell optional deps
 packages+=("cliphist" "cava" "ddcutil" "wlsunset" "evolution-data-server")
 packages+=("power-profiles-daemon")
 
 # noctalia
 packages+=("noctalia")
+
+# hyprland
+packages+=("hyprland")
 
 # terminal & shell
 packages+=("foot" "fish")
