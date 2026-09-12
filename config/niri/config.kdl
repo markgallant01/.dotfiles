@@ -58,6 +58,11 @@ output "DP-3" {
     variable-refresh-rate on-demand=true
 }
 
+// laptop
+output "eDP-1" {
+    scale 1.5
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -656,10 +661,10 @@ blur {
 // Noctalia window rules
 window-rule {
     // rounded corners for modern look
-    geometry-corner-radius 20
+    //geometry-corner-radius 20
 
     // clips window contents to the rounded corner boundaries
-    clip-to-geometry true
+    //clip-to-geometry true
 }
 
 // floating Noctalia settings window
