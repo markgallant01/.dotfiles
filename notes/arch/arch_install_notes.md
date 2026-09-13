@@ -310,7 +310,7 @@ $ chmod u+rwx ~/.dotfiles/scripts/arch/setup.sh
 $ chmod u+rwx ~/.dotfiles/scripts/arch/install_packages.sh
 ```
 
-Run the setup script and copy the output to a log file
+Run the setup script
 
 `$ ~/.dotfiles/scripts/arch/setup.sh`
 
@@ -367,9 +367,8 @@ not in the repos yet:
 
 Some settings to configure within the Discord app:
 
-* Font size 20
-* Adjust mic threshold if necessary
-* Disable 'minimize to tray' and automatic startup under Linux settings
+* Accessibility -> Font size 20
+* Disable 'minimize to tray' and automatic startup under System settings
 
 ### Wallpapers:
 

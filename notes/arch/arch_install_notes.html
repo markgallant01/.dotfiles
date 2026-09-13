@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
+  <meta name="generator" content="pandoc 3.10.2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>arch_install_notes</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -38,7 +41,6 @@
       body {
         background-color: transparent;
         color: black;
-        font-size: 12pt;
       }
       p, h2, h3 {
         orphans: 3;
@@ -88,6 +90,7 @@
       color: #606060;
     }
     code {
+      white-space: pre-wrap;
       font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
@@ -151,10 +154,13 @@
     #TOC a:not(:hover) {
       text-decoration: none;
     }
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -383,7 +389,7 @@ Include = /etc/pacman.d/mirrorlist</code></pre>
 <p>Make the setup scripts executable:</p>
 <pre><code>$ chmod u+rwx ~/.dotfiles/scripts/arch/setup.sh
 $ chmod u+rwx ~/.dotfiles/scripts/arch/install_packages.sh</code></pre>
-<p>Run the setup script and copy the output to a log file</p>
+<p>Run the setup script</p>
 <p><code>$ ~/.dotfiles/scripts/arch/setup.sh</code></p>
 <p>If nvidia drivers were installed, you must edit the file
 <code>/etc/mkinitcpio.conf</code> to remove the ‘kms’ module from the
@@ -427,9 +433,8 @@ update that’s not in the repos yet:</p>
 &quot;SKIP_HOST_UPDATE&quot;: true</code></pre>
 <p>Some settings to configure within the Discord app:</p>
 <ul>
-<li>Font size 20</li>
-<li>Adjust mic threshold if necessary</li>
-<li>Disable ‘minimize to tray’ and automatic startup under Linux
+<li>Accessibility -&gt; Font size 20</li>
+<li>Disable ‘minimize to tray’ and automatic startup under System
 settings</li>
 </ul>
 <h3 id="wallpapers">Wallpapers:</h3>
