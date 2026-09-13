@@ -34,6 +34,9 @@ packages+=("noctalia")
 # hyprland
 packages+=("hyprland")
 
+# hyprland screenshots utils
+packages+=("grim" "slurp" "swappy")
+
 # terminal & shell
 packages+=("foot" "fish")
 
