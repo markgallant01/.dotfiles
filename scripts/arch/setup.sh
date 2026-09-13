@@ -6,11 +6,11 @@ exec > >(tee -a install_log.txt) 2>&1
 # echo on
 set -x
 
+# run reflector once to get fast up to date mirrors
+sudo reflector --latest 50 -n 20 -p http --sort rate --save /etc/pacman.d/mirrorlist
+
 # generate and sync databases
 sudo pacman -Syu --noconfirm
-
-# run reflector once to get fast up to date mirrors
-sudo reflector --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 # chaotic-aur
 # retrieve primary key to enable the installation of keyring and mirror list
