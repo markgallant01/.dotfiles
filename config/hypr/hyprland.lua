@@ -147,10 +147,10 @@ hl.bind(mainMod .. " + t", hl.dsp.window.float({ action = "toggle" }))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 
 -- Move focus with mainMod + hjkl
-hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
+--hl.bind(mainMod .. " + h",  hl.dsp.focus({ direction = "left" }))
+--hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+--hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
+--hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-5]
 -- Move active window to a workspace with mainMod + SHIFT + [0-5]
@@ -188,6 +188,16 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 -- screenshots
 hl.bind(mainMod .. " + s", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
+
+-- master stack layout keybinds
+hl.bind(mainMod .. " + code:48", hl.dsp.layout("swapwithmaster"))
+hl.bind(mainMod .. " + j", hl.dsp.layout("cyclenext noloop"))
+hl.bind(mainMod .. " + k", hl.dsp.layout("cycleprev noloop"))
+hl.bind(mainMod .. " + h", hl.dsp.layout("mfact -0.1"))
+hl.bind(mainMod .. " + l", hl.dsp.layout("mfact 0.1"))
+
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.layout("swapnext noloop"))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.layout("swapprev noloop"))
 
 -- enable this to swap capslock and ctrl. figure out how this works with
 -- other keyboard
