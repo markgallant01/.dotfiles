@@ -138,7 +138,7 @@ if [[ "$gpu_option" == 3 ]]; then
 fi
 
 # install arch repo packages
-sudo pacman -S --noconfirm --needed "${packages[@]}"
+sudo pacman -Syu --noconfirm --needed "${packages[@]}"
 
 # install yay for AUR access
 # (this is left here just in case we ever need yay. the chaotic-aur should
