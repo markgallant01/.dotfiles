@@ -5,7 +5,7 @@
 # ── Shell ─────────────────────────────────────────────────────────────────────
 
 [accessibility]
-ui_scale              = 1.0
+ui_scale              = 1.25
 high_contrast         = false
 
 [shell]
@@ -107,7 +107,7 @@ blacklist = []                      # ignore MPRIS players by bus/identity/deskt
 # ── Wallpaper ─────────────────────────────────────────────────────────────────
 
 [wallpaper]
-enabled             = false 
+enabled             = true 
 fill_mode           = "crop"        # center | crop | fit | stretch | repeat | span
 fill_color          = ""            # optional fallback/fill color: prefer a color role token; fixed hex also works
 transition          = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
