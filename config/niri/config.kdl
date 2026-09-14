@@ -60,7 +60,7 @@ output "DP-3" {
 
 // laptop
 output "eDP-1" {
-    scale 1.5
+    scale 1.25
 }
 
 // Settings that influence how windows are positioned and sized.
