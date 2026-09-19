@@ -1005,7 +1005,7 @@ vim.pack.add({ gh("windwp/nvim-autopairs") })
 require("nvim-autopairs").setup({})
 
 vim.pack.add({ gh("windwp/nvim-ts-autotag") })
-require("nvim-ts-autotag").setup()
+--require("nvim-ts-autotag").setup()
 
 
 vim.pack.add({ gh("lukas-reineke/indent-blankline.nvim") })
