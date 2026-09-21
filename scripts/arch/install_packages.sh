@@ -84,7 +84,9 @@ packages+=("dosfstools" "exfatprogs" "smartmontools")
 packages+=("e2fsprogs")
 
 # fonts
+# jetbrains for terminal / neovim and noto for browser
 packages+=("ttf-jetbrains-mono-nerd" "noto-fonts" "noto-fonts-cjk")
+packages+=("noto-fonts-emoji")
 
 # communication
 packages+=("discord")
