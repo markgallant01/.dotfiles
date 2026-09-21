@@ -4,11 +4,15 @@
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
+-- gaps
+local initial_gaps_in = 5
+local initial_gaps_out = initial_gaps_in * 2
+
 hl.config({
   general = {
     border_size = 2,
-    gaps_in  = 5,
-    gaps_out = 10,
+    gaps_in  = initial_gaps_in,
+    gaps_out = initial_gaps_out,
     float_gaps = 0,
     col = {
       inactive_border = "rgba(595959aa)",
@@ -137,6 +141,42 @@ local menu = "hyprlauncher"
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local ipc = "noctalia msg"
+
+-- gaps keybinds
+hl.bind(mainMod .. " + equal", function()
+  initial_gaps_in = initial_gaps_in + 5
+  initial_gaps_out = initial_gaps_in * 2
+  hl.config({
+    general = {
+      gaps_in = initial_gaps_in,
+      gaps_out = initial_gaps_out
+    }
+  })
+end)
+
+hl.bind(mainMod .. " + minus", function()
+  if initial_gaps_in > 0 then
+    initial_gaps_in = initial_gaps_in - 5
+    initial_gaps_out = initial_gaps_in * 2
+  end
+  hl.config({
+    general = {
+      gaps_in = initial_gaps_in,
+      gaps_out = initial_gaps_out
+    }
+  })
+end)
+
+hl.bind(mainMod .. " + SHIFT + minus", function()
+  initial_gaps_in = 0
+  initial_gaps_out = 0
+  hl.config({
+    general = {
+      gaps_in = 0,
+      gaps_out = 0
+    }
+  })
+end)
 
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
