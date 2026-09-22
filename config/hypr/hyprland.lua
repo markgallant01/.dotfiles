@@ -205,6 +205,9 @@ hl.bind(mainMod .. " + SHIFT + e", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- hl.bind(mainMod .. " + t", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + f", hl.dsp.window.fullscreen({
+  action = "toggle", mode = "fullscreen"
+}))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 
 -- Move focus with mainMod + hjkl
