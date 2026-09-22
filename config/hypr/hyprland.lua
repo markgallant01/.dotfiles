@@ -178,6 +178,21 @@ hl.bind(mainMod .. " + SHIFT + minus", function()
   })
 end)
 
+hl.bind(mainMod .. " + t", function()
+  local current_workspace = hl.get_active_workspace()
+
+  if not current_workspace then
+    return
+  end
+
+  if current_workspace.tiled_layout == "master" then
+    hl.workspace_rule({ workspace = current_workspace.name, layout = "monocle" })
+  else
+    hl.workspace_rule({ workspace = current_workspace.name, layout = "master" })
+  end
+
+end)
+
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
 hl.bind(mainMod .. " + CONTROL + l", hl.dsp.exec_cmd(ipc .. " session lock"))
@@ -189,7 +204,7 @@ local closeWindowBind = hl.bind(mainMod .. " + q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + e", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + t", hl.dsp.window.float({ action = "toggle" }))
+-- hl.bind(mainMod .. " + t", hl.dsp.window.float({ action = "toggle" }))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 
 -- Move focus with mainMod + hjkl
