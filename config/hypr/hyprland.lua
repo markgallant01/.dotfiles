@@ -404,6 +404,12 @@ hl.window_rule({
     no_focus = true,
 })
 
+hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
+
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
