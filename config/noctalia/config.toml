@@ -38,7 +38,7 @@ clipboard_image_action_command = ""  # image preview action: gimp {path}, or sat
 # noctalia msg clipboard-clear
 shared_gl_context     = true         # startup-only; false isolates GPU contexts for broken drivers
 # lang                = "en"
-# avatar_path         = "~/Pictures/avatar.png"
+avatar_path         = "~/Pictures/avatar.jpg"
 
 [shell.privacy]
 mic_filter_regex = ""                # microphone app names to ignore in privacy indicators and OSD
