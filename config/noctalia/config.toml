@@ -357,7 +357,7 @@ capsule            = false
 # capsule_opacity  = 1.0
 # capsule_border   = "outline"      # uncomment for a border on all widgets
 
-start  = ["workspaces", "media"]
+start  = ["workspaces", "taskbar"]
 center = ["clock", "weather"]
 end    = ["tray", "notifications", "sysmon", "network", "bluetooth", "volume", "brightness", "battery", "control-center"]
 
@@ -568,4 +568,7 @@ show_temperature = true
 [widget.sysmon]
 show_value = false
 visualization = "none"
+
+[widget.taskbar]
+only_active_workspace = true
 
