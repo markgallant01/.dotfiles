@@ -209,6 +209,7 @@ nightlight = true                   # night light toggle
 dnd = true                          # Do Not Disturb toggle
 lock_keys = true                    # Caps/Num/Scroll Lock changes; disable to stop polling when no widget uses them
 keyboard_layout = true              # input keyboard layout changes
+media = false                       # MPRIS playback, track changes, and per-player volume changes
 privacy = true                      # microphone/camera/screen-share capture changes
 
 # ── Lock Screen ───────────────────────────────────────────────────────────────
