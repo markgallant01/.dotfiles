@@ -62,6 +62,10 @@ ln -sf ~/.dotfiles/config/fish/        ~/.config/fish
 sudo mkdir /etc/pacman.d/hooks/
 sudo cp ~/.dotfiles/etc_conf_files/nvidia.hook /etc/pacman.d/hooks/
 
+# sudo conf
+sudo cp ~/.dotfiles/sudo_conf_files/10-passwd-timeout /etc/sudoers.d/
+sudo cp ~/.dotfiles/sudo_conf_files/10-pwfeedback /etc/sudoers.d/
+
 # clock synchronization service
 sudo systemctl enable systemd-timesyncd.service
 
