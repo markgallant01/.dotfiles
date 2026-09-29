@@ -38,7 +38,7 @@ hl.config({
   },
 
   decoration = {
-    rounding = 0,
+    rounding = 20,
     rounding_power = 2,
 
     -- Change transparency of focused and unfocused windows
@@ -47,13 +47,13 @@ hl.config({
 
     blur = {
       enabled   = true,
-      size      = 1,
-      passes    = 1,
+      size      = 3,
+      passes    = 2,
       vibrancy  = 0.1696,
     },
 
     shadow = {
-      enabled      = false,
+      enabled      = true,
       range        = 4,
       render_power = 3,
       color        = "#1a1a1a",
@@ -417,6 +417,18 @@ hl.config({
 --     no_anim = true,
 -- })
 -- overlayLayerRule:set_enabled(false)
+
+-- Noctalia panels & bar rules
+hl.layer_rule({
+  name = "noctalia",
+  match = {
+    namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+  },
+  no_anim = true,
+  ignore_alpha = 0.5,
+  blur = true,
+  blur_popups = true,
+})
 
 -- Hyprland-run windowrule
 hl.window_rule({
