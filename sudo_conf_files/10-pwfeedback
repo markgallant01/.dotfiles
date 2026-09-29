@@ -1,1 +1,3 @@
+# this rule makes it so sudo will display asterisks (*) when typing
+# your password so you know you're entering input
 Defaults pwfeedback

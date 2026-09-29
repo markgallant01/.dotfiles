@@ -1,1 +1,4 @@
+# this rule removes the annoying password prompt timeout that sudo
+# uses by default. by disabling this, our scripts won't fail if we're
+# not there to type the password at the right time.
 Defaults passwd_timeout=0
