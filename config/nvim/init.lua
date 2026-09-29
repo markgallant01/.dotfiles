@@ -90,7 +90,7 @@ do
   vim.o.inccommand = 'split'
 
   -- block cursor
-  vim.o.guicursor = 'n-v-c-i:block'
+  -- vim.o.guicursor = 'n-v-c-i:block'
 
   -- Minimal number of screen lines to keep above and below the cursor.
   vim.o.scrolloff = 10
