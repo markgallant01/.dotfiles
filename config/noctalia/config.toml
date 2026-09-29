@@ -20,7 +20,7 @@ niri_overview_type_to_launch_enabled = false # opt in to type-to-launch from nir
 polkit_agent          = false
 password_style        = "default"    # default | random
 settings_show_advanced = true        # show advanced settings by default in Settings
-# settings_window_translucent = false  # translucent settings window background
+settings_window_translucent = false  # translucent settings window background
 show_location         = true         # hide weather location text in shell UI when false
 # app_icon_colorize   = false        # recolor application icons across the shell
 # app_icon_color      = "on_surface" # ColorSpec role or #hex when colorize is enabled
@@ -54,7 +54,7 @@ direction = "down"                  # center, up, down, left, right, up_left, up
 alpha     = 0.55                    # multiplied by each component's background opacity
 
 [shell.panel]
-transparency_mode     = "solid"     # solid | soft | glass; controls floating-panel opacity and card translucency
+transparency_mode     = "soft"     # solid | soft | glass; controls floating-panel opacity and card translucency
 borders               = true        # panel shell outline and in-panel section cards
 shadow                = true        # cast the global [shell.shadow] from panel surfaces
 launcher_placement       = "floating" # attached | floating
@@ -338,7 +338,8 @@ delete   = ["del"]
 [bar.main]
 position           = "top"          # top | bottom | left | right
 thickness          = 34
-background_opacity = 1.0
+background_opacity = 0.85
+compositor_blur     = true
 radius             = 0
 concave_edge_corners = false
 margin_ends        = 0
