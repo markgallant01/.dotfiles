@@ -216,10 +216,10 @@ hl.bind(mainMod .. " + f", hl.dsp.window.fullscreen({
 --hl.bind(mainMod .. " + k",    hl.dsp.focus({ direction = "up" }))
 --hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 
--- Switch workspaces with mainMod + [0-5]
--- Move active window to a workspace with mainMod + SHIFT + [0-5]
-for i = 1, 6 do
-  local key = i % 6
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+  local key = i % 10
   hl.bind(mainMod .. " + " .. key,          hl.dsp.focus({ workspace = i}))
   hl.bind(mainMod .. " + SHIFT + " .. key,  hl.dsp.window.move({ workspace = i }))
 end
