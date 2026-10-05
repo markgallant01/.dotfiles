@@ -389,6 +389,17 @@ local suppressMaximizeRule = hl.window_rule({
 })
 -- suppressMaximizeRule:set_enabled(false)
 
+-- resize default file picker window in firefox
+hl.window_rule({
+  name = "reduce-default-size-of-xdg-windows",
+  match = {
+    class = "xdg-desktop-portal-gtk"
+  },
+  float = true,
+  size = {800, 600},
+  center = true,
+})
+
 hl.window_rule({
     -- Fix some dragging issues with XWayland
     name  = "fix-xwayland-drags",
