@@ -71,6 +71,18 @@ hl.monitor({
   scale = 1.25,
 })
 
+hl.monitor({
+  output = "DP-2",
+  scale = 1,
+  mode = "2560x1440@120.00",
+})
+
+hl.monitor({
+  output = "DP-3",
+  scale = 1,
+  mode = "2560x1440@120.00",
+})
+
 ---------------
 ---- INPUT ----
 ---------------
